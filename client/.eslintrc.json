@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "../.eslintrc.json",
+    "plugin:react/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "16.8"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "starter-kit",
+  "version": "0.0.1",
+  "description": "Starter kit for full-stack JavaScript projects",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf ./dist/*",
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "webpack --config ./client/prod.config.js",
+    "build:server": "babel server --out-dir dist --ignore \"**/*.test.js\"",
+    "e2e": "concurrently -k -s first -n \"app,e2e\" \"npm run serve\" \"cypress run\"",
+    "lint": "eslint .",
+    "preserve": "npm run build",
+    "serve": "node dist/server.js",
+    "ship": "npm run lint && npm run test && npm run e2e",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/textbook/starter-kit.git"
+  },
+  "author": "Jonathan Sharpe <mail@jonrshar.pe>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/textbook/starter-kit/issues"
+  },
+  "homepage": "https://github.com/textbook/starter-kit#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^4.1.0",
+    "cypress": "^3.3.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-react": "^7.13.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rimraf": "^2.6.3",
+    "supertest": "^4.0.2",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
