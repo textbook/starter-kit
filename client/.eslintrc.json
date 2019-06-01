@@ -7,6 +7,14 @@
     "plugin:jsx-a11y/strict",
     "plugin:react/recommended"
   ],
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    "react/jsx-tag-spacing": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
+  },
   "settings": {
     "react": {
       "version": "16.8"

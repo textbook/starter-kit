@@ -7,8 +7,12 @@
     "eslint:recommended",
     "plugin:jest/recommended"
   ],
+  "globals": {
+    "defer": false,
+    "tick": false
+  },
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 9,
     "sourceType": "module"
   },
   "rules": {
