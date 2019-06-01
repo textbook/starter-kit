@@ -1,6 +1,8 @@
 Starter Kit
 ===========
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
  - [ ] Full stack ES8+
  - [ ] Node LTS support (currently 10.x)
  - [x] Consistent linting with ESLint
@@ -8,7 +10,7 @@ Starter Kit
  - [x] Dev mode
  - [x] Production build
  - [ ] Travis pipeline
- - [ ] Heroku deployment
+ - [x] Heroku deployment
 
 Scripts
 -------
