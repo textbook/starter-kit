@@ -1,24 +1,12 @@
 const path = require("path");
+const merge = require("webpack-merge");
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const common = require("./common.config");
 
-module.exports = {
-  entry: "./client/src/index.js",
+module.exports = merge(common, {
   mode: "production",
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
-    ],
-  },
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "../../dist/static"),
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: "./client/src/index.html" }),
-  ],
-};
+});
