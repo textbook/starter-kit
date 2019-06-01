@@ -1,0 +1,26 @@
+dist: xenial
+
+language: node_js
+
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
+cache:
+  npm: true
+  directories:
+    - ~/.cache  # Cypress binary
+
+install:
+  - npm ci
+
+script:
+  - npm run lint
+  - npm run test
+  - npm run e2e
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: starter-kit-ci

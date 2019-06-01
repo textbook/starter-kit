@@ -9,7 +9,8 @@ Starter Kit
  - [x] Consistent testing with Jest
  - [x] Dev mode
  - [x] Production build
- - [ ] Travis pipeline
+ - [x] Travis pipeline
+ - [ ] CircleCI pipeline
  - [x] Heroku deployment
 
 Scripts
