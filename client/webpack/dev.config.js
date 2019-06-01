@@ -5,9 +5,9 @@ const common = require("./common.config");
 module.exports = merge(common, {
   devtool: "inline-source-map",
   devServer: {
-    port: 4200,
+    port: 3000,
     proxy: {
-      "/api": "http://localhost:3000",
+      "/api": "http://localhost:3100",
     },
   },
 });
