@@ -12,7 +12,7 @@ module.exports = merge(common, {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
+          name: "vendor",
           chunks: "all",
         },
       },
