@@ -1,3 +1,4 @@
+const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
 const path = require("path");
 const merge = require("webpack-merge");
 
@@ -22,4 +23,30 @@ module.exports = merge(common, {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "../../dist/static"),
   },
+  plugins: [
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          global: "React",
+          entry: {
+            path: "https://unpkg.com/react@16.8/umd/react.production.min.js",
+            attributes: {
+              crossorigin: "",
+            },
+          },
+          module: "react",
+        },
+        {
+          global: "ReactDOM",
+          entry: {
+            path: "https://unpkg.com/react-dom@16.8/umd/react-dom.production.min.js",
+            attributes: {
+              crossorigin: "",
+            },
+          },
+          module: "react-dom",
+        },
+      ],
+    }),
+  ],
 });
