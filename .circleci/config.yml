@@ -10,6 +10,7 @@ jobs:
       - image: circleci/node:dubnium
     environment:
       CYPRESS_INSTALL_BINARY: 0
+      JEST_JUNIT_OUTPUT_DIR: './reports/jest'
     steps:
       - checkout
       - restore_cache:
@@ -28,7 +29,9 @@ jobs:
           command: npm run lint
       - run:
           name: Test source code
-          command: npm run test
+          command: npm run test -- --ci --reporters=default --reporters=jest-junit
+      - store_test_results:
+          path: ./reports
 
 workflows:
   build:
