@@ -1,13 +1,24 @@
 version: 2.1
 
+defaults: &defaults
+  docker:
+    - image: circleci/node:dubnium
+
+docker-e2e: &docker-e2e
+  steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: Docker E2E
+        command: docker-compose run e2e run e2e:run
+
 orbs:
   cypress: cypress-io/cypress@1.7.0
   # Note that you will have to opt-in to third party orbs...
 
 jobs:
   test:
-    docker:
-      - image: circleci/node:dubnium
+    <<: *defaults
     environment:
       CYPRESS_INSTALL_BINARY: 0
       JEST_JUNIT_OUTPUT_DIR: './reports/jest'
@@ -32,6 +43,21 @@ jobs:
           command: npm run test -- --ci --reporters=default --reporters=jest-junit
       - store_test_results:
           path: ./reports
+  verify-boron:
+    environment:
+      NODE_RELEASE: boron
+    <<: *defaults
+    <<: *docker-e2e
+  verify-carbon:
+    environment:
+      NODE_RELEASE: carbon
+    <<: *defaults
+    <<: *docker-e2e
+  verify-dubnium:
+    environment:
+      NODE_RELEASE: dubnium
+    <<: *defaults
+    <<: *docker-e2e
 
 workflows:
   build:
@@ -42,3 +68,8 @@ workflows:
             - test
           start: npm run serve
           wait-on: 'http-get://localhost:3000'
+  verify:
+    jobs:
+      - verify-boron
+      - verify-carbon
+      - verify-dubnium

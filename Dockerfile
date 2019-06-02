@@ -6,6 +6,8 @@ ARG NODE_RELEASE
 
 ENV CYPRESS_INSTALL_BINARY=0
 
+RUN echo "Node $(node -v) / NPM v$(npm -v)"
+
 COPY ./package.json .
 COPY ./package-lock.json .
 
