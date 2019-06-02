@@ -1,0 +1,41 @@
+version: 2.1
+
+orbs:
+  cypress: cypress-io/cypress@1.7.0
+  # Note that you will have to opt-in to third party orbs...
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:dubnium
+    environment:
+      CYPRESS_INSTALL_BINARY: 0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - starter-kit-deps-{{ checksum "package-lock.json" }}
+            - starter-kit-deps- # fallback
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: starter-kit-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - "~/.npm"
+      - run:
+          name: Lint source code
+          command: npm run lint
+      - run:
+          name: Test source code
+          command: npm run test
+
+workflows:
+  build:
+    jobs:
+      - test
+      - cypress/run:
+          requires:
+            - test
+          start: npm run serve
+          wait-on: 'http-get://localhost:3000'

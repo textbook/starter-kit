@@ -10,7 +10,7 @@ Starter Kit
  - [x] Dev mode
  - [x] Production build
  - [x] Travis pipeline
- - [ ] CircleCI pipeline
+ - [x] CircleCI pipeline
  - [x] Heroku deployment
 
 Scripts
