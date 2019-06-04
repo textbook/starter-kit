@@ -5,6 +5,8 @@ services:
       args:
         - NODE_RELEASE=${NODE_RELEASE:-dubnium}
       context: .
+    environment:
+      - NODE_ENV=development
   e2e:
     build:
       context: .
