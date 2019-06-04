@@ -15,6 +15,7 @@ Starter Kit
  - [x] [Travis] pipeline
  - [x] [CircleCI] pipeline
  - [x] [Heroku] deployment
+ - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
 
 Scripts
@@ -60,6 +61,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
 
   [Babel]: https://babeljs.io/
   [CircleCI]: https://circleci.com/
+  [Cloud Foundry]: https://www.cloudfoundry.org/
   [Codecept]: https://codecept.io/
   [CRA]: https://facebook.github.io/create-react-app/
   [Cypress]: https://www.cypress.io/

@@ -1,0 +1,10 @@
+---
+applications:
+  - name: starter-kit-cf
+    buildpacks:
+      - nodejs_buildpack
+    disk_quota: 128M
+    memory: 128M
+    random-route: true
+    env:
+      OPTIMIZE_MEMORY: true
