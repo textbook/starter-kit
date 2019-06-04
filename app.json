@@ -1,4 +1,12 @@
 {
   "name": "Starter Kit",
-  "description": "Starter kit for full-stack JavaScript projects"
+  "description": "Starter kit for full-stack JavaScript projects",
+  "buildpacks": [
+    {
+      "url": "https://github.com/peergradeio/heroku-buildpack-envvars.git"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
 }
