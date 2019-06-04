@@ -11,10 +11,7 @@
     "defer": false,
     "tick": false
   },
-  "parserOptions": {
-    "ecmaVersion": 9,
-    "sourceType": "module"
-  },
+  "parser": "babel-eslint",
   "rules": {
     "arrow-parens": "error",
     "brace-style": ["error", "1tbs", { "allowSingleLine": false }],

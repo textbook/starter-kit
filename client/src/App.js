@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 
 import { getMessage } from "./service";
 
-export function App() {
-  const [message, setMessage] = useState("Loading...");
+export class App extends Component {
+  state = { message: "Loading..." };
 
-  useEffect(() => {
-    getMessage().then(setMessage);
-  }, []);
+  componentDidMount() {
+    getMessage().then((message) => this.setState({ message }));
+  }
 
-  return (
-    <div data-qa="message">{message}</div>
-  );
+  render() {
+    const { message } = this.state;
+    return (
+      <div data-qa="message">{message}</div>
+    );
+  }
 }
 
 export default App;

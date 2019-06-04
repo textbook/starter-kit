@@ -39,11 +39,13 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.1",
     "axios": "^0.19.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
