@@ -9,6 +9,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: "babel-loader?cacheDirectory",
       },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        loader: "file-loader",
+      },
     ],
   },
   plugins: [

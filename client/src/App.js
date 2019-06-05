@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "react-jss";
 
 import { getMessage } from "./service";
+import logo from "./logo.svg";
 
 export class App extends Component {
   static propTypes = {
@@ -19,7 +20,10 @@ export class App extends Component {
     const { classes } = this.props;
     const { message } = this.state;
     return (
-      <div data-qa="message" className={classes.message}>{message}</div>
+      <div>
+        <img className={classes.logo} data-qa="logo" src={logo} alt="Just the React logo" />
+        <p className={classes.message} data-qa="message">{message}</p>
+      </div>
     );
   }
 }
@@ -30,6 +34,9 @@ const styles = (theme) => ({
     "&:hover": {
       backgroundColor: "yellow",
     },
+  },
+  logo: {
+    width: 100,
   },
 });
 
