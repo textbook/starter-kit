@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import App from "./App";
+import { App } from "./App";
 import { getMessage } from "./service";
 
 jest.mock("./service");
@@ -11,11 +11,12 @@ describe("App", () => {
   let wrapper;
 
   const message = "Foo bar!";
+  const messageClass = "my-cool-message";
 
   beforeEach(() => {
     deferred = defer();
     getMessage.mockReturnValue(deferred.promise);
-    wrapper = render(<App />);
+    wrapper = render(<App classes={{ message: messageClass }} />);
   });
 
   it("requests the message", () => {
@@ -33,7 +34,9 @@ describe("App", () => {
     });
 
     it("says 'Hello, world!'", async () => {
-      expect(wrapper.getByTestId("message")).toHaveTextContent(message);
+      let element = wrapper.getByTestId("message");
+      expect(element).toHaveTextContent(message);
+      expect(element).toHaveClass(messageClass);
     });
   });
 });
