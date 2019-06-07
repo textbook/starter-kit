@@ -12,16 +12,9 @@ docker-e2e: &docker-e2e
         name: Docker E2E
         command: docker-compose run e2e run e2e:run
 
-orbs:
-  cypress: cypress-io/cypress@1.7.0
-  # Note that you will have to opt-in to third party orbs...
-
 jobs:
-  test:
+  deps:
     <<: *defaults
-    environment:
-      CYPRESS_INSTALL_BINARY: 0
-      JEST_JUNIT_OUTPUT_DIR: './reports/jest'
     steps:
       - checkout
       - restore_cache:
@@ -34,13 +27,44 @@ jobs:
       - save_cache:
           key: starter-kit-deps-{{ checksum "package-lock.json" }}
           paths:
+            - "~/.cache"
             - "~/.npm"
+  test:
+    <<: *defaults
+    environment:
+      CYPRESS_INSTALL_BINARY: 0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - starter-kit-deps-{{ checksum "package-lock.json" }}
+            - starter-kit-deps- # fallback
+      - run:
+          name: Install dependencies
+          command: npm ci
       - run:
           name: Lint source code
           command: npm run lint
       - run:
           name: Test source code
-          command: npm run test -- --ci --reporters=default --reporters=jest-junit
+          command: npm run test
+      - store_test_results:
+          path: ./reports
+  e2e:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - starter-kit-deps-{{ checksum "package-lock.json" }}
+            - starter-kit-deps- # fallback
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: End-to-end test
+          command: npm run e2e
       - store_test_results:
           path: ./reports
   verify-boron:
@@ -62,12 +86,15 @@ jobs:
 workflows:
   build:
     jobs:
-      - test
-      - cypress/run:
+      - deps
+      - test:
           requires:
+            - deps
+      - e2e:
+          requires:
+            - deps
             - test
-          start: npm run serve
-          wait-on: 'http-get://localhost:3000'
+
   verify:
     jobs:
       - verify-boron
