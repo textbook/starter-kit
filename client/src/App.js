@@ -20,10 +20,12 @@ export class App extends Component {
     const { classes } = this.props;
     const { message } = this.state;
     return (
-      <div>
-        <img className={classes.logo} data-qa="logo" src={logo} alt="Just the React logo" />
-        <p className={classes.message} data-qa="message">{message}</p>
-      </div>
+      <main role="main">
+        <div>
+          <img className={classes.logo} data-qa="logo" src={logo} alt="Just the React logo" />
+          <h1 className={classes.message} data-qa="message">{message}</h1>
+        </div>
+      </main>
     );
   }
 }

@@ -67,6 +67,9 @@ jobs:
           command: npm run e2e
       - store_test_results:
           path: ./reports
+      - store_artifacts:
+          path: ./e2e/screenshots
+          destination: screenshots
   verify-boron:
     environment:
       NODE_RELEASE: boron
