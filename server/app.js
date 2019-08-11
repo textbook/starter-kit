@@ -11,12 +11,12 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 if (app.get("env") === "production") {
-  app.enable("trust proxy");
-  app.use(httpsOnly());
+	app.enable("trust proxy");
+	app.use(httpsOnly());
 }
 
 app.get("/api", (_, res) => {
-  res.json({ message: "Hello, world!" });
+	res.json({ message: "Hello, world!" });
 });
 
 app.use(express.static(path.join(__dirname, "static")));

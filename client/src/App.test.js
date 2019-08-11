@@ -8,42 +8,42 @@ import fakeFile from "../../__mocks__/fileMock";
 jest.mock("./service");
 
 describe("App", () => {
-  let deferred;
-  let wrapper;
+	let deferred;
+	let wrapper;
 
-  const message = "Foo bar!";
-  const messageClass = "my-cool-message";
+	const message = "Foo bar!";
+	const messageClass = "my-cool-message";
 
-  beforeEach(() => {
-    deferred = defer();
-    getMessage.mockReturnValue(deferred.promise);
-    wrapper = render(<App classes={{ message: messageClass }} />);
-  });
+	beforeEach(() => {
+		deferred = defer();
+		getMessage.mockReturnValue(deferred.promise);
+		wrapper = render(<App classes={{ message: messageClass }} />);
+	});
 
-  it("requests the message", () => {
-    expect(getMessage).toHaveBeenCalled();
-  });
+	it("requests the message", () => {
+		expect(getMessage).toHaveBeenCalled();
+	});
 
-  it("shows a loading state", async () => {
-    expect(wrapper.getByTestId("message")).toHaveTextContent("Loading...");
-  });
+	it("shows a loading state", async () => {
+		expect(wrapper.getByTestId("message")).toHaveTextContent("Loading...");
+	});
 
-  describe("when request resolves", () => {
-    beforeEach(async () => {
-      deferred.resolve(message);
-      await tick();
-    });
+	describe("when request resolves", () => {
+		beforeEach(async () => {
+			deferred.resolve(message);
+			await tick();
+		});
 
-    it("says 'Hello, world!'", async () => {
-      let element = wrapper.getByTestId("message");
-      expect(element).toHaveTextContent(message);
-      expect(element).toHaveClass(messageClass);
-    });
+		it("says 'Hello, world!'", async () => {
+			let element = wrapper.getByTestId("message");
+			expect(element).toHaveTextContent(message);
+			expect(element).toHaveClass(messageClass);
+		});
 
-    it("shows an image", async () => {
-      let element = wrapper.getByTestId("logo");
-      expect(element).toHaveAttribute("alt", "Just the React logo");
-      expect(element).toHaveAttribute("src", fakeFile);
-    });
-  });
+		it("shows an image", async () => {
+			let element = wrapper.getByTestId("logo");
+			expect(element).toHaveAttribute("alt", "Just the React logo");
+			expect(element).toHaveAttribute("src", fakeFile);
+		});
+	});
 });
