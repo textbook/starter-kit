@@ -3,7 +3,7 @@
   "integrationFolder": "e2e/integration",
   "fixturesFolder": "e2e/fixtures",
   "pluginsFile": "e2e/plugins",
-  "reporter": "mocha-multi-reporters",
+  "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "spec, mocha-junit-reporter",
     "reporterOptions": {
