@@ -29,7 +29,7 @@ module.exports = merge(common, {
 				{
 					global: "React",
 					entry: {
-						path: "https://unpkg.com/react@16.8/umd/react.production.min.js",
+						path: "https://unpkg.com/react@16.11.0/umd/react.production.min.js",
 						attributes: {
 							crossorigin: "",
 						},
@@ -39,7 +39,7 @@ module.exports = merge(common, {
 				{
 					global: "ReactDOM",
 					entry: {
-						path: "https://unpkg.com/react-dom@16.8/umd/react-dom.production.min.js",
+						path: "https://unpkg.com/react-dom@16.11.0/umd/react-dom.production.min.js",
 						attributes: {
 							crossorigin: "",
 						},
