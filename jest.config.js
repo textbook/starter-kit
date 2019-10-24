@@ -7,7 +7,7 @@ module.exports = {
 		["jest-junit", { outputDirectory: "./reports/jest" }],
 	],
 	setupFilesAfterEnv: [
-		"<rootDir>/client/setupTests.js",
+		"<rootDir>/setupTests.js",
 	],
 	testPathIgnorePatterns: [
 		"<rootDir>/e2e/",
