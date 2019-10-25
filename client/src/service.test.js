@@ -10,11 +10,11 @@ describe("service", () => {
 			expect(axios.get).toHaveBeenCalledWith("/api");
 		});
 
-		it("exposes the data", () => {
+		it("exposes the data", async () => {
 			const message = "Take me to your leader";
 			axios.get.mockResolvedValue({ data: { message } });
 
-			expect(getMessage()).resolves.toBe(message);
+			await expect(getMessage()).resolves.toBe(message);
 		});
 	});
 });
