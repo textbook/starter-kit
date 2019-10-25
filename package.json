@@ -43,7 +43,7 @@
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.6.3",
-    "@codeyourfuture/eslint-config-standard": "^2.0.0",
+    "@codeyourfuture/eslint-config-standard": "^2.0.1",
     "@testing-library/jest-dom": "^4.1.2",
     "@testing-library/react": "^8.0.1",
     "axe-core": "^3.4.0",
