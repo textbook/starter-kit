@@ -11,5 +11,8 @@
     "defer": false,
     "tick": false
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "jest/expect-expect": "off"
+  }
 }

@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 
 import { App } from "./App";
 import { getMessage } from "./service";
+// eslint-disable-next-line jest/no-mocks-import
 import fakeFile from "../../__mocks__/fileMock";
 
 jest.mock("./service");
