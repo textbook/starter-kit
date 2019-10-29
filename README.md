@@ -28,6 +28,8 @@ commonly use:
     the frontend is proxied to it).
  - `e2e`: builds and starts the app in production mode and runs the Cypress tests against it.
  - `e2e:dev`: opens Cypress for local dev, instead of running it in the background. Doesn't start the app.
+ - `e2e:docker`: runs the E2E tests using `docker-compose`, as it runs in the `verify-*` jobs in CircleCI. You can use
+    `NODE_VERSION` to choose which Node image to run the app in (e.g. `NODE_VERSION=carbon npm run e2e:docker`).
  - `lint`: runs ESLint against all the JavaScript in the project.
  - `serve`: builds and starts the app in production mode locally.
  - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
