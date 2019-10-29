@@ -56,7 +56,7 @@
     "cypress-axe": "^0.5.1",
     "cypress-multi-reporters": "^1.2.3",
     "eslint": "^6.6.0",
-    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-cypress": "^2.7.0",
     "eslint-plugin-jest": "^22.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
