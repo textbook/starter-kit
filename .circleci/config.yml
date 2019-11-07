@@ -2,7 +2,7 @@ version: 2.1
 
 defaults: &defaults
   docker:
-    - image: circleci/node:dubnium
+    - image: circleci/node:12.13.0
 
 docker-e2e: &docker-e2e
   steps:
@@ -17,6 +17,16 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run:
+          name: Info
+          command: 'echo "Node: $(node -v)" && echo "NPM: v$(npm -v)"'
+      - run:
+          name: Check Node
+          command: |
+            if [[ "$(node -v)" == "v$(cat .nvmrc)" ]]; \
+            then echo 'Node version OK'; \
+            else echo 'Node version mismatch' && exit 1; \
+            fi
       - restore_cache:
           keys:
             - starter-kit-deps-{{ checksum "package-lock.json" }}
@@ -70,11 +80,6 @@ jobs:
       - store_artifacts:
           path: ./e2e/screenshots
           destination: screenshots
-  verify-boron:
-    environment:
-      NODE_RELEASE: boron
-    <<: *defaults
-    <<: *docker-e2e
   verify-carbon:
     environment:
       NODE_RELEASE: carbon
@@ -83,6 +88,12 @@ jobs:
   verify-dubnium:
     environment:
       NODE_RELEASE: dubnium
+    <<: *defaults
+    <<: *docker-e2e
+    <<: *docker-e2e
+  verify-erbium:
+    environment:
+      NODE_RELEASE: erbium
     <<: *defaults
     <<: *docker-e2e
 
@@ -100,6 +111,6 @@ workflows:
 
   verify:
     jobs:
-      - verify-boron
       - verify-carbon
       - verify-dubnium
+      - verify-erbium

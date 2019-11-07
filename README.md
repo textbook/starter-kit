@@ -3,8 +3,8 @@ Starter Kit
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
- - [ ] Full stack ES8+ with [Babel]
- - [x] [Node] LTS support (verified working on 6.x, 8.x and 10.x LTS releases)
+ - [x] Full stack ES8+ with [Babel]
+ - [x] [Node] LTS support (verified working on 8.x, 10.x and 12.x LTS releases)
  - [x] [Express] server
  - [x] [React] client with [Webpack]
  - [x] Linting with [ESLint]

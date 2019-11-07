@@ -3,7 +3,7 @@ services:
   app:
     build:
       args:
-        - NODE_RELEASE=${NODE_RELEASE:-dubnium}
+        - NODE_RELEASE=${NODE_RELEASE:-12.13.0}
       context: .
     environment:
       - NODE_ENV=development
