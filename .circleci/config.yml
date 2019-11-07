@@ -65,6 +65,16 @@ jobs:
       - image: cypress/base:12.13.0
     steps:
       - checkout
+      - run:
+          name: Info
+          command: 'echo "Node: $(node -v)" && echo "NPM: v$(npm -v)"'
+      - run:
+          name: Check Node
+          command: |
+            if [[ "$(node -v)" == "v$(cat .nvmrc)" ]]; \
+            then echo 'Node version OK'; \
+            else echo 'Node version mismatch' && exit 1; \
+            fi
       - restore_cache:
           keys:
             - starter-kit-deps-{{ checksum "package-lock.json" }}
