@@ -53,7 +53,7 @@
     "axios": "^0.19.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "concurrently": "^5.0.0",
+    "concurrently": "^5.0.1",
     "cross-env": "^6.0.3",
     "cypress": "^3.7.0",
     "cypress-axe": "^0.5.3",
