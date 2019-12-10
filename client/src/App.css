@@ -1,0 +1,11 @@
+.logo {
+    width: 100px;
+}
+
+.message {
+    color: blue;
+}
+
+.message:hover {
+    background-color: yellow;
+}
