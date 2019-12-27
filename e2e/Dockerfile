@@ -1,4 +1,4 @@
-FROM cypress/included:3.8.0
+FROM cypress/included:3.8.1
 
 COPY ./package.json .
 COPY ./package-lock.json .
