@@ -3,10 +3,15 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 
-import { httpsOnly } from "./helpers";
+import router from "./api";
+import { httpsOnly, pushStateRouting } from "./middleware";
+
+const apiRoot = "/api";
+const staticDir = path.join(__dirname, "static");
 
 const app = express();
 
+app.use(express.json());
 app.use(helmet());
 app.use(morgan("dev"));
 
@@ -15,10 +20,9 @@ if (app.get("env") === "production") {
 	app.use(httpsOnly());
 }
 
-app.get("/api", (_, res) => {
-	res.json({ message: "Hello, world!" });
-});
+app.use(apiRoot, router);
 
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(staticDir));
+app.use(pushStateRouting(apiRoot, staticDir));
 
 export default app;
