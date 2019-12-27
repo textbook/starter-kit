@@ -1,5 +1,4 @@
-Starter Kit
-===========
+# Starter Kit
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -18,8 +17,7 @@ Starter Kit
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
 
-Scripts
--------
+## Scripts
 
 Various scripts are provided in the package file, but many are helpers for other scripts; here are the ones you'll
 commonly use:
@@ -36,8 +34,15 @@ commonly use:
  - `test`: runs the Jest unit and integration tests.
  - `test:watch`: runs the unit and integration tests in watch mode.
 
-Rationale
----------
+### Debugging
+
+While running the dev mode using `npm run dev`, you can attach the Node debugger to the server process via port 9229.
+If you're using VS Code, a debugging configuration is provided for this.
+
+There is also a VS Code debugging configuration for the Chrome debugger, which requires the recommended Chrome
+extension, for debugging the client application.
+
+## Rationale
 
 Partly I wrote this to explore what things like Create React App ([CRA]) are doing under the hood with Babel and
 Webpack. Partly it was to simplify a previous [starter kit], so there aren't multiple package entry points complicating
