@@ -42,6 +42,10 @@ If you're using VS Code, a debugging configuration is provided for this.
 There is also a VS Code debugging configuration for the Chrome debugger, which requires the recommended Chrome
 extension, for debugging the client application.
 
+### Troubleshooting
+
+See the guidance in the [wiki].
+
 ## Rationale
 
 Partly I wrote this to explore what things like Create React App ([CRA]) are doing under the hood with Babel and
@@ -83,3 +87,4 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [SuperTest]: https://github.com/visionmedia/supertest
   [Travis]: https://travis-ci.org/
   [Webpack]: https://webpack.js.org/
+  [wiki]: https://github.com/textbook/starter-kit/wiki
