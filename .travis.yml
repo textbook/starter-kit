@@ -21,6 +21,15 @@ script:
   - npm run e2e
 
 deploy:
-  provider: heroku
-  api_key: $HEROKU_API_KEY
-  app: starter-kit-ci
+  - provider: cloudfoundry
+    skip_cleanup: true
+    api: https://api.run.pivotal.io
+    username: $CF_USERNAME
+    password: $CF_PASSWORD
+    organization: $CF_ORG
+    space: $CF_SPACE
+    on:
+      branch: master
+  - provider: heroku
+    api_key: $HEROKU_API_KEY
+    app: starter-kit-ci

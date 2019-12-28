@@ -2,7 +2,8 @@
 applications:
   - name: starter-kit-cf
     buildpacks:
-      - nodejs_buildpack
+      - https://github.com/cloudfoundry/nodejs-buildpack.git#v1.7.7
+    stack: cflinuxfs3
     disk_quota: 128M
     memory: 128M
     random-route: true
