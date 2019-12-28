@@ -4,15 +4,25 @@
     "node": true
   },
   "extends": [
-    "@codeyourfuture/standard",
-    "plugin:jest/recommended"
+    "@codeyourfuture/standard"
   ],
-  "globals": {
-    "defer": false,
-    "tick": false
-  },
-  "parser": "babel-eslint",
-  "rules": {
-    "jest/expect-expect": "off"
-  }
+  "overrides": [
+    {
+      "files": [
+        "setupTests.js",
+        "**/*.test.js"
+      ],
+      "extends": [
+        "plugin:jest/recommended"
+      ],
+      "globals": {
+        "defer": false,
+        "tick": false
+      },
+      "rules": {
+        "jest/expect-expect": "off"
+      }
+    }
+  ],
+  "parser": "babel-eslint"
 }

@@ -3,7 +3,6 @@
     "browser": true
   },
   "extends": [
-    "../.eslintrc.json",
     "plugin:jsx-a11y/strict",
     "plugin:react/recommended"
   ],

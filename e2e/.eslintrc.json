@@ -2,9 +2,6 @@
   "env": {
     "cypress/globals": true
   },
-  "extends": [
-    "../.eslintrc.json"
-  ],
   "parserOptions": {
     "ecmaVersion": 6
   },
