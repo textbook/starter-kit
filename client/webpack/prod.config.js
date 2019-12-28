@@ -1,4 +1,4 @@
-const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
+const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
 const path = require("path");
 const merge = require("webpack-merge");
 
@@ -24,27 +24,27 @@ module.exports = merge(common, {
 		path: path.resolve(__dirname, "../../dist/static"),
 	},
 	plugins: [
-		new HtmlWebpackExternalsPlugin({
-			externals: [
+		new HtmlWebpackTagsPlugin({
+			scripts: [
 				{
-					global: "React",
-					entry: {
-						path: "https://unpkg.com/react@16.12.0/umd/react.production.min.js",
-						attributes: {
-							crossorigin: "",
-						},
+					path: "https://unpkg.com/react@16.12.0/umd/react.production.min.js",
+					attributes: {
+						crossorigin: "",
 					},
-					module: "react",
+					external: {
+						packageName: "react",
+						variableName: "React",
+					},
 				},
 				{
-					global: "ReactDOM",
-					entry: {
-						path: "https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js",
-						attributes: {
-							crossorigin: "",
-						},
+					path: "https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js",
+					attributes: {
+						crossorigin: "",
 					},
-					module: "react-dom",
+					external: {
+						packageName: "react-dom",
+						variableName: "ReactDOM",
+					},
 				},
 			],
 		}),
