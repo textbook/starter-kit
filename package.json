@@ -71,7 +71,7 @@
     "html-webpack-tags-plugin": "^2.0.17",
     "jest": "^24.9.0",
     "jest-junit": "^10.0.0",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.0",
     "mocha-junit-reporter": "^1.23.1",
     "nodemon": "^2.0.2",
     "prop-types": "^15.7.2",
