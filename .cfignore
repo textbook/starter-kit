@@ -1,4 +1,3 @@
-.circleci/
 __mocks__/
 client/
 e2e/
