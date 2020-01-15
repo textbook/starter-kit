@@ -3,7 +3,7 @@ dist: bionic
 language: node_js
 
 node_js:
-  - 12
+  - 12.13.0
   - 10
   - 8
 
@@ -23,6 +23,7 @@ script:
 jobs:
   include:
     - stage: build
+      before_script: ./check-node.sh
       script:
         - npm run lint
         - npm test
