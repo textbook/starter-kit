@@ -2,6 +2,11 @@ dist: bionic
 
 language: node_js
 
+node_js:
+  - 12
+  - 10
+  - 8
+
 addons:
   apt:
     packages:
@@ -12,24 +17,33 @@ cache:
   directories:
     - ~/.cache  # Cypress binary
 
-install:
-  - npm ci
-
 script:
-  - npm run lint
-  - npm run test
   - npm run e2e
 
-deploy:
-  - provider: cloudfoundry
-    skip_cleanup: true
-    api: https://api.run.pivotal.io
-    username: $CF_USERNAME
-    password: $CF_PASSWORD
-    organization: $CF_ORG
-    space: $CF_SPACE
-    on:
-      branch: master
-  - provider: heroku
-    api_key: $HEROKU_API_KEY
-    app: starter-kit-ci
+jobs:
+  include:
+    - stage: build
+      script:
+        - npm run lint
+        - npm test
+    - stage: deploy
+      script:
+        - npm run build
+      deploy:
+        - provider: cloudfoundry
+          skip_cleanup: true
+          api: https://api.run.pivotal.io
+          username: $CF_USERNAME
+          password: $CF_PASSWORD
+          organization: $CF_ORG
+          space: $CF_SPACE
+          on:
+            branch: master
+        - provider: heroku
+          api_key: $HEROKU_API_KEY
+          app: starter-kit-ci
+
+stages:
+  - build
+  - test
+  - deploy
