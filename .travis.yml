@@ -28,7 +28,9 @@ jobs:
         - npm run lint
         - npm test
     - stage: deploy
-      script:
+      install: true
+      before_deploy:
+        - npm ci
         - npm run build
       deploy:
         - provider: cloudfoundry
