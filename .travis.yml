@@ -29,6 +29,7 @@ jobs:
         - npm test
     - stage: deploy
       install: true
+      script: true
       before_deploy:
         - npm ci
         - npm run build
