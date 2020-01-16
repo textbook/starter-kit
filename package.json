@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "npm run build:server && npm run build:client",
+    "postbuild": "./build-info.sh",
     "build:client": "webpack --config client/webpack/prod.config.js",
     "build:server": "babel server --out-dir dist --ignore \"**/*.test.js\"",
     "cleanup": "rimraf ./dist/*",

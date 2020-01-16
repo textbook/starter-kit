@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -euo pipefail
+
 ACTUAL="$(node -v)"
 EXPECTED="v$(cat .nvmrc)"
 
