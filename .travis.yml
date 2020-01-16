@@ -23,11 +23,15 @@ script:
 jobs:
   include:
     - stage: build
+      addons: {}
+      env:
+        - CYPRESS_INSTALL_BINARY=0
       before_script: ./bin/check-node.sh
       script:
         - npm run lint
         - npm test
     - stage: deploy
+      addons: {}
       install: true
       script: true
       before_deploy: ./bin/prepare-deploy.sh
