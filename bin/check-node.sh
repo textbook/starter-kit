@@ -2,8 +2,10 @@
 
 set -euo pipefail
 
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 ACTUAL="$(node -v)"
-EXPECTED="v$(cat .nvmrc)"
+EXPECTED="v$(cat "$HERE/../.nvmrc")"
 
 echo "Node: $ACTUAL"
 echo "NPM: v$(npm -v)"

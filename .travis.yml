@@ -23,7 +23,7 @@ script:
 jobs:
   include:
     - stage: build
-      before_script: ./check-node.sh
+      before_script: ./bin/check-node.sh
       script:
         - npm run lint
         - npm test
