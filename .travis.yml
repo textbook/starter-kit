@@ -30,9 +30,7 @@ jobs:
     - stage: deploy
       install: true
       script: true
-      before_deploy:
-        - npm ci
-        - npm run build
+      before_deploy: ./bin/prepare-deploy.sh
       deploy:
         - provider: cloudfoundry
           skip_cleanup: true
