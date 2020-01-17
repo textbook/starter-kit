@@ -1,3 +1,8 @@
+no-cypress: &no-cypress
+  addons: {}
+  env:
+    - CYPRESS_INSTALL_BINARY=0
+
 dist: bionic
 
 language: node_js
@@ -23,15 +28,13 @@ script:
 jobs:
   include:
     - stage: build
-      addons: {}
-      env:
-        - CYPRESS_INSTALL_BINARY=0
+      <<: *no-cypress
       before_script: ./bin/check-node.sh
       script:
         - npm run lint
         - npm test
     - stage: deploy
-      addons: {}
+      <<: *no-cypress
       install: true
       script: true
       before_deploy: ./bin/prepare-deploy.sh
