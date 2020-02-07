@@ -48,7 +48,7 @@
     "@codeyourfuture/eslint-config-standard": "^2.0.1",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
-    "axe-core": "^3.4.1",
+    "axe-core": "^3.4.2",
     "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
