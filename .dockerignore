@@ -1,4 +1,6 @@
-.idea/
 __mocks__/
+.github/
+.idea/
+.vscode/
 dist/
 node_modules/

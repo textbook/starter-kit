@@ -33,6 +33,7 @@
     "url": "git+https://github.com/textbook/starter-kit.git"
   },
   "author": "Jonathan Sharpe <mail@jonrshar.pe>",
+  "contributors": [],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/textbook/starter-kit/issues"
@@ -85,5 +86,9 @@
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "morgan": "^1.9.1"
+  },
+  "engines": {
+    "node": "^8 || ^10 || ^12",
+    "yarn": "please use NPM"
   }
 }

@@ -1,4 +1,7 @@
 __mocks__/
+.github/
+.idea/
+.vscode/
 client/
 e2e/
 node_modules/
