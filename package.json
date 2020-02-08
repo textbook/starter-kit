@@ -88,7 +88,6 @@
     "morgan": "^1.9.1"
   },
   "engines": {
-    "node": "^8 || ^10 || ^12",
-    "yarn": "please use NPM"
+    "node": "^8 || ^10 || ^12"
   }
 }
