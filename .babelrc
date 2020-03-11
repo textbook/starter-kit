@@ -4,6 +4,12 @@
     "@babel/plugin-transform-runtime"
   ],
   "presets": [
-    "@babel/env"
+    [
+      "@babel/typescript",
+      {
+        "allExtensions": true,
+        "isTSX": true
+      }
+    ]
   ]
 }

@@ -2,12 +2,15 @@
   "env": {
     "browser": true
   },
-  "extends": [
-    "plugin:jsx-a11y/strict",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react-hooks"
+  "extends": ["plugin:jsx-a11y/strict", "plugin:react/recommended"],
+  "plugins": ["react-hooks"],
+  "overrides": [
+    {
+      "files": ["./webpack/*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
   ],
   "rules": {
     "react/jsx-tag-spacing": "error",

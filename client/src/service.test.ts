@@ -7,7 +7,7 @@ describe("service", () => {
 	const message = "Take me to your leader";
 
 	beforeEach(() => {
-		get.mockResolvedValue({ data: { message } });
+		(get as jest.Mock).mockResolvedValue({ data: { message } });
 	});
 
 	describe("getMessage", ()  => {

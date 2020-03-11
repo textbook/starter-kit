@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-const router = new Router();
+const router = Router();
 
 router.get("/", (_, res) => {
 	res.json({ message: "Hello, world!" });

@@ -1,21 +1,22 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, RenderResult } from "@testing-library/react";
 
 import { App } from "./App";
 import logo from "./logo.svg";
 import { getMessage } from "./service";
+import { defer, Deferred, tick } from "../../testHelpers";
 
 jest.mock("./service");
 
 describe("App", () => {
-	let deferred;
-	let wrapper;
+	let deferred: Deferred<string>;
+	let wrapper: RenderResult;
 
 	const message = "Foo bar!";
 
 	beforeEach(() => {
 		deferred = defer();
-		getMessage.mockReturnValue(deferred.promise);
+		(getMessage as jest.Mock).mockReturnValue(deferred.promise);
 		wrapper = render(<App />);
 	});
 
@@ -34,12 +35,12 @@ describe("App", () => {
 		});
 
 		it("says 'Hello, world!'", async () => {
-			let element = wrapper.getByTestId("message");
+			const element = wrapper.getByTestId("message");
 			expect(element).toHaveTextContent(message);
 		});
 
 		it("shows an image", async () => {
-			let element = wrapper.getByTestId("logo");
+			const element = wrapper.getByTestId("logo");
 			expect(element).toHaveAttribute("alt", "Just the React logo");
 			expect(element).toHaveAttribute("src", logo);
 		});
