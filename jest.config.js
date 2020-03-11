@@ -9,4 +9,5 @@ module.exports = {
 		"<rootDir>/e2e/",
 		"<rootDir>/node_modules/",
 	],
+	testRunner: "jest-circus/runner",
 };
