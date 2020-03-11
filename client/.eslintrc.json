@@ -13,6 +13,7 @@
     }
   ],
   "rules": {
+    "@typescript-eslint/triple-slash-reference": "off",
     "react/jsx-tag-spacing": "error",
     "react/no-unused-prop-types": "error",
     "react-hooks/rules-of-hooks": "error",

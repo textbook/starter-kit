@@ -13,7 +13,7 @@ COPY ./package-lock.json .
 
 RUN npm ci
 
-COPY ./.babelrc .
+COPY ./tsconfig.json .
 COPY ./client /client
 COPY ./server /server
 

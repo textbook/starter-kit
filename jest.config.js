@@ -2,9 +2,9 @@ module.exports = {
 	moduleNameMapper: {
 		"\\.(png|svg|jpe?g|gif|css)$": "<rootDir>/__mocks__/fileMock.js",
 	},
-	preset: "ts-jest",
+	preset: "ts-jest/presets/js-with-ts",
 	setupFilesAfterEnv: [
-		"<rootDir>/setupTests.ts",
+		"<rootDir>/setupTests.js",
 	],
 	testPathIgnorePatterns: [
 		"<rootDir>/e2e/",

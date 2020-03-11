@@ -2,7 +2,7 @@
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
- - [x] Full stack ES8+ with [Babel]
+ - [x] Full stack [TypeScript]
  - [x] [Node] LTS support (verified working on 8.x, 10.x and 12.x LTS releases)
  - [x] [Express] server
  - [x] [React] client with [Webpack]
@@ -45,7 +45,7 @@ See the guidance in the [wiki].
 
 ## Rationale
 
-Partly I wrote this to explore what things like Create React App ([CRA]) are doing under the hood with Babel and
+Partly I wrote this to explore what things like Create React App ([CRA]) are doing under the hood with [Babel] and
 Webpack. Partly it was to simplify a previous [starter kit], so there aren't multiple package entry points complicating
 the automation and it's not using `copy` (which caused cross-platform issues on Windows).
 
@@ -63,9 +63,6 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
     each dev dependency is for
  - Cypress only runs in Electron/Chrome (for a more cross-browser alternative, see [Codecept])
 
-**To consider**
-
- - TypeScript?
 
   [Babel]: https://babeljs.io/
   [Cloud Foundry]: https://www.cloudfoundry.org/
@@ -84,5 +81,6 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [starter kit]: https://github.com/textbook/cyf-app-starter
   [SuperTest]: https://github.com/visionmedia/supertest
   [Travis]: https://travis-ci.org/
+  [TypeScript]: https://www.typescriptlang.org
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki

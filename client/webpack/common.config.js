@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	resolve: {
-		extensions: [".ts", ".tsx", ".js", ".jsx"],
+		extensions: [".js", ".jsx", ".ts", ".tsx"],
 	},
 	entry: "./client/src/index.tsx",
 	module: {
@@ -10,7 +10,7 @@ module.exports = {
 			{
 				test: /\.[jt]sx?$/,
 				exclude: /node_modules/,
-				loader: "babel-loader?cacheDirectory",
+				loader: "ts-loader",
 			},
 			{
 				test: /\.(png|svg|jpe?g|gif)$/,
