@@ -29,10 +29,13 @@ jobs:
   include:
     - stage: build
       <<: *no-cypress
+      services:
+        - docker
       before_script: ./bin/check-node.sh
       script:
         - npm run lint
         - npm test
+        - docker build .
     - stage: deploy
       <<: *no-cypress
       install: true

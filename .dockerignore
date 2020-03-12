@@ -1,6 +1,9 @@
 __mocks__/
+.git/
 .github/
 .idea/
 .vscode/
+bin/
 dist/
+e2e/
 node_modules/
