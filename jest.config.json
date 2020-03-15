@@ -2,7 +2,7 @@
 	"moduleNameMapper": {
 		"\\.(png|svg|jpe?g|gif|css)$": "<rootDir>/__mocks__/fileMock.js"
 	},
-	"preset": "ts-jest/presets/js-with-ts",
+	"preset": "ts-jest",
 	"setupFilesAfterEnv": [
 		"<rootDir>/setupTests.ts"
 	],

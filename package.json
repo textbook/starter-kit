@@ -8,7 +8,7 @@
     "build": "npm run build:server && npm run build:client",
     "postbuild": "./bin/build-info.sh || echo 'No build info'",
     "build:client": "webpack --config client/webpack/prod.config.ts",
-    "build:server": "tsc",
+    "build:server": "tsc -p ./server",
     "cleanup": "rimraf ./dist/*",
     "predev": "npm run cleanup",
     "dev": "concurrently -k -n \"client,build,serve\" \"npm run dev:client\" \"npm run dev:build\" \"npm run dev:serve\"",
