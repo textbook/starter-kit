@@ -1,5 +1,3 @@
-/// <reference path="./assets.d.ts" />
-
 import React, { Component } from "react";
 
 import "./App.css";
