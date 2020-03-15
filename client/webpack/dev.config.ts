@@ -1,8 +1,8 @@
-const merge = require("webpack-merge");
+import merge from "webpack-merge";
 
-const common = require("./common.config");
+import common from "./common.config";
 
-module.exports = merge(common, {
+export default merge(common, {
 	devtool: "inline-source-map",
 	devServer: {
 		port: 3000,

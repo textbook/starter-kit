@@ -4,7 +4,7 @@
   "fixturesFolder": "e2e/fixtures",
   "pluginsFile": "e2e/plugins",
   "screenshotsFolder": "e2e/screenshots",
-  "supportFile": "e2e/support",
+  "supportFile": "e2e/support/index.ts",
   "video": false,
   "videosFolder": "e2e/videos"
 }

@@ -1,10 +1,10 @@
-const HtmlWebpackTagsPlugin = require("html-webpack-tags-plugin");
-const path = require("path");
-const merge = require("webpack-merge");
+import HtmlWebpackTagsPlugin from "html-webpack-tags-plugin";
+import path from "path";
+import merge from "webpack-merge";
 
-const common = require("./common.config");
+import common from "./common.config";
 
-module.exports = merge(common, {
+export default merge(common, {
 	devtool: "source-map",
 	mode: "production",
 	optimization: {
