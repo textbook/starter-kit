@@ -27,7 +27,7 @@ module.exports = merge(common, {
 		new HtmlWebpackTagsPlugin({
 			scripts: [
 				{
-					path: "https://unpkg.com/react@16.13.0/umd/react.production.min.js",
+					path: "https://unpkg.com/react@16.13.1/umd/react.production.min.js",
 					attributes: {
 						crossorigin: "",
 					},
@@ -37,7 +37,7 @@ module.exports = merge(common, {
 					},
 				},
 				{
-					path: "https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js",
+					path: "https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js",
 					attributes: {
 						crossorigin: "",
 					},
