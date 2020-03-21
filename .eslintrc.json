@@ -30,8 +30,5 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": "off"
-  }
+  "plugins": ["@typescript-eslint"]
 }

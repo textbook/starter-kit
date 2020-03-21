@@ -4,16 +4,7 @@
   },
   "extends": ["plugin:jsx-a11y/strict", "plugin:react/recommended"],
   "plugins": ["react-hooks"],
-  "overrides": [
-    {
-      "files": ["./webpack/*.config.js"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
-  ],
   "rules": {
-    "@typescript-eslint/triple-slash-reference": "off",
     "react/jsx-tag-spacing": "error",
     "react/no-unused-prop-types": "error",
     "react-hooks/rules-of-hooks": "error",
