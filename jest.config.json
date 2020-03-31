@@ -1,4 +1,9 @@
 {
+	"globals": {
+		"ts-jest": {
+			"tsConfig": "tsconfig.test.json"
+		}
+	},
 	"moduleNameMapper": {
 		"\\.(png|svg|jpe?g|gif|css)$": "<rootDir>/__mocks__/fileMock.js"
 	},

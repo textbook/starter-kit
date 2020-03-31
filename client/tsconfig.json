@@ -1,4 +1,9 @@
 {
+  "compilerOptions": {
+    "lib": [
+      "DOM"
+    ]
+  },
   "exclude": [
     "**/*.test.ts"
   ],
