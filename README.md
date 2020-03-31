@@ -23,6 +23,7 @@ commonly use:
 
  - `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3100, and
     the frontend is proxied to it).
+ - `dev:test`: checks that the `dev` command can start up correctly, then shuts it down.
  - `e2e`: builds and starts the app in production mode and runs the Cypress tests against it.
  - `e2e:dev`: opens Cypress for local dev, instead of running it in the background. Doesn't start the app.
  - `lint`: runs ESLint against all the JavaScript in the project.
