@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker/master/packages/api/schema/stryker-core.json",
+  "coverageAnalysis": "off",
+  "jest": {
+    "enableFindRelatedTests": true
+  },
+  "mutate": [
+    "client/src/**/*.js",
+    "!client/src/api.js",
+    "!client/src/index.js",
+    "!client/src/**/*.test.js",
+    "server/**/*.js",
+    "!server/server.js",
+    "!server/**/*.test.js",
+    "!server/static/*.js"
+  ],
+  "testRunner": "jest",
+  "timeoutMS": 15000
+}

@@ -1,6 +1,8 @@
 .idea/
+.stryker-tmp/
 dist/
 e2e/screenshots/
 e2e/videos/
 node_modules/
+reports/
 .DS_Store

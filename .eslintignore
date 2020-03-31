@@ -1,1 +1,3 @@
+.stryker-tmp/
 dist/
+reports/

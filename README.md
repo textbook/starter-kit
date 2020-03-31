@@ -29,6 +29,7 @@ commonly use:
  - `serve`: builds and starts the app in production mode locally.
  - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
  - `test`: runs the Jest unit and integration tests.
+ - `test:mutate`: runs mutation testing using [Stryker]. **Note** this is experimental, it's not part of the CI build.
  - `test:watch`: runs the unit and integration tests in watch mode.
 
 ### Debugging
@@ -82,6 +83,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Node]: https://nodejs.org/en/
   [React]: https://reactjs.org/
   [starter kit]: https://github.com/textbook/cyf-app-starter
+  [Stryker]: https://stryker-mutator.io/
   [SuperTest]: https://github.com/visionmedia/supertest
   [the branch]: https://github.com/textbook/starter-kit/tree/typescript
   [Travis]: https://travis-ci.org/
