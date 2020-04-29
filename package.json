@@ -73,7 +73,7 @@
     "html-webpack-plugin": "^4.2.1",
     "html-webpack-tags-plugin": "^2.0.17",
     "jest": "^25.5.1",
-    "jest-circus": "^25.4.0",
+    "jest-circus": "^25.5.1",
     "nodemon": "^2.0.3",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
