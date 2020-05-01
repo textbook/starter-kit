@@ -54,7 +54,7 @@
     "@stryker-mutator/javascript-mutator": "^3.1.0",
     "@stryker-mutator/jest-runner": "^3.1.0",
     "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^10.0.3",
+    "@testing-library/react": "^10.0.4",
     "axe-core": "^3.5.3",
     "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
