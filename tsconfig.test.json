@@ -1,11 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ES2015"
+    ],
     "types": [
       "jest",
       "testing-library__dom",
       "testing-library__jest-dom",
       "testing-library__react"
     ]
-  }
+  },
+  "files": [
+    "client/src/assets.d.ts"
+  ]
 }
