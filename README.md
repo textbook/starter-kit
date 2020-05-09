@@ -67,7 +67,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
 
 **To consider**
 
- - [TypeScript]? See [the branch].
+ - [TypeScript]? See [textbook/starter-kit-ts].
 
   [Babel]: https://babeljs.io/
   [Cloud Foundry]: https://www.cloudfoundry.org/
@@ -86,7 +86,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [starter kit]: https://github.com/textbook/cyf-app-starter
   [Stryker]: https://stryker-mutator.io/
   [SuperTest]: https://github.com/visionmedia/supertest
-  [the branch]: https://github.com/textbook/starter-kit/tree/typescript
+  [textbook/starter-kit-ts]: https://github.com/textbook/starter-kit-ts
   [Travis]: https://travis-ci.org/
   [TypeScript]: https://www.typescriptlang.org/
   [Webpack]: https://webpack.js.org/
