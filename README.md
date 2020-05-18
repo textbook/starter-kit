@@ -25,7 +25,8 @@ commonly use:
     the frontend is proxied to it).
  - `dev:test`: checks that the `dev` command can start up correctly, then shuts it down.
  - `e2e`: builds and starts the app in production mode and runs the Cypress tests against it.
- - `e2e:dev`: opens Cypress for local dev, instead of running it in the background. Doesn't start the app.
+ - `e2e:dev`: builds and starts the app in dev mode and runs the Cypress tests against it.
+ - `e2e:local`: opens Cypress on the desktop, instead of running it in the background. Doesn't start the app.
  - `lint`: runs ESLint against all the JavaScript in the project.
  - `serve`: builds and starts the app in production mode locally.
  - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
