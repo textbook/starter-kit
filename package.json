@@ -45,7 +45,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.10.1",
-    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-react": "^7.10.1",
     "@codeyourfuture/eslint-config-standard": "^2.0.1",
     "@stryker-mutator/core": "^3.2.4",
     "@stryker-mutator/javascript-mutator": "^3.2.4",
