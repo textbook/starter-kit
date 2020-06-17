@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@codeyourfuture/eslint-config-standard": "^2.0.1",
-    "@stryker-mutator/core": "^3.2.4",
+    "@stryker-mutator/core": "^3.3.0",
     "@stryker-mutator/javascript-mutator": "^3.3.0",
     "@stryker-mutator/jest-runner": "^3.3.0",
     "@testing-library/jest-dom": "^5.10.1",
