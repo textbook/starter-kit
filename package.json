@@ -86,7 +86,7 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.4",
+    "@babel/runtime": "^7.10.5",
     "express": "^4.17.1",
     "helmet": "^3.23.3",
     "morgan": "^1.10.0"
