@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 
 import { App } from "./App";
 import logo from "./logo.svg";
@@ -30,7 +30,7 @@ describe("App", () => {
 	describe("when request resolves", () => {
 		beforeEach(async () => {
 			deferred.resolve(message);
-			await tick();
+			await act(tick);
 		});
 
 		it("says 'Hello, world!'", async () => {
