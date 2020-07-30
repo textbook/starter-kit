@@ -8,7 +8,8 @@ dist: bionic
 language: node_js
 
 node_js:
-  - 14.2.0
+  - 12.18.3
+  - 14
   - 12
   - 10
 
