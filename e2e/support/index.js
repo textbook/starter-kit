@@ -18,5 +18,5 @@ import "./commands";
 
 import "cypress-axe";
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+import { configure } from "@testing-library/cypress";
+configure({ testIdAttribute: "data-qa" });
