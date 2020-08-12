@@ -1,22 +1,26 @@
 import React from "react";
-import { act, render } from "@testing-library/react";
+import { Router } from "react-router-dom";
+import { act, fireEvent, render } from "@testing-library/react";
+import { createMemoryHistory } from "history";
 
-import { App } from "./App";
+import { Home } from "./Home";
 import logo from "./logo.svg";
-import { getMessage } from "./service";
+import { getMessage } from "../service";
 
-jest.mock("./service");
+jest.mock("../service");
 
-describe("App", () => {
+describe("Home", () => {
 	let deferred;
+	let history;
 	let wrapper;
 
 	const message = "Foo bar!";
 
 	beforeEach(() => {
+		history = createMemoryHistory();
 		deferred = defer();
 		getMessage.mockReturnValue(deferred.promise);
-		wrapper = render(<App />);
+		wrapper = render(<Router history={history}><Home /></Router>);
 	});
 
 	it("requests the message", () => {
@@ -25,6 +29,11 @@ describe("App", () => {
 
 	it("shows a loading state", async () => {
 		expect(wrapper.getByTestId("message")).toHaveTextContent("Loading...");
+	});
+
+	it("allows the user to navigate to the About page", () => {
+		fireEvent.click(wrapper.getByText("About"));
+		expect(history.location.pathname).toBe("/about");
 	});
 
 	describe("when request resolves", () => {

@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import "./App.css";
-import { getMessage } from "./service";
-import logo from "./logo.svg";
+import About from "./pages/About";
+import Home from "./pages/Home";
 
-export function App() {
-	const [message, setMessage] = useState("Loading...");
-
-	useEffect(() => {
-		getMessage().then((message) => setMessage(message));
-	}, []);
-
-	return (
-		<main role="main">
-			<div>
-				<img className="logo" data-qa="logo" src={logo} alt="Just the React logo" />
-				<h1 className="message" data-qa="message">{message}</h1>
-			</div>
-		</main>
-	);
-}
+const App = () => (
+	<Switch>
+		<Route path="/" exact component={Home} />
+		<Route path="/about" component={About} />
+	</Switch>
+);
 
 export default App;
