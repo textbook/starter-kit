@@ -78,10 +78,8 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Docker]: https://www.docker.com
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
-  [Express router]: https://expressjs.com/en/guide/routing.html#express-router
   [Heroku]: https://www.heroku.com/
   [Jest]: https://jestjs.io/
-  [manual mocks]: https://jestjs.io/docs/en/manual-mocks#mocking-user-modules
   [Node]: https://nodejs.org/en/
   [React]: https://reactjs.org/
   [starter kit]: https://github.com/textbook/cyf-app-starter
