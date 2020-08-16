@@ -31,7 +31,7 @@ commonly use:
  - `serve`: builds and starts the app in production mode locally.
  - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
  - `test`: runs the Jest unit and integration tests.
- - `test:mutate`: runs mutation testing using [Stryker]. **Note** this is experimental, it's not part of the CI build.
+ - `test:mutate`: runs mutation testing using [Stryker]. **Note** this is experimental, it won't fail the CI build.
  - `test:watch`: runs the unit and integration tests in watch mode.
 
 ### Debugging

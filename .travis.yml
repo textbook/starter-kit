@@ -35,7 +35,8 @@ jobs:
       before_script: ./bin/check-node.sh
       script:
         - npm run lint
-        - npm test
+        - npm run test
+        - npm run test:mutate
         - docker build .
     - stage: deploy
       <<: *no-cypress
