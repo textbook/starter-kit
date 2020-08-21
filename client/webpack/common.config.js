@@ -19,6 +19,9 @@ module.exports = {
 			},
 		],
 	},
+	output: {
+		publicPath: "/",
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon: "./client/src/favicon.ico",

@@ -33,7 +33,7 @@ describe("Home", () => {
 
 	it("allows the user to navigate to the About page", () => {
 		fireEvent.click(wrapper.getByText("About"));
-		expect(history.location.pathname).toBe("/about");
+		expect(history.location.pathname).toBe("/about/this/site");
 	});
 
 	describe("when request resolves", () => {

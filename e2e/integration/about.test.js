@@ -5,12 +5,12 @@ it("can be reached from the homepage", () => {
 });
 
 it("can be reached directly", () => {
-	cy.visit("/about");
+	cy.visit("/about/this/site");
 	cy.findByText(/wiki/).should("exist");
 });
 
 it("meets basic accessibility guidelines", () => {
-	cy.visit("/about");
+	cy.visit("/about/this/site");
 	cy.injectAxe();
 	cy.checkA11y();
 });
