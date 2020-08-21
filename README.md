@@ -6,6 +6,7 @@
  - [x] [Node] LTS support (verified working on 10.x, 12.x and 14.x LTS releases)
  - [x] [Express] server
  - [x] [React] client with [Webpack]
+ - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint]
  - [x] Unit and integration testing with [Jest] (and [SuperTest])
  - [x] E2E testing with [Cypress]
@@ -82,6 +83,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Jest]: https://jestjs.io/
   [Node]: https://nodejs.org/en/
   [React]: https://reactjs.org/
+  [React Router]: https://reactrouter.com/web
   [starter kit]: https://github.com/textbook/cyf-app-starter
   [Stryker]: https://stryker-mutator.io/
   [SuperTest]: https://github.com/visionmedia/supertest
