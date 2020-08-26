@@ -60,12 +60,12 @@ pushd "$HERE/.."
   echo 'Update README'
   cp -f ./bin/files/README.md ./README.md
 
-  echo 'Install MongoDB'
-  npm i --save mongodb
+  echo 'Install Mongoose'
+  npm i --save mongoose
 
   echo 'Add MongoDB config'
-  cp -f ./bin/files/api.js ./server/api.js
   cp -f ./bin/files/db.js ./server/db.js
+  cp -f ./bin/files/server.js ./server/server.js
   cat app.json \
     | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
     | tee app.json
