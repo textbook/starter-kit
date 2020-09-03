@@ -9,48 +9,43 @@ import { getMessage } from "../service";
 
 jest.mock("../service");
 
+const renderWithHistory = () => {
+	const deferred = defer();
+	const history = createMemoryHistory();
+	getMessage.mockReturnValue(deferred.promise);
+	const wrapper = render(<Router history={history}><Home /></Router>);
+	return { ...wrapper, deferred, history };
+};
+
 describe("Home", () => {
-	let deferred;
-	let history;
-	let wrapper;
-
-	const message = "Foo bar!";
-
-	beforeEach(() => {
-		history = createMemoryHistory();
-		deferred = defer();
-		getMessage.mockReturnValue(deferred.promise);
-		wrapper = render(<Router history={history}><Home /></Router>);
-	});
-
 	it("requests the message", () => {
-		expect(getMessage).toHaveBeenCalled();
+		renderWithHistory();
+		expect(getMessage).toHaveBeenCalledWith();
 	});
 
 	it("shows a loading state", async () => {
-		expect(wrapper.getByTestId("message")).toHaveTextContent("Loading...");
+		const { getByTestId } = renderWithHistory();
+		expect(getByTestId("message")).toHaveTextContent("Loading...");
 	});
 
 	it("allows the user to navigate to the About page", () => {
-		fireEvent.click(wrapper.getByText("About"));
+		const { getByText, history } = renderWithHistory();
+		fireEvent.click(getByText("About"));
 		expect(history.location.pathname).toBe("/about/this/site");
 	});
 
-	describe("when request resolves", () => {
-		beforeEach(async () => {
-			deferred.resolve(message);
-			await act(tick);
-		});
+	it("shows an image", async () => {
+		const { getByTestId } = renderWithHistory();
+		let element = getByTestId("logo");
+		expect(element).toHaveAttribute("alt", "Just the React logo");
+		expect(element).toHaveAttribute("src", logo);
+	});
 
-		it("says 'Hello, world!'", async () => {
-			let element = wrapper.getByTestId("message");
-			expect(element).toHaveTextContent(message);
-		});
-
-		it("shows an image", async () => {
-			let element = wrapper.getByTestId("logo");
-			expect(element).toHaveAttribute("alt", "Just the React logo");
-			expect(element).toHaveAttribute("src", logo);
-		});
+	it("shows the message when request resolves", async () => {
+		const message = "Foo bar!";
+		const { deferred, getByTestId } = renderWithHistory();
+		deferred.resolve(message);
+		await act(tick);
+		expect(getByTestId("message")).toHaveTextContent(message);
 	});
 });
