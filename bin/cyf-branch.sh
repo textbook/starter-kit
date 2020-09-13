@@ -27,6 +27,7 @@ pushd "$HERE/.."
   rm -rf \
     .stryker-tmp/ \
     __mocks__/ \
+    coverage/ \
     e2e/ \
     reports/ \
     .travis.yml \
@@ -58,7 +59,7 @@ pushd "$HERE/.."
 
   echo 'Update test ignore files'
   for IGNOREFILE in '.cfignore' '.dockerignore' '.eslintignore' '.gitignore' '.slugignore'; do
-    cat "$IGNOREFILE" | sed -E '/(e2e|stryker|reports|mocks)/d' | tee "$IGNOREFILE"
+    cat "$IGNOREFILE" | sed -E '/(coverage|e2e|stryker|reports|mocks)/d' | tee "$IGNOREFILE"
   done
 
   echo 'Remove Docker test config'

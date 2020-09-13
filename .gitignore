@@ -1,5 +1,6 @@
 .idea/
 .stryker-tmp/
+coverage/
 dist/
 e2e/screenshots/
 e2e/videos/

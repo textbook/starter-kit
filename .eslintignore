@@ -1,3 +1,4 @@
 .stryker-tmp/
+coverage/
 dist/
 reports/

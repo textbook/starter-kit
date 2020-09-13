@@ -3,6 +3,7 @@ __mocks__/
 .idea/
 .vscode/
 client/
+coverage/
 e2e/
 node_modules/
 server/
