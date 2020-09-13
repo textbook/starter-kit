@@ -25,8 +25,10 @@ pushd "$HERE/.."
 
   echo 'Remove redundant files'
   rm -rf \
+    .stryker-tmp/ \
     __mocks__/ \
     e2e/ \
+    reports/ \
     .travis.yml \
     cypress.json \
     jest.config.js \
