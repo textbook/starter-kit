@@ -39,6 +39,11 @@ pushd "$HERE/.."
   echo 'Remove ESLint testing configuration'
   cat .eslintrc.json | jq 'del(.overrides)' | tee .eslintrc.json
 
+  echo 'Exclude ESLint prop-types validation'
+  cat ./client/.eslintrc.json \
+    | jq '.rules["react/prop-types"] = "off"' \
+    | tee ./client/.eslintrc.json
+
   echo 'Remove testing scripts'
   PACKAGE=$(cat package.json)
   for SCRIPT in $(jq -r '.scripts | keys[]' package.json); do
