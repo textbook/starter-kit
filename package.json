@@ -65,7 +65,7 @@
     "cypress-axe": "^0.8.1",
     "eslint": "^7.9.0",
     "eslint-plugin-cypress": "^2.11.1",
-    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.2",
