@@ -5,14 +5,11 @@ import { createMemoryHistory } from "history";
 
 import { Home } from "./Home";
 import logo from "./logo.svg";
-import { getMessage } from "../service";
-
-jest.mock("../service");
 
 const renderWithHistory = () => {
 	const deferred = defer();
 	const history = createMemoryHistory();
-	getMessage.mockReturnValue(deferred.promise);
+	fetchMock.mockResponse(() => deferred.promise);
 	const wrapper = render(<Router history={history}><Home /></Router>);
 	return { ...wrapper, deferred, history };
 };
@@ -20,7 +17,7 @@ const renderWithHistory = () => {
 describe("Home", () => {
 	it("requests the message", () => {
 		renderWithHistory();
-		expect(getMessage).toHaveBeenCalledWith();
+		expect(fetchMock).toHaveBeenCalledWith("/api");
 	});
 
 	it("shows a loading state", async () => {
@@ -44,7 +41,7 @@ describe("Home", () => {
 	it("shows the message when request resolves", async () => {
 		const message = "Foo bar!";
 		const { deferred, getByTestId } = renderWithHistory();
-		deferred.resolve(message);
+		deferred.resolve(JSON.stringify({ message }));
 		await act(tick);
 		expect(getByTestId("message")).toHaveTextContent(message);
 	});

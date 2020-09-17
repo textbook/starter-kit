@@ -20,7 +20,7 @@ pushd "$HERE/.."
     axe-core \
     cypress{,-axe} \
     eslint-plugin-{cypress,jest} \
-    jest{,-circus} \
+    jest{,-circus,-fetch-mock} \
     supertest
 
   echo 'Remove redundant files'

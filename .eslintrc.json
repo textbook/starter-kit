@@ -17,6 +17,7 @@
       ],
       "globals": {
         "defer": false,
+        "fetchMock": false,
         "tick": false
       },
       "rules": {
