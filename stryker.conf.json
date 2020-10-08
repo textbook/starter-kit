@@ -6,7 +6,6 @@
   },
   "mutate": [
     "client/src/**/*.js",
-    "!client/src/api.js",
     "!client/src/index.js",
     "!client/src/**/*.test.js",
     "server/**/*.js",
