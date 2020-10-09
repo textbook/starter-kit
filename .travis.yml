@@ -25,6 +25,7 @@ cache:
 
 script:
   - npm run e2e
+  - npm run e2e:dev
 
 jobs:
   include:
