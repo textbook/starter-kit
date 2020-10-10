@@ -15,7 +15,7 @@ pushd "$HERE/.."
 
   echo 'Remove testing dependencies'
   npm uninstall \
-    @stryker-mutator/{core,javascript-mutator,jest-runner} \
+    @stryker-mutator/{core,jest-runner} \
     @testing-library/{cypress,jest-dom,react} \
     axe-core \
     cypress{,-axe} \

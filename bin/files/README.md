@@ -17,9 +17,9 @@
 
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
- 1. Create a fork of this repository for the team, and rename it something appropriate for your project.
+ 1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
  2. Set up a Mongo database, e.g. on [MongoDB Atlas], and get the connection URI.
- 3. Click the "Deploy to Heroku" button and create a Heroku account when prompted.
+ 3. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
  4. Fill in the name of the application, select Europe, enter the `MONGODB_URI` environment variable and then click "Deploy App".
  5. Once it has deployed successfully, click the "Manage app" button to view the application details.
  6. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
@@ -51,6 +51,7 @@ extension, for debugging the client application.
 
 See the guidance in the [wiki].
 
+  [1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template
   [Babel]: https://babeljs.io/
   [Cloud Foundry]: https://www.cloudfoundry.org/
   [collaborators]: https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
