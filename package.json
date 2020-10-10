@@ -11,7 +11,7 @@
     "build:server": "babel server --out-dir dist --ignore \"**/*.test.js,server/static\"",
     "cleanup": "rimraf ./dist/*",
     "dev": "concurrently -k -n \"client,server\" \"npm run dev:client\" \"npm run dev:server\"",
-    "dev:client": "webpack-dev-server --config client/webpack/dev.config.js",
+    "dev:client": "webpack serve --config client/webpack/dev.config.js",
     "dev:server": "cross-env PORT=3100 nodemon --inspect --delay 500ms --watch server --exec babel-node server/server.js",
     "e2e": "concurrently -k -s first -n \"app,e2e\" \"npm run serve\" \"npm run e2e:safe\"",
     "e2e:dev": "concurrently -k -s first -n \"dev,e2e\" \"npm run dev\" \"npm run e2e:safe\"",
@@ -83,7 +83,7 @@
     "supertest": "^5.0.0",
     "wait-on": "^5.2.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.2.0"
   },
