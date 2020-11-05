@@ -80,7 +80,7 @@
     "react-router-dom": "^5.2.0",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
-    "supertest": "^6.0.0",
+    "supertest": "^6.0.1",
     "wait-on": "^5.2.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.1.0",
