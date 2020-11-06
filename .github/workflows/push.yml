@@ -10,6 +10,12 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12.18.3'
+    - uses: actions/cache@v2
+      path: ~/.npm
+      key: starter-kit-${{ hashFiles('**/package-lock.json') }}
+      restore_keys: |
+        starter-kit-${{ hashFiles('**/package-lock.json') }}
+        starter-kit-
     - run: ./bin/check-node.sh
     - run: npm ci
       env:
@@ -28,6 +34,12 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node }}
+    - uses: actions/cache@v2
+      path: ~/.npm
+      key: starter-kit-${{ hashFiles('**/package-lock.json') }}
+      restore_keys: |
+        starter-kit-${{ hashFiles('**/package-lock.json') }}
+        starter-kit-
     - run: npm ci
     - run: npm run e2e
     - run: npm run e2e:dev
