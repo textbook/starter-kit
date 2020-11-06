@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.18.3'
+    - run: ./bin/check-node.sh
+    - run: npm ci
+      env:
+        CYPRESS_INSTALL_BINARY: 0
+    - run: npm run lint
+    - run: npm run test
+    - run: npm run test:mutate
+  e2e:
+    runs-on: ubuntu-18.04
+    needs: build
+    strategy:
+      matrix:
+        node: [ '10', '12', '14' ]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+    - run: npm ci
+    - run: npm run e2e
+    - run: npm run e2e:dev
