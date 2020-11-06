@@ -53,6 +53,7 @@ jobs:
     - run: npm run e2e:dev
   deploy:
     runs-on: ubuntu-18.04
+    if: github.ref == 'refs/heads/master'
     needs: e2e
     steps:
     - uses: actions/checkout@v2
