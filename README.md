@@ -1,6 +1,6 @@
 # Starter Kit
 
-![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)
+[![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)](https://github.com/textbook/starter-kit/actions)
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
