@@ -14,7 +14,7 @@ jobs:
       with:
         path: ~/.npm
         key: starter-kit-${{ hashFiles('**/package-lock.json') }}
-        restore_keys: |
+        restore-keys: |
           starter-kit-${{ hashFiles('**/package-lock.json') }}
           starter-kit-
     - run: ./bin/check-node.sh
@@ -39,7 +39,7 @@ jobs:
       with:
         path: ~/.npm
         key: starter-kit-${{ hashFiles('**/package-lock.json') }}
-        restore_keys: |
+        restore-keys: |
           starter-kit-${{ hashFiles('**/package-lock.json') }}
           starter-kit-
     - run: npm ci
