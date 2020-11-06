@@ -9,9 +9,10 @@ mkdir -p "$DIR"
 
 LINES=("Built: $(date)")
 
-TRAVIS=${TRAVIS:-}
-if [ ! -z "$TRAVIS" ]; then
-  LINES+=("By: Travis build $TRAVIS_BUILD_NUMBER" "URL: $TRAVIS_BUILD_WEB_URL")
+GITHUB_ACTIONS=${GITHUB_ACTIONS:-}
+if [ ! -z "$GITHUB_ACTIONS" ]; then
+  WEB_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+  LINES+=("By: GitHub Actions build $GITHUB_RUN_NUMBER" "URL: $WEB_URL")
 else
   LINES+=("By: $(whoami)")
 fi
