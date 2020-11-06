@@ -1,5 +1,7 @@
 # Starter Kit
 
+![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
  - [x] Full stack ES8+ with [Babel]
@@ -12,7 +14,7 @@
  - [x] E2E testing with [Cypress]
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
- - [x] [Travis] pipeline
+ - [x] [GitHub Actions] pipeline
  - [x] [Heroku] deployment
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
@@ -79,6 +81,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Docker]: https://www.docker.com
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
+  [GitHub Actions]: https://github.com/features/actions
   [Heroku]: https://www.heroku.com/
   [Jest]: https://jestjs.io/
   [Node]: https://nodejs.org/en/
@@ -88,7 +91,6 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Stryker]: https://stryker-mutator.io/
   [SuperTest]: https://github.com/visionmedia/supertest
   [textbook/starter-kit-ts]: https://github.com/textbook/starter-kit-ts
-  [Travis]: https://travis-ci.org/
   [TypeScript]: https://www.typescriptlang.org/
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
