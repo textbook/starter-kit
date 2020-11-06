@@ -2,21 +2,27 @@ name: Node.js CI
 
 on: [push, pull_request]
 
+_cache_config: &cache_config
+  with:
+    path: ~/.npm
+    key: starter-kit-${{ hashFiles('**/package-lock.json') }}
+    restore-keys: |
+      starter-kit-${{ hashFiles('**/package-lock.json') }}
+      starter-kit-
+
+_default_node: &default_node
+  with:
+    node-version: '12.18.3'
+
 jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
-      with:
-        node-version: '12.18.3'
+      <<: *default_node
     - uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: starter-kit-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          starter-kit-${{ hashFiles('**/package-lock.json') }}
-          starter-kit-
+      <<: *cache_config
     - run: ./bin/check-node.sh
     - run: npm ci
       env:
@@ -36,12 +42,19 @@ jobs:
       with:
         node-version: ${{ matrix.node }}
     - uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: starter-kit-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          starter-kit-${{ hashFiles('**/package-lock.json') }}
-          starter-kit-
+      <<: *cache_config
     - run: npm ci
     - run: npm run e2e
     - run: npm run e2e:dev
+  build:
+    runs-on: ubuntu-18.04
+    needs: e2e
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      <<: *default_node
+    - uses: actions/cache@v2
+      <<: *cache_config
+    - run: npm ci
+      env:
+        CYPRESS_INSTALL_BINARY: 0
