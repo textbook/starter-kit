@@ -81,7 +81,8 @@ jobs:
       with:
         args: push
       env:
+        CF_API: https://api.run.pcfone.io
         CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
-        CF_TARGET_ORG: ${{ secrets.CF_ORG }}
-        CF_TARGET_SPACE: ${{ secrets.CF_SPACE }}
+        CF_TARGET_ORG: pivot-jsharpe
+        CF_TARGET_SPACE: development
         CF_USERNAME: ${{ secrets.CF_USERNAME }}
