@@ -4,7 +4,7 @@ applications:
     buildpacks:
       - https://github.com/cloudfoundry/nodejs-buildpack.git#v1.7.37
     stack: cflinuxfs3
-    disk_quota: 128M
+    disk_quota: 256M
     memory: 128M
     random-route: true
     env:
