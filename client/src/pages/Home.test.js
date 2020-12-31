@@ -1,24 +1,33 @@
 import React from "react";
 import { Router } from "react-router-dom";
-import { act, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
+import { rest } from "msw";
+import { setupServer } from "msw/node";
 
 import { Home } from "./Home";
 import logo from "./logo.svg";
 
 const renderWithHistory = () => {
-	const deferred = defer();
 	const history = createMemoryHistory();
-	fetchMock.mockResponse(() => deferred.promise);
 	const wrapper = render(<Router history={history}><Home /></Router>);
-	return { ...wrapper, deferred, history };
+	return { ...wrapper, history };
 };
 
+const message = "Foo bar!";
+
+const server = setupServer(
+	rest.get("/api", (req, res, ctx) => {
+		return res(ctx.status(200), ctx.json({ message }));
+	}),
+);
+
 describe("Home", () => {
-	it("requests the message", () => {
-		renderWithHistory();
-		expect(fetchMock).toHaveBeenCalledWith("/api");
-	});
+	beforeAll(() => server.listen());
+
+	afterEach(() => server.resetHandlers());
+
+	afterAll(() => server.close());
 
 	it("shows a loading state", async () => {
 		const { getByTestId } = renderWithHistory();
@@ -39,10 +48,8 @@ describe("Home", () => {
 	});
 
 	it("shows the message when request resolves", async () => {
-		const message = "Foo bar!";
-		const { deferred, getByTestId } = renderWithHistory();
-		deferred.resolve(JSON.stringify({ message }));
-		await act(tick);
-		expect(getByTestId("message")).toHaveTextContent(message);
+		const { findByText } = renderWithHistory();
+
+		await findByText(message);
 	});
 });

@@ -20,8 +20,10 @@ pushd "$HERE/.."
     axe-core \
     cypress{,-axe} \
     eslint-plugin-{cypress,jest} \
-    jest{,-circus,-fetch-mock} \
-    supertest
+    jest{,-circus} \
+    msw \
+    supertest \
+    whatwg-fetch
 
   echo 'Remove redundant files'
   rm -rf \
@@ -33,7 +35,7 @@ pushd "$HERE/.."
     reports/ \
     cypress.json \
     jest.config.js \
-    setupTests.js \
+    client/setupTests.js \
     stryker.conf.json \
     client/src/*.test.js \
     client/src/pages/*.test.js \

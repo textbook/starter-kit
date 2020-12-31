@@ -15,11 +15,6 @@
       "extends": [
         "plugin:jest/recommended"
       ],
-      "globals": {
-        "defer": false,
-        "fetchMock": false,
-        "tick": false
-      },
       "rules": {
         "jest/expect-expect": "off"
       }
