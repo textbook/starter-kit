@@ -52,7 +52,7 @@
     "@stryker-mutator/jest-runner": "^4.1.1",
     "@testing-library/cypress": "^7.0.3",
     "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.2",
+    "@testing-library/react": "^11.2.3",
     "axe-core": "^4.1.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
