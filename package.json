@@ -50,7 +50,7 @@
     "@codeyourfuture/eslint-config-standard": "^2.0.3",
     "@stryker-mutator/core": "^4.0.0",
     "@stryker-mutator/jest-runner": "^4.1.1",
-    "@testing-library/cypress": "^7.0.3",
+    "@testing-library/cypress": "^7.0.4",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "axe-core": "^4.1.2",
