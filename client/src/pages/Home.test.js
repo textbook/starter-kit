@@ -50,6 +50,6 @@ describe("Home", () => {
 	it("shows the message when request resolves", async () => {
 		const { findByText } = renderWithHistory();
 
-		await findByText(message);
+		await expect(findByText(message)).resolves.toBeInTheDocument();
 	});
 });

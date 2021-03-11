@@ -16,7 +16,17 @@
         "plugin:jest/recommended"
       ],
       "rules": {
-        "jest/expect-expect": "off"
+        "jest/expect-expect": [
+          "error",
+          {
+            "assertFunctionNames": [
+              "cy.**.should",
+              "cy.checkA11y",
+              "expect",
+              "request.**.expect"
+            ]
+          }
+        ]
       }
     }
   ],
