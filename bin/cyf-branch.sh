@@ -39,7 +39,8 @@ pushd "$HERE/.."
     stryker.conf.json \
     client/src/*.test.js \
     client/src/pages/*.test.js \
-    server/*.test.js
+    server/*.test.js \
+    server/static/
 
   echo 'Remove ESLint testing configuration'
   cat .eslintrc.json | jq 'del(.overrides)' | tee .eslintrc.json
