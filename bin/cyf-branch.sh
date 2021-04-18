@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [ $# -lt 1 ]; then
-  echo "usage: ./bin/cyf-branch.sh <branch-name>"
+  echo "usage: ./bin/cyf-branch.sh <branch-name> [--db mongo]"
   exit 1
 fi
 
@@ -70,15 +70,20 @@ pushd "$HERE/.."
   echo 'Update README'
   cp -f ./bin/files/README.md ./README.md
 
-  echo 'Install Mongoose'
-  npm i --save mongoose
+  if [[ "$*" =~ '--db mongo' ]]; then
+    echo 'Update README'
+    cp -f ./bin/files/mongo/README.md ./README.md
 
-  echo 'Add MongoDB config'
-  cp -f ./bin/files/db.js ./server/db.js
-  cp -f ./bin/files/server.js ./server/server.js
-  cat app.json \
-    | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
-    | tee app.json
+    echo 'Install Mongoose'
+    npm i --save mongoose
+
+    echo 'Add MongoDB config'
+    cp -f ./bin/files/mongo/db.js ./server/db.js
+    cp -f ./bin/files/mongo/server.js ./server/server.js
+    cat app.json \
+      | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
+      | tee app.json
+  fi
 
   echo 'Clean up bin'
   rm -rf bin/
