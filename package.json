@@ -91,7 +91,7 @@
   "dependencies": {
     "@babel/runtime": "^7.13.17",
     "express": "^4.17.1",
-    "helmet": "^4.4.1",
+    "helmet": "^4.5.0",
     "morgan": "^1.10.0"
   },
   "engines": {
