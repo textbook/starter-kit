@@ -8,13 +8,3 @@ updates:
   assignees:
   - textbook
   versioning-strategy: increase
-  ignore:
-  - dependency-name: webpack
-    versions:
-    - 5.34.0
-  - dependency-name: cypress
-    versions:
-    - 6.9.1
-  - dependency-name: "@babel/core"
-    versions:
-    - 7.13.14
