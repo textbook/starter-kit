@@ -56,7 +56,7 @@
     "concurrently": "^6.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
-    "cypress": "^6.8.0",
+    "cypress": "^7.2.0",
     "cypress-axe": "^0.12.2",
     "eslint": "^7.25.0",
     "eslint-plugin-cypress": "^2.11.2",
