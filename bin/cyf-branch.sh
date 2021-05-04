@@ -15,7 +15,6 @@ pushd "$HERE/.."
 
   echo 'Remove testing dependencies'
   npm uninstall \
-    @stryker-mutator/{core,jest-runner} \
     @testing-library/{cypress,jest-dom,react} \
     axe-core \
     cypress{,-axe} \
@@ -28,7 +27,6 @@ pushd "$HERE/.."
   echo 'Remove redundant files'
   rm -rf \
     .github/workflows/ \
-    .stryker-tmp/ \
     __mocks__/ \
     coverage/ \
     e2e/ \
@@ -36,7 +34,6 @@ pushd "$HERE/.."
     cypress.json \
     jest.config.js \
     client/setupTests.js \
-    stryker.conf.json \
     client/src/*.test.js \
     client/src/pages/*.test.js \
     server/*.test.js \
@@ -62,7 +59,7 @@ pushd "$HERE/.."
 
   echo 'Update test ignore files'
   for IGNOREFILE in '.cfignore' '.dockerignore' '.eslintignore' '.gitignore' '.slugignore'; do
-    cat "$IGNOREFILE" | sed -E '/(coverage|e2e|stryker|reports|mocks)/d' | tee "$IGNOREFILE"
+    cat "$IGNOREFILE" | sed -E '/(coverage|e2e|reports|mocks)/d' | tee "$IGNOREFILE"
   done
 
   echo 'Remove Docker test config'

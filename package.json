@@ -25,7 +25,6 @@
     "start": "node dist/server.js",
     "test": "jest",
     "test:cover": "npm run test -- --coverage",
-    "test:mutate": "stryker run",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -48,8 +47,6 @@
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
     "@codeyourfuture/eslint-config-standard": "^2.1.0",
-    "@stryker-mutator/core": "^4.0.0",
-    "@stryker-mutator/jest-runner": "^4.1.1",
     "@testing-library/cypress": "^7.0.6",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
