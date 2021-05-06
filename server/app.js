@@ -15,10 +15,10 @@ app.use(configuredHelmet());
 app.use(logErrors());
 app.use(morgan("dev"));
 
-if (app.get("env") === "production") {
+ if (app.get("env") === "production") {
 	app.enable("trust proxy");
 	app.use(httpsOnly());
-}
+} 
 
 app.use(apiRoot, router);
 

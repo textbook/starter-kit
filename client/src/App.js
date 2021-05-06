@@ -1,13 +1,13 @@
 import { Route, Switch } from "react-router-dom";
+import Routes from "./Routes/Routes.js"
 
 import About from "./pages/About";
 import Home from "./pages/Home";
 
 const App = () => (
-	<Switch>
-		<Route path="/" exact><Home /></Route>
-		<Route path="/about/this/site"><About /></Route>
-	</Switch>
+	<div>
+		<Routes />
+	</div>
 );
 
 export default App;
