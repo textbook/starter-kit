@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [ $# -lt 1 ]; then
-  echo "usage: ./bin/cyf-branch.sh <branch-name> [--db mongo]"
+  echo "usage: ./bin/cyf-branch.sh <branch-name> [--db (mongo|postgres)]"
   exit 1
 fi
 
@@ -65,15 +65,12 @@ pushd "$HERE/.."
   echo 'Remove Docker test config'
   cat Dockerfile | sed '/CYPRESS/d' | tee Dockerfile
 
-  echo 'Update README'
-  cp -f ./bin/files/README.md ./README.md
-
   if [[ "$*" =~ '--db mongo' ]]; then
     echo 'Update README'
     cp -f ./bin/files/mongo/README.md ./README.md
 
     echo 'Install Mongoose'
-    npm i --save mongoose
+    npm install --save mongoose
 
     echo 'Add MongoDB config'
     cp -f ./bin/files/mongo/db.js ./server/db.js
@@ -81,6 +78,23 @@ pushd "$HERE/.."
     cat app.json \
       | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
       | tee app.json
+
+  elif [[ "$*" =~ '--db postgres' ]]; then
+    echo 'Update README'
+    cp -f ./bin/files/postgres/README.md ./README.md
+
+    echo 'Install Postgres'
+    npm install --save pg
+
+    echo 'Add Postgres config'
+    cp -f ./bin/files/postgres/db.js ./server/db.js
+    cp -f ./bin/files/postgres/server.js ./server/server.js
+    cat app.json \
+      | jq '.env.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
+      | tee app.json
+  else
+    echo 'Update README'
+    cp -f ./bin/files/README.md ./README.md
   fi
 
   echo 'Clean up bin'
@@ -88,9 +102,5 @@ pushd "$HERE/.."
 
   echo 'Commit the results'
   git add .
-  git commit -m 'Prepare CYF branch
-
-  - Remove tests and CI
-  - Update README
-  - Add MongoDB'
+  git commit -m 'Prepare CYF branch'
 popd

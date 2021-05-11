@@ -12,19 +12,18 @@
  - [x] [Heroku] deployment
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
- - [x] [MongoDB] database with [Mongoose]
+ - [x] [Postgres] database with [node-postgres]
 
 ## Setup
 
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
  1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
- 2. Set up a Mongo database, e.g. on [MongoDB Atlas], and get the connection URI.
- 3. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
- 4. Fill in the name of the application, select Europe, enter the `MONGODB_URI` environment variable and then click "Deploy App".
- 5. Once it has deployed successfully, click the "Manage app" button to view the application details.
- 6. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
- 7. Click "Enable automatic deploys".
+ 2. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
+ 3. Fill in the name of the application, select Europe and then click "Deploy App".
+ 4. Once it has deployed successfully, click the "Manage app" button to view the application details.
+ 5. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
+ 6. Click "Enable automatic deploys".
 
 Whenever you commit to master (or e.g. merge a [pull request]) it will get automatically deployed!
 
@@ -61,10 +60,9 @@ See the guidance in the [wiki].
   [Express]: https://expressjs.com/
   [Express router]: https://expressjs.com/en/guide/routing.html#express-router
   [Heroku]: https://www.heroku.com/
-  [MongoDB]: https://www.mongodb.com
-  [MongoDB Atlas]: https://www.mongodb.com/cloud/atlas
-  [Mongoose]: https://mongoosejs.com/
   [Node]: https://nodejs.org/en/
+  [node-postgres]: https://node-postgres.com/
+  [Postgres]: https://www.postgresql.org/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
   [Webpack]: https://webpack.js.org/
