@@ -60,7 +60,6 @@ See the guidance in the [wiki].
   [Docker]: https://www.docker.com
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
-  [Express router]: https://expressjs.com/en/guide/routing.html#express-router
   [Heroku]: https://www.heroku.com/
   [MongoDB]: https://www.mongodb.com
   [MongoDB Atlas]: https://www.mongodb.com/cloud/atlas

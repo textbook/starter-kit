@@ -59,7 +59,6 @@ See the guidance in the [wiki].
   [Docker]: https://www.docker.com
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
-  [Express router]: https://expressjs.com/en/guide/routing.html#express-router
   [Heroku]: https://www.heroku.com/
   [Node]: https://nodejs.org/en/
   [node-postgres]: https://node-postgres.com/
