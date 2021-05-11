@@ -90,7 +90,7 @@ pushd "$HERE/.."
     cp -f ./bin/files/postgres/db.js ./server/db.js
     cp -f ./bin/files/postgres/server.js ./server/server.js
     cat app.json \
-      | jq '.env.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
+      | jq '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
       | tee app.json
   else
     echo 'Update README'
