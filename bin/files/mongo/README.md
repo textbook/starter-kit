@@ -6,6 +6,7 @@
  - [x] [Node] LTS support (verified working on 10.x, 12.x and 14.x LTS releases)
  - [x] [Express] server
  - [x] [React] client with [Webpack]
+ - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint]
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
@@ -67,5 +68,6 @@ See the guidance in the [wiki].
   [Node]: https://nodejs.org/en/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
+  [React Router]: https://reactrouter.com/web
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki

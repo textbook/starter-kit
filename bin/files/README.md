@@ -6,6 +6,7 @@
  - [x] [Node] LTS support (verified working on 10.x, 12.x and 14.x LTS releases)
  - [x] [Express] server
  - [x] [React] client with [Webpack]
+ - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint]
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
@@ -19,9 +20,10 @@ Pick one member of the team to own the repository and pipeline. That person shou
 
  1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
  2. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
- 3. Once it has deployed successfully, click the "Manage app" button to view the application details.
- 4. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
- 5. Click "Enable automatic deploys".
+ 3. Fill in the name of the application, select Europe and then click "Deploy App".
+ 4. Once it has deployed successfully, click the "Manage app" button to view the application details.
+ 5. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
+ 6. Click "Enable automatic deploys".
 
 Whenever you commit to master (or e.g. merge a [pull request]) it will get automatically deployed!
 
@@ -61,5 +63,6 @@ See the guidance in the [wiki].
   [Node]: https://nodejs.org/en/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
+  [React Router]: https://reactrouter.com/web
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
