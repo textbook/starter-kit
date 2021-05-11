@@ -19,12 +19,13 @@
 
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
- 1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
- 2. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
- 3. Fill in the name of the application, select Europe and then click "Deploy App".
- 4. Once it has deployed successfully, click the "Manage app" button to view the application details.
- 5. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
- 6. Click "Enable automatic deploys".
+ 1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, select "Include all branches" and name it something appropriate for your project.
+ 2. In your new repo, go to "Settings", then "Branches", then switch the default branch to `postgres` (_optional_: you can now delete the old `master` branch and rename `postgres` to `master`, `main` or whatever else you'd like) - see [GitHub's docs][2] again
+ 3. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
+ 4. Fill in the name of the application, select Europe and then click "Deploy App".
+ 5. Once it has deployed successfully, click the "Manage app" button to view the application details.
+ 6. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
+ 7. Click "Enable automatic deploys".
 
 Whenever you commit to master (or e.g. merge a [pull request]) it will get automatically deployed!
 
@@ -53,6 +54,7 @@ extension, for debugging the client application.
 See the guidance in the [wiki].
 
   [1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template
+  [2]: https://docs.github.com/en/github/administering-a-repository/managing-branches-in-your-repository
   [Babel]: https://babeljs.io/
   [Cloud Foundry]: https://www.cloudfoundry.org/
   [collaborators]: https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
