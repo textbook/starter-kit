@@ -67,28 +67,28 @@ pushd "$HERE/.."
 
   if [[ "$*" =~ '--db mongo' ]]; then
     echo 'Update README'
-    cp -f ./bin/files/mongo/README.md ./README.md
+    cp -f ./bin/files/db/mongo-README.md ./README.md
 
     echo 'Install Mongoose'
     npm install --save mongoose
 
     echo 'Add MongoDB config'
-    cp -f ./bin/files/mongo/db.js ./server/db.js
-    cp -f ./bin/files/mongo/server.js ./server/server.js
+    cp -f ./bin/files/db/mongo-db.js ./server/db.js
+    cp -f ./bin/files/db/server.js ./server/server.js
     cat app.json \
       | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
       | tee app.json
 
   elif [[ "$*" =~ '--db postgres' ]]; then
     echo 'Update README'
-    cp -f ./bin/files/postgres/README.md ./README.md
+    cp -f ./bin/files/db/postgres-README.md ./README.md
 
     echo 'Install Postgres'
     npm install --save pg
 
     echo 'Add Postgres config'
-    cp -f ./bin/files/postgres/db.js ./server/db.js
-    cp -f ./bin/files/postgres/server.js ./server/server.js
+    cp -f ./bin/files/db/postgres-db.js ./server/db.js
+    cp -f ./bin/files/db/server.js ./server/server.js
     cat app.json \
       | jq '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
       | tee app.json

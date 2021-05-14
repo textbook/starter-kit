@@ -19,4 +19,6 @@ export const connectDb = async () => {
 	client.release();
 };
 
-export default pool;
+export const disconnectDb = () => pool.close();
+
+export default { query: pool.query };

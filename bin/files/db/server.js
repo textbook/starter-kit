@@ -1,7 +1,7 @@
 import http from "http";
 
 import app from "./app";
-import { connectDb } from "./db";
+import { connectDb, disconnectDb } from "./db";
 
 const port = parseInt(process.env.PORT || "3000");
 
@@ -14,6 +14,6 @@ server.on("listening", () => {
 	console.log(`Listening on ${bind}`);
 });
 
-connectDb().then(() => {
-	server.listen(port);
-});
+process.on("SIGTERM", () => server.close(() => disconnectDb()));
+
+connectDb().then(() => server.listen(port));
