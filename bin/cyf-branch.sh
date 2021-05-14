@@ -26,7 +26,7 @@ pushd "$HERE/.."
 
   echo 'Remove redundant files'
   rm -rf \
-    .github/workflows/ \
+    .github/ \
     __mocks__/ \
     coverage/ \
     e2e/ \
