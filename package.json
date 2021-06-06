@@ -67,7 +67,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "html-webpack-tags-plugin": "^3.0.1",
-    "jest": "^27.0.3",
+    "jest": "^27.0.4",
     "jest-circus": "^27.0.4",
     "msw": "^0.29.0",
     "nodemon": "^2.0.7",
