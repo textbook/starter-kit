@@ -21,5 +21,3 @@ export const connectDb = async () => {
 };
 
 export const disconnectDb = () => connection.close();
-
-export default connection.db;
