@@ -12,7 +12,6 @@ const app = express();
 
 app.use(express.json());
 app.use(configuredHelmet());
-app.use(logErrors());
 app.use(morgan("dev"));
 
 if (app.get("env") === "production") {
@@ -24,5 +23,7 @@ app.use(apiRoot, router);
 
 app.use(express.static(staticDir));
 app.use(pushStateRouting(apiRoot, staticDir));
+
+app.use(logErrors());
 
 export default app;
