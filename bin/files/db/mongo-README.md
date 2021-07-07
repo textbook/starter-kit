@@ -7,7 +7,7 @@
  - [x] [Express] server
  - [x] [React] client with [Webpack]
  - [x] Client-side routing with [React Router]
- - [x] Linting with [ESLint]
+ - [x] Linting with [ESLint] and [Prettier]
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
  - [x] [Heroku] deployment
@@ -38,7 +38,7 @@ commonly use:
 
  - `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3100, and
     the frontend is proxied to it).
- - `lint`: runs ESLint against all the JavaScript in the project.
+ - `lint`: runs ESLint and Prettier against all the code in the project.
  - `serve`: builds and starts the app in production mode locally.
 
 ### Debugging
@@ -65,6 +65,7 @@ See the guidance in the [wiki].
   [MongoDB Atlas]: https://www.mongodb.com/cloud/atlas
   [Mongoose]: https://mongoosejs.com/
   [Node]: https://nodejs.org/en/
+  [Prettier]: https://prettier.io/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
   [React Router]: https://reactrouter.com/web

@@ -39,8 +39,11 @@ pushd "$HERE/.."
     server/*.test.js \
     server/static/
 
-  echo 'Remove ESLint testing configuration'
-  cat .eslintrc.json | jq 'del(.overrides)' | tee .eslintrc.json
+  echo 'Update ESLint configuration'
+  cat .eslintrc.json \
+    | jq 'del(.overrides)' \
+    | jq '.rules = {"indent": "off", "operator-linebreak": "off"}' \
+    | tee .eslintrc.json
 
   echo 'Exclude ESLint prop-types validation'
   cat ./client/.eslintrc.json \
@@ -55,6 +58,10 @@ pushd "$HERE/.."
     fi
   done
   PACKAGE=$(echo "$PACKAGE" | jq '.scripts["build:server"] = "babel server --out-dir dist"')
+  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint"] = "npm run lint:eslint && npm run lint:prettier -- --check"')
+  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:eslint"] = "eslint ."')
+  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:fix"] = "npm run lint:eslint -- --fix && npm run lint:prettier -- --write"')
+  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:prettier"] = "prettier ."')
   echo $PACKAGE | jq '.' 2>&1 | tee package.json
 
   echo 'Update test ignore files'
@@ -96,6 +103,12 @@ pushd "$HERE/.."
     echo 'Update README'
     cp -f ./bin/files/README.md ./README.md
   fi
+
+  echo 'Apply Prettier configuration'
+  npm install --save-dev prettier
+  cp -f ./bin/files/.prettierignore ./.prettierignore
+  cp -f ./bin/files/.prettierrc ./.prettierrc
+  npm run lint:fix
 
   echo 'Clean up bin'
   rm -rf bin/
