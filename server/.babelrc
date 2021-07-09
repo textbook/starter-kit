@@ -1,6 +1,4 @@
 {
-  "extends": "../.babelrc",
-  "presets": [
-    ["@babel/preset-env", { "targets": { "node": "current" } }]
-  ]
+	"extends": "../.babelrc",
+	"presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
 }

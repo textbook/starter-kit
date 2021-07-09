@@ -1,10 +1,7 @@
-__mocks__/
 .github/
 .idea/
 .vscode/
 client/
-coverage/
-e2e/
 node_modules/
 server/
 cf

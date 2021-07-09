@@ -1,4 +1,10 @@
 {
-  "name": "Starter Kit",
-  "description": "Starter kit for full-stack JavaScript projects"
+	"name": "Starter Kit",
+	"description": "Starter kit for full-stack JavaScript projects",
+	"env": {
+		"MONGODB_URI": {
+			"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)",
+			"required": true
+		}
+	}
 }

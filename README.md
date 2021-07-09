@@ -1,40 +1,45 @@
 # Starter Kit
 
-[![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)](https://github.com/textbook/starter-kit/actions)
-
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
- - [x] Full stack ES8+ with [Babel]
- - [x] [Node] LTS support (verified working on 12.x and 14.x LTS releases)
- - [x] [Express] server
- - [x] [React] client with [Webpack]
- - [x] Client-side routing with [React Router]
- - [x] Linting with [ESLint]
- - [x] Unit and integration testing with [Jest] (and [SuperTest])
- - [x] E2E testing with [Cypress]
- - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
- - [x] Production build (single deployment artifact, React loaded via CDN)
- - [x] [GitHub Actions] pipeline
- - [x] [Heroku] deployment
- - [x] [Cloud Foundry] deployment
- - [x] [Docker] build
+- [x] Full stack ES8+ with [Babel]
+- [x] [Node] LTS support (verified working on 12.x and 14.x LTS releases)
+- [x] [Express] server
+- [x] [React] client with [Webpack]
+- [x] Client-side routing with [React Router]
+- [x] Linting with [ESLint] and [Prettier]
+- [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
+- [x] Production build (single deployment artifact, React loaded via CDN)
+- [x] [Heroku] deployment
+- [x] [Cloud Foundry] deployment
+- [x] [Docker] build
+- [x] [MongoDB] database with [Mongoose]
+
+## Setup
+
+Pick one member of the team to own the repository and pipeline. That person should do the following:
+
+1.  Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
+2.  Set up a Mongo database, e.g. on [MongoDB Atlas], and get the connection URI.
+3.  In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
+4.  Fill in the name of the application, select Europe, enter the `MONGODB_URI` environment variable and then click "Deploy App".
+5.  Once it has deployed successfully, click the "Manage app" button to view the application details.
+6.  Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
+7.  Click "Enable automatic deploys".
+
+Whenever you commit to master (or e.g. merge a [pull request]) it will get automatically deployed!
+
+You should now make sure all of the project team are [collaborators] on the repository.
 
 ## Scripts
 
 Various scripts are provided in the package file, but many are helpers for other scripts; here are the ones you'll
 commonly use:
 
- - `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3100, and
-    the frontend is proxied to it).
- - `e2e`: builds and starts the app in production mode and runs the Cypress tests against it.
- - `e2e:dev`: builds and starts the app in dev mode and runs the Cypress tests against it.
- - `e2e:local`: opens Cypress on the desktop, instead of running it in the background. Doesn't start the app.
- - `lint`: runs ESLint against all the JavaScript in the project.
- - `serve`: builds and starts the app in production mode locally.
- - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
- - `test`: runs the Jest unit and integration tests.
- - `test:cover`: runs the tests and outputs coverage data.
- - `test:watch`: runs the unit and integration tests in watch mode.
+- `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3100, and
+  the frontend is proxied to it).
+- `lint`: runs ESLint and Prettier against all the code in the project.
+- `serve`: builds and starts the app in production mode locally.
 
 ### Debugging
 
@@ -48,47 +53,21 @@ extension, for debugging the client application.
 
 See the guidance in the [wiki].
 
-## Rationale
-
-Partly I wrote this to explore what things like Create React App ([CRA]) are doing under the hood with Babel and
-Webpack. Partly it was to simplify a previous [starter kit], so there aren't multiple package entry points complicating
-the automation and it's not using `copy` (which caused cross-platform issues on Windows).
-
-**Pros**
-
- - A single root ESLint configuration keeps the project's code consistent to minimise context switching
- - Having Jest running once for the whole project means you can run `test:watch` and see the tests related to changes
-    *anywhere* in the codebase
- - Less hidden "magic" config than when using CRA
- - Simpler orchestration with a single NPM entry point
-
-**Cons**
-
- - The single `package.json` is getting a bit unwieldy; there are 20+ scripts and it's unclear what part of the app
-    each dev dependency is for
- - Cypress only runs in Electron/Chrome (for a more cross-browser alternative, see [Codecept])
-
-**To consider**
-
- - [TypeScript]? See [textbook/starter-kit-ts].
-
-  [Babel]: https://babeljs.io/
-  [Cloud Foundry]: https://www.cloudfoundry.org/
-  [Codecept]: https://codecept.io/
-  [CRA]: https://facebook.github.io/create-react-app/
-  [Cypress]: https://www.cypress.io/
-  [Docker]: https://www.docker.com
-  [ESLint]: https://eslint.org/
-  [Express]: https://expressjs.com/
-  [GitHub Actions]: https://github.com/features/actions
-  [Heroku]: https://www.heroku.com/
-  [Jest]: https://jestjs.io/
-  [Node]: https://nodejs.org/en/
-  [React]: https://reactjs.org/
-  [React Router]: https://reactrouter.com/web
-  [starter kit]: https://github.com/textbook/cyf-app-starter
-  [SuperTest]: https://github.com/visionmedia/supertest
-  [textbook/starter-kit-ts]: https://github.com/textbook/starter-kit-ts
-  [TypeScript]: https://www.typescriptlang.org/
-  [Webpack]: https://webpack.js.org/
-  [wiki]: https://github.com/textbook/starter-kit/wiki
+[1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template
+[babel]: https://babeljs.io/
+[cloud foundry]: https://www.cloudfoundry.org/
+[collaborators]: https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
+[docker]: https://www.docker.com
+[eslint]: https://eslint.org/
+[express]: https://expressjs.com/
+[heroku]: https://www.heroku.com/
+[mongodb]: https://www.mongodb.com
+[mongodb atlas]: https://www.mongodb.com/cloud/atlas
+[mongoose]: https://mongoosejs.com/
+[node]: https://nodejs.org/en/
+[prettier]: https://prettier.io/
+[pull request]: https://help.github.com/en/articles/about-pull-requests
+[react]: https://reactjs.org/
+[react router]: https://reactrouter.com/web
+[webpack]: https://webpack.js.org/
+[wiki]: https://github.com/textbook/starter-kit/wiki

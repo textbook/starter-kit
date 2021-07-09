@@ -1,11 +1,7 @@
-__mocks__/
 .git/
 .github/
 .idea/
 .vscode/
 bin/
-coverage/
 dist/
-e2e/
 node_modules/
-reports/

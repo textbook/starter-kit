@@ -1,34 +1,20 @@
 {
-  "env": {
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "@codeyourfuture/standard"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "setupTests.js",
-        "**/*.test.js"
-      ],
-      "extends": [
-        "plugin:jest/recommended"
-      ],
-      "rules": {
-        "jest/expect-expect": [
-          "error",
-          {
-            "assertFunctionNames": [
-              "cy.**.should",
-              "cy.checkA11y",
-              "expect",
-              "request.**.expect"
-            ]
-          }
-        ]
-      }
-    }
-  ],
-  "parser": "babel-eslint"
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"extends": ["@codeyourfuture/standard"],
+	"parser": "babel-eslint",
+	"rules": {
+		"indent": "off",
+		"operator-linebreak": "off",
+		"quotes": [
+			"error",
+			"double",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": false
+			}
+		]
+	}
 }

@@ -3,7 +3,12 @@ import morgan from "morgan";
 import path from "path";
 
 import router from "./api";
-import { configuredHelmet, httpsOnly, logErrors, pushStateRouting } from "./middleware";
+import {
+	configuredHelmet,
+	httpsOnly,
+	logErrors,
+	pushStateRouting,
+} from "./middleware";
 
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
