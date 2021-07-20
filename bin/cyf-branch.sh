@@ -44,7 +44,6 @@ pushd "$HERE/.."
     | jq 'del(.overrides)' \
     | jq '.rules.indent = "off"' \
     | jq '.rules["operator-linebreak"] = "off"' \
-    | jq '.rules.quotes = ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": false }]' \
     | tee .eslintrc.json
 
   echo 'Exclude ESLint prop-types validation'
