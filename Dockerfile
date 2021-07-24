@@ -1,6 +1,7 @@
-ARG NODE_RELEASE=14.17.0
+ARG NODE_RELEASE
+ARG ALPINE_RELEASE=3.14
 
-FROM node:${NODE_RELEASE}-alpine AS build
+FROM node:${NODE_RELEASE}-alpine${ALPINE_RELEASE} AS build
 
 ARG NODE_RELEASE
 
@@ -20,7 +21,7 @@ COPY ./server ./server
 
 RUN npm run build
 
-FROM node:${NODE_RELEASE}-alpine
+FROM node:${NODE_RELEASE}-alpine${ALPINE_RELEASE}
 
 ARG NODE_RELEASE
 
@@ -39,6 +40,6 @@ COPY --from=build /home/node/dist ./dist
 
 EXPOSE 80
 
-ENTRYPOINT [ "npm" ]
+USER node
 
-CMD [ "start" ]
+CMD [ "node", "dist/server.js" ]

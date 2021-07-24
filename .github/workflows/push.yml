@@ -8,9 +8,11 @@ jobs:
     if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[skip ci]')
     steps:
     - uses: actions/checkout@v2
+    - run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      id: nvmrc
     - uses: actions/setup-node@v1
       with:
-        node-version: '14.17.0'
+        node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
     - uses: actions/cache@v2
       with:
         path: ~/.npm
@@ -26,6 +28,8 @@ jobs:
     - run: npm run test
     - uses: docker/build-push-action@v2
       with:
+        build-args: |
+          NODE_RELEASE=${{ steps.nvmrc.outputs.NODE_VERSION }}
         context: ./
         file: ./Dockerfile
         push: false
@@ -57,9 +61,11 @@ jobs:
     needs: e2e
     steps:
     - uses: actions/checkout@v2
+    - run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      id: nvmrc
     - uses: actions/setup-node@v1
       with:
-        node-version: '14.17.0'
+        node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
     - uses: actions/cache@v2
       with:
         path: ~/.npm
