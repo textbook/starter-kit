@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/textbook/starter-kit#readme",
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
+    "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.7",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
