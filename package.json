@@ -57,7 +57,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
     "cypress": "^8.2.0",
-    "cypress-axe": "^0.12.2",
+    "cypress-axe": "^0.13.0",
     "eslint": "^7.32.0",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-jest": "^24.4.0",
