@@ -47,6 +47,20 @@ If you're using VS Code, a debugging configuration is provided for this.
 There is also a VS Code debugging configuration for the Chrome debugger, which requires the recommended Chrome
 extension, for debugging the client application.
 
+### Security
+
+If the project handles **any kind of** Personally Identifiable Information (PII) then make sure the following
+principles are followed:
+
+ - Only collect **strictly necessary** PII;
+ - Access to PII should be as restricted as possible;
+ - Access to PII should only be possible after authentication. Authentication **must be done** via GitHub. **Ad hoc
+authentication solutions are not allowed**;
+ - Admins must be able to control who has access to the platform and at which levels using only GitHub groups;
+ - There must be an audit mechanism in place. It is required by law to know who accessed what and when;
+ - Code must be reviewed by senior developers before being pushed to production;
+ - APIs must be secure. Make sure we are not handling security on the frontend.
+
 ### Troubleshooting
 
 See the guidance in the [wiki].
