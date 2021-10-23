@@ -27,7 +27,7 @@ Pick one member of the team to own the repository and pipeline. That person shou
  6. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
  7. Click "Enable automatic deploys".
 
-Whenever you commit to master (or e.g. merge a [pull request]) it will get automatically deployed!
+Whenever you commit to main (or e.g. merge a [pull request]) it will get automatically deployed!
 
 You should now make sure all of the project team are [collaborators] on the repository.
 

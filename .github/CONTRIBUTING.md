@@ -6,5 +6,5 @@ For information about **developer setup**, **common errors** and other tips, see
 ### Code of conduct
 Please review the [code of conduct].
 
-[code of conduct]: https://github.com/textbook/starter-kit/blob/master/.github/CODE_OF_CONDUCT.md
+[code of conduct]: https://github.com/textbook/starter-kit/blob/main/.github/CODE_OF_CONDUCT.md
 [wiki]: https://github.com/textbook/starter-kit/wiki

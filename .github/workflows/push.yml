@@ -45,7 +45,7 @@ jobs:
     - run: npm run e2e:dev
   deploy-heroku:
     runs-on: ubuntu-20.04
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     needs: e2e
     steps:
       - uses: actions/checkout@v2
@@ -56,7 +56,7 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
   deploy-cf:
     runs-on: ubuntu-20.04
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     needs: e2e
     steps:
     - uses: actions/checkout@v2
