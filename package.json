@@ -66,7 +66,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "html-webpack-tags-plugin": "^3.0.1",
+    "html-webpack-tags-plugin": "^3.0.2",
     "jest": "^27.3.1",
     "jest-circus": "^27.3.1",
     "msw": "^0.35.0",
