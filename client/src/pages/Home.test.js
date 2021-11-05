@@ -9,7 +9,11 @@ import logo from "./logo.svg";
 
 const renderWithHistory = () => {
 	const history = createMemoryHistory();
-	const wrapper = render(<Router history={history}><Home /></Router>);
+	const wrapper = render(
+		<Router location={history.location} navigator={history}>
+			<Home />
+		</Router>
+	);
 	return { ...wrapper, history };
 };
 
