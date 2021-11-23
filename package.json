@@ -49,7 +49,7 @@
     "@babel/preset-react": "^7.16.0",
     "@codeyourfuture/eslint-config-standard": "^3.0.2",
     "@testing-library/cypress": "^8.0.2",
-    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "axe-core": "^4.3.5",
     "babel-loader": "^8.2.3",
