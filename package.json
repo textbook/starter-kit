@@ -47,7 +47,7 @@
     "@babel/plugin-transform-runtime": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
-    "@codeyourfuture/eslint-config-standard": "^3.0.2",
+    "@codeyourfuture/eslint-config-standard": "^3.0.3",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
