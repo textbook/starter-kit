@@ -68,7 +68,7 @@
     "html-webpack-plugin": "^5.5.0",
     "html-webpack-tags-plugin": "^3.0.2",
     "jest": "^27.4.5",
-    "jest-circus": "^27.4.4",
+    "jest-circus": "^27.4.6",
     "msw": "^0.36.3",
     "nodemon": "^2.0.14",
     "prop-types": "^15.8.0",
