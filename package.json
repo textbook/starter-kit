@@ -58,7 +58,7 @@
     "css-loader": "^6.5.1",
     "cypress": "^9.2.1",
     "cypress-axe": "^0.14.0",
-    "eslint": "^8.6.0",
+    "eslint": "^8.7.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jest": "^25.7.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
