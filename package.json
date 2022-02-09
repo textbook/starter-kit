@@ -86,7 +86,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.0",
+    "@babel/runtime": "^7.17.2",
     "express": "^4.17.2",
     "helmet": "^5.0.2",
     "morgan": "^1.10.0"
