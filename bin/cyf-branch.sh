@@ -58,12 +58,14 @@ pushd "$HERE/.."
       PACKAGE=$(echo "$PACKAGE" | jq "del(.scripts[\"$SCRIPT\"])")
     fi
   done
-  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["build:server"] = "babel server --out-dir dist"')
-  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint"] = "npm run lint:eslint && npm run lint:prettier -- --check"')
-  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:eslint"] = "eslint ."')
-  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:fix"] = "npm run lint:eslint -- --fix && npm run lint:prettier -- --write"')
-  PACKAGE=$(echo "$PACKAGE" | jq '.scripts["lint:prettier"] = "prettier ."')
   echo $PACKAGE | jq '.' 2>&1 | tee package.json
+
+  echo 'Update existing scripts'
+  npm set-script 'build:server' 'babel server --out-dir dist'
+  npm set-script 'lint' 'npm run lint:eslint && npm run lint:prettier -- --check'
+  npm set-script 'lint:eslint' 'eslint .'
+  npm set-script 'lint:fix' 'npm run lint:eslint -- --fix && npm run lint:prettier -- --write'
+  npm set-script 'lint:prettier' 'prettier .'
 
   echo 'Update test ignore files'
   for IGNOREFILE in '.cfignore' '.dockerignore' '.eslintignore' '.gitignore' '.slugignore'; do
