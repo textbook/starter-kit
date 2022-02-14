@@ -39,6 +39,11 @@ pushd "$HERE/.."
     server/*.test.js \
     server/static/
 
+  echo 'Add templates'
+  mkdir -p .github/ISSUE_TEMPLATE/
+  cp bin/files/PULL_REQUEST_TEMPLATE.md .github/
+  cp bin/files/user-story.md .github/ISSUE_TEMPLATE
+
   echo 'Update ESLint configuration'
   cat .eslintrc.json \
     | jq 'del(.overrides)' \
