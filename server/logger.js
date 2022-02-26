@@ -2,7 +2,7 @@ import { createLogger, format, transports } from "winston";
 
 import config from "./config";
 
-export default createLogger({
+const logger = createLogger({
 	format: format.combine(
 		format.align(),
 		format.colorize(),
@@ -15,3 +15,9 @@ export default createLogger({
 		new transports.Console(),
 	],
 });
+
+if (!config.production) {
+	logger.debug("configured with: %O", config);
+}
+
+export default logger;

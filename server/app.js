@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 
 import router from "./api";
+import config from "./config";
 import {
 	configuredHelmet,
 	configuredMorgan,
@@ -19,7 +20,7 @@ app.use(express.json());
 app.use(configuredHelmet());
 app.use(configuredMorgan());
 
-if (app.get("env") === "production") {
+if (config.production) {
 	app.enable("trust proxy");
 	app.use(httpsOnly());
 }
