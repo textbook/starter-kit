@@ -1,8 +1,7 @@
 import http from "http";
 
 import app from "./app";
-
-const port = parseInt(process.env.PORT || "3000");
+import config from "./config";
 
 const server = http.createServer(app);
 
@@ -15,4 +14,4 @@ server.on("listening", () => {
 
 process.on("SIGTERM", () => server.close());
 
-server.listen(port);
+server.listen(config.port);
