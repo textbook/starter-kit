@@ -5,6 +5,7 @@
  - [x] Full stack ES8+ with [Babel]
  - [x] [Node] LTS support (verified working on 12.x, 14.x and 16.x LTS releases)
  - [x] [Express] server
+ - [x] Logging with [Winston] and [Morgan]
  - [x] [React] client with [Webpack]
  - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint] and [Prettier]
@@ -78,6 +79,7 @@ See the guidance in the [wiki].
   [MongoDB]: https://www.mongodb.com
   [MongoDB Atlas]: https://www.mongodb.com/cloud/atlas
   [Mongoose]: https://mongoosejs.com/
+  [Morgan]: https://github.com/expressjs/morgan
   [Node]: https://nodejs.org/en/
   [Prettier]: https://prettier.io/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
@@ -85,3 +87,4 @@ See the guidance in the [wiki].
   [React Router]: https://reactrouter.com/web
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
+  [Winston]: https://github.com/winstonjs/winston

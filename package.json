@@ -12,7 +12,7 @@
     "cleanup": "rimraf ./dist/*",
     "dev": "concurrently -k -n \"client,server\" \"npm run dev:client\" \"npm run dev:server\"",
     "dev:client": "webpack serve --config client/webpack/dev.config.js",
-    "dev:server": "cross-env PORT=3100 nodemon --exitcrash --inspect --delay 500ms --watch server --exec babel-node server/server.js",
+    "dev:server": "cross-env LOG_LEVEL=debug PORT=3100 nodemon --exitcrash --inspect --delay 500ms --watch server --exec babel-node server/server.js",
     "e2e": "concurrently -k -s first -n \"app,e2e\" \"npm run serve\" \"npm run e2e:safe\"",
     "e2e:dev": "concurrently -k -s first -n \"dev,e2e\" \"npm run dev\" \"npm run e2e:safe\"",
     "e2e:local": "cypress open",
@@ -89,7 +89,8 @@
     "@babel/runtime": "^7.17.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.6.0"
   },
   "engines": {
     "node": "^12 || ^14 || ^16",

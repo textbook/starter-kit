@@ -1,5 +1,8 @@
 import helmet from "helmet";
 import path from "path";
+import morgan from "morgan";
+
+import logger from "./logger";
 
 export const configuredHelmet = () => helmet({
 	contentSecurityPolicy: {
@@ -13,6 +16,8 @@ export const configuredHelmet = () => helmet({
 	},
 });
 
+export const configuredMorgan = () => morgan("dev", { stream: { write: (message) => logger.info(message.trim()) } });
+
 export const httpsOnly = () => (req, res, next) => {
 	if (!req.secure) {
 		return res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
@@ -24,7 +29,7 @@ export const logErrors = () => (err, _, res, next) => {
 	if (res.headersSent) {
 		return next(err);
 	}
-	console.error(err);
+	logger.error("%O", err);
 	res.sendStatus(500);
 };
 

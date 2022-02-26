@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 import config from "./config";
+import logger from "./logger";
 
 const configuration = {
 	serverSelectionTimeoutMS: 5000,
@@ -11,9 +12,9 @@ const configuration = {
 export const connectDb = async () => {
 	try {
 		await mongoose.connect(config.dbUrl, configuration);
-		console.log("MongoDB connected to", mongoose.connection.name);
+		logger.info("MongoDB connected to %s", mongoose.connection.name);
 	} catch (err) {
-		console.error(err);
+		logger.error("%O", err);
 		process.exit(1);
 	}
 };

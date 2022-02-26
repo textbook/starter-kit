@@ -1,6 +1,7 @@
 import { Pool } from "pg";
 
 import config from "./config";
+import logger from "./logger";
 
 const pool = new Pool({
 	connectionString: config.dbUrl,
@@ -13,10 +14,10 @@ export const connectDb = async () => {
 	try {
 		client = await pool.connect();
 	} catch (err) {
-		console.error(err);
+		logger.error("%O", err);
 		process.exit(1);
 	}
-	console.log("Postgres connected to", client.database);
+	logger.info("Postgres connected to %s", client.database);
 	client.release();
 };
 
