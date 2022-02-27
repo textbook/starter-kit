@@ -7,6 +7,7 @@
  - [x] Full stack ES8+ with [Babel]
  - [x] [Node] LTS support (verified working on 12.x, 14.x and 16.x LTS releases)
  - [x] [Express] server
+ - [x] Logging with [Winston] and [Morgan]
  - [x] [React] client with [Webpack]
  - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint]
@@ -83,6 +84,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [GitHub Actions]: https://github.com/features/actions
   [Heroku]: https://www.heroku.com/
   [Jest]: https://jestjs.io/
+  [Morgan]: https://github.com/expressjs/morgan
   [Node]: https://nodejs.org/en/
   [React]: https://reactjs.org/
   [React Router]: https://reactrouter.com/web
@@ -92,3 +94,4 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [TypeScript]: https://www.typescriptlang.org/
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
+  [Winston]: https://github.com/winstonjs/winston

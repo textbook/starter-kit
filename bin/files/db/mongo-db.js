@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/cyf";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
 const configuration = {
 	serverSelectionTimeoutMS: 5000,
@@ -10,10 +11,10 @@ const configuration = {
 
 export const connectDb = async () => {
 	try {
-		await mongoose.connect(dbUrl, configuration);
-		console.log("MongoDB connected to", mongoose.connection.name);
+		await mongoose.connect(config.dbUrl, configuration);
+		logger.info("MongoDB connected to %s", mongoose.connection.name);
 	} catch (err) {
-		console.error(err);
+		logger.error("%O", err);
 		process.exit(1);
 	}
 };

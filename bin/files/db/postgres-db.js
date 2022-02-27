@@ -1,11 +1,12 @@
 import { Pool } from "pg";
 
-const dbUrl = process.env.DATABASE_URL || "postgres://localhost:5432/cyf";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
 const pool = new Pool({
-	connectionString: dbUrl,
+	connectionString: config.dbUrl,
 	connectionTimeoutMillis: 5000,
-	ssl: dbUrl.includes("localhost") ? false : { rejectUnauthorized: false },
+	ssl: config.dbUrl.includes("localhost") ? false : { rejectUnauthorized: false },
 });
 
 export const connectDb = async () => {
@@ -13,10 +14,10 @@ export const connectDb = async () => {
 	try {
 		client = await pool.connect();
 	} catch (err) {
-		console.error(err);
+		logger.error("%O", err);
 		process.exit(1);
 	}
-	console.log("Postgres connected to", client.database);
+	logger.info("Postgres connected to %s", client.database);
 	client.release();
 };
 

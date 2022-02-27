@@ -1,9 +1,15 @@
 import express from "express";
-import morgan from "morgan";
 import path from "path";
 
 import router from "./api";
-import { configuredHelmet, httpsOnly, logErrors, pushStateRouting } from "./middleware";
+import config from "./utils/config";
+import {
+	configuredHelmet,
+	configuredMorgan,
+	httpsOnly,
+	logErrors,
+	pushStateRouting,
+} from "./utils/middleware";
 
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
@@ -12,9 +18,9 @@ const app = express();
 
 app.use(express.json());
 app.use(configuredHelmet());
-app.use(morgan("dev"));
+app.use(configuredMorgan());
 
-if (app.get("env") === "production") {
+if (config.production) {
 	app.enable("trust proxy");
 	app.use(httpsOnly());
 }
