@@ -1,6 +1,6 @@
 import helmet from "helmet";
-import path from "path";
 import morgan from "morgan";
+import path from "path";
 
 import logger from "./logger";
 
