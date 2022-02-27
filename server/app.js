@@ -2,14 +2,14 @@ import express from "express";
 import path from "path";
 
 import router from "./api";
-import config from "./config";
+import config from "./utils/config";
 import {
 	configuredHelmet,
 	configuredMorgan,
 	httpsOnly,
 	logErrors,
 	pushStateRouting,
-} from "./middleware";
+} from "./utils/middleware";
 
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
