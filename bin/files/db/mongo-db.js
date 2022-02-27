@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-import config from "./config";
-import logger from "./logger";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
 const configuration = {
 	serverSelectionTimeoutMS: 5000,

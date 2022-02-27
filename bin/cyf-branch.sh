@@ -88,7 +88,7 @@ pushd "$HERE/.."
     npm install --save mongoose
 
     echo 'Add MongoDB config'
-    cp -f ./bin/files/db/mongo-config.js ./server/config.js
+    cp -f ./bin/files/db/mongo-config.js ./server/utils/config.js
     cp -f ./bin/files/db/mongo-db.js ./server/db.js
     cp -f ./bin/files/db/server.js ./server/server.js
     cat app.json \
@@ -103,7 +103,7 @@ pushd "$HERE/.."
     npm install --save pg
 
     echo 'Add Postgres config'
-    cp -f ./bin/files/db/postgres-config.js ./server/config.js
+    cp -f ./bin/files/db/postgres-config.js ./server/utils/config.js
     cp -f ./bin/files/db/postgres-db.js ./server/db.js
     cp -f ./bin/files/db/server.js ./server/server.js
     cat app.json \

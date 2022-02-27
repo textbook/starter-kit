@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 
-import config from "./config";
-import logger from "./logger";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
 const pool = new Pool({
 	connectionString: config.dbUrl,

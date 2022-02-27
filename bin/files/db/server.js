@@ -1,9 +1,9 @@
 import http from "http";
 
 import app from "./app";
-import config from "./config";
 import { connectDb, disconnectDb } from "./db";
-import logger from "./logger";
+import config from "./utils/config";
+import logger from "./utils/logger";
 
 const server = http.createServer(app);
 
