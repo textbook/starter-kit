@@ -1,18 +1,16 @@
 import express from "express";
-import path from "path";
 
-import router from "./api";
+import apiRouter from "./api";
 import config from "./utils/config";
 import {
+	clientRouter,
 	configuredHelmet,
 	configuredMorgan,
 	httpsOnly,
 	logErrors,
-	pushStateRouting,
 } from "./utils/middleware";
 
 const apiRoot = "/api";
-const staticDir = path.join(__dirname, "static");
 
 const app = express();
 
@@ -25,11 +23,8 @@ if (config.production) {
 	app.use(httpsOnly());
 }
 
-app.use(apiRoot, router);
-
-app.use(express.static(staticDir));
-app.use(pushStateRouting(apiRoot, staticDir));
-
+app.use(apiRoot, apiRouter);
+app.use(clientRouter(apiRoot));
 app.use(logErrors());
 
 export default app;

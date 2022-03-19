@@ -1,8 +1,22 @@
+import express, { Router } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 
 import logger from "./logger";
+
+export const clientRouter = (apiRoot) => {
+	const staticDir = path.join(__dirname, "..", "static");
+	const router = Router();
+	router.use(express.static(staticDir));
+	router.use((req, res, next) => {
+		if (req.method === "GET" && !req.url.startsWith(apiRoot)) {
+			return res.sendFile(path.join(staticDir, "index.html"));
+		}
+		next();
+	});
+	return router;
+};
 
 export const configuredHelmet = () => helmet({
 	contentSecurityPolicy: {
@@ -31,11 +45,4 @@ export const logErrors = () => (err, _, res, next) => {
 	}
 	logger.error("%O", err);
 	res.sendStatus(500);
-};
-
-export const pushStateRouting = (apiRoot, staticDir) => (req, res, next) => {
-	if (req.method === "GET" && !req.url.startsWith(apiRoot)) {
-		return res.sendFile(path.join(staticDir, "index.html"));
-	}
-	next();
 };
