@@ -87,6 +87,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.8",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "morgan": "^1.10.0",

@@ -10,28 +10,7 @@
 
 Creates and exposes an object representing the app's configuration. This centralises access to the environment and definition of default values.
 
-If you add new environment variables, or want to use e.g. [Dotenv], they should be added here:
-
-```js
-import "dotenv/config";
-
-export default {
-	// ...
-	myVar: process.env.MY_ENV_VAR ?? defaultValue,
-};
-```
-
-then imported and used elsewhere:
-
-```js
-import config from "path/to/config";
-
-// ...
-
-router.get("/", (req, res) => {
-	res.json({ envVar: config.myVar });
-});
-```
+[Dotenv] is used to load any configuration required from a `.env` file in the root of the repository.
 
 To check if this is being used correctly, if you search your codebase, _all_ uses of `process.env` in `server/` should be in this file.
 

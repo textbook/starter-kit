@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export default {
 	dbUrl: process.env.DATABASE_URL ?? "postgres://localhost:5432/cyf",
 	logLevel: process.env.LOG_LEVEL ?? "info",

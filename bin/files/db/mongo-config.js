@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export default {
 	dbUrl: process.env.MONGODB_URI ?? "mongodb://localhost:27017/cyf",
 	logLevel: process.env.LOG_LEVEL ?? "info",

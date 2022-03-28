@@ -6,3 +6,4 @@ e2e/videos/
 node_modules/
 reports/
 .DS_Store
+.env
