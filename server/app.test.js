@@ -7,6 +7,10 @@ describe("app", () => {
 		await request(app).get("/api").expect(200, { message: "Hello, world!" });
 	});
 
+	it("exposes a /health endpoint", async () => {
+		await request(app).get("/health").expect(200, "OK");
+	});
+
 	it("serves resources from the static directory", async () => {
 		await request(app)
 			.get("/")
