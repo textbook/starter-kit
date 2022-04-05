@@ -91,7 +91,7 @@
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "morgan": "^1.10.0",
-    "winston": "^3.6.0"
+    "winston": "^3.7.2"
   },
   "engines": {
     "node": "^12 || ^14 || ^16",
