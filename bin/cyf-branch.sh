@@ -66,7 +66,8 @@ pushd "$HERE/.."
   echo $PACKAGE | jq '.' 2>&1 | tee package.json
 
   echo 'Update existing scripts'
-  npm set-script 'build:server' 'babel server --out-dir dist'
+  npm set-script 'build:server' 'babel server --out-dir dist --copy-files'
+  npm set-script 'postbuild:server' 'rimraf ./dist/**/README.md'
   npm set-script 'lint' 'npm run lint:eslint && npm run lint:prettier -- --check'
   npm set-script 'lint:eslint' 'eslint .'
   npm set-script 'lint:fix' 'npm run lint:eslint -- --fix && npm run lint:prettier -- --write'
