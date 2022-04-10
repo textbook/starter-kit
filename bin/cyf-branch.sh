@@ -65,6 +65,9 @@ pushd "$HERE/.."
   done
   echo $PACKAGE | jq '.' 2>&1 | tee package.json
 
+  echo 'Remove CSP checking'
+  cp -f ./bin/files/middleware.js ./server/utils/middleware.js
+
   echo 'Update existing scripts'
   npm set-script 'build:server' 'babel server --out-dir dist --copy-files'
   npm set-script 'postbuild:server' 'rimraf ./dist/**/README.md'
