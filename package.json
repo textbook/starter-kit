@@ -51,7 +51,7 @@
     "@codeyourfuture/eslint-config-standard": "^3.0.3",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^13.0.1",
     "axe-core": "^4.4.0",
     "babel-loader": "^8.2.4",
     "concurrently": "^7.1.0",
