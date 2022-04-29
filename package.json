@@ -72,7 +72,7 @@
     "jest-circus": "^28.0.1",
     "jest-environment-jsdom": "^28.0.1",
     "msw": "^0.39.2",
-    "nodemon": "^2.0.14",
+    "nodemon": "^2.0.16",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
