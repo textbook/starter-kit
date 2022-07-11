@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "npm run build:server && npm run build:client",
-    "postbuild": "./bin/build-info.sh || echo 'No build info'",
+    "postbuild": "buildinfo dist/static/build-info.txt",
     "build:client": "webpack --config client/webpack/prod.config.js",
     "build:server": "babel server --out-dir dist --copy-files --ignore \"**/*.test.js\"",
     "postbuild:server": "rimraf ./dist/static ./dist/**/README.md",
@@ -88,6 +88,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.18.6",
+    "@textbook/build-info": "^0.2.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
