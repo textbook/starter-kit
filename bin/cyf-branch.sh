@@ -69,12 +69,12 @@ pushd "$HERE/.."
   cp -f ./bin/files/middleware.js ./server/utils/middleware.js
 
   echo 'Update existing scripts'
-  npm set-script 'build:server' 'babel server --out-dir dist --copy-files'
-  npm set-script 'postbuild:server' 'rimraf ./dist/**/README.md'
-  npm set-script 'lint' 'npm run lint:eslint && npm run lint:prettier -- --check'
-  npm set-script 'lint:eslint' 'eslint .'
-  npm set-script 'lint:fix' 'npm run lint:eslint -- --fix && npm run lint:prettier -- --write'
-  npm set-script 'lint:prettier' 'prettier .'
+  npm pkg set 'scripts.build:server=babel server --out-dir dist --copy-files'
+  npm pkg set 'scripts.postbuild:server=rimraf ./dist/**/README.md'
+  npm pkg set 'scripts.lint=npm run lint:eslint && npm run lint:prettier -- --check'
+  npm pkg set 'scripts.lint:eslint=eslint .'
+  npm pkg set 'scripts.lint:fix=npm run lint:eslint -- --fix && npm run lint:prettier -- --write'
+  npm pkg set 'scripts.lint:prettier=prettier .'
 
   echo 'Update test ignore files'
   for IGNOREFILE in '.cfignore' '.dockerignore' '.eslintignore' '.gitignore' '.slugignore'; do
@@ -84,39 +84,19 @@ pushd "$HERE/.."
   echo 'Remove Docker test config'
   cat Dockerfile | sed '/CYPRESS/d' | tee Dockerfile
 
-  if [[ "$*" =~ '--db mongo' ]]; then
-    echo 'Update README'
-    cp -f ./bin/files/db/mongo-README.md ./README.md
+	echo 'Update README'
+	cp -f ./bin/files/README.md ./README.md
 
-    echo 'Install Mongoose'
-    npm install --save mongoose
+	echo 'Install Postgres'
+	npm install --save pg
 
-    echo 'Add MongoDB config'
-    cp -f ./bin/files/db/mongo-config.js ./server/utils/config.js
-    cp -f ./bin/files/db/mongo-db.js ./server/db.js
-    cp -f ./bin/files/db/server.js ./server/server.js
-    cat app.json \
-      | jq '.env.MONGODB_URI = {"description": "Connection URI for your database (e.g. on https://www.mongodb.com/cloud/atlas)", "required": true}' \
-      | tee app.json
-
-  elif [[ "$*" =~ '--db postgres' ]]; then
-    echo 'Update README'
-    cp -f ./bin/files/db/postgres-README.md ./README.md
-
-    echo 'Install Postgres'
-    npm install --save pg
-
-    echo 'Add Postgres config'
-    cp -f ./bin/files/db/postgres-config.js ./server/utils/config.js
-    cp -f ./bin/files/db/postgres-db.js ./server/db.js
-    cp -f ./bin/files/db/server.js ./server/server.js
-    cat app.json \
-      | jq '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
-      | tee app.json
-  else
-    echo 'Update README'
-    cp -f ./bin/files/README.md ./README.md
-  fi
+	echo 'Add Postgres config'
+	cp -f ./bin/files/config.js ./server/utils/config.js
+	cp -f ./bin/files/db.js ./server/db.js
+	cp -f ./bin/files/server.js ./server/server.js
+	cat app.json \
+		| jq '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
+		| tee app.json
 
   echo 'Apply Prettier configuration'
   npm install --save-dev prettier

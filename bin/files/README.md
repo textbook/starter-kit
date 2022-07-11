@@ -5,6 +5,7 @@
  - [x] Full stack ES8+ with [Babel]
  - [x] [Node] LTS support (verified working on 14.x and 16.x LTS releases)
  - [x] [Express] server
+ - [x] Logging with [Winston] and [Morgan]
  - [x] [React] client with [Webpack]
  - [x] Client-side routing with [React Router]
  - [x] Linting with [ESLint] and [Prettier]
@@ -13,12 +14,13 @@
  - [x] [Heroku] deployment
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
+ - [x] [Postgres] database with [node-postgres]
 
 ## Setup
 
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
- 1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository, and name it something appropriate for your project.
+ 1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
  2. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
  3. Fill in the name of the application, select Europe and then click "Deploy App".
  4. Once it has deployed successfully, click the "Manage app" button to view the application details.
@@ -73,10 +75,14 @@ See the guidance in the [wiki].
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
   [Heroku]: https://www.heroku.com/
+  [Morgan]: https://github.com/expressjs/morgan
   [Node]: https://nodejs.org/en/
+  [node-postgres]: https://node-postgres.com/
+  [Postgres]: https://www.postgresql.org/
   [Prettier]: https://prettier.io/
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
   [React Router]: https://reactrouter.com/web
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
+  [Winston]: https://github.com/winstonjs/winston
