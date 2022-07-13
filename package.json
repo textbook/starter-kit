@@ -68,7 +68,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "html-webpack-tags-plugin": "^3.0.2",
-    "jest": "^28.1.2",
+    "jest": "^28.1.3",
     "jest-circus": "^28.1.2",
     "jest-environment-jsdom": "^28.1.2",
     "msw": "^0.43.1",
