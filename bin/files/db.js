@@ -23,4 +23,13 @@ export const connectDb = async () => {
 
 export const disconnectDb = () => pool.close();
 
-export default { query: pool.query.bind(pool) };
+/**
+ * Access this with `import db from "path/to/db";` then use it with
+ * `await db.query("<SQL>", [...<variables>])`.
+ */
+export default {
+	query: (...args) => {
+		logger.debug("Postgres querying %O", args);
+		return pool.query.apply(pool, args);
+	},
+};
