@@ -69,7 +69,7 @@ pushd "$HERE/.."
   cp -f ./bin/files/middleware.js ./server/utils/middleware.js
 
   echo 'Update existing scripts'
-  npm pkg set 'scripts.build:server=babel server --out-dir dist --copy-files'
+  npm pkg set 'scripts.build:server=babel server --copy-files --out-dir dist'
   npm pkg set 'scripts.postbuild:server=rimraf ./dist/**/README.md'
   npm pkg set 'scripts.lint=npm run lint:eslint && npm run lint:prettier -- --check'
   npm pkg set 'scripts.lint:eslint=eslint .'
