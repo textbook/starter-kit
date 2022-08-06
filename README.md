@@ -66,7 +66,8 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
 **Cons**
 
  - The single `package.json` is getting a bit unwieldy; there are 20+ scripts and it's unclear what part of the app
-    each dev dependency is for
+    each dev dependency is for (if you're using NPM 8 you can see one alternative for this using workspaces in
+    [Impasse], which was based on this starter kit)
  - Cypress only runs in Electron/Chrome (for a more cross-browser alternative, see [Codecept])
 
 **To consider**
@@ -83,6 +84,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Express]: https://expressjs.com/
   [GitHub Actions]: https://github.com/features/actions
   [Heroku]: https://www.heroku.com/
+  [Impasse]: https://github.com/textbook/impasse
   [Jest]: https://jestjs.io/
   [Morgan]: https://github.com/expressjs/morgan
   [Node]: https://nodejs.org/en/
