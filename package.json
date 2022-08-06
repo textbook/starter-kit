@@ -13,7 +13,7 @@
     "cleanup": "rimraf ./dist/*",
     "dev": "concurrently --kill-others \"npm:dev:*\"",
     "dev:client": "webpack serve --config client/webpack/dev.config.js",
-    "dev:server": "cross-env LOG_LEVEL=debug PORT=3100 nodemon --exec babel-node --exitcrash --inspect --delay 500ms --watch server server/server.js",
+    "dev:server": "cross-env LOG_LEVEL=debug PORT=3100 nodemon --inspect server/server.js",
     "e2e": "concurrently --kill-others --success first --names \"app,e2e\" \"npm:serve\" \"npm:e2e:safe\"",
     "e2e:dev": "concurrently --kill-others --success first --names \"dev,e2e\" \"npm:dev\" \"npm:e2e:safe\"",
     "e2e:local": "cypress open",

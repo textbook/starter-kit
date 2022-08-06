@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon.json",
+  "delay": 500,
+  "exec": "babel-node",
+  "exitcrash": true,
+  "ext": "js,json",
+  "watch": [
+    "./server"
+  ]
+}
