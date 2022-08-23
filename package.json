@@ -41,7 +41,7 @@
   "homepage": "https://github.com/textbook/starter-kit#readme",
   "devDependencies": {
     "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.18.13",
     "@babel/eslint-parser": "^7.18.9",
     "@babel/node": "^7.18.10",
     "@babel/plugin-transform-runtime": "^7.18.10",
