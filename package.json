@@ -90,7 +90,7 @@
     "@babel/runtime": "^7.18.9",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
-    "helmet": "^5.1.1",
+    "helmet": "^6.0.0",
     "morgan": "^1.10.0",
     "winston": "^3.8.1"
   },
