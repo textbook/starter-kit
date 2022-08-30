@@ -59,7 +59,7 @@ pushd "$HERE/.."
   echo 'Remove testing scripts'
   PACKAGE=$(cat package.json)
   for SCRIPT in $(jq -r '.scripts | keys[]' package.json); do
-    if [[ $SCRIPT =~ e2e|ship|test|postbuild ]]; then
+    if [[ $SCRIPT =~ e2e|ship|test ]]; then
       PACKAGE=$(echo "$PACKAGE" | jq "del(.scripts[\"$SCRIPT\"])")
     fi
   done
