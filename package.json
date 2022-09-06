@@ -50,7 +50,7 @@
     "@codeyourfuture/eslint-config-standard": "^3.0.3",
     "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.4.0",
     "@textbook/build-info": "^0.3.1",
     "axe-core": "^4.4.3",
     "babel-loader": "^8.2.5",
