@@ -1,8 +1,8 @@
-import { Router } from "react-router-dom";
 import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
+import { Router } from "react-router-dom";
 
 import { Home } from "./Home";
 import logo from "./logo.svg";
