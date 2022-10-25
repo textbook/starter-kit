@@ -19,12 +19,12 @@ jobs:
         CYPRESS_INSTALL_BINARY: 0
     - run: npm run lint
     - run: npm run test
-    - uses: docker/build-push-action@v2
+    - uses: docker/setup-buildx-action@v2
+    - uses: docker/build-push-action@v3
       with:
         build-args: |
           NODE_RELEASE=${{ steps.nvmrc.outputs.NODE_VERSION }}
-        context: ./
-        file: ./Dockerfile
+        context: .
         push: false
         tags: textbook/starter-kit
   e2e:
