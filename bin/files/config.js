@@ -8,7 +8,7 @@ export default {
 };
 
 function createDatabaseUrl() {
-	if (process.env.DATBASE_URL) {
+	if (process.env.DATABASE_URL) {
 		return process.env.DATABASE_URL;
 	}
 	const host = process.env.DB_HOST ?? "localhost";

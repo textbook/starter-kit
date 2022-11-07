@@ -21,7 +21,7 @@ export const connectDb = async () => {
 	client.release();
 };
 
-export const disconnectDb = () => pool.close();
+export const disconnectDb = () => pool.end();
 
 /**
  * Access this with `import db from "path/to/db";` then use it with
