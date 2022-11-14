@@ -31,7 +31,7 @@ pushd "$HERE/.."
     coverage/ \
     e2e/ \
     reports/ \
-    cypress.json \
+    cypress.config.js \
     jest.config.js \
     client/setupTests.js \
     client/src/*.test.js \
