@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@codeyourfuture/eslint-config-standard": "^3.0.3",
-    "@testing-library/cypress": "^8.0.3",
+    "@testing-library/cypress": "^8.0.7",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@textbook/build-info": "^0.4.1",
