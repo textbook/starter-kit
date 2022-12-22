@@ -2,7 +2,7 @@
 set -euo pipefail
 
 if [ $# -lt 1 ]; then
-  echo "usage: ./bin/cyf-branch.sh <branch-name> [--db (mongo|postgres)]"
+  echo "usage: ./bin/cyf-branch.sh <branch-name>"
   exit 1
 fi
 
