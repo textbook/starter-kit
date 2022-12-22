@@ -7,9 +7,20 @@ if [ $# -lt 1 ]; then
 fi
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$HERE/.."
 GIT_BRANCH="$1"
 
-pushd "$HERE/.."
+updateJson() {
+  SOURCE="$1"
+  RULES="$2"
+  TEMP="$ROOT/temp.json"
+  rm -f "$TEMP"
+  cp "$SOURCE" "$TEMP"
+  jq --unbuffered "$RULES" "$TEMP" | tee "$SOURCE"
+  rm -f "$TEMP"
+}
+
+pushd "$ROOT"
   git branch -D "$GIT_BRANCH" || echo "No branch $GIT_BRANCH"
   git co -b "$GIT_BRANCH"
 
@@ -45,16 +56,10 @@ pushd "$HERE/.."
   cp bin/files/user-story.md .github/ISSUE_TEMPLATE
 
   echo 'Update ESLint configuration'
-  cat .eslintrc.json \
-    | jq 'del(.overrides)' \
-    | jq '.rules.indent = "off"' \
-    | jq '.rules["operator-linebreak"] = "off"' \
-    | tee .eslintrc.json
+  updateJson "$ROOT/.eslintrc.json" 'del(.overrides) | .rules.indent = "off" | .rules["operator-linebreak"] = "off"'
 
   echo 'Exclude ESLint prop-types validation'
-  cat ./client/.eslintrc.json \
-    | jq '.rules["react/prop-types"] = "off"' \
-    | tee ./client/.eslintrc.json
+  updateJson "$ROOT/client/.eslintrc.json" '.rules["react/prop-types"] = "off"'
 
   echo 'Remove testing scripts'
   PACKAGE=$(cat package.json)
@@ -63,7 +68,7 @@ pushd "$HERE/.."
       PACKAGE=$(echo "$PACKAGE" | jq "del(.scripts[\"$SCRIPT\"])")
     fi
   done
-  echo $PACKAGE | jq '.' 2>&1 | tee package.json
+  echo $PACKAGE | jq --unbuffered '.' 2>&1 | tee package.json
 
   echo 'Remove CSP checking'
   cp -f ./bin/files/middleware.js ./server/utils/middleware.js
@@ -94,9 +99,7 @@ pushd "$HERE/.."
 	cp -f ./bin/files/config.js ./server/utils/config.js
 	cp -f ./bin/files/db.js ./server/db.js
 	cp -f ./bin/files/server.js ./server/server.js
-	cat app.json \
-		| jq '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]' \
-		| tee app.json
+  updateJson "$ROOT/app.json" '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]'
 
   echo 'Apply Prettier configuration'
   npm install --save-dev prettier
