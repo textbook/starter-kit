@@ -1,6 +1,6 @@
 # Starter Kit
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CodeYourFuture/cyf-final-project-starter-kit)
 
  - [x] Full stack ES8+ with [Babel]
  - [x] [Node] LTS support (verified working on 14.x, 16.x and 18.x LTS releases)
@@ -11,7 +11,7 @@
  - [x] Linting with [ESLint] and [Prettier]
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
- - [x] [Heroku] deployment
+ - [x] [Render] deployment
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
  - [x] [Postgres] database with [node-postgres]
@@ -21,11 +21,9 @@
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
  1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
- 2. In your repo, click the "Deploy to Heroku" button at the top of the README and create a Heroku account when prompted.
- 3. Fill in the name of the application, select Europe and then click "Deploy App".
- 4. Once it has deployed successfully, click the "Manage app" button to view the application details.
- 5. Go to the "Deploy" tab, select "Connect to GitHub" and choose your repo.
- 6. Click "Enable automatic deploys".
+ 2. In your repo, click the "Deploy to Render" button at the top of the README and create an account when prompted.
+ 3. Fill in a service group name for your application and then click "Apply".
+ 4. Once it has deployed successfully, click the "Dashboard" tab to view the application details.
 
 Whenever you commit to main (or e.g. merge a [pull request]) it will get automatically deployed!
 
@@ -74,7 +72,6 @@ See the guidance in the [wiki].
   [Docker]: https://www.docker.com
   [ESLint]: https://eslint.org/
   [Express]: https://expressjs.com/
-  [Heroku]: https://www.heroku.com/
   [Morgan]: https://github.com/expressjs/morgan
   [Node]: https://nodejs.org/en/
   [node-postgres]: https://node-postgres.com/
@@ -83,6 +80,7 @@ See the guidance in the [wiki].
   [pull request]: https://help.github.com/en/articles/about-pull-requests
   [React]: https://reactjs.org/
   [React Router]: https://reactrouter.com/web
+  [Render]: https://render.com/
   [Webpack]: https://webpack.js.org/
   [wiki]: https://github.com/textbook/starter-kit/wiki
   [Winston]: https://github.com/winstonjs/winston

@@ -107,6 +107,9 @@ pushd "$ROOT"
   cp -f ./bin/files/.prettierrc ./.prettierrc
   npm run lint:fix
 
+	echo 'Add Render configuration'
+	cp -f ./bin/files/render.yaml ./render.yaml
+
   echo 'Clean up bin'
   rm -rf bin/
 
