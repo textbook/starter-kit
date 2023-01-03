@@ -2,6 +2,8 @@
 
 [![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)](https://github.com/textbook/starter-kit/actions)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/textbook/starter-kit)
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
  - [x] Full stack ES8+ with [Babel]
@@ -16,7 +18,7 @@
  - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
  - [x] Production build (single deployment artifact, React loaded via CDN)
  - [x] [GitHub Actions] pipeline
- - [x] [Heroku] deployment
+ - [x] [Heroku] or [Render] deployment
  - [x] [Cloud Foundry] deployment
  - [x] [Docker] build
 
@@ -90,6 +92,7 @@ the automation and it's not using `copy` (which caused cross-platform issues on 
   [Node]: https://nodejs.org/en/
   [React]: https://reactjs.org/
   [React Router]: https://reactrouter.com/web
+  [Render]: https://render.com/
   [starter kit]: https://github.com/textbook/cyf-app-starter
   [SuperTest]: https://github.com/visionmedia/supertest
   [textbook/starter-kit-ts]: https://github.com/textbook/starter-kit-ts

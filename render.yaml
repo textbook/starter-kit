@@ -1,0 +1,13 @@
+---
+services:
+  - type: web
+    name: starter-kit
+    region: frankfurt
+    env: node
+    buildCommand: npm ci; npm run build; npm prune --omit dev
+    startCommand: npm start
+    envVars:
+      - key: LOG_LEVEL
+        value: info
+      - key: NODE_ENV
+        value: production
