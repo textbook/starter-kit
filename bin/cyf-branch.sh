@@ -99,7 +99,6 @@ pushd "$ROOT"
 	cp -f ./bin/files/config.js ./server/utils/config.js
 	cp -f ./bin/files/db.js ./server/db.js
 	cp -f ./bin/files/server.js ./server/server.js
-  updateJson "$ROOT/app.json" '.addons = [{ "plan": "heroku-postgresql:hobby-dev" }]'
 
   echo 'Apply Prettier configuration'
   npm install --save-dev prettier
