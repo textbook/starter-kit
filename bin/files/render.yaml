@@ -22,3 +22,4 @@ databases:
     region: frankfurt
     databaseName: cyf
     plan: free
+    ipAllowList: []  # only allow internal connections

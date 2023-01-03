@@ -23,7 +23,7 @@ Pick one member of the team to own the repository and pipeline. That person shou
  1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
  2. In your repo, click the "Deploy to Render" button at the top of the README and create an account when prompted.
  3. Fill in a service group name for your application and then click "Apply".
- 4. Once it has deployed successfully, click the "Dashboard" tab to view the application details.
+ 4. Once it has deployed successfully, click the "managed resources" link to view the application details.
 
 Whenever you commit to main (or e.g. merge a [pull request]) it will get automatically deployed!
 
