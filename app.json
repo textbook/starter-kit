@@ -1,5 +1,5 @@
 {
   "name": "Starter Kit",
   "description": "Starter kit for full-stack JavaScript projects",
-  "stack": "heroku-20"
+  "stack": "heroku-22"
 }
