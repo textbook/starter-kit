@@ -1,6 +1,6 @@
 # Starter Kit
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CodeYourFuture/cyf-final-project-starter-kit)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
  - [x] Full stack ES8+ with [Babel]
  - [x] [Node] LTS support (verified working on 14.x, 16.x and 18.x LTS releases)

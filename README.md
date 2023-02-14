@@ -2,7 +2,7 @@
 
 [![Node.js CI](https://github.com/textbook/starter-kit/workflows/Node.js%20CI/badge.svg)](https://github.com/textbook/starter-kit/actions)
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/textbook/starter-kit)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
