@@ -16,5 +16,6 @@ function createDatabaseUrl() {
 	const password = process.env.DB_PASS ?? process.env.DB_PASSWORD ?? "";
 	const port = process.env.DB_PORT ?? "5432";
 	const username = process.env.DB_USER ?? process.env.DB_USERNAME ?? "";
-	return `postgres://${username}:${password}@${host}:${port}/${name}`;
+	const userinfo = `${username}:${password}`;
+	return `postgres://${userinfo !== ":" ? `${userinfo}@` : ""}${host}:${port}/${name}`;
 }
