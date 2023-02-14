@@ -18,9 +18,13 @@
 
 ## Setup
 
+> **Note** if you have _any problems_ setting up the starter kit, see the [wiki] and, if still not solved, post to
+> [`#cyf-full-stack-starter-kit` in Slack][2].
+
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
  1. Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
+    - Your repo should say _"generated from"_, **not** _"forked from"_, _"CodeYourFuture/cyf-final-project-starter-kit"_ at the top 
  2. In your repo, click the "Deploy to Render" button at the top of the README and log in using GitHub when prompted.
  3. Fill in a service group name for your application and then click "Apply".
  4. Once it has deployed successfully, click the "managed resources" link to view the application details.
@@ -66,6 +70,7 @@ authentication solutions are not allowed**;
 See the guidance in the [wiki].
 
   [1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template
+  [2]: https://codeyourfuture.slack.com/archives/C021ATWS9A5
   [Babel]: https://babeljs.io/
   [Cloud Foundry]: https://www.cloudfoundry.org/
   [collaborators]: https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
