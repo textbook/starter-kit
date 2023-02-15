@@ -75,7 +75,7 @@ pushd "$ROOT"
 
   echo 'Update existing scripts'
   npm pkg set 'scripts.build:server=babel server --copy-files --out-dir dist'
-  npm pkg set 'scripts.postbuild:server=rimraf ./dist/**/README.md'
+  npm pkg set 'scripts.postbuild:server=del-cli ./dist/**/README.md'
   npm pkg set 'scripts.lint=npm run lint:eslint && npm run lint:prettier -- --check'
   npm pkg set 'scripts.lint:eslint=eslint .'
   npm pkg set 'scripts.lint:fix=npm run lint:eslint -- --fix && npm run lint:prettier -- --write'
