@@ -35,7 +35,6 @@ jobs:
         tags: textbook/starter-kit
   windows:
     runs-on: windows-2022
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -65,7 +64,9 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     if: github.ref == 'refs/heads/main'
-    needs: e2e
+    needs:
+      - e2e
+      - windows
     steps:
       - uses: actions/checkout@v3
       - uses: akhileshns/heroku-deploy@v3.12.12
