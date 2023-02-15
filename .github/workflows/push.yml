@@ -33,6 +33,19 @@ jobs:
         context: .
         push: false
         tags: textbook/starter-kit
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+      - run: npm ci
+      - run: 'npm run lint -- --rule "linebreak-style: off"'
+      - run: npm run test
+      - run: npm run e2e
+      - run: npm run e2e:dev
   e2e:
     runs-on: ubuntu-22.04
     needs: build
@@ -51,7 +64,9 @@ jobs:
   deploy:
     runs-on: ubuntu-22.04
     if: github.ref == 'refs/heads/main'
-    needs: e2e
+    needs:
+      - e2e
+      - windows
     steps:
       - uses: actions/checkout@v3
       - uses: akhileshns/heroku-deploy@v3.12.12
