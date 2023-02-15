@@ -33,6 +33,20 @@ jobs:
         context: .
         push: false
         tags: textbook/starter-kit
+  windows:
+    runs-on: windows-2022
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run e2e
+      - run: npm run e2e:dev
   e2e:
     runs-on: ubuntu-22.04
     needs: build
