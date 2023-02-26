@@ -1,0 +1,20 @@
+name: Keep dependencies up-to-date
+
+on:
+  schedule:
+    - cron: '0 0 * * SUN'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version-file: '.nvmrc'
+      - run: |
+          git config --global user.name "gh-actions"
+          git config --global user.email "actions@github.com"
+      - run: ./bin/up-to-date.sh
