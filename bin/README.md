@@ -9,3 +9,4 @@ The following executable scripts are provided:
    - remove CSP checking from Helmet configuration
    - add MongoDB if `--db mongo` is set
    - add Postgres if `--db postgres` is set
+- `up-to-date.sh`: Updates all NPM dependencies to the latest compatible versions, tests the result, then commits and pushes if everything is fine
