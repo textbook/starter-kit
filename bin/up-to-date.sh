@@ -20,6 +20,12 @@ if [ -z "$(useNpm outdated)" ]; then
 fi
 
 useNpm update --save
+
+if [ -z "$(git status --porcelain)" ]; then
+  echo 'No compatible changes'
+  exit 0
+fi
+
 useNpm run ship
 git add package{,-lock}.json
 git commit --message 'Apply in-range dependency updates'
