@@ -9,9 +9,14 @@ module.exports = merge(common, {
 			disableDotRule: true,
 		},
 		port: 3000,
-		proxy: {
-			"/api": "http://localhost:3100",
-		},
+		proxy: [
+			{
+				context: ["/api"],
+				logLevel: "debug",
+				logProvider: () => console,
+				target: "http://localhost:3100",
+			},
+		],
 		static: false,
 	},
 	mode: "development",
