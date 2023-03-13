@@ -11,7 +11,7 @@ module.exports = merge(common, {
 		port: 3000,
 		proxy: [
 			{
-				context: ["/api"],
+				context: ["/api", "/docs"],
 				logLevel: "debug",
 				logProvider: () => console,
 				target: "http://localhost:3100",

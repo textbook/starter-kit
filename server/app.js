@@ -1,6 +1,7 @@
 import express from "express";
 
 import apiRouter from "./api";
+import docsRouter from "./docs";
 import config from "./utils/config";
 import {
 	clientRouter,
@@ -24,6 +25,7 @@ if (config.production) {
 }
 
 app.use(apiRoot, apiRouter);
+app.use("/docs", docsRouter);
 app.use("/health", (_, res) => res.sendStatus(200));
 app.use(clientRouter(apiRoot));
 

@@ -1,0 +1,10 @@
+---
+components:
+  schemas:
+    Message:
+      type: object
+      required: [ message ]
+      properties:
+        message:
+          type: string
+          example: Hello, world!
