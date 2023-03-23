@@ -6,6 +6,17 @@
     "plugin:jsx-a11y/strict",
     "plugin:react/recommended"
   ],
+  "overrides": [
+    {
+      "files": [
+        "cypress/*.js",
+        "*.cy.js"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ]
+    }
+  ],
   "plugins": [
     "react-hooks"
   ],
