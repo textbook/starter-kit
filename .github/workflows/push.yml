@@ -42,7 +42,7 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
       - run: npm ci
-      - run: 'npm run lint -- --rule "linebreak-style: off"'
+      - run: npm run lint
       - run: npm run test
       - run: npm run e2e
       - run: npm run e2e:dev
