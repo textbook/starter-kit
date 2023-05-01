@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "npm run build:server && npm run build:client",
-    "postbuild": "buildinfo dist/static/build-info.txt",
+    "postbuild": "buildinfo --output dist/static/build-info.txt",
     "build:client": "webpack --config client/webpack/prod.config.js",
     "build:server": "babel server --copy-files --out-dir dist",
     "postbuild:server": "del-cli ./dist/static ./dist/**/README.md ./dist/**/*.test.js",
@@ -51,7 +51,7 @@
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@textbook/build-info": "^0.4.5",
+    "@textbook/build-info": "^0.5.1",
     "axe-core": "^4.7.0",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",
