@@ -7,7 +7,7 @@
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
  - [x] Full stack ES8+ with [Babel]
- - [x] [Node] LTS support (verified working on 14.x, 16.x and 18.x LTS releases)
+ - [x] [Node] LTS support (verified working on 16.x, 18.x and 20.x LTS releases)
  - [x] [Express] server
  - [x] Logging with [Winston] and [Morgan]
  - [x] [React] client with [Webpack]
