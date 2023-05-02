@@ -62,13 +62,16 @@ pushd "$ROOT"
   updateJson "$ROOT/client/.eslintrc.json" '.rules["react/prop-types"] = "off"'
 
   echo 'Remove testing scripts'
-  PACKAGE=$(cat package.json)
-  for SCRIPT in $(jq -r '.scripts | keys[]' package.json); do
-    if [[ $SCRIPT =~ e2e|ship|test ]]; then
-      PACKAGE=$(echo "$PACKAGE" | jq "del(.scripts[\"$SCRIPT\"])")
-    fi
-  done
-  echo $PACKAGE | jq --unbuffered '.' 2>&1 | tee package.json
+  npm pkg delete \
+		'scripts.e2e' \
+		'scripts.e2e:dev' \
+		'scripts.e2e:local' \
+		'scripts.e2e:run' \
+		'scripts.e2e:safe' \
+		'scripts.ship' \
+		'scripts.test' \
+		'scripts.test:cover' \
+		'scripts.test:watch'
 
   echo 'Remove CSP checking'
   cp -f ./bin/files/middleware.js ./server/utils/middleware.js
@@ -83,11 +86,11 @@ pushd "$ROOT"
 
   echo 'Update test ignore files'
   for IGNOREFILE in '.cfignore' '.dockerignore' '.eslintignore' '.gitignore' '.slugignore'; do
-    cat "$IGNOREFILE" | sed -E '/(coverage|e2e|reports|mocks)/d' | tee "$IGNOREFILE"
+    sed  -i '' -E '/(bin|coverage|e2e|reports|mocks)/d' "$ROOT/$IGNOREFILE"
   done
 
   echo 'Remove Docker test config'
-  cat Dockerfile | sed '/CYPRESS/d' | tee Dockerfile
+  sed  -i '' '/CYPRESS/d' "$ROOT/Dockerfile"
 
 	echo 'Update README'
 	cp -f ./bin/files/README.md ./README.md
