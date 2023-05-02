@@ -1,4 +1,4 @@
-import http from "http";
+import http from "node:http";
 
 import app from "./app";
 import { connectDb, disconnectDb } from "./db";

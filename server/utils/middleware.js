@@ -1,7 +1,8 @@
+import path from "node:path";
+
 import express, { Router } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
-import path from "path";
 
 import logger from "./logger";
 
