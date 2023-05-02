@@ -7,7 +7,7 @@ const common = require("./common.config");
 const { devDependencies } = require("../../package.json");
 
 module.exports = merge(common, {
-	devtool: "source-map",
+	devtool: process.env.GENERATE_SOURCEMAP !== "false" && "source-map",
 	mode: "production",
 	optimization: {
 		runtimeChunk: "single",
