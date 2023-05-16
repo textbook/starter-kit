@@ -52,7 +52,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@textbook/build-info": "^0.5.1",
-    "axe-core": "^4.7.0",
+    "axe-core": "^4.7.1",
     "babel-loader": "^9.1.2",
     "concurrently": "^8.0.1",
     "cross-env": "^7.0.3",
