@@ -102,6 +102,7 @@ pushd "$ROOT"
 	cp -f ./bin/files/config.js ./server/utils/config.js
 	cp -f ./bin/files/db.js ./server/db.js
 	cp -f ./bin/files/server.js ./server/server.js
+  cp ./bin/files/docker-compose.yml .
 
   echo 'Apply Prettier configuration'
   npm install --save-dev prettier

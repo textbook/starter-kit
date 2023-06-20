@@ -1,0 +1,9 @@
+services:
+  database:
+    image: "postgres"
+    container_name: "cyf-postgres"
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:-cyf}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-opensesame}"
+    ports:
+      - "5432:5432"
