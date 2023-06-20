@@ -63,15 +63,15 @@ pushd "$ROOT"
 
   echo 'Remove testing scripts'
   npm pkg delete \
-		'scripts.e2e' \
-		'scripts.e2e:dev' \
-		'scripts.e2e:local' \
-		'scripts.e2e:run' \
-		'scripts.e2e:safe' \
-		'scripts.ship' \
-		'scripts.test' \
-		'scripts.test:cover' \
-		'scripts.test:watch'
+    'scripts.e2e' \
+    'scripts.e2e:dev' \
+    'scripts.e2e:local' \
+    'scripts.e2e:run' \
+    'scripts.e2e:safe' \
+    'scripts.ship' \
+    'scripts.test' \
+    'scripts.test:cover' \
+    'scripts.test:watch'
 
   echo 'Remove CSP checking'
   cp -f ./bin/files/middleware.js ./server/utils/middleware.js
@@ -92,16 +92,16 @@ pushd "$ROOT"
   echo 'Remove Docker test config'
   sed  -i '' '/CYPRESS/d' "$ROOT/Dockerfile"
 
-	echo 'Update README'
-	cp -f ./bin/files/README.md ./README.md
+  echo 'Update README'
+  cp -f ./bin/files/README.md ./README.md
 
-	echo 'Install Postgres'
-	npm install --save pg
+  echo 'Install Postgres'
+  npm install --save pg
 
-	echo 'Add Postgres config'
-	cp -f ./bin/files/config.js ./server/utils/config.js
-	cp -f ./bin/files/db.js ./server/db.js
-	cp -f ./bin/files/server.js ./server/server.js
+  echo 'Add Postgres config'
+  cp -f ./bin/files/config.js ./server/utils/config.js
+  cp -f ./bin/files/db.js ./server/db.js
+  cp -f ./bin/files/server.js ./server/server.js
   cp ./bin/files/docker-compose.yml .
 
   echo 'Apply Prettier configuration'
@@ -110,8 +110,8 @@ pushd "$ROOT"
   cp -f ./bin/files/.prettierrc ./.prettierrc
   npm run lint:fix
 
-	echo 'Add Render configuration'
-	cp -f ./bin/files/render.yaml ./render.yaml
+  echo 'Add Render configuration'
+  cp -f ./bin/files/render.yaml ./render.yaml
 
   echo 'Clean up bin'
   rm -rf bin/
