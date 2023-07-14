@@ -52,7 +52,7 @@
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@textbook/build-info": "^0.5.2",
+    "@textbook/build-info": "^0.5.3",
     "axe-core": "^4.7.2",
     "babel-loader": "^9.1.3",
     "concurrently": "^8.2.0",
