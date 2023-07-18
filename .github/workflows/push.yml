@@ -3,7 +3,7 @@ name: Node.js CI
 on:
   push:
     branches:
-    - main
+    - '*'
   pull_request:
     branches:
     - main
@@ -25,8 +25,10 @@ jobs:
         CYPRESS_INSTALL_BINARY: 0
     - run: npm run lint
     - run: npm run test
+      env:
+        FORCE_COLOR: true
     - uses: docker/setup-buildx-action@v2
-    - uses: docker/build-push-action@v3
+    - uses: docker/build-push-action@v4
       with:
         build-args: |
           NODE_RELEASE=${{ steps.nvmrc.outputs.NODE_VERSION }}
@@ -44,6 +46,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test
+        env:
+          FORCE_COLOR: true
       - run: npm run e2e
       - run: npm run e2e:dev
   e2e:
@@ -51,7 +55,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        node: [ '16', '18', '20' ]
+        node: [ '16.17', '16', '18.3', '18', '20' ]
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
@@ -62,15 +66,13 @@ jobs:
     - run: npm run e2e
     - run: npm run e2e:dev
   deploy:
-    runs-on: ubuntu-22.04
+    uses: './.github/workflows/deploy.yml'
     if: github.ref == 'refs/heads/main'
     needs:
       - e2e
       - windows
-    steps:
-      - uses: actions/checkout@v3
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: starter-kit-ci
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+    with:
+      environment: heroku
+    secrets:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
