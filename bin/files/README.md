@@ -3,7 +3,7 @@
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
  - [x] Full stack ES8+ with [Babel]
- - [x] [Node] LTS support (verified working on 16.x, 18.x and 20.x LTS releases)
+ - [x] [Node] LTS support (verified working on 18.x and 20.x LTS releases)
  - [x] [Express] server
  - [x] Logging with [Winston] and [Morgan]
  - [x] [React] client with [Webpack]
