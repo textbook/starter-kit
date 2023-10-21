@@ -12,15 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
-    - run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-      id: nvmrc
-    - uses: actions/setup-node@v3
+    - uses: textbook/take-action@nodejs
+      id: nodejs
       with:
-        cache: 'npm'
         node-version-file: '.nvmrc'
-    - run: ./bin/check-node.sh
-    - run: npm ci
       env:
         CYPRESS_INSTALL_BINARY: 0
     - run: npm run lint
@@ -31,19 +26,16 @@ jobs:
     - uses: docker/build-push-action@v4
       with:
         build-args: |
-          NODE_RELEASE=${{ steps.nvmrc.outputs.NODE_VERSION }}
+          NODE_RELEASE=${{ steps.nodejs.outputs.node-version }}
         context: .
         push: false
         tags: textbook/starter-kit
   windows:
     runs-on: windows-2022
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: textbook/take-action@nodejs
         with:
-          cache: 'npm'
           node-version-file: '.nvmrc'
-      - run: npm ci
       - run: npm run lint
       - run: npm run test
         env:
@@ -57,12 +49,9 @@ jobs:
       matrix:
         node: [ '18.3', '18', '20' ]
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: textbook/take-action@nodejs
       with:
-        cache: 'npm'
         node-version: ${{ matrix.node }}
-    - run: npm ci
     - run: npm run e2e
     - run: npm run e2e:dev
   deploy:

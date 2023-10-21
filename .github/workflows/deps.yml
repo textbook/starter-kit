@@ -12,9 +12,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ssh-key: ${{ secrets.GH_DEPLOY_KEY }}
-      - uses: actions/setup-node@v3
+      - uses: textbook/take-action@nodejs
         with:
-          cache: 'npm'
+          checkout: 'false'
           node-version-file: '.nvmrc'
       - run: |
           git config --global user.name "gh-actions"

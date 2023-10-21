@@ -12,8 +12,6 @@ useNpm() {
   npm --prefix="$HERE/.." "$@"
 }
 
-useNpm ci
-
 if [ -z "$(useNpm outdated)" ]; then
   echo 'All up to date'
   exit 0
