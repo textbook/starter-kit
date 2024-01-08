@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@codeyourfuture/standard"
+  ],
+  "root": true
+}
