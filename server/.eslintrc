@@ -4,5 +4,15 @@
   ],
   "ignorePatterns": [
     "/static/"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.test.js"
+      ],
+      "rules": {
+        "n/no-unpublished-import": "off"
+      }
+    }
   ]
 }

@@ -5,6 +5,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "test": "node --test"
   },
   "keywords": [],
   "author": "Jonathan Sharpe <mail@jonrshar.pe>",
@@ -13,6 +14,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
-    "eslint-plugin-n": "^16.6.1"
+    "eslint-plugin-n": "^16.6.1",
+    "supertest": "^6.3.3"
   }
 }
