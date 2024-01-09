@@ -2,5 +2,9 @@
   "extends": [
     "@codeyourfuture/standard"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
   "root": true
 }

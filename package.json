@@ -2,20 +2,32 @@
   "name": "@textbook/starter-kit",
   "version": "0.1.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "build:client": "npm --workspace client run build",
+    "build": "npm --workspace client run build",
+    "e2e": "npm --workspace e2e run e2e",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preserve": "npm run build",
+    "serve": "npm start",
+    "start": "npm --workspace server start",
+    "test": "npm --workspaces --if-present test"
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
   },
   "keywords": [],
   "author": "Jonathan Sharpe <mail@jonrshar.pe>",
   "license": "ISC",
   "workspaces": [
-    "client"
+    "client",
+    "server",
+    "e2e"
   ],
   "devDependencies": {
     "@codeyourfuture/eslint-config-standard": "^4.0.3",
+    "@types/node": "^20.10.7",
     "eslint": "^8.56.0"
   }
 }
