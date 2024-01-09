@@ -11,7 +11,8 @@
   "author": "Jonathan Sharpe <mail@jonrshar.pe>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "eslint-plugin-n": "^16.6.1",
