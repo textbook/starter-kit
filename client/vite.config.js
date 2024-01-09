@@ -1,3 +1,4 @@
+/* eslint-env node */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
@@ -7,6 +8,9 @@ export default defineConfig({
 		outDir: "../server/static",
 	},
 	plugins: [react()],
+	server: {
+		port: process.env.PORT,
+	},
 	test: {
 		environment: "jsdom",
 		setupFiles: [

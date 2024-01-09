@@ -5,6 +5,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "node --test"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "eslint-plugin-n": "^16.6.1",
+    "nodemon": "^3.0.2",
     "supertest": "^6.3.3"
   }
 }

@@ -6,6 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npm --workspace client run build",
+    "dev": "concurrently \"npm:dev:*\"",
+    "dev:client": "cross-env PORT=3000 npm --workspace client run dev",
+    "dev:server": "cross-env PORT=3001 npm --workspace server run dev",
     "e2e": "npm --workspace e2e run e2e",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preserve": "npm run build",
@@ -28,6 +31,8 @@
   "devDependencies": {
     "@codeyourfuture/eslint-config-standard": "^4.0.3",
     "@types/node": "^20.10.7",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0"
   }
 }
