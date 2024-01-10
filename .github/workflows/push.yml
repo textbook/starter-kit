@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: textbook/take-action@nodejs
-      - run: npmx playwright install --with-deps
+        with:
+          node-version: 20
+      - run: npx playwright install --with-deps
       - run: npm run lint
       - run: npm test
       - run: npm run e2e
