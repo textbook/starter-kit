@@ -18,8 +18,18 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: textbook/take-action@nodejs
+        with:
+          node-version: 20
+      - run: npx playwright install --with-deps
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v5
         with:
+          load: true
           push: false
+          tags: textbook/starter-kit:v2
+      - run: |
+          docker run --detach --init --publish 80:4321 textbook/starter-kit:v2
+      - run: npm run e2e
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:4321
