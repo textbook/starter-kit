@@ -29,7 +29,12 @@ jobs:
           push: false
           tags: textbook/starter-kit:v2
       - run: |
-          docker run --detach --init --network ${{ job.container.network }} --publish 80:4321 textbook/starter-kit:v2
+          docker run \
+            --detach \
+            --env NODE_ENV=docker \
+            --init \
+            --publish 80:4321 \
+            textbook/starter-kit:v2
       - run: npm run e2e
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4321
