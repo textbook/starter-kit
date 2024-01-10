@@ -28,13 +28,17 @@ jobs:
           load: true
           push: false
           tags: textbook/starter-kit:v2
-      - run: |
-          docker run \
+      - id: docker-run
+        run: |
+          echo "id=$(docker run \
             --detach \
+            --env LOG_LEVEL=debug \
             --env NODE_ENV=docker \
             --init \
             --publish 80:4321 \
-            textbook/starter-kit:v2
+            textbook/starter-kit:v2)" >> $GITHUB_OUTPUT
       - run: npm run e2e
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4321
+      - if: always()
+        run: docker logs ${{ steps.docker-run.outputs.id }}
