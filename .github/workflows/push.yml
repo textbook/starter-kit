@@ -35,10 +35,10 @@ jobs:
             --env LOG_LEVEL=debug \
             --env NODE_ENV=docker \
             --init \
-            --publish 80:4321 \
+            --publish 4321:80 \
             textbook/starter-kit:v2)" >> $GITHUB_OUTPUT
       - run: npm run e2e
         env:
           PLAYWRIGHT_BASE_URL: http://localhost:4321
-      - if: always()
+      - if: always() && steps.docker-run.outputs.id
         run: docker logs ${{ steps.docker-run.outputs.id }}
