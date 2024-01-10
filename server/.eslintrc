@@ -16,6 +16,13 @@
     }
   ],
   "rules": {
-    "no-console": "warn"
+    "no-console": "warn",
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "MemberExpression[object.name=process][property.name=env]",
+        "message": "process.env should only be accessed in utils/config.js"
+      }
+    ]
   }
 }
