@@ -6,7 +6,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "cross-env LOG_LEVEL=debug nodemon server.js",
     "test": "node --test"
   },
   "keywords": [],
