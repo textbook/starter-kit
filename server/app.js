@@ -1,7 +1,13 @@
 import express from "express";
 
 import config from "./utils/config.js";
-import { clientRouter, configuredHelmet, configuredMorgan, httpsOnly } from "./utils/middleware.js";
+import {
+	clientRouter,
+	configuredHelmet,
+	configuredMorgan,
+	httpsOnly,
+	logErrors,
+} from "./utils/middleware.js";
 
 const app = express();
 
@@ -17,5 +23,7 @@ if (config.production) {
 app.get("/healthz", (_, res) => res.sendStatus(200));
 
 app.use(clientRouter("/api"));
+
+app.use(logErrors());
 
 export default app;
