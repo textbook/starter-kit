@@ -1,16 +1,21 @@
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-
 import express from "express";
-import morgan from "morgan";
 
-const application = express();
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import config from "./utils/config.js";
+import { clientRouter, configuredHelmet, configuredMorgan, httpsOnly } from "./utils/middleware.js";
 
-application.use(morgan("dev"));
+const app = express();
 
-application.get("/healthz", (_, res) => res.sendStatus(200));
+app.use(express.json());
+app.use(configuredHelmet());
+app.use(configuredMorgan());
 
-application.use(express.static(join(__dirname, "static")));
+if (config.production) {
+	app.enable("trust proxy");
+	app.use(httpsOnly());
+}
 
-export default application;
+app.get("/healthz", (_, res) => res.sendStatus(200));
+
+app.use(clientRouter("/api"));
+
+export default app;
