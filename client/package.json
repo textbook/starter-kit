@@ -1,7 +1,8 @@
 {
   "name": "@starter-kit/client",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
+  "description": "Vite/React client",
   "type": "module",
   "scripts": {
     "build": "vite build --emptyOutDir",

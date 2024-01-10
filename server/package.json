@@ -1,7 +1,8 @@
 {
   "name": "@starter-kit/server",
-  "version": "0.1.0",
-  "description": "",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Express backend",
   "type": "module",
   "main": "server.js",
   "scripts": {

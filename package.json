@@ -1,7 +1,7 @@
 {
   "name": "@textbook/starter-kit",
-  "version": "0.1.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "v2 upgrade of the starter kit",
   "type": "module",
   "main": "index.js",
   "scripts": {

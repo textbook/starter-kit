@@ -1,7 +1,8 @@
 {
   "name": "@starter-kit/e2e",
-  "version": "0.1.0",
-  "description": "",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Playwright end-to-end tests",
   "type": "module",
   "main": "index.js",
   "scripts": {
