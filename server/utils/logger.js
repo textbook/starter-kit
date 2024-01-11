@@ -11,9 +11,7 @@ const logger = createLogger({
 		format.simple(),
 	),
 	level: config.logLevel,
-	transports: [
-		new transports.Console(),
-	],
+	transports: [new transports.Console()],
 });
 
 if (!config.production) {

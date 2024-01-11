@@ -9,6 +9,8 @@ test("has title", async ({ page }) => {
 test("Vite.js link", async ({ page }) => {
 	await page.goto("");
 
-	await expect(page.getByRole("link", { name: "Vite logo" }))
-		.toHaveAttribute("href", "https://vitejs.dev");
+	await expect(page.getByRole("link", { name: "Vite logo" })).toHaveAttribute(
+		"href",
+		"https://vitejs.dev",
+	);
 });

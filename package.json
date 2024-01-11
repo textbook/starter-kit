@@ -11,7 +11,10 @@
     "dev:client": "cross-env PORT=3000 npm --workspace client run dev",
     "dev:server": "cross-env PORT=3001 npm --workspace server run dev",
     "e2e": "npm --workspace e2e run e2e",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "npm run lint:eslint && npm run lint:prettier -- --check",
+    "lint:eslint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
+    "lint:prettier": "prettier .",
     "preserve": "npm run build",
     "serve": "npm start",
     "start": "npm --workspace server start",
@@ -36,5 +39,9 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1"
   }
 }

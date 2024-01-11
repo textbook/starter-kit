@@ -1,15 +1,9 @@
 {
-  "extends": [
-    "plugin:n/recommended"
-  ],
-  "ignorePatterns": [
-    "/static/"
-  ],
+  "extends": ["plugin:n/recommended"],
+  "ignorePatterns": ["/static/"],
   "overrides": [
     {
-      "files": [
-        "*.test.js"
-      ],
+      "files": ["*.test.js"],
       "rules": {
         "n/no-unpublished-import": "off"
       }

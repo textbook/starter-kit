@@ -24,7 +24,10 @@ export const clientRouter = (apiRoot) => {
 
 export const configuredHelmet = () => helmet({ contentSecurityPolicy: false });
 
-export const configuredMorgan = () => morgan("dev", { stream: { write: (message) => logger.info(message.trim()) } });
+export const configuredMorgan = () =>
+	morgan("dev", {
+		stream: { write: (message) => logger.info(message.trim()) },
+	});
 
 export const httpsOnly = () => (req, res, next) => {
 	if (!req.secure) {

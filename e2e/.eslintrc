@@ -1,9 +1,4 @@
 {
-  "extends": [
-    "plugin:playwright/recommended"
-  ],
-  "ignorePatterns": [
-    "/playwright-report/",
-    "/test-results/"
-  ]
+  "extends": ["plugin:playwright/recommended"],
+  "ignorePatterns": ["/playwright-report/", "/test-results/"]
 }

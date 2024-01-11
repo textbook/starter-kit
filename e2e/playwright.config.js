@@ -66,11 +66,12 @@ export default defineConfig({
 	],
 
 	/* Run your local dev server before starting the tests */
-	webServer: process.env.PLAYWRIGHT_BASE_URL ? false : {
-		command: "npm run serve",
-		cwd: join(__dirname, ".."),
-		url: "http://127.0.0.1:3000",
-		reuseExistingServer: !process.env.CI,
-	},
+	webServer: process.env.PLAYWRIGHT_BASE_URL
+		? false
+		: {
+				command: "npm run serve",
+				cwd: join(__dirname, ".."),
+				url: "http://127.0.0.1:3000",
+				reuseExistingServer: !process.env.CI,
+			},
 });
-
