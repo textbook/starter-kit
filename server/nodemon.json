@@ -1,7 +1,7 @@
 {
-  "$schema": "https://json.schemastore.org/nodemon.json",
-  "delay": 500,
-  "exitcrash": true,
-  "ext": "js,json,yml,yaml",
-  "watch": ["."]
+	"$schema": "https://json.schemastore.org/nodemon.json",
+	"delay": 500,
+	"exitcrash": true,
+	"ext": "js,json,yml,yaml",
+	"watch": ["."]
 }

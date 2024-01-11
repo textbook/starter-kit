@@ -1,22 +1,22 @@
 {
-  "extends": ["plugin:n/recommended"],
-  "ignorePatterns": ["/static/"],
-  "overrides": [
-    {
-      "files": ["*.test.js"],
-      "rules": {
-        "n/no-unpublished-import": "off"
-      }
-    }
-  ],
-  "rules": {
-    "no-console": "warn",
-    "no-restricted-syntax": [
-      "warn",
-      {
-        "selector": "MemberExpression[object.name=process][property.name=env]",
-        "message": "process.env should only be accessed in utils/config.js"
-      }
-    ]
-  }
+	"extends": ["plugin:n/recommended"],
+	"ignorePatterns": ["/static/"],
+	"overrides": [
+		{
+			"files": ["*.test.js"],
+			"rules": {
+				"n/no-unpublished-import": "off"
+			}
+		}
+	],
+	"rules": {
+		"no-console": "warn",
+		"no-restricted-syntax": [
+			"warn",
+			{
+				"selector": "MemberExpression[object.name=process][property.name=env]",
+				"message": "process.env should only be accessed in utils/config.js"
+			}
+		]
+	}
 }

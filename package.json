@@ -1,57 +1,60 @@
 {
-  "name": "@textbook/starter-kit",
-  "version": "2.0.0",
-  "description": "v2 upgrade of the starter kit",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "build": "npm --workspace client run build",
-    "postbuild": "buildinfo --output server/static/buildinfo.txt",
-    "dev": "concurrently \"npm:dev:*\"",
-    "dev:client": "cross-env PORT=3000 npm --workspace client run dev",
-    "dev:server": "cross-env PORT=3001 npm --workspace server run dev",
-    "e2e": "npm --workspace e2e run e2e",
-    "e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
-    "e2e:dev:app": "npm run dev",
-    "e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
-    "lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
-    "lint:eslint": "eslint --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
-    "lint:prettier": "prettier --ignore-unknown",
-    "prepare": "husky install || echo 'no husky 🐶'",
-    "preserve": "npm run build",
-    "serve": "npm start",
-    "ship": "npm run lint && npm run test && npm run e2e",
-    "start": "npm --workspace server start",
-    "test": "npm --workspaces --if-present test",
-    "test:cover": "npm --workspaces --if-present run test:cover"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": "npm run lint:eslint -- --fix",
-    "*": "npm run lint:prettier -- --write"
-  },
-  "engines": {
-    "node": ">=20",
-    "npm": ">=10"
-  },
-  "keywords": [],
-  "author": "Jonathan Sharpe <mail@jonrshar.pe>",
-  "license": "ISC",
-  "workspaces": [
-    "client",
-    "server",
-    "e2e"
-  ],
-  "devDependencies": {
-    "@codeyourfuture/eslint-config-standard": "^4.0.3",
-    "@textbook/build-info": "^0.6.0",
-    "@types/node": "^20.10.7",
-    "concurrently": "^8.2.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1"
-  }
+	"name": "@textbook/starter-kit",
+	"version": "2.0.0",
+	"description": "v2 upgrade of the starter kit",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm --workspace client run build",
+		"postbuild": "buildinfo --output server/static/buildinfo.txt",
+		"dev": "concurrently \"npm:dev:*\"",
+		"dev:client": "cross-env PORT=3000 npm --workspace client run dev",
+		"dev:server": "cross-env PORT=3001 npm --workspace server run dev",
+		"e2e": "npm --workspace e2e run e2e",
+		"e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
+		"e2e:dev:app": "npm run dev",
+		"e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
+		"lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
+		"lint:eslint": "eslint --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
+		"lint:prettier": "prettier --ignore-unknown",
+		"prepare": "husky install || echo 'no husky 🐶'",
+		"preserve": "npm run build",
+		"serve": "npm start",
+		"ship": "npm run lint && npm run test && npm run e2e",
+		"start": "npm --workspace server start",
+		"test": "npm --workspaces --if-present test",
+		"test:cover": "npm --workspaces --if-present run test:cover"
+	},
+	"lint-staged": {
+		"*.{js,jsx}": "npm run lint:eslint -- --fix",
+		"*": "npm run lint:prettier -- --write"
+	},
+	"prettier": {
+		"useTabs": true
+	},
+	"engines": {
+		"node": ">=20",
+		"npm": ">=10"
+	},
+	"keywords": [],
+	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
+	"license": "ISC",
+	"workspaces": [
+		"client",
+		"server",
+		"e2e"
+	],
+	"devDependencies": {
+		"@codeyourfuture/eslint-config-standard": "^4.0.3",
+		"@textbook/build-info": "^0.6.0",
+		"@types/node": "^20.10.7",
+		"concurrently": "^8.2.2",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.2.0",
+		"prettier": "^3.1.1"
+	}
 }

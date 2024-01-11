@@ -24,12 +24,12 @@ import logger from "./utils/logger";
 // ...
 
 router.get("/welcome", (_, res) => {
-  const message = "Hello, world!";
-  // basic information shown by default
-  logger.info("sending a welcome message");
-  // extra details only seen if LOG_LEVEL=debug
-  logger.debug("message reads: %s", message);
-  res.json({ message });
+	const message = "Hello, world!";
+	// basic information shown by default
+	logger.info("sending a welcome message");
+	// extra details only seen if LOG_LEVEL=debug
+	logger.debug("message reads: %s", message);
+	res.json({ message });
 });
 ```
 

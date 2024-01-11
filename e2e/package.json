@@ -1,19 +1,19 @@
 {
-  "name": "@starter-kit/e2e",
-  "private": true,
-  "version": "2.0.0",
-  "description": "Playwright end-to-end tests",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "e2e": "playwright test"
-  },
-  "keywords": [],
-  "author": "Jonathan Sharpe <mail@jonrshar.pe>",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.40.1",
-    "eslint-plugin-playwright": "^0.21.0",
-    "playwright": "^1.40.1"
-  }
+	"name": "@starter-kit/e2e",
+	"private": true,
+	"version": "2.0.0",
+	"description": "Playwright end-to-end tests",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"e2e": "playwright test"
+	},
+	"keywords": [],
+	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
+	"license": "ISC",
+	"devDependencies": {
+		"@playwright/test": "^1.40.1",
+		"eslint-plugin-playwright": "^0.21.0",
+		"playwright": "^1.40.1"
+	}
 }
