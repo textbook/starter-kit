@@ -6,7 +6,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "cross-env LOG_LEVEL=debug nodemon server.js",
+    "dev": "cross-env LOG_LEVEL=debug nodemon --inspect server.js",
     "test": "node --test",
     "test:cover": "npm test -- --experimental-test-coverage"
   },
