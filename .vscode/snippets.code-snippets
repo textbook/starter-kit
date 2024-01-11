@@ -1,0 +1,19 @@
+{
+  "react-component-test": {
+    "body": [
+      "import { render, screen } from \"@testing-library/react\";",
+      "import { describe, expect, it } from \"vitest\";",
+      "",
+      "describe(\"${1:name} component\", () => {",
+      "\tit(\"${2:description}\", async () => {",
+      "\t\t$0",
+      "\t});",
+      "});",
+      ""
+    ],
+    "description": "Boilerplate for a React component test",
+    "isFileTemplate": true,
+    "prefix": "rct",
+    "scope": "javascript"
+  }
+}

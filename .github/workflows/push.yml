@@ -15,6 +15,7 @@ jobs:
       - run: npm run lint
       - run: npm run test:cover
       - run: npm run e2e
+      - run: npm run e2e:dev
   docker:
     runs-on: ubuntu-latest
     steps:

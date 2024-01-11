@@ -8,7 +8,7 @@
 - [x] Linting with [ESLint] and [Prettier]
 - [x] Unit and integration testing with [Vitest] and [`node:test`][node-test] (with [SuperTest])
 - [x] E2E testing with [Playwright]
-- [x] Dev mode (watch modes for client and server)
+- [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
 - [x] [GitHub Actions] pipeline
 - [ ] [Heroku] or [Render] deployment
@@ -19,13 +19,14 @@
 Various scripts are provided in the package file, but many are helpers for other scripts; here are the ones you'll
 commonly use:
 
-- `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3001).
+- `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3001, and the frontend is proxied to it).
 - `e2e`: builds and starts the app in production mode and runs the Playwright tests against it.
+  - `e2e:dev`: builds and starts the app in dev mode and runs the Playwright tests against it.
 - `lint`: runs ESLint and Prettier against all the relevant files in the project.
 - `serve`: builds and starts the app in production mode locally.
 - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
 - `test`: runs the unit and integration tests.
-- `test:cover`: runs the tests and outputs coverage data.
+  - `test:cover`: runs the tests and outputs coverage data.
 
 [Docker]: https://www.docker.com
 [ESLint]: https://eslint.org/

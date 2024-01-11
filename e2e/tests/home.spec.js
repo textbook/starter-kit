@@ -14,3 +14,9 @@ test("has Vite.js link", async ({ page }) => {
 		"https://vitejs.dev",
 	);
 });
+
+test("shows server status", async ({ page }) => {
+	await page.goto("/");
+
+	await expect(page.getByText("Server status: OK")).toBeAttached();
+});
