@@ -1,0 +1,46 @@
+# Starter Kit v2
+
+- [x] [Node] LTS support (verified working on 20.x LTS release)
+- [x] [Express] server
+- [x] Logging with [Winston] and [Morgan]
+- [x] [React] client with [Vite]
+- [ ] Client-side routing with [React Router]
+- [x] Linting with [ESLint] and [Prettier]
+- [x] Unit and integration testing with [Vitest] and [`node:test`][node-test] (with [SuperTest])
+- [x] E2E testing with [Playwright]
+- [x] Dev mode (watch modes for client and server)
+- [x] Production build (single deployment artifact)
+- [x] [GitHub Actions] pipeline
+- [ ] [Heroku] or [Render] deployment
+- [x] [Docker] build
+
+## Scripts
+
+Various scripts are provided in the package file, but many are helpers for other scripts; here are the ones you'll
+commonly use:
+
+- `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3001).
+- `e2e`: builds and starts the app in production mode and runs the Playwright tests against it.
+- `lint`: runs ESLint and Prettier against all the relevant files in the project.
+- `serve`: builds and starts the app in production mode locally.
+- `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
+- `test`: runs the unit and integration tests.
+- `test:cover`: runs the tests and outputs coverage data.
+
+[Docker]: https://www.docker.com
+[ESLint]: https://eslint.org/
+[Express]: https://expressjs.com/
+[GitHub Actions]: https://github.com/features/actions
+[Heroku]: https://www.heroku.com/
+[Morgan]: https://github.com/expressjs/morgan
+[Node]: https://nodejs.org/en/
+[node-test]: https://nodejs.org/api/test.html
+[Playwright]: https://playwright.dev/
+[Prettier]: https://prettier.io/
+[React]: https://reactjs.org/
+[Render]: https://render.com/
+[SuperTest]: https://github.com/visionmedia/supertest
+[Vite]: https://vitejs.dev/
+[Vitest]: https://vitest.dev/
+[wiki]: https://github.com/textbook/starter-kit/wiki
+[Winston]: https://github.com/winstonjs/winston
