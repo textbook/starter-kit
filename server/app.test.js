@@ -1,5 +1,3 @@
-import { describe, it } from "node:test";
-
 import request from "supertest";
 
 import app from "./app.js";

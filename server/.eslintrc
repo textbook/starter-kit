@@ -4,7 +4,12 @@
 	"overrides": [
 		{
 			"files": ["*.test.js"],
+			"extends": ["plugin:jest/recommended"],
 			"rules": {
+				"jest/expect-expect": [
+					"error",
+					{ "assertFunctionNames": ["expect", "request.**.expect"] }
+				],
 				"n/no-unpublished-import": "off"
 			}
 		}
