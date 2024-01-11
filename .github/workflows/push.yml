@@ -13,7 +13,7 @@ jobs:
           node-version: 20
       - run: npx playwright install --with-deps
       - run: npm run lint
-      - run: npm test
+      - run: npm run test:cover
       - run: npm run e2e
   docker:
     runs-on: ubuntu-latest

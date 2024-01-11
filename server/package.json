@@ -7,7 +7,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "cross-env LOG_LEVEL=debug nodemon server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "test:cover": "npm test -- --experimental-test-coverage"
   },
   "keywords": [],
   "author": "Jonathan Sharpe <mail@jonrshar.pe>",

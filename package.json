@@ -19,7 +19,8 @@
     "preserve": "npm run build",
     "serve": "npm start",
     "start": "npm --workspace server start",
-    "test": "npm --workspaces --if-present test"
+    "test": "npm --workspaces --if-present test",
+    "test:cover": "npm --workspaces --if-present run test:cover"
   },
   "lint-staged": {
     "*.{js,jsx}": "npm run lint:eslint -- --fix",
