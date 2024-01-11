@@ -10,7 +10,11 @@
 		{
 			"files": ["src/**/*.test.jsx", "src/setupTests.js"],
 			"env": { "vitest/env": true },
-			"extends": ["plugin:testing-library/react", "plugin:vitest/recommended"]
+			"extends": [
+				"plugin:jest-dom/recommended",
+				"plugin:testing-library/react",
+				"plugin:vitest/recommended"
+			]
 		}
 	],
 	"parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
