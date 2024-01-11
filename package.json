@@ -11,14 +11,19 @@
     "dev:client": "cross-env PORT=3000 npm --workspace client run dev",
     "dev:server": "cross-env PORT=3001 npm --workspace server run dev",
     "e2e": "npm --workspace e2e run e2e",
-    "lint": "npm run lint:eslint && npm run lint:prettier -- --check",
-    "lint:eslint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
-    "lint:prettier": "prettier .",
+    "lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
+    "lint:eslint": "eslint --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
+    "lint:prettier": "prettier --ignore-unknown",
+    "prepare": "husky install || echo 'no husky 🐶'",
     "preserve": "npm run build",
     "serve": "npm start",
     "start": "npm --workspace server start",
     "test": "npm --workspaces --if-present test"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "npm run lint:eslint -- --fix",
+    "*": "npm run lint:prettier -- --write"
   },
   "engines": {
     "node": ">=20",
@@ -38,7 +43,9 @@
     "@types/node": "^20.10.7",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
