@@ -17,7 +17,7 @@ WORKDIR /home/node
 
 COPY package*.json ./
 COPY server/package.json server/
-RUN npm --workspace server ci
+RUN npm --workspace server ci --omit dev
 
 COPY server/ server/
 COPY --from=client /home/node/server/static server/static/
