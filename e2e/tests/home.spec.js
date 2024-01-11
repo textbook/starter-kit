@@ -6,8 +6,8 @@ test("has title", async ({ page }) => {
 	await expect(page).toHaveTitle(/Vite \+ React/);
 });
 
-test("Vite.js link", async ({ page }) => {
-	await page.goto("");
+test("has Vite.js link", async ({ page }) => {
+	await page.goto("/");
 
 	await expect(page.getByRole("link", { name: "Vite logo" })).toHaveAttribute(
 		"href",
