@@ -6,7 +6,6 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "npm --workspace client run build",
-		"postbuild": "buildinfo --output server/static/buildinfo.txt",
 		"dev": "concurrently \"npm:dev:*\"",
 		"dev:client": "cross-env PORT=3000 npm --workspace client run dev",
 		"dev:server": "cross-env PORT=3001 npm --workspace server run dev",
@@ -47,7 +46,6 @@
 	],
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^4.0.3",
-		"@textbook/build-info": "^0.6.0",
 		"@types/node": "^20.11.0",
 		"concurrently": "^8.2.2",
 		"cross-env": "^7.0.3",

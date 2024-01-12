@@ -1,3 +1,4 @@
+client/public/buildinfo.txt
 coverage/
 e2e/blob-report/
 e2e/playwright/.cache/
