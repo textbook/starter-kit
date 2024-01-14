@@ -7,7 +7,7 @@ COPY package*.json ./
 COPY --chown=node client/package.json client/
 RUN npm --workspace client ci
 
-COPY client/ client/
+COPY --chown=node client/ client/
 RUN npm --workspace client run build
 
 FROM node:20-alpine
