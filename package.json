@@ -8,7 +8,7 @@
 		"build": "npm --workspace client run build",
 		"dev": "concurrently \"npm:dev:*\"",
 		"dev:client": "cross-env PORT=3000 npm --workspace client run dev",
-		"dev:server": "cross-env PORT=3001 npm --workspace server run dev",
+		"dev:server": "cross-env PORT=3100 npm --workspace server run dev",
 		"e2e": "npm --workspace e2e run e2e",
 		"e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
 		"e2e:dev:app": "npm run dev",

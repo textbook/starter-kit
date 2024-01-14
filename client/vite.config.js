@@ -2,7 +2,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
-const serverPort = process.env.SERVER_PORT ?? "3001";
+const serverPort = process.env.SERVER_PORT ?? "3100";
 
 // https://vitejs.dev/config/
 export default defineConfig({
