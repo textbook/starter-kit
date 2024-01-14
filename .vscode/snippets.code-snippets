@@ -9,11 +9,11 @@
 			"\t\t$0",
 			"\t});",
 			"});",
-			""
+			"",
 		],
 		"description": "Boilerplate for a React component test",
 		"isFileTemplate": true,
 		"prefix": "rct",
-		"scope": "javascript"
-	}
+		"scope": "javascript",
+	},
 }
