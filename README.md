@@ -11,7 +11,7 @@
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
 - [x] [GitHub Actions] pipeline
-- [x] [Heroku] or [Render] deployment
+- [x] [Google App Engine], [Heroku] or [Render] deployment
 - [x] [Docker] build
 
 ## Scripts
@@ -32,6 +32,7 @@ commonly use:
 [ESLint]: https://eslint.org/
 [Express]: https://expressjs.com/
 [GitHub Actions]: https://github.com/features/actions
+[Google App Engine]: https://cloud.google.com/appengine/?hl=en
 [Heroku]: https://www.heroku.com/
 [Jest]: https://jestjs.io/
 [Morgan]: https://github.com/expressjs/morgan
