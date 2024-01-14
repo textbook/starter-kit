@@ -1,0 +1,13 @@
+{
+	"name": "Starter Kit",
+	"description": "Starter kit for full-stack JavaScript projects",
+	"stack": "heroku-22",
+	"buildpacks": ["heroku/nodejs"],
+	"env": {
+		"LOG_LEVEL": {
+			"description": "Level of outputs to show in logs",
+			"value": "info"
+		}
+	},
+	"success_url": "/"
+}

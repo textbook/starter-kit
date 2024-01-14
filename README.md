@@ -11,7 +11,7 @@
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
 - [x] [GitHub Actions] pipeline
-- [ ] [Heroku] or [Render] deployment
+- [x] [Heroku] or [Render] deployment
 - [x] [Docker] build
 
 ## Scripts
