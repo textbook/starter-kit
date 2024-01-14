@@ -2,16 +2,17 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { http, HttpResponse } from "msw";
 
-import App from "./App.jsx";
-import { server } from "./setupTests.js";
+import { server } from "../setupTests.js";
 
-describe("App component", () => {
+import Home from "./Home.jsx";
+
+describe("Home component", () => {
 	beforeEach(() =>
 		server.use(http.get("/healthz", () => HttpResponse.text("OK"))),
 	);
 
 	it("shows a link", () => {
-		render(<App />);
+		render(<Home />);
 
 		expect(screen.getByRole("link", { name: "React logo" })).toHaveAttribute(
 			"href",
@@ -21,7 +22,7 @@ describe("App component", () => {
 
 	it("has a click counter", async () => {
 		const user = userEvent.setup();
-		render(<App />);
+		render(<Home />);
 
 		await user.click(screen.getByRole("button", { name: /count is 0/i }));
 

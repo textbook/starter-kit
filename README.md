@@ -4,7 +4,7 @@
 - [x] [Express] server
 - [x] Logging with [Winston] and [Morgan]
 - [x] [React] client with [Vite]
-- [ ] Client-side routing with [React Router]
+- [x] Client-side routing with [React Router]
 - [x] Linting with [ESLint] and [Prettier]
 - [x] Unit and integration testing with [Vitest] and [Jest] (with [SuperTest])
 - [x] E2E testing with [Playwright]
