@@ -15,7 +15,7 @@
 		"e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
 		"gcp-build": "npm run build && npm --workspace server prune --omit dev",
 		"lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
-		"lint:eslint": "eslint --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"lint:eslint": "eslint --ext js,jsx --max-warnings 0",
 		"lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
 		"lint:prettier": "prettier --ignore-unknown",
 		"prepare": "husky install || echo 'no husky 🐶'",
