@@ -1,5 +1,5 @@
-client/coverage/
-client/node_modules/
+.nyc_output/
 e2e/
 node_modules/
+reports/
 server/static/

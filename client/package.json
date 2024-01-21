@@ -9,7 +9,6 @@
 		"build": "vite build --emptyOutDir",
 		"dev": "vite",
 		"test": "vitest --run",
-		"test:cover": "npm run test -- --coverage",
 		"test:watch": "vitest --watch"
 	},
 	"dependencies": {

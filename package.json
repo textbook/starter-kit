@@ -24,7 +24,8 @@
 		"ship": "npm run lint && npm run test && npm run e2e",
 		"start": "npm --workspace server start",
 		"test": "npm --workspaces --if-present test",
-		"test:cover": "npm --workspaces --if-present run test:cover"
+		"test:cover": "npm test -- -- --coverage",
+		"posttest:cover": "nyc report --report-dir reports/coverage --reporter html"
 	},
 	"lint-staged": {
 		"*.{js,jsx}": "npm run lint:eslint -- --fix",
@@ -54,6 +55,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^15.2.0",
+		"nyc": "^15.1.0",
 		"prettier": "^3.2.2"
 	}
 }

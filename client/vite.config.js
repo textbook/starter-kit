@@ -18,6 +18,12 @@ export default defineConfig({
 		},
 	},
 	test: {
+		coverage: {
+			all: true,
+			provider: "v8",
+			reporter: [["json", { file: "client.json" }], ["text"]],
+			reportsDirectory: "../.nyc_output",
+		},
 		environment: "jsdom",
 		globals: true,
 		setupFiles: ["src/setupTests.js"],

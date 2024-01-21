@@ -7,8 +7,7 @@
 	"main": "server.js",
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug nodemon --inspect server.js",
-		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest",
-		"test:cover": "npm test -- --coverage"
+		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest"
 	},
 	"keywords": [],
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
