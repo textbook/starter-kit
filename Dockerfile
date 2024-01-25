@@ -3,7 +3,7 @@ FROM node:20-alpine as client
 USER node
 WORKDIR /home/node
 
-COPY package*.json ./
+COPY package*.json .npmrc ./
 COPY --chown=node client/package.json client/
 RUN npm --workspace client ci
 
@@ -15,7 +15,7 @@ FROM node:20-alpine
 USER node
 WORKDIR /home/node
 
-COPY package*.json ./
+COPY package*.json .npmrc ./
 COPY server/package.json server/
 RUN npm --workspace server ci --omit dev
 
