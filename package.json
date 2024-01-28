@@ -18,7 +18,7 @@
 		"lint:eslint": "eslint --ext js,jsx --max-warnings 0",
 		"lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
 		"lint:prettier": "prettier --ignore-unknown",
-		"prepare": "husky install || echo 'no husky 🐶'",
+		"prepare": "husky || echo 'no husky 🐶'",
 		"preserve": "npm run build",
 		"serve": "npm start",
 		"ship": "npm run lint && npm run test && npm run e2e",
@@ -53,7 +53,7 @@
 		"cross-env": "^7.0.3",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
-		"husky": "^8.0.3",
+		"husky": "^9.0.6",
 		"lint-staged": "^15.2.0",
 		"nyc": "^15.1.0",
 		"prettier": "^3.2.4"
