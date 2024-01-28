@@ -11,7 +11,7 @@
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
 - [x] [GitHub Actions] pipeline
-- [x] [Google App Engine], [Heroku] or [Render] deployment
+- [x] [Google App Engine], [Heroku], [Render] or [Vercel] deployment
 - [x] [Docker] build
 
 ## Scripts
@@ -44,6 +44,7 @@ commonly use:
 [React Router]: https://reactrouter.com/en/main
 [Render]: https://render.com/
 [SuperTest]: https://github.com/visionmedia/supertest
+[Vercel]: https://vercel.com/
 [Vite]: https://vitejs.dev/
 [Vitest]: https://vitest.dev/
 [wiki]: https://github.com/textbook/starter-kit/wiki

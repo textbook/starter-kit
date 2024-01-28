@@ -1,6 +1,6 @@
 # Utilities
 
-`server/utils/` contains various utility modules. In practice, you'll probably:
+`api/utils/` contains various utility modules. In practice, you'll probably:
 
 - Import from and maybe add new options to `config.js`;
 - Import from `logger.js`; and
@@ -12,7 +12,7 @@ Creates and exposes an object representing the app's configuration. This central
 
 [Dotenv] is used to load any configuration required from a `.env` file in the root of the repository.
 
-To check if this is being used correctly, if you search your codebase, _all_ uses of `process.env` in `server/` should be in this file.
+To check if this is being used correctly, if you search your codebase, _all_ uses of `process.env` in `api/` should be in this file.
 
 ## `logger.js`
 
@@ -38,14 +38,14 @@ router.get("/welcome", (_, res) => {
 - The default [log level] is `"info"`
 - The log level can be overridden by setting the `LOG_LEVEL` environment variable
 - The log level is automatically set to `"debug"` in development mode (`npm run dev`)
-- ESLint's `"no-console"` rule is activated in `server/`, to remind you to use the logger instead
+- ESLint's `"no-console"` rule is activated in `api/`, to remind you to use the logger instead
 
 ## `middleware.js`
 
-Defines default middleware used in `server/app.js`:
+Defines default middleware used in `api/app.js`:
 
 - `clientRouter`: brings the React client into the Express server for production mode
-  - serves React app build outputs (CSS, HTML, JS, etc.) from `static/` directory
+  - serves React app build outputs (CSS, HTML, JS, etc.) from `api/static/` directory
   - provides the client app `index.html` to any GET request that isn't to an API endpoint, allowing client-side pages using e.g. [React Router]
 - `configuredHelmet`: provides a configured version of the [Helmet] middleware to set the right [Content Security Policy]
 - `configuredMorgan`: provides a configured version of the [Morgan] middleware to log using Winston

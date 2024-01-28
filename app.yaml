@@ -5,7 +5,7 @@ runtime: nodejs20
 
 instance_class: F1
 
-entrypoint: node server/server.js
+entrypoint: node api/server.js
 
 env_variables:
   LOG_LEVEL: info

@@ -1,5 +1,5 @@
 {
-	"name": "@starter-kit/client",
+	"name": "@starter-kit/web",
 	"private": true,
 	"version": "2.0.0",
 	"description": "Vite/React client",

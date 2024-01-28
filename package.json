@@ -5,15 +5,15 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"build": "npm --workspace client run build",
+		"build": "npm --workspace web run build",
 		"dev": "concurrently \"npm:dev:*\"",
-		"dev:client": "cross-env PORT=3000 npm --workspace client run dev",
-		"dev:server": "cross-env PORT=3100 npm --workspace server run dev",
+		"dev:api": "cross-env PORT=3100 npm --workspace api run dev",
+		"dev:web": "cross-env PORT=3000 npm --workspace web run dev",
 		"e2e": "npm --workspace e2e run e2e",
 		"e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
 		"e2e:dev:app": "npm run dev",
 		"e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
-		"gcp-build": "npm run build && npm --workspace server prune --omit dev",
+		"gcp-build": "npm run build && npm --workspace api prune --omit dev",
 		"lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
 		"lint:eslint": "eslint --ext js,jsx --max-warnings 0",
 		"lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
@@ -22,7 +22,7 @@
 		"preserve": "npm run build",
 		"serve": "npm start",
 		"ship": "npm run lint && npm run test && npm run e2e",
-		"start": "npm --workspace server start",
+		"start": "npm --workspace api start",
 		"test": "npm --workspaces --if-present test",
 		"test:cover": "npm test -- -- --coverage",
 		"posttest:cover": "nyc report --report-dir reports/coverage --reporter lcov"
@@ -42,8 +42,8 @@
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"license": "ISC",
 	"workspaces": [
-		"client",
-		"server",
+		"web",
+		"api",
 		"e2e"
 	],
 	"devDependencies": {

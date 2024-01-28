@@ -5,7 +5,7 @@ services:
     name: starter-kit
     region: frankfurt
     env: node
-    buildCommand: npm ci --include dev; npm run build; npm --workspace server prune --omit dev
+    buildCommand: npm ci --include dev; npm run build; npm --workspace api prune --omit dev
     startCommand: npm start
     healthCheckPath: /healthz
     envVars:

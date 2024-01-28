@@ -1,14 +1,14 @@
-FROM node:20-alpine as client
+FROM node:20-alpine as web
 
 USER node
 WORKDIR /home/node
 
 COPY package*.json .npmrc ./
-COPY --chown=node client/package.json client/
-RUN npm --workspace client ci
+COPY --chown=node web/package.json web/
+RUN npm --workspace web ci
 
-COPY --chown=node client/ client/
-RUN npm --workspace client run build
+COPY --chown=node web/ web/
+RUN npm --workspace web run build
 
 FROM node:20-alpine
 
@@ -16,14 +16,14 @@ USER node
 WORKDIR /home/node
 
 COPY package*.json .npmrc ./
-COPY server/package.json server/
-RUN npm --workspace server ci --omit dev
+COPY api/package.json api/
+RUN npm --workspace api ci --omit dev
 
-COPY server/ server/
-COPY --from=client /home/node/server/static server/static/
+COPY api/ api/
+COPY --from=web /home/node/api/static api/static/
 
 EXPOSE 80
 ENV PORT=80
 
 ENTRYPOINT [ "node" ]
-CMD [ "server/server.js" ]
+CMD [ "api/server.js" ]

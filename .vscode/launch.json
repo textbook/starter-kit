@@ -4,14 +4,14 @@
 		{
 			"type": "node",
 			"request": "attach",
-			"name": "Debug server",
+			"name": "Debug API",
 			"port": 9229,
 			"skipFiles": ["<node_internals>/**"]
 		},
 		{
 			"type": "chrome",
 			"request": "launch",
-			"name": "Debug client",
+			"name": "Debug web",
 			"url": "http://localhost:3000",
 			"webRoot": "${workspaceFolder}"
 		}

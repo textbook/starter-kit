@@ -1,5 +1,5 @@
 .nyc_output/
+api/static/
 e2e/
 node_modules/
 reports/
-server/static/

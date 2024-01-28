@@ -1,9 +1,9 @@
 .nyc_output/
-client/public/buildinfo.txt
+api/static/
 e2e/blob-report/
 e2e/playwright/.cache/
 e2e/playwright-report/
 e2e/test-results/
 node_modules/
 reports/
-server/static/
+web/public/buildinfo.txt
