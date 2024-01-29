@@ -7,3 +7,4 @@ e2e/test-results/
 node_modules/
 reports/
 web/public/buildinfo.txt
+.env
