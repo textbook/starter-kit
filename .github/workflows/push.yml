@@ -40,6 +40,19 @@ jobs:
           DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
   docker:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: keepitsecret
+          POSTGRES_USER: testdb
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     steps:
       - uses: textbook/take-action@nodejs
         with:
@@ -51,12 +64,19 @@ jobs:
           load: true
           push: false
           tags: textbook/starter-kit:v2
+      - id: env-file
+        run: |
+          echo "file=$ENV_FILE" >> $GITHUB_OUTPUTS
+          echo 'LOG_LEVEL=debug' >> $ENV_FILE
+          echo 'NODE_ENV=docker' >> $ENV_FILE
+          echo 'DATABASE_URL=postgres://testdb:keepitsecret@localhost:5432/testdb' >> $ENV_FILE
+        env:
+          ENV_FILE: docker.env
       - id: docker-run
         run: |
           echo "id=$(docker run \
             --detach \
-            --env LOG_LEVEL=debug \
-            --env NODE_ENV=docker \
+            --env-file ${{ steps.env-file.outputs.file }} \
             --init \
             --publish 4321:80 \
             textbook/starter-kit:v2)" >> $GITHUB_OUTPUT
