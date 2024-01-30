@@ -33,7 +33,11 @@ jobs:
           DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
           FORCE_COLOR: true
       - run: npm run e2e
+        env:
+          DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
       - run: npm run e2e:dev
+        env:
+          DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
   docker:
     runs-on: ubuntu-latest
     steps:
