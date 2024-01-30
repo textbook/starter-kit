@@ -11,15 +11,29 @@ const dotenvPath = resolve(
 
 configDotenv({ path: dotenvPath });
 
+requireArgs(["DATABASE_URL"]);
+
 /**
+ * @property {string} databaseUrl
  * @property {string} dotenvPath
  * @property {string} logLevel
  * @property {number} port
  * @property {boolean} production
  */
 export default {
+	databaseUrl: process.env.DATABASE_URL,
 	dotenvPath,
 	logLevel: process.env.LOG_LEVEL?.toLowerCase() ?? "info",
 	port: parseInt(process.env.PORT ?? "3000", 10),
 	production: process.env.NODE_ENV?.toLowerCase() === "production",
 };
+
+function requireArgs(required) {
+	const missing = required.filter((variable) => !process.env[variable]);
+	if (missing.length > 0) {
+		process.exitCode = 1;
+		throw new Error(
+			`missing required environment variable(s): ${missing.join(", ")}`,
+		);
+	}
+}

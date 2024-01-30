@@ -5,4 +5,5 @@ export default {
 	coverageReporters: [["json", { file: "api.json" }], "text"],
 	rootDir: ".",
 	transform: {},
+	setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
 };

@@ -1,9 +1,0 @@
-{
-	"extends": ["@codeyourfuture/standard", "prettier"],
-	"parserOptions": {
-		"ecmaVersion": 2021,
-		"sourceType": "module"
-	},
-	"reportUnusedDisableDirectives": true,
-	"root": true
-}
