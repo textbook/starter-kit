@@ -22,6 +22,8 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
     steps:
       - uses: textbook/take-action@nodejs
         with:
@@ -30,14 +32,9 @@ jobs:
       - run: npm run lint
       - run: npm run test:cover
         env:
-          DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
           FORCE_COLOR: true
       - run: npm run e2e
-        env:
-          DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
       - run: npm run e2e:dev
-        env:
-          DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
   docker:
     runs-on: ubuntu-latest
     services:
@@ -67,7 +64,7 @@ jobs:
       - id: env-file
         run: |
           echo "file=$ENV_FILE" >> "$GITHUB_OUTPUT"
-          echo 'DATABASE_URL=postgres://testdb:keepitsecret@localhost:5432/testdb' >> "$ENV_FILE"
+          echo 'DATABASE_URL=postgres://testdb:keepitsecret@postgres:5432/testdb' >> "$ENV_FILE"
           echo 'LOG_LEVEL=debug' >> "$ENV_FILE"
           echo 'NODE_ENV=docker' >> "$ENV_FILE"
         env:
