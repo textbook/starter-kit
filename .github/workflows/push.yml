@@ -66,6 +66,7 @@ jobs:
           echo "file=$ENV_FILE" >> "$GITHUB_OUTPUT"
           echo 'DATABASE_URL=postgres://testdb:keepitsecret@localhost:5432/testdb' >> "$ENV_FILE"
           echo 'LOG_LEVEL=debug' >> "$ENV_FILE"
+          echo 'PORT=4321' >> "$ENV_FILE"
           echo 'NODE_ENV=docker' >> "$ENV_FILE"
         env:
           ENV_FILE: docker.env
@@ -76,7 +77,7 @@ jobs:
             --env-file ${{ steps.env-file.outputs.file }} \
             --init \
             --network 'host' \
-            --publish 4321:80 \
+            --publish 4321:4321 \
             textbook/starter-kit:v2)" >> $GITHUB_OUTPUT
       - run: npm run e2e
         env:
