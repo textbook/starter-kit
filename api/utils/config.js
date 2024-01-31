@@ -14,7 +14,7 @@ configDotenv({ path: dotenvPath });
 requireArgs(["DATABASE_URL"]);
 
 /**
- * @property {string} databaseUrl
+ * @property {URL} databaseUrl
  * @property {string} dotenvPath
  * @property {string} logLevel
  * @property {number} port
