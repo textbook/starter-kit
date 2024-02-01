@@ -1,5 +1,5 @@
-import { connect, disconnect } from "./db.js";
+import { connectDb, disconnectDb } from "./db.js";
 
-beforeAll(() => connect());
+beforeAll(() => connectDb());
 
-afterAll(() => disconnect());
+afterAll(() => disconnectDb());
