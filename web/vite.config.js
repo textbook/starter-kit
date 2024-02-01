@@ -1,6 +1,6 @@
 /* eslint-env node */
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
 
 const apiPort = process.env.API_PORT ?? "3100";
 

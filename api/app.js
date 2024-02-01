@@ -1,7 +1,9 @@
 import express from "express";
 
+import db from "./db.js";
 import config from "./utils/config.js";
 import {
+	asyncHandler,
 	clientRouter,
 	configuredHelmet,
 	configuredMorgan,
@@ -20,7 +22,13 @@ if (config.production) {
 	app.use(httpsOnly());
 }
 
-app.get("/healthz", (_, res) => res.sendStatus(200));
+app.get(
+	"/healthz",
+	asyncHandler(async (_, res) => {
+		await db.query("SELECT 1;");
+		res.sendStatus(200);
+	}),
+);
 
 app.use(clientRouter("/api"));
 
