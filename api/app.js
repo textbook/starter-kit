@@ -1,5 +1,6 @@
 import express from "express";
 
+import apiRouter from "./api.js";
 import db from "./db.js";
 import config from "./utils/config.js";
 import {
@@ -11,6 +12,7 @@ import {
 	logErrors,
 } from "./utils/middleware.js";
 
+const apiRoot = "/api";
 const app = express();
 
 app.use(express.json());
@@ -30,7 +32,9 @@ app.get(
 	}),
 );
 
-app.use(clientRouter("/api"));
+app.use(apiRoot, apiRouter);
+
+app.use(clientRouter(apiRoot));
 
 app.use(logErrors());
 
