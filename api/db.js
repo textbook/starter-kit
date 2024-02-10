@@ -1,4 +1,4 @@
-import { default as pg } from "pg";
+import pg from "pg";
 
 import config from "./utils/config.js";
 import logger from "./utils/logger.js";
