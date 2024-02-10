@@ -47,6 +47,7 @@ export const httpsOnly = () => (req, res, next) => {
 	next();
 };
 
+/** @type {() => import("express").ErrorRequestHandler} */
 export const logErrors = () => (err, _, res, next) => {
 	if (res.headersSent) {
 		return next(err);
