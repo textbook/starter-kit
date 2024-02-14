@@ -30,6 +30,7 @@ jobs:
           node-version: 20
       - uses: textbook/take-action@playwright
       - run: npm run lint
+      - run: npm run migration up
       - run: npm run test:cover
         env:
           FORCE_COLOR: true
