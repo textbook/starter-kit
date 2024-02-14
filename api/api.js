@@ -1,9 +1,9 @@
 import { Router } from "express";
 
+import messageRouter from "./messages/messageRouter.js";
+
 const api = Router();
 
-api.get("/message", (_, res) => {
-	res.send("Hello, world!");
-});
+api.use("/message", messageRouter);
 
 export default api;

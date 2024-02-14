@@ -3,20 +3,7 @@ import pg from "pg";
 import config from "./utils/config.js";
 import logger from "./utils/logger.js";
 
-const databaseUrl = new URL(config.databaseUrl);
-
-const localDb = ["0.0.0.0", "127.0.0.1", "localhost"].includes(
-	databaseUrl.hostname,
-);
-const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
-	databaseUrl.searchParams.get("sslmode") ?? "none",
-);
-
-const pool = new pg.Pool({
-	connectionString: databaseUrl.toString(),
-	connectionTimeoutMillis: 5_000,
-	ssl: localDb ? false : { rejectUnauthorized: sslMode },
-});
+const pool = new pg.Pool(config.dbConfig);
 
 pool.on("error", (err) => logger.error("%O", err));
 

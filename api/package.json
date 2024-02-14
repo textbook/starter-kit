@@ -7,6 +7,8 @@
 	"main": "server.js",
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug nodemon --inspect server.js",
+		"premigration": "node ./migrations/generateConfig.js",
+		"migration": "node-pg-migrate --config-file ./migrations/config.json",
 		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest"
 	},
 	"keywords": [],
@@ -17,6 +19,7 @@
 		"express": "^4.18.2",
 		"helmet": "^7.1.0",
 		"morgan": "^1.10.0",
+		"node-pg-migrate": "^6.2.2",
 		"pg": "^8.11.3",
 		"winston": "^3.11.0"
 	},

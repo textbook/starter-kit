@@ -13,15 +13,28 @@ configDotenv({ path: dotenvPath });
 
 requireArgs(["DATABASE_URL"]);
 
+const databaseUrl = new URL(process.env.DATABASE_URL);
+
+const localDb = ["0.0.0.0", "127.0.0.1", "localhost"].includes(
+	databaseUrl.hostname,
+);
+const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
+	databaseUrl.searchParams.get("sslmode") ?? process.env.PGSSLMODE,
+);
+
 /**
- * @property {URL} databaseUrl
+ * @property {import("pg").ClientConfig} dbConfig
  * @property {string} dotenvPath
  * @property {string} logLevel
  * @property {number} port
  * @property {boolean} production
  */
 export default {
-	databaseUrl: process.env.DATABASE_URL,
+	dbConfig: {
+		connectionString: databaseUrl.toString(),
+		connectionTimeoutMillis: 5_000,
+		ssl: localDb ? false : { rejectUnauthorized: sslMode },
+	},
 	dotenvPath,
 	logLevel: process.env.LOG_LEVEL?.toLowerCase() ?? "info",
 	port: parseInt(process.env.PORT ?? "3000", 10),

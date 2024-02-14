@@ -20,10 +20,11 @@ COPY api/package.json api/
 RUN npm --workspace api ci --omit dev
 
 COPY api/ api/
+COPY --chown=node api/start.sh api/
 COPY --from=web /home/node/api/static api/static/
 
 EXPOSE 80
 ENV PORT=80
 
-ENTRYPOINT [ "node" ]
-CMD [ "api/server.js" ]
+ENTRYPOINT [ "sh" ]
+CMD [ "-c", "./api/start.sh" ]
