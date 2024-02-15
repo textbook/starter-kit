@@ -7,8 +7,7 @@
 	"main": "server.js",
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug nodemon --inspect server.js",
-		"premigration": "node ./migrations/generateConfig.js",
-		"migration": "node-pg-migrate --config-file ./migrations/config.json",
+		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
 		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest"
 	},
 	"keywords": [],

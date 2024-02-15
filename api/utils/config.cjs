@@ -1,10 +1,8 @@
 /* eslint-disable no-restricted-syntax */
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+const { join, resolve } = require("node:path");
 
-import { configDotenv } from "dotenv";
+const { configDotenv } = require("dotenv");
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const dotenvPath = resolve(
 	join(__dirname, "..", "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
 );
@@ -29,7 +27,7 @@ const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
  * @property {number} port
  * @property {boolean} production
  */
-export default {
+module.exports = {
 	dbConfig: {
 		connectionString: databaseUrl.toString(),
 		connectionTimeoutMillis: 5_000,

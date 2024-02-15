@@ -1,6 +1,6 @@
 import { createLogger, format, transports } from "winston";
 
-import config from "./config.js";
+import config from "./config.cjs";
 
 const logger = createLogger({
 	format: format.combine(

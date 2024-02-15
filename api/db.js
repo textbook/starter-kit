@@ -1,6 +1,6 @@
 import pg from "pg";
 
-import config from "./utils/config.js";
+import config from "./utils/config.cjs";
 import logger from "./utils/logger.js";
 
 const pool = new pg.Pool(config.dbConfig);
