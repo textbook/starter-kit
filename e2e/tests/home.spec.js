@@ -18,5 +18,5 @@ test("has Vite.js link", async ({ page }) => {
 test("shows server status", async ({ page }) => {
 	await page.goto("/");
 
-	await expect(page.getByText("Server status: OK")).toBeAttached();
+	await expect(page.getByText("Server says: Hello, world!")).toBeAttached();
 });

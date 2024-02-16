@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 
+import { getMessage } from "../services/messageService.js";
+
 export default function ServerStatus() {
+	const [loading, setLoading] = useState(false);
 	const [state, setState] = useState();
 
 	useEffect(() => {
-		fetch("/healthz")
-			.then((res) => res.text())
+		setLoading(true);
+		getMessage()
 			.then(setState)
-			.catch((err) => setState(err.message));
+			.catch((err) => console.error(err.message))
+			.finally(() => setLoading(false));
 	}, []);
 
-	return <div>Server status: {state ?? "unknown"}</div>;
+	return loading ? null : <div>Server says: {state ?? "unknown"}</div>;
 }

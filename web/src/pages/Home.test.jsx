@@ -8,7 +8,7 @@ import Home from "./Home.jsx";
 
 describe("Home component", () => {
 	beforeEach(() =>
-		server.use(http.get("/healthz", () => HttpResponse.text("OK"))),
+		server.use(http.get("/api/message", () => HttpResponse.text(""))),
 	);
 
 	it("shows a link", () => {
