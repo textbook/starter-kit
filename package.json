@@ -41,12 +41,12 @@
   "homepage": "https://github.com/textbook/starter-kit#readme",
   "devDependencies": {
     "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.23.9",
+    "@babel/core": "^7.24.0",
     "@babel/eslint-parser": "^7.23.10",
     "@babel/node": "^7.23.9",
     "@babel/plugin-transform-class-properties": "^7.23.3",
-    "@babel/plugin-transform-runtime": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
+    "@babel/plugin-transform-runtime": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
     "@babel/preset-react": "^7.23.3",
     "@codeyourfuture/eslint-config-standard": "^4.0.3",
     "@testing-library/cypress": "^10.0.1",
@@ -78,7 +78,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1",
+    "react-router-dom": "^6.22.2",
     "style-loader": "^3.3.4",
     "supertest": "^6.3.4",
     "wait-on": "^7.2.0",
@@ -89,9 +89,9 @@
     "whatwg-fetch": "^3.6.20"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.9",
+    "@babel/runtime": "^7.24.0",
     "dotenv": "^16.4.5",
-    "express": "^4.18.2",
+    "express": "^4.18.3",
     "helmet": "^7.1.0",
     "morgan": "^1.10.0",
     "winston": "^3.11.0"
