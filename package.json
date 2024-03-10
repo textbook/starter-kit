@@ -84,7 +84,7 @@
     "wait-on": "^7.2.0",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
+    "webpack-dev-server": "^5.0.2",
     "webpack-merge": "^5.10.0",
     "whatwg-fetch": "^3.6.20"
   },
@@ -97,7 +97,7 @@
     "winston": "^3.12.0"
   },
   "engines": {
-    "node": "^18.3 || ^20",
+    "node": "^18.12 || ^20",
     "npm": ">=8"
   }
 }

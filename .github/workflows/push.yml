@@ -47,7 +47,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        node: [ '18.3', '18', '20' ]
+        node: [ '18.12', '18', '20' ]
     steps:
     - uses: textbook/take-action@nodejs
       with:
