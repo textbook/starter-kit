@@ -50,10 +50,10 @@
 	],
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^4.0.3",
-		"@types/node": "^20.11.19",
+		"@types/node": "^20.11.25",
 		"concurrently": "^8.2.2",
 		"cross-env": "^7.0.3",
-		"eslint": "^8.56.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-import": "^2.29.1",
 		"husky": "^9.0.11",
