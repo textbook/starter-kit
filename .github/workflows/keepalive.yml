@@ -1,0 +1,12 @@
+---
+name: Keep v2 deployment alive
+
+on:
+  schedule:
+    - cron: "14 3 * * *"
+
+jobs:
+  ping:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: curl 'https://starter-kit-v2.onrender.com/api/message'
