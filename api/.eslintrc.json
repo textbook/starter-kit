@@ -12,6 +12,12 @@
 				],
 				"n/no-unpublished-import": "off"
 			}
+		},
+		{
+			"files": ["migrations/template.cjs"],
+			"rules": {
+				"no-unused-vars": "off"
+			}
 		}
 	],
 	"parserOptions": {

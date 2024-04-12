@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 /**
  * Template for
  * {@link https://salsita.github.io/node-pg-migrate/#/migrations?id=defining-migrations defining migrations}.
