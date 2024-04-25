@@ -26,6 +26,6 @@
 		"eslint-plugin-jest": "^28.2.0",
 		"eslint-plugin-n": "^17.3.1",
 		"nodemon": "^3.1.0",
-		"supertest": "^6.3.4"
+		"supertest": "^7.0.0"
 	}
 }
