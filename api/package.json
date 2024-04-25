@@ -18,7 +18,7 @@
 		"express": "^4.19.2",
 		"helmet": "^7.1.0",
 		"morgan": "^1.10.0",
-		"node-pg-migrate": "^6.2.2",
+		"node-pg-migrate": "^7.1.0",
 		"pg": "^8.11.5",
 		"winston": "^3.13.0"
 	},
