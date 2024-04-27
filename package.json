@@ -37,7 +37,7 @@
 		"useTabs": true
 	},
 	"engines": {
-		"node": "^20",
+		"node": "^20.9 || ^22",
 		"npm": "^10"
 	},
 	"keywords": [],

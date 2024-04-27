@@ -9,6 +9,9 @@ on:
 jobs:
   nodejs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
     services:
       postgres:
         image: postgres
@@ -27,7 +30,7 @@ jobs:
     steps:
       - uses: textbook/take-action@nodejs
         with:
-          node-version: 20
+          node-version: ${{ matrix.node }}
       - uses: textbook/take-action@playwright
       - run: npm run lint
       - run: npm run migration up
