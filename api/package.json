@@ -18,12 +18,12 @@
 		"express": "^4.19.2",
 		"helmet": "^7.1.0",
 		"morgan": "^1.10.0",
-		"node-pg-migrate": "^7.1.0",
+		"node-pg-migrate": "^7.2.0",
 		"pg": "^8.11.5",
 		"winston": "^3.13.0"
 	},
 	"devDependencies": {
-		"eslint-plugin-jest": "^28.2.0",
+		"eslint-plugin-jest": "^28.3.0",
 		"eslint-plugin-n": "^17.3.1",
 		"supertest": "^7.0.0"
 	}
