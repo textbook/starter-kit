@@ -13,9 +13,12 @@ requireArgs(["DATABASE_URL"]);
 
 const databaseUrl = new URL(process.env.DATABASE_URL);
 
-const localDb = ["0.0.0.0", "127.0.0.1", "localhost"].includes(
-	databaseUrl.hostname,
-);
+const localDb = [
+	"0.0.0.0",
+	"127.0.0.1",
+	"localhost",
+	"host.docker.internal",
+].includes(databaseUrl.hostname);
 const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
 	databaseUrl.searchParams.get("sslmode") ?? process.env.PGSSLMODE,
 );
