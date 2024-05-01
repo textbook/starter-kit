@@ -1,18 +1,14 @@
 {
-	"name": "@starter-kit/api",
 	"private": true,
-	"version": "2.0.0",
 	"description": "Express backend",
+	"license": "UNLICENSED",
+	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
-	"main": "server.js",
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
 		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest"
 	},
-	"keywords": [],
-	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
-	"license": "ISC",
 	"dependencies": {
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",

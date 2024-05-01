@@ -1,8 +1,7 @@
 {
-	"name": "@starter-kit/web",
 	"private": true,
-	"version": "2.0.0",
 	"description": "Vite/React client",
+	"license": "UNLICENSED",
 	"type": "module",
 	"scripts": {
 		"prebuild": "buildinfo --output ./public/buildinfo.txt",

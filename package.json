@@ -2,8 +2,15 @@
 	"name": "@textbook/starter-kit",
 	"version": "2.0.0",
 	"description": "v2 upgrade of the starter kit",
+	"funding": "https://ko-fi.com/textbook",
+	"license": "ISC",
+	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
-	"main": "index.js",
+	"workspaces": [
+		"web",
+		"api",
+		"e2e"
+	],
 	"scripts": {
 		"build": "npm --workspace web run build",
 		"dev": "concurrently \"npm:dev:*\"",
@@ -36,18 +43,6 @@
 	"prettier": {
 		"useTabs": true
 	},
-	"engines": {
-		"node": "^20.9 || ^22",
-		"npm": "^10"
-	},
-	"keywords": [],
-	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
-	"license": "ISC",
-	"workspaces": [
-		"web",
-		"api",
-		"e2e"
-	],
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^4.0.3",
 		"@types/node": "^20.12.7",
@@ -60,5 +55,9 @@
 		"lint-staged": "^15.2.2",
 		"nyc": "^15.1.0",
 		"prettier": "^3.2.5"
+	},
+	"engines": {
+		"node": "^20.9 || ^22",
+		"npm": "^10"
 	}
 }
