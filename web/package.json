@@ -24,7 +24,7 @@
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
 		"@vitejs/plugin-react-swc": "^3.7.0",
-		"@vitest/coverage-v8": "^1.6.0",
+		"@vitest/coverage-v8": "^2.0.1",
 		"eslint-plugin-jest-dom": "^5.4.0",
 		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"eslint-plugin-react": "^7.34.3",
@@ -36,6 +36,6 @@
 		"msw": "^2.3.1",
 		"undici": "^6.19.2",
 		"vite": "^5.3.3",
-		"vitest": "^1.2.2"
+		"vitest": "^2.0.1"
 	}
 }
