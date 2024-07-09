@@ -44,7 +44,7 @@
 		"useTabs": true
 	},
 	"devDependencies": {
-		"@codeyourfuture/eslint-config-standard": "^4.0.3",
+		"@codeyourfuture/eslint-config-standard": "^5.1.0",
 		"@types/node": "^20.14.10",
 		"concurrently": "^8.2.2",
 		"cross-env": "^7.0.3",
