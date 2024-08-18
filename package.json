@@ -58,7 +58,7 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.11.0",
-    "cypress": "^13.13.2",
+    "cypress": "^13.13.3",
     "cypress-axe": "^1.5.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.57.0",
@@ -78,7 +78,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.26.1",
     "style-loader": "^3.3.4",
     "supertest": "^6.3.4",
     "wait-on": "^7.2.0",
@@ -94,7 +94,7 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "morgan": "^1.10.0",
-    "winston": "^3.14.1"
+    "winston": "^3.14.2"
   },
   "engines": {
     "node": "^18.12 || ^20",
