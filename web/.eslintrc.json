@@ -10,11 +10,11 @@
 	"overrides": [
 		{
 			"files": ["src/**/*.test.jsx", "src/setupTests.js"],
-			"env": { "vitest/env": true },
+			"env": { "@vitest/env": true },
 			"extends": [
 				"plugin:jest-dom/recommended",
 				"plugin:testing-library/react",
-				"plugin:vitest/recommended"
+				"plugin:@vitest/legacy-recommended"
 			]
 		}
 	],
