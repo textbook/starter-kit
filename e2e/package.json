@@ -1,4 +1,5 @@
 {
+	"name": "e2e",
 	"private": true,
 	"description": "Playwright end-to-end tests",
 	"license": "UNLICENSED",

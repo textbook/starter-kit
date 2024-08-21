@@ -1,4 +1,5 @@
 {
+	"name": "api",
 	"private": true,
 	"description": "Express backend",
 	"license": "UNLICENSED",

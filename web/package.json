@@ -1,4 +1,5 @@
 {
+	"name": "web",
 	"private": true,
 	"description": "Vite/React client",
 	"license": "UNLICENSED",
