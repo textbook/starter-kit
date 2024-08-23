@@ -8,7 +8,8 @@
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
-		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest"
+		"test": "cross-env NODE_OPTIONS='--experimental-vm-modules' jest",
+		"test:watch": "npm run test -- --watch"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.5",
