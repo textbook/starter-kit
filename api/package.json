@@ -20,6 +20,7 @@
 		"winston": "^3.14.2"
 	},
 	"devDependencies": {
+		"@testcontainers/postgresql": "^10.11.0",
 		"eslint-plugin-jest": "^28.8.0",
 		"eslint-plugin-n": "^17.10.2",
 		"supertest": "^7.0.0"

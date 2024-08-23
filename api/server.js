@@ -5,6 +5,6 @@ import logger from "./utils/logger.js";
 
 const { port } = config;
 
-await connectDb();
+await connectDb(config.dbConfig);
 
 app.listen(port, () => logger.info(`listening on ${port}`));

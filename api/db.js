@@ -1,19 +1,26 @@
 import pg from "pg";
 
-import config from "./utils/config.cjs";
 import logger from "./utils/logger.js";
 
-const pool = new pg.Pool(config.dbConfig);
+/** @type {pg.Pool} */
+let pool;
 
-pool.on("error", (err) => logger.error("%O", err));
-
-export const connectDb = async () => {
+/**
+ * @param {import("pg").ClientConfig} config
+ */
+export const connectDb = async (config) => {
+	pool = new pg.Pool(config);
+	pool.on("error", (err) => logger.error("%O", err));
 	const client = await pool.connect();
 	logger.info("connected to %s", client.database);
 	client.release();
 };
 
-export const disconnectDb = async () => await pool.end();
+export const disconnectDb = async () => {
+	if (pool) {
+		await pool.end();
+	}
+};
 
 export default {
 	query(...args) {

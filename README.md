@@ -7,7 +7,7 @@
 - [x] [React] client with [Vite]
 - [x] Client-side routing with [React Router]
 - [x] Linting with [ESLint] and [Prettier]
-- [x] Unit and integration testing with [Vitest] and [Jest] (with [SuperTest])
+- [x] Unit and integration testing with [Vitest] and [Jest] (with [SuperTest] and [TestContainers])
 - [x] E2E testing with [Playwright]
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
@@ -47,6 +47,7 @@ commonly use:
 [React Router]: https://reactrouter.com/en/main
 [Render]: https://render.com/
 [SuperTest]: https://github.com/visionmedia/supertest
+[TestContainers]: https://testcontainers.com/
 [Vercel]: https://vercel.com/
 [Vite]: https://vitejs.dev/
 [Vitest]: https://vitest.dev/

@@ -33,10 +33,10 @@ jobs:
           node-version: ${{ matrix.node }}
       - uses: textbook/take-action@playwright
       - run: npm run lint
-      - run: npm run migration up
       - run: npm run test:cover
         env:
           FORCE_COLOR: true
+      - run: npm run migration up
       - run: npm run e2e
       - run: npm run e2e:dev
   docker:
