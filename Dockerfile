@@ -1,29 +1,41 @@
-FROM node:20-alpine as web
+FROM node:20-alpine AS web
 
 USER node
 WORKDIR /home/node
 
 COPY package*.json .npmrc ./
 COPY --chown=node web/package.json web/
-RUN npm --workspace web ci
+RUN npm \
+  --no-fund \
+  --no-update-notifier \
+  --workspace web \
+  ci
 
 COPY --chown=node web/ web/
 RUN npm --workspace web run build
 
 FROM node:20-alpine
 
+RUN apk add --no-cache tini
+
 USER node
 WORKDIR /home/node
 
+
 COPY package*.json .npmrc ./
 COPY api/package.json api/
-RUN npm --workspace api ci --omit dev
+RUN npm \
+  --no-fund \
+  --no-update-notifier \
+  --omit dev \
+  --workspace api \
+  ci
 
+COPY --chown=node bin/start.sh .
 COPY --chown=node api/ api/
 COPY --from=web /home/node/api/static api/static/
 
 EXPOSE 80
 ENV PORT=80
 
-ENTRYPOINT [ "sh" ]
-CMD [ "-c", "./api/start.sh" ]
+ENTRYPOINT [ "./start.sh" ]

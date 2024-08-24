@@ -3,4 +3,4 @@
 set -eu
 
 npm run migration up
-node ./api/server.js
+exec /sbin/tini -- node ./api/server.js
