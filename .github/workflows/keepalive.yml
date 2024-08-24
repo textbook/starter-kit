@@ -1,5 +1,5 @@
 ---
-name: Keep Render deployment alive
+name: Keep deployment alive
 
 on:
   schedule:
@@ -9,4 +9,4 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - run: curl 'https://starter-kit-v2.onrender.com/api/message'
+      - run: curl 'https://starter-kit-ci.herokuapp.com/api/message'
