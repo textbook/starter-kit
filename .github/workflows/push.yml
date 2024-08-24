@@ -8,10 +8,14 @@ on:
 
 jobs:
   nodejs:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         node: [20.9, 20, 22]
+        os: [ubuntu-latest]
+        include:
+          - node: 22
+            os: windows-latest
+    runs-on: ${{ matrix.os }}
     services:
       postgres:
         image: postgres
