@@ -13,8 +13,8 @@
 	],
 	"scripts": {
 		"build": "npm --workspace web run build",
-		"dev": "concurrently \"npm:dev:*\"",
-		"dev:api": "cross-env PORT=3100 npm --workspace api run dev",
+		"dev": "cross-env API_PORT=3100 concurrently \"npm:dev:*\"",
+		"dev:api": "cross-env PORT=$API_PORT npm --workspace api run dev",
 		"dev:web": "cross-env PORT=3000 npm --workspace web run dev",
 		"e2e": "npm --workspace e2e run e2e",
 		"e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
