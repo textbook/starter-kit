@@ -7,15 +7,21 @@ on:
     branches: [main]
 
 jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: textbook/take-action@nodejs
+        with:
+          node-version: 20
+      - run: npm run lint
+      - run: npm run test:cover
+        env:
+          FORCE_COLOR: true
   nodejs:
     strategy:
       matrix:
         node: [20.9, 20, 22]
-        os: [ubuntu-latest]
-        include:
-          - node: 22
-            os: windows-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     services:
       postgres:
         image: postgres
@@ -95,9 +101,7 @@ jobs:
   deploy:
     uses: "./.github/workflows/deploy.yml"
     if: github.ref == 'refs/heads/main'
-    needs:
-      - docker
-      - nodejs
+    needs: [docker, nodejs, windows]
     with:
       environment: heroku
     secrets:
