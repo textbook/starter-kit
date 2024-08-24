@@ -1,0 +1,27 @@
+name: Deploy to Heroku
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      HEROKU_API_KEY:
+        required: true
+      HEROKU_EMAIL:
+        required: true
+
+jobs:
+  deploy-heroku:
+    runs-on: ubuntu-22.04
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ vars.HEROKU_APP_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: akhileshns/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ vars.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
