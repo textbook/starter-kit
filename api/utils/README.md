@@ -2,7 +2,7 @@
 
 `api/utils/` contains various utility modules. In practice, you'll probably:
 
-- Import from and maybe add new options to `config.js`;
+- Import from and maybe add new options to `config.cjs`;
 - Import from `logger.js`; and
 - Ignore `middleware.js` entirely (all predefined middleware is already used in `app.js`).
 
