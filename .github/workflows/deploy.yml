@@ -14,7 +14,7 @@ on:
 
 jobs:
   deploy-heroku:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
       url: ${{ vars.HEROKU_APP_URL }}
