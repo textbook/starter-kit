@@ -1,0 +1,23 @@
+name: Keep dependencies up-to-date
+
+on:
+  schedule:
+    - cron: "0 0 * * SUN"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v2
+      - uses: textbook/take-action@nodejs
+        with:
+          node-version: 20
+      - run: |
+          git config --global user.name "gh-actions"
+          git config --global user.email "actions@github.com"
+      - run: ./bin/up-to-date.sh
