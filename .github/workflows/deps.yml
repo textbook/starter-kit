@@ -12,8 +12,6 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: v2
       - uses: textbook/take-action@nodejs
         with:
           node-version: 20
