@@ -8,12 +8,13 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.GH_DEPLOY_KEY }}
       - uses: textbook/take-action@nodejs
         with:
+          checkout: "false"
           node-version: 20
       - run: |
           git config --global user.name "gh-actions"
