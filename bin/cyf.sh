@@ -34,7 +34,7 @@ rm "$ROOT/.github/CONTRIBUTING.md"
 rm "$HERE/cyf.sh"
 
 git add "$ROOT"
-git commit --message 'Remove unneeded files'
+git commit --message 'Prepare CYF fork'
 
 if [[ ! -z "$REMOTE" ]]; then
   git push --force "$REMOTE" "$BRANCH:main"
