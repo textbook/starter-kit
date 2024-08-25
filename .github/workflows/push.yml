@@ -95,12 +95,3 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://localhost:4321
       - if: always() && steps.docker-run.outputs.id
         run: docker logs ${{ steps.docker-run.outputs.id }}
-  deploy:
-    uses: "./.github/workflows/deploy.yml"
-    if: github.ref == 'refs/heads/main'
-    needs: [docker, nodejs, windows]
-    with:
-      environment: heroku
-    secrets:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
