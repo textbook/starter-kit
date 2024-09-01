@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^5.1.0",
-		"@types/node": "^20.16.1",
+		"@types/node": "^20.16.2",
 		"concurrently": "^8.2.2",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.57.0",
