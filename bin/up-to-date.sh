@@ -25,6 +25,6 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 useNpm run ship
-git add package{,-lock}.json
+git add "$HERE"/package{,-lock}.json "$HERE"/*/package.json
 git commit --message 'Apply in-range dependency updates'
 git push
