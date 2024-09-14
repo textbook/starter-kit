@@ -46,7 +46,7 @@
 		"@codeyourfuture/eslint-config-standard": "^5.1.0",
 		"@types/eslint": "^8.56.12",
 		"@types/node": "^20.16.5",
-		"concurrently": "^8.2.2",
+		"concurrently": "^9.0.1",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
