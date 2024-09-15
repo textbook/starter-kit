@@ -7,9 +7,10 @@ if [ $# -gt 0 ]; then
 fi
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$HERE/.."
 
 useNpm() {
-  npm --prefix="$HERE/.." "$@"
+  npm --prefix="$ROOT" "$@"
 }
 
 if [ -z "$(useNpm outdated)" ]; then
@@ -25,6 +26,6 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 useNpm run ship
-git add "$HERE"/package{,-lock}.json "$HERE"/*/package.json
+git add "$ROOT"/package{,-lock}.json "$ROOT"/*/package.json
 git commit --message 'Apply in-range dependency updates'
 git push
