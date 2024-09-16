@@ -1,6 +1,9 @@
-const { join, resolve } = require("node:path");
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const { configDotenv } = require("dotenv");
+import { configDotenv } from "dotenv";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const dotenvPath = resolve(
 	join(__dirname, "..", "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
@@ -8,33 +11,17 @@ const dotenvPath = resolve(
 
 configDotenv({ path: dotenvPath });
 
-requireArgs(["DATABASE_URL"]);
-
-const databaseUrl = new URL(process.env.DATABASE_URL);
-
-const localDb = [
-	"0.0.0.0",
-	"127.0.0.1",
-	"localhost",
-	"host.docker.internal",
-].includes(databaseUrl.hostname);
-const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
-	databaseUrl.searchParams.get("sslmode") ?? process.env.PGSSLMODE,
-);
+requireArgs(["MONGODB_URI"]);
 
 /**
- * @property {import("pg").ClientConfig} dbConfig
+ * @property {string} dbUrl
  * @property {string} dotenvPath
  * @property {string} logLevel
  * @property {number} port
  * @property {boolean} production
  */
-module.exports = {
-	dbConfig: {
-		connectionString: databaseUrl.toString(),
-		connectionTimeoutMillis: 5_000,
-		ssl: localDb ? false : { rejectUnauthorized: sslMode },
-	},
+export default {
+	dbUrl: process.env.MONGODB_URI,
 	dotenvPath,
 	logLevel: process.env.LOG_LEVEL?.toLowerCase() ?? "info",
 	port: parseInt(process.env.PORT ?? "3000", 10),

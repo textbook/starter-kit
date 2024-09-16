@@ -1,34 +1,31 @@
-import pg from "pg";
+import mongoose from "mongoose";
 
 import logger from "./utils/logger.js";
 
-/** @type {pg.Pool} */
-let pool;
+mongoose.connection.on("error", (err) => logger.error("%O", err));
+mongoose.set("debug", (collection, method, query, doc) => {
+	logger.debug("%O", { collection, method, query, doc });
+});
 
 /**
- * @param {import("pg").ClientConfig} config
+ * @param {string} uri
+ * @param {import("mongoose").ConnectOptions} [options]
  */
-export const connectDb = async (config) => {
-	pool = new pg.Pool(config);
-	pool.on("error", (err) => logger.error("%O", err));
-	const client = await pool.connect();
-	logger.info("connected to %s", client.database);
-	client.release();
+export const connectDb = async (uri, options) => {
+	const client = await mongoose.connect(uri, {
+		bufferCommands: false,
+		...options,
+	});
+	logger.info("connected to %s", client.connection.name);
 };
 
 export const disconnectDb = async () => {
-	if (pool) {
-		await pool.end();
-	}
+	await mongoose.disconnect();
 };
 
 export const testConnection = async () => {
-	await query("SELECT 1;");
+	const state = mongoose.connection.readyState;
+	if (state !== mongoose.ConnectionStates.connected) {
+		throw new Error(`database connection state: ${mongoose.STATES[state]}`);
+	}
 };
-
-function query(...args) {
-	logger.debug("Postgres query: %O", args);
-	return pool.query.apply(pool, args);
-}
-
-export default { query };

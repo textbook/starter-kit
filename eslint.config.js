@@ -49,16 +49,16 @@ export default [
 				},
 			],
 		},
-		ignores: ["api/utils/config.cjs"],
+		ignores: ["api/utils/config.js"],
 	},
 	{
 		files: ["**/*.cjs"],
 		...nodePlugin.configs["flat/recommended-script"],
 	},
 	{
-		files: ["api/migrations/template.cjs"],
+		files: ["api/migrations/sample-migration.js"],
 		rules: {
-			"no-unused-vars": ["error", { argsIgnorePattern: "pgm" }],
+			"no-unused-vars": ["error", { argsIgnorePattern: "client|db" }],
 		},
 	},
 	{

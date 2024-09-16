@@ -1,6 +1,10 @@
-import db from "../db.js";
+import mongoose from "mongoose";
+
+const MessageSchema = new mongoose.Schema({ content: String });
+
+const Message = mongoose.model("messages", MessageSchema);
 
 export async function getAll() {
-	const { rows } = await db.query("SELECT * FROM message;");
+	const rows = await Message.find();
 	return rows;
 }

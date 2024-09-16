@@ -11,20 +11,15 @@ jobs:
     permissions:
       contents: write
     services:
-      postgres:
-        image: postgres
+      mongodb:
+        image: mongo
         env:
-          POSTGRES_PASSWORD: keepitsecret
-          POSTGRES_USER: testdb
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          MONGO_INITDB_ROOT_PASSWORD: keepitsecret
+          MONGO_INITDB_ROOT_USERNAME: testdb
         ports:
-          - 5432:5432
+          - 27017:27017
     env:
-      DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
+      MONGODB_URI: mongodb://testdb:keepitsecret@localhost:27017/testdb?authSource=admin
     steps:
       - uses: textbook/take-action@nodejs
         with:

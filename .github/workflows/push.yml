@@ -20,20 +20,15 @@ jobs:
         node: [20.9, 20, 22]
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres
+      mongodb:
+        image: mongo
         env:
-          POSTGRES_PASSWORD: keepitsecret
-          POSTGRES_USER: testdb
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          MONGO_INITDB_ROOT_PASSWORD: keepitsecret
+          MONGO_INITDB_ROOT_USERNAME: testdb
         ports:
-          - 5432:5432
+          - 27017:27017
     env:
-      DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
+      MONGODB_URI: mongodb://testdb:keepitsecret@localhost:27017/testdb?authSource=admin
     steps:
       - uses: textbook/take-action@nodejs
         with:
@@ -49,18 +44,13 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres
+      mongodb:
+        image: mongo
         env:
-          POSTGRES_PASSWORD: keepitsecret
-          POSTGRES_USER: testdb
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          MONGO_INITDB_ROOT_PASSWORD: keepitsecret
+          MONGO_INITDB_ROOT_USERNAME: testdb
         ports:
-          - 5432:5432
+          - 27017:27017
     steps:
       - uses: textbook/take-action@nodejs
         with:
@@ -74,10 +64,10 @@ jobs:
           tags: textbook/starter-kit:v2
       - id: env-file
         run: |
-          echo 'DATABASE_URL=postgres://testdb:keepitsecret@localhost:5432/testdb' >> "$ENV_FILE"
           echo 'LOG_LEVEL=debug' >> "$ENV_FILE"
-          echo 'PORT=4321' >> "$ENV_FILE"
+          echo 'MONGODB_URI=mongodb://testdb:keepitsecret@localhost:27017/testdb?authSource=admin' >> "$ENV_FILE"
           echo 'NODE_ENV=docker' >> "$ENV_FILE"
+          echo 'PORT=4321' >> "$ENV_FILE"
           echo "file=$ENV_FILE" >> "$GITHUB_OUTPUT"
         env:
           ENV_FILE: docker.env

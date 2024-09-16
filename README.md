@@ -2,7 +2,7 @@
 
 - [x] [Node] LTS support (verified working on 20.x LTS release)
 - [x] [Express] server
-- [x] [Postgres] database with [`pg`][node-postgres]
+- [x] [MongoDB] database with [Mongoose]
 - [x] Logging with [Winston] and [Morgan]
 - [x] [React] client with [Vite]
 - [x] Client-side routing with [React Router]
@@ -36,12 +36,12 @@ commonly use:
 [Google App Engine]: https://cloud.google.com/appengine/?hl=en
 [Heroku]: https://www.heroku.com/
 [Jest]: https://jestjs.io/
+[MongoDB]: https://www.mongodb.com/
+[Mongoose]: https://mongoosejs.com/
 [Morgan]: https://github.com/expressjs/morgan
 [Node]: https://nodejs.org/en/
-[node-postgres]: https://node-postgres.com/
 [node-test]: https://nodejs.org/api/test.html
 [Playwright]: https://playwright.dev/
-[Postgres]: https://www.postgresql.org/
 [Prettier]: https://prettier.io/
 [React]: https://reactjs.org/
 [React Router]: https://reactrouter.com/en/main
