@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 const { join, resolve } = require("node:path");
 
 const { configDotenv } = require("dotenv");

@@ -36,14 +36,20 @@ export default [
 		files: ["api/**"],
 		rules: {
 			"no-console": "warn",
+		},
+	},
+	{
+		files: ["api/**"],
+		rules: {
 			"no-restricted-syntax": [
 				"warn",
 				{
 					selector: "MemberExpression[object.name=process][property.name=env]",
-					message: "process.env should only be accessed in utils/config.js",
+					message: "process.env should only be accessed in utils/config.cjs",
 				},
 			],
 		},
+		ignores: ["api/utils/config.cjs"],
 	},
 	{
 		files: ["**/*.cjs"],
