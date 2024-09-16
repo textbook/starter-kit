@@ -1,7 +1,7 @@
 import express from "express";
 
 import apiRouter from "./api.js";
-import db from "./db.js";
+import { testConnection } from "./db.js";
 import config from "./utils/config.cjs";
 import {
 	asyncHandler,
@@ -27,7 +27,7 @@ if (config.production) {
 app.get(
 	"/healthz",
 	asyncHandler(async (_, res) => {
-		await db.query("SELECT 1;");
+		await testConnection();
 		res.sendStatus(200);
 	}),
 );

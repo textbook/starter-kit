@@ -22,9 +22,13 @@ export const disconnectDb = async () => {
 	}
 };
 
-export default {
-	query(...args) {
-		logger.debug("Postgres query: %O", args);
-		return pool.query.apply(pool, args);
-	},
+export const testConnection = async () => {
+	await query("SELECT 1;");
 };
+
+function query(...args) {
+	logger.debug("Postgres query: %O", args);
+	return pool.query.apply(pool, args);
+}
+
+export default { query };
