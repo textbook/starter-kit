@@ -7,7 +7,6 @@ COPY package*.json .npmrc ./
 COPY --chown=node web/package.json web/
 RUN npm \
   --no-fund \
-  --no-update-notifier \
   --workspace web \
   ci
 
@@ -26,7 +25,6 @@ COPY package*.json .npmrc ./
 COPY api/package.json api/
 RUN npm \
   --no-fund \
-  --no-update-notifier \
   --omit dev \
   --workspace api \
   ci
