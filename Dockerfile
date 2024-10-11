@@ -7,6 +7,7 @@ COPY package*.json .npmrc ./
 COPY --chown=node web/package.json web/
 RUN npm \
   --no-fund \
+  --include-workspace-root \
   --workspace web \
   ci
 
