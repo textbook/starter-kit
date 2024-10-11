@@ -32,7 +32,6 @@
 		"eslint-plugin-react-refresh": "^0.4.12",
 		"eslint-plugin-testing-library": "^6.3.0",
 		"jsdom": "^25.0.1",
-		"msw": "^2.4.9",
-		"undici": "^6.19.8"
+		"msw": "^2.4.9"
 	}
 }
