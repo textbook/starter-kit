@@ -8,8 +8,8 @@
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
-		"test": "cross-env DATABASE_URL=http://example.com NODE_OPTIONS='--experimental-vm-modules' jest",
-		"test:watch": "npm run test -- --watch"
+		"test": "cross-env DATABASE_URL=http://example.com vitest --run",
+		"test:watch": "npm run test -- --no-run"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.5",
@@ -22,9 +22,6 @@
 	},
 	"devDependencies": {
 		"@testcontainers/postgresql": "^10.13.2",
-		"eslint-plugin-jest": "^28.8.3",
-		"eslint-plugin-n": "^17.10.3",
-		"jest": "^29.7.0",
 		"supertest": "^7.0.0"
 	}
 }

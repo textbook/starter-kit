@@ -2,7 +2,6 @@ import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
-import jestPlugin from "eslint-plugin-jest";
 import jestDomPlugin from "eslint-plugin-jest-dom";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import nodePlugin from "eslint-plugin-n";
@@ -29,8 +28,12 @@ export default [
 		},
 	},
 	{
-		files: ["api/**", "e2e/**", "web/vite.config.js"],
+		files: ["api/**", "e2e/**", "**/vite.config.js"],
 		...nodePlugin.configs["flat/recommended"],
+		rules: {
+			...nodePlugin.configs["flat/recommended"].rules,
+			"n/no-extraneous-import": "off",
+		},
 	},
 	{
 		files: ["api/**"],
@@ -62,13 +65,20 @@ export default [
 		},
 	},
 	{
-		files: ["api/**/*.test.js", "api/setupTests.js"],
-		...jestPlugin.configs["flat/recommended"],
+		files: ["**/*.test.js", "**/setupTests.js"],
+		languageOptions: {
+			globals: vitestPlugin.environments.env.globals,
+		},
+		plugins: {
+			vitest: vitestPlugin,
+		},
 		rules: {
-			...jestPlugin.configs["flat/recommended"].rules,
-			"jest/expect-expect": [
+			...vitestPlugin.configs.recommended.rules,
+			"vitest/expect-expect": [
 				"error",
-				{ assertFunctionNames: ["expect", "request.**.expect"] },
+				{
+					assertFunctionNames: ["expect", "request.**.expect"],
+				},
 			],
 		},
 	},
@@ -115,12 +125,10 @@ export default [
 		plugins: {
 			"jest-dom": jestDomPlugin,
 			"testing-library": testingLibraryPlugin,
-			vitest: vitestPlugin,
 		},
 		rules: {
 			...jestDomPlugin.configs.recommended.rules,
 			...testingLibraryPlugin.configs.react.rules,
-			...vitestPlugin.configs.recommended.rules,
 		},
 	},
 	{

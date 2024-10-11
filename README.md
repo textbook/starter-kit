@@ -7,7 +7,7 @@
 - [x] [React] client with [Vite]
 - [x] Client-side routing with [React Router]
 - [x] Linting with [ESLint] and [Prettier]
-- [x] Unit and integration testing with [Vitest] and [Jest] (with [SuperTest] and [TestContainers])
+- [x] Unit and integration testing with [Vitest] (with [SuperTest] and [TestContainers])
 - [x] E2E testing with [Playwright]
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
@@ -35,7 +35,6 @@ commonly use:
 [GitHub Actions]: https://github.com/features/actions
 [Google App Engine]: https://cloud.google.com/appengine/?hl=en
 [Heroku]: https://www.heroku.com/
-[Jest]: https://jestjs.io/
 [Morgan]: https://github.com/expressjs/morgan
 [Node]: https://nodejs.org/en/
 [node-postgres]: https://node-postgres.com/
