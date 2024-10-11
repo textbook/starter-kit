@@ -23,12 +23,14 @@ ROOT="$HERE/.."
 git branch -D "$BRANCH" || echo "No branch $BRANCH"
 git checkout -b "$BRANCH"
 
+rm "$ROOT/.github/workflows/"*.yml
+
 mv "$HERE/files/PULL_REQUEST_TEMPLATE.md" "$ROOT/.github/"
+mv "$HERE/files/push.yml" "$ROOT/.github/workflows/"
 mv "$HERE/files/README.md" "$ROOT"
 mv "$HERE/files/render.yaml" "$ROOT"
 mv "$HERE/files/user-story.md" "$ROOT/.github/ISSUE_TEMPLATE/"
 
-rm "$ROOT/.github/workflows/keepalive.yml"
 rm "$ROOT/.github/CODE_OF_CONDUCT.md"
 rm "$ROOT/.github/CONTRIBUTING.md"
 rm "$HERE/cyf.sh"
