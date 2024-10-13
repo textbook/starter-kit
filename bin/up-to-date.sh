@@ -26,6 +26,7 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 useNpm exec -- playwright install
+useNpm run migration up
 useNpm run ship
 git add "$ROOT"/package{,-lock}.json "$ROOT"/*/package.json
 git commit --message 'Apply in-range dependency updates'

@@ -33,5 +33,4 @@ jobs:
       - run: |
           git config --global user.name "gh-actions"
           git config --global user.email "actions@github.com"
-      - run: npm run migration up
       - run: ./bin/up-to-date.sh
