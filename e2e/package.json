@@ -9,8 +9,8 @@
 		"e2e": "playwright test"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.48.0",
-		"eslint-plugin-playwright": "^1.7.0",
+		"@playwright/test": "^1.48.1",
+		"eslint-plugin-playwright": "^1.8.0",
 		"playwright": "^1.40.1"
 	}
 }
