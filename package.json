@@ -21,7 +21,7 @@
 		"e2e:dev:app": "npm run dev",
 		"e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
 		"lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
-		"lint:eslint": "eslint --max-warnings 0",
+		"lint:eslint": "eslint --max-warnings 0 --report-unused-disable-directives",
 		"lint:fix": "npm run lint:eslint -- --fix . && npm run lint:prettier -- --write .",
 		"lint:prettier": "prettier --ignore-unknown",
 		"migration": "npm --workspace api run migration",
