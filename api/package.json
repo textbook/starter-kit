@@ -18,7 +18,7 @@
 		"morgan": "^1.10.0",
 		"node-pg-migrate": "^7.7.1",
 		"pg": "^8.13.1",
-		"winston": "^3.15.0"
+		"winston": "^3.16.0"
 	},
 	"devDependencies": {
 		"@testcontainers/postgresql": "^10.13.2",
