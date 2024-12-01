@@ -25,6 +25,7 @@ if [ -z "$(git status --porcelain)" ]; then
   exit 0
 fi
 
+useNpm exec -- playwright install-deps
 useNpm exec -- playwright install
 useNpm run migration up
 useNpm run ship
