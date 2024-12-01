@@ -25,8 +25,7 @@ if [ -z "$(git status --porcelain)" ]; then
   exit 0
 fi
 
-useNpm exec -- playwright install-deps
-useNpm exec -- playwright install
+useNpm exec -- playwright install --with-deps
 useNpm run migration up
 useNpm run ship
 git add "$ROOT"/package{,-lock}.json "$ROOT"/*/package.json
