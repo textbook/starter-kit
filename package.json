@@ -45,10 +45,10 @@
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^5.1.0",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^20.17.10",
+		"@types/node": "^20.17.11",
 		"@vitest/coverage-v8": "^2.1.8",
-		"@vitest/eslint-plugin": "^1.1.21",
-		"concurrently": "^9.1.1",
+		"@vitest/eslint-plugin": "^1.1.24",
+		"concurrently": "^9.1.2",
 		"cross-env": "^7.0.3",
 		"eslint": "^9.17.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -59,7 +59,7 @@
 		"lint-staged": "^15.3.0",
 		"nyc": "^17.1.0",
 		"prettier": "^3.4.2",
-		"vite": "^6.0.6",
+		"vite": "^6.0.7",
 		"vitest": "^2.1.2"
 	},
 	"engines": {
