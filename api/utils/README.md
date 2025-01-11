@@ -39,6 +39,7 @@ router.get("/welcome", (_, res) => {
 
 - The default [log level] is `"info"`
 - The log level can be overridden by setting the `LOG_LEVEL` environment variable
+- Timestamps can be added by setting the `TIMESTAMP` environment variable to `true` and/or setting the `TIMESTAMP_FORMAT` environment variable to a [`fecha` string format][fecha-format]
 - The log level is automatically set to `"debug"` in development mode (`npm run dev`)
 - ESLint's `"no-console"` rule is activated in `api/`, to remind you to use the logger instead
 
@@ -58,6 +59,7 @@ Defines default middleware used in `api/app.js`:
 
   [Content Security Policy]: https://github.com/textbook/starter-kit/wiki/Content-Security-Policy
   [Dotenv]: https://github.com/textbook/starter-kit/wiki/Dotenv
+  [fecha-format]: https://www.npmjs.com/package/fecha#formatting
   [Helmet]: https://helmetjs.github.io/
   [log level]: https://www.npmjs.com/package/winston#logging-levels
   [Morgan]: https://github.com/expressjs/morgan

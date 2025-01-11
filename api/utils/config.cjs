@@ -28,6 +28,8 @@ const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
  * @property {string} logLevel
  * @property {number} port
  * @property {boolean} production
+ * @property {boolean} timestamp
+ * @property {string=} timestampFormat
  */
 module.exports = {
 	dbConfig: {
@@ -39,6 +41,10 @@ module.exports = {
 	logLevel: process.env.LOG_LEVEL?.toLowerCase() ?? "info",
 	port: parseInt(process.env.PORT ?? "3000", 10),
 	production: process.env.NODE_ENV?.toLowerCase() === "production",
+	timestamp:
+		process.env.TIMESTAMP?.toLowerCase() === "true" ||
+		!!process.env.TIMESTAMP_FORMAT,
+	timestampFormat: process.env.TIMESTAMP_FORMAT,
 };
 
 function requireArgs(required) {
