@@ -12,9 +12,9 @@ import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import globals from "globals";
 
-/** @type {import("eslint").Linter.FlatConfig} */
+/** @type {import("eslint").Linter.Config[]} */
 export default [
-	cyfConfig,
+	...cyfConfig.configs.standard,
 	prettierConfig,
 	{
 		plugins: {
