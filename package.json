@@ -46,7 +46,7 @@
 		"@codeyourfuture/eslint-config-standard": "^6.0.1",
 		"@types/eslint": "^9.6.1",
 		"@types/node": "^20.17.16",
-		"@vitest/coverage-v8": "^2.1.8",
+		"@vitest/coverage-v8": "^3.0.4",
 		"@vitest/eslint-plugin": "^1.1.25",
 		"concurrently": "^9.1.2",
 		"cross-env": "^7.0.3",
@@ -60,7 +60,7 @@
 		"nyc": "^17.1.0",
 		"prettier": "^3.4.2",
 		"vite": "^6.0.11",
-		"vitest": "^2.1.2"
+		"vitest": "^3.0.4"
 	},
 	"engines": {
 		"node": "^20.9 || ^22",
