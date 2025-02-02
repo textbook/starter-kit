@@ -21,7 +21,7 @@
 		"winston": "^3.17.0"
 	},
 	"devDependencies": {
-		"@testcontainers/postgresql": "^10.17.1",
+		"@testcontainers/postgresql": "^10.17.2",
 		"supertest": "^7.0.0"
 	}
 }
