@@ -13,7 +13,13 @@ export const asyncHandler = (handler) => {
 	/** @type {import("express").RequestHandler} */
 	return async (req, res, next) => {
 		try {
-			await handler(req, res, next);
+			await handler(req, res, () => {
+				logger.warn("async handlers should not call next");
+			});
+			if (!req.headersSent) {
+				logger.warn("async handlers should send responses");
+			}
+			next();
 		} catch (err) {
 			next(err);
 		}
