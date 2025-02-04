@@ -45,8 +45,8 @@
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^6.0.1",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^20.17.16",
-		"@vitest/coverage-v8": "^3.0.4",
+		"@types/node": "^20.17.17",
+		"@vitest/coverage-v8": "^3.0.5",
 		"@vitest/eslint-plugin": "^1.1.25",
 		"concurrently": "^9.1.2",
 		"cross-env": "^7.0.3",
