@@ -1,12 +1,8 @@
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { runner } from "node-pg-migrate";
 
 import { connectDb, disconnectDb } from "./db.js";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import config from "./utils/config.cjs";
 
 /** @type {import("@testcontainers/postgresql").StartedPostgreSqlContainer} */
 let dbContainer;
@@ -28,8 +24,8 @@ afterAll(async () => {
 async function applyMigrations(databaseUrl) {
 	await runner({
 		databaseUrl,
-		dir: join(__dirname, "migrations"),
+		dir: config.migrationConfig["migrations-dir"],
 		direction: "up",
-		ignorePattern: "(config|template)\\.cjs$",
+		ignorePattern: config.migrationConfig["ignore-pattern"],
 	});
 }
