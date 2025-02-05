@@ -24,6 +24,8 @@ commonly use:
 - `e2e`: builds and starts the app in production mode and runs the Playwright tests against it.
   - `e2e:dev`: builds and starts the app in dev mode and runs the Playwright tests against it.
 - `lint`: runs ESLint and Prettier against all the relevant files in the project.
+  - `format`: reformats the code with Prettier.
+  - `lint:fix`: attempts to fix all ESLint and Prettier violations.
 - `serve`: builds and starts the app in production mode locally.
 - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
 - `test`: runs the unit and integration tests.
