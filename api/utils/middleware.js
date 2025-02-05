@@ -16,7 +16,7 @@ export const asyncHandler = (handler) => {
 			await handler(req, res, () => {
 				logger.warn("async handlers should not call next");
 			});
-			if (!req.headersSent) {
+			if (!res.headersSent) {
 				logger.warn("async handlers should send responses");
 			}
 			next();
