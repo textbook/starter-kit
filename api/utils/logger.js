@@ -3,29 +3,46 @@ import { createLogger, format, transports } from "winston";
 
 import config from "./config.cjs";
 
-/** @type {import("logform").Format[]} */
-const extraFormatters = config.timestamp
-	? [
-			format.timestamp({ format: config.timestampFormat }),
-			format.printf((info) => `${info.timestamp} ${info[MESSAGE]}`),
-		]
-	: [];
+/** @type {import("winston").Logger} */
+const logger = new Proxy(
+	{ logger: undefined },
+	{
+		get(target, prop) {
+			if (target.logger === undefined) {
+				target.logger = buildLogger();
+				if (!config.production) {
+					target.logger.debug("configured with: %O", config);
+				}
+			}
+			return target.logger[prop];
+		},
+	},
+);
 
-const logger = createLogger({
-	format: format.combine(
-		format.align(),
-		format.colorize(),
-		format.errors({ stack: true }),
-		format.splat(),
-		format.simple(),
-		...extraFormatters,
-	),
-	level: config.logLevel,
-	transports: [new transports.Console()],
-});
+/**
+ * @returns {import("winston").Logger}
+ */
+function buildLogger() {
+	/** @type {import("logform").Format[]} */
+	const extraFormatters = config.timestamp
+		? [
+				format.timestamp({ format: config.timestampFormat }),
+				format.printf((info) => `${info.timestamp} ${info[MESSAGE]}`),
+			]
+		: [];
 
-if (!config.production) {
-	logger.debug("configured with: %O", config);
+	return createLogger({
+		format: format.combine(
+			format.align(),
+			format.colorize(),
+			format.errors({ stack: true }),
+			format.splat(),
+			format.simple(),
+			...extraFormatters,
+		),
+		level: config.logLevel,
+		transports: [new transports.Console()],
+	});
 }
 
 export default logger;

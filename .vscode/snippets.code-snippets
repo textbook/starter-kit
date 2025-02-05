@@ -18,14 +18,13 @@
 	},
 	"express-integration-test": {
 		"body": [
-			"import request from \"supertest\";",
-			"",
-			"import app from \"./app.js\";",
+			"import { createRequest } from \"./testUtils.js\";",
 			"",
 			"describe(\"${1:/route}\", () => {",
 			"\tdescribe(\"${2:method}\", () => {",
 			"\t\tit(\"${3:behaviour}\", async () => {",
-			"\t\t\tawait request(app).$2(\"$1\").expect($0);",
+			"\t\t\tconst request = await createRequest();",
+			"\t\t\tawait request.$2(\"$1\").expect($0);",
 			"\t\t});",
 			"\t});",
 			"});",

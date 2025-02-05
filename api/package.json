@@ -8,7 +8,7 @@
 	"scripts": {
 		"dev": "cross-env LOG_LEVEL=debug node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
-		"test": "cross-env DATABASE_URL=http://example.com vitest --run",
+		"test": "vitest --run",
 		"test:watch": "npm run test -- --no-run"
 	},
 	"dependencies": {

@@ -1,15 +1,13 @@
 import pg from "pg";
 
+import config from "./utils/config.cjs";
 import logger from "./utils/logger.js";
 
 /** @type {pg.Pool} */
 let pool;
 
-/**
- * @param {import("pg").ClientConfig} config
- */
-export const connectDb = async (config) => {
-	pool = new pg.Pool(config);
+export const connectDb = async () => {
+	pool = new pg.Pool(config.dbConfig);
 	pool.on("error", (err) => logger.error("%O", err));
 	const client = await pool.connect();
 	logger.info("connected to %s", client.database);

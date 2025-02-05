@@ -6,6 +6,7 @@ const { configDotenv } = require("dotenv");
  * @typedef Config
  * @property {import("pg").ClientConfig} dbConfig
  * @property {string} dotenvPath
+ * @property {(overrides?: Record<string, string>) => Config} init
  * @property {string} logLevel
  * @property {{
  *   "ignore-pattern": string;
@@ -22,9 +23,10 @@ const { configDotenv } = require("dotenv");
 const REQUIRED_ARGS = ["DATABASE_URL"];
 
 /**
- * @returns {Config}
+ * @params {Record<string, string>} overrides
+ * @returns {Omit<Config, "init">}
  */
-const createConfig = () => {
+const createConfig = (overrides) => {
 	const dotenvPath = resolve(
 		join(__dirname, "..", "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
 	);
@@ -32,7 +34,7 @@ const createConfig = () => {
 
 	configDotenv({ path: dotenvPath });
 
-	const source = process.env;
+	const source = { ...process.env, ...overrides };
 
 	requireArgs(source, REQUIRED_ARGS);
 
@@ -56,7 +58,23 @@ const createConfig = () => {
 	};
 };
 
-module.exports = createConfig();
+/** @type {Config} */
+const config = new Proxy(
+	{ config: undefined },
+	{
+		get(target, prop) {
+			if (prop === "init") {
+				return (overrides) => (target.config = createConfig(overrides));
+			}
+			if (target.config === undefined) {
+				throw new Error("config accessed before initialisation");
+			}
+			return target.config[prop];
+		},
+	},
+);
+
+module.exports = config;
 
 /**
  * @param {Record<string, string>} source

@@ -1,8 +1,6 @@
-const {
-	logLevel,
-	migrationConfig,
-	production,
-} = require("../utils/config.cjs");
+const config = require("../utils/config.cjs");
+
+const { logLevel, migrationConfig, production } = config.init();
 
 if (logLevel === "debug" && !production) {
 	/* eslint-disable-next-line no-console -- app logger not available here */
