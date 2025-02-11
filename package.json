@@ -68,5 +68,8 @@
 	"engines": {
 		"node": "^20.9 || ^22",
 		"npm": "^10"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7"
 	}
 }
