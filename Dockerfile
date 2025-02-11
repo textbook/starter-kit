@@ -27,6 +27,7 @@ COPY api/package.json api/
 RUN npm \
   --no-fund \
   --omit dev \
+  --include-workspace-root \
   --workspace api \
   ci
 

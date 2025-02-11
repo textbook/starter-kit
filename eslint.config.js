@@ -57,6 +57,10 @@ export default [
 	{
 		files: ["**/*.cjs"],
 		...nodePlugin.configs["flat/recommended-script"],
+		rules: {
+			...nodePlugin.configs["flat/recommended-script"].rules,
+			"n/no-extraneous-require": "off",
+		},
 	},
 	{
 		files: ["api/migrations/template.cjs"],

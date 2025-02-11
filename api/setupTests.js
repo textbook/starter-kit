@@ -9,7 +9,7 @@ let dbContainer;
 
 beforeAll(async () => {
 	dbContainer = await new PostgreSqlContainer().start();
-	config.init({ DATABASE_URL: dbContainer.getConnectionUri() });
+	config.init({ DATABASE_URL: dbContainer.getConnectionUri(), PORT: "0" });
 	await applyMigrations();
 	await connectDb();
 }, 60_000);
