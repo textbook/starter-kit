@@ -36,6 +36,7 @@ jobs:
           - 5432:5432
     env:
       DATABASE_URL: postgres://testdb:keepitsecret@localhost:5432/testdb
+      LOG_LEVEL: debug
     steps:
       - uses: textbook/take-action@nodejs
         with:
@@ -94,6 +95,7 @@ jobs:
       - run: npx --yes wait-on --log --timeout 30000 http-get://localhost:4321
       - run: npm run e2e
         env:
+          LOG_LEVEL: debug
           PLAYWRIGHT_BASE_URL: http://localhost:4321
       - if: always() && steps.docker-run.outputs.id
         run: docker logs ${{ steps.docker-run.outputs.id }}

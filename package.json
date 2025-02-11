@@ -11,15 +11,17 @@
 		"api",
 		"e2e"
 	],
+	"config": {
+		"dev_api_port": "3100",
+		"dev_port": "3000"
+	},
 	"scripts": {
 		"build": "npm --workspace web run build",
-		"dev": "cross-env API_PORT=3100 concurrently \"npm:dev:*\"",
+		"dev": "cross-env API_PORT=$npm_package_config_dev_api_port PORT=$npm_package_config_dev_port concurrently \"npm:dev:*\"",
 		"dev:api": "cross-env PORT=$API_PORT npm --workspace api run dev",
-		"dev:web": "cross-env PORT=3000 npm --workspace web run dev",
-		"e2e": "npm --workspace e2e run e2e",
-		"e2e:dev": "concurrently --kill-others --success first \"npm:e2e:dev:*\"",
-		"e2e:dev:app": "npm run dev",
-		"e2e:dev:e2e": "cross-env PLAYWRIGHT_BASE_URL=http://localhost:3000 npm run e2e",
+		"dev:web": "npm --workspace web run dev",
+		"e2e": "cross-env PORT=$npm_package_config_dev_port npm --workspace e2e run e2e",
+		"e2e:dev": "cross-env PLAYWRIGHT_START_COMMAND=\"npm run dev\" npm run e2e",
 		"format": "npm run lint:prettier -- --write .",
 		"lint": "npm run lint:eslint . && npm run lint:prettier -- --check .",
 		"lint:eslint": "eslint --max-warnings 0 --report-unused-disable-directives",
@@ -28,7 +30,7 @@
 		"migration": "npm --workspace api run migration",
 		"prepare": "husky || echo 'no husky 🐶'",
 		"preserve": "npm run build",
-		"serve": "npm start",
+		"serve": "cross-env PORT=$npm_package_config_dev_port npm start",
 		"ship": "npm run lint && npm run test && npm run e2e",
 		"prestart": "npm run migration up",
 		"start": "npm --workspace api start",

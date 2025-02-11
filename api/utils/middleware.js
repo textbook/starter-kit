@@ -1,4 +1,4 @@
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import express, { Router } from "express";
@@ -27,7 +27,7 @@ export const asyncHandler = (handler) => {
 };
 
 export const clientRouter = (apiRoot) => {
-	const staticDir = join(__dirname, "..", "static");
+	const staticDir = resolve(__dirname, "..", "static");
 	const router = Router();
 	router.use(express.static(staticDir));
 	router.use((req, res, next) => {

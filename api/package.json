@@ -6,7 +6,7 @@
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
 	"scripts": {
-		"dev": "cross-env LOG_LEVEL=debug node --inspect --watch --watch-path . server.js",
+		"dev": "node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
 		"test": "vitest --run",
 		"test:watch": "npm run test -- --no-run"

@@ -1,10 +1,21 @@
 /* eslint-env node */
-import { dirname, join } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { defineConfig, devices } from "@playwright/test";
+import { configDotenv } from "dotenv";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+configDotenv({
+	path: resolve(__dirname, "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
+});
+
+/** @type {"ignore" | "pipe"} */
+const logs =
+	process.env.LOG_LEVEL?.toLowerCase() === "debug" ? "pipe" : "ignore";
+
+const port = process.env.PORT ?? "3000";
 
 export default defineConfig({
 	testDir: "./tests",
@@ -21,7 +32,7 @@ export default defineConfig({
 	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 	use: {
 		/* Base URL to use in actions like `await page.goto('/')`. */
-		baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000",
+		baseURL: process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${port}`,
 
 		screenshot: "only-on-failure",
 
@@ -71,9 +82,11 @@ export default defineConfig({
 	webServer: process.env.PLAYWRIGHT_BASE_URL
 		? false
 		: {
-				command: "npm run serve",
-				cwd: join(__dirname, ".."),
-				url: "http://127.0.0.1:3000",
-				reuseExistingServer: !process.env.CI,
+				command: process.env.PLAYWRIGHT_START_COMMAND ?? "npm run serve",
+				cwd: resolve(__dirname, ".."),
+				reuseExistingServer: false,
+				stderr: logs,
+				stdout: logs,
+				url: `http://localhost:${port}/healthz`,
 			},
 });
