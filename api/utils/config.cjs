@@ -28,9 +28,12 @@ const REQUIRED_ARGS = ["DATABASE_URL"];
  */
 const createConfig = (overrides) => {
 	const dotenvPath = resolve(
-		join(__dirname, "..", "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
+		__dirname,
+		"..",
+		"..",
+		process.env.DOTENV_CONFIG_PATH ?? ".env",
 	);
-	const migrationsDir = resolve(join(__dirname, "..", "migrations"));
+	const migrationsDir = resolve(__dirname, "..", "migrations");
 
 	configDotenv({ path: dotenvPath });
 
