@@ -15,7 +15,8 @@ export const test = base.extend({
 		const axe = new AxeBuilder({ page }).withTags(a11yTags);
 		await use(axe);
 	},
-	ctx: async (_, use) => {
+	// eslint-disable-next-line no-empty-pattern -- required, see e.g. microsoft/playwright#21566
+	ctx: async ({}, use) => {
 		const ctx = {};
 		await use(ctx);
 	},
