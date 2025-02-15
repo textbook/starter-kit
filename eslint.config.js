@@ -102,6 +102,9 @@ export default [
 	{
 		files: ["e2e/**"],
 		...playwrightPlugin.configs["flat/recommended"],
+		rules: {
+			"playwright/no-standalone-expect": "off",
+		},
 	},
 	{
 		files: ["web/**/*.js?(x)"],

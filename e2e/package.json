@@ -6,12 +6,14 @@
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
 	"scripts": {
+		"pree2e": "bddgen",
 		"e2e": "playwright test"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "^4.10.1",
 		"@playwright/test": "^1.52.0",
 		"eslint-plugin-playwright": "^2.2.0",
-		"playwright": "^1.40.1"
+		"playwright": "^1.40.1",
+		"playwright-bdd": "^8.1.0"
 	}
 }
