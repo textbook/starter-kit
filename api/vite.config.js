@@ -1,5 +1,11 @@
 import { coverageConfigDefaults, defineConfig } from "vitest/config";
 
+const reporters = [["json", { file: "api.json" }], "text"];
+
+if (process.env.GITHUB_ACTIONS) {
+	reporters.push("github-actions");
+}
+
 export default defineConfig({
 	test: {
 		coverage: {
@@ -10,7 +16,7 @@ export default defineConfig({
 				...coverageConfigDefaults.exclude,
 			],
 			provider: "v8",
-			reporter: [["json", { file: "api.json" }], ["text"]],
+			reporters,
 			reportsDirectory: "../.nyc_output",
 		},
 		environment: "node",

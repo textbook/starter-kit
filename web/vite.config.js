@@ -30,6 +30,12 @@ const proxy = Object.fromEntries(
 	]),
 );
 
+const reporters = [["json", { file: "web.json" }], "text"];
+
+if (process.env.GITHUB_ACTIONS) {
+	reporters.push("github-actions");
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	build: {
@@ -41,7 +47,7 @@ export default defineConfig({
 		coverage: {
 			all: true,
 			provider: "v8",
-			reporter: [["json", { file: "web.json" }], ["text"]],
+			reporters,
 			reportsDirectory: "../.nyc_output",
 		},
 		environment: "jsdom",

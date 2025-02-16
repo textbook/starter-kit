@@ -52,7 +52,7 @@ export default [
 				},
 			],
 		},
-		ignores: ["api/utils/config.cjs"],
+		ignores: ["api/utils/config.cjs", "api/vite.config.js"],
 	},
 	{
 		files: ["**/*.cjs"],
