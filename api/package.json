@@ -9,6 +9,8 @@
 		"dev": "node --inspect --watch --watch-path . server.js",
 		"migration": "node-pg-migrate --config-file ./migrations/config.cjs",
 		"test": "vitest --run",
+		"test:cover": "npm run test -- --coverage",
+		"posttest:cover": "cpy coverage/coverage-final.json ../coverage/json --flat --rename=api.json",
 		"test:watch": "npm run test -- --no-run"
 	},
 	"dependencies": {

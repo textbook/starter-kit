@@ -9,6 +9,8 @@
 		"build": "vite build --emptyOutDir",
 		"dev": "vite",
 		"test": "vitest --run",
+		"test:cover": "npm run test -- --coverage",
+		"posttest:cover": "cpy coverage/coverage-final.json ../coverage/json --flat --rename=web.json",
 		"test:watch": "vitest --watch"
 	},
 	"dependencies": {
