@@ -41,7 +41,8 @@ export default defineConfig({
 		coverage: {
 			all: true,
 			provider: "v8",
-			reporter: ["json", "text"],
+			reporter: [["json", { file: "web.json" }], ["text"]],
+			reportsDirectory: "./coverage",
 		},
 		environment: "jsdom",
 		globals: true,
