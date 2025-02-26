@@ -37,7 +37,7 @@
 		"test": "npm --workspaces --if-present test",
 		"test:cover": "npm --workspaces --if-present run test:cover",
 		"test:cover:merge": "nyc merge coverage/json .nyc_output/coverage-final.json",
-		"test:cover:report": "nyc report --report-dir coverage/ --reporter lcov",
+		"test:cover:report": "nyc report --report-dir coverage/ --reporter lcov --reporter text",
 		"posttest:cover": "npm run test:cover:merge && npm run test:cover:report"
 	},
 	"lint-staged": {
