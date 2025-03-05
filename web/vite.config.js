@@ -36,7 +36,7 @@ export default defineConfig({
 		outDir: "../api/static",
 	},
 	plugins: [react()],
-	server: { port, proxy },
+	server: { port, proxy, strictPort: true },
 	test: {
 		coverage: {
 			all: true,
