@@ -19,7 +19,6 @@ export const asyncHandler = (handler) => {
 			if (!res.headersSent) {
 				logger.warn("async handlers should send responses");
 			}
-			next();
 		} catch (err) {
 			next(err);
 		}
