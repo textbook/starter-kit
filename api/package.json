@@ -15,14 +15,14 @@
 	},
 	"dependencies": {
 		"express": "^4.21.2",
-		"helmet": "^8.0.0",
+		"helmet": "^8.1.0",
 		"morgan": "^1.10.0",
 		"node-pg-migrate": "^7.9.1",
-		"pg": "^8.14.0",
+		"pg": "^8.14.1",
 		"winston": "^3.17.0"
 	},
 	"devDependencies": {
-		"@testcontainers/postgresql": "^10.20.0",
-		"supertest": "^7.0.0"
+		"@testcontainers/postgresql": "^10.21.0",
+		"supertest": "^7.1.0"
 	}
 }
