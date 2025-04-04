@@ -14,7 +14,7 @@
 		"test:watch": "npm run test -- --no-run"
 	},
 	"dependencies": {
-		"express": "^4.21.2",
+		"express": "^5.1.0",
 		"helmet": "^8.1.0",
 		"morgan": "^1.10.0",
 		"node-pg-migrate": "^7.9.1",

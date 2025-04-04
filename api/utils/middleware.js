@@ -9,22 +9,6 @@ import logger from "./logger.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export const asyncHandler = (handler) => {
-	/** @type {import("express").RequestHandler} */
-	return async (req, res, next) => {
-		try {
-			await handler(req, res, () => {
-				logger.warn("async handlers should not call next");
-			});
-			if (!res.headersSent) {
-				logger.warn("async handlers should send responses");
-			}
-		} catch (err) {
-			next(err);
-		}
-	};
-};
-
 export const clientRouter = (apiRoot) => {
 	const staticDir = resolve(__dirname, "..", "static");
 	const router = Router();

@@ -4,7 +4,6 @@ import apiRouter from "./api.js";
 import { testConnection } from "./db.js";
 import config from "./utils/config.cjs";
 import {
-	asyncHandler,
 	clientRouter,
 	configuredHelmet,
 	configuredMorgan,
@@ -25,13 +24,10 @@ if (config.production) {
 	app.use(httpsOnly());
 }
 
-app.get(
-	"/healthz",
-	asyncHandler(async (_, res) => {
-		await testConnection();
-		res.sendStatus(200);
-	}),
-);
+app.get("/healthz", async (_, res) => {
+	await testConnection();
+	res.sendStatus(200);
+});
 
 app.use(API_ROOT, apiRouter);
 
