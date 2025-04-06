@@ -50,13 +50,13 @@
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^7.0.0",
 		"@types/eslint": "^9.6.1",
-		"@types/node": "^20.17.28",
-		"@vitest/coverage-v8": "^3.0.9",
-		"@vitest/eslint-plugin": "^1.1.38",
+		"@types/node": "^20.17.30",
+		"@vitest/coverage-v8": "^3.1.1",
+		"@vitest/eslint-plugin": "^1.1.39",
 		"concurrently": "^9.1.2",
 		"cpy-cli": "^5.0.0",
 		"cross-env": "^7.0.3",
-		"eslint": "^9.23.0",
+		"eslint": "^9.24.0",
 		"eslint-config-prettier": "^10.1.1",
 		"eslint-plugin-import": "^2.31.0",
 		"eslint-plugin-n": "^17.17.0",
@@ -65,7 +65,7 @@
 		"lint-staged": "^15.5.0",
 		"nyc": "^17.1.0",
 		"prettier": "^3.5.3",
-		"vite": "^6.2.3",
+		"vite": "^6.2.5",
 		"vitest": "^3.0.4"
 	},
 	"engines": {
