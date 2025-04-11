@@ -92,14 +92,22 @@ function createDbConfig(source) {
 		"localhost",
 		"host.docker.internal",
 	].includes(databaseUrl.hostname);
-	const sslMode = ["prefer", "require", "verify-ca", "verify-full"].includes(
-		databaseUrl.searchParams.get("sslmode") ?? source.PGSSLMODE,
-	);
+	const sslMode = databaseUrl.searchParams.get("sslmode") ?? source.PGSSLMODE;
 
 	return {
 		connectionString: databaseUrl.toString(),
 		connectionTimeoutMillis: 5_000,
-		ssl: localDb ? false : { rejectUnauthorized: sslMode },
+		ssl:
+			localDb || sslMode === "disable"
+				? false
+				: {
+						rejectUnauthorized: [
+							"prefer",
+							"require",
+							"verify-ca",
+							"verify-full",
+						].includes(sslMode),
+					},
 	};
 }
 
