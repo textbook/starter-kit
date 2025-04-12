@@ -1,7 +1,5 @@
 # Starter Kit v2
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
 - [x] [Node] LTS support (verified working on 20.x LTS release)
 - [x] [Express] server
 - [x] [Postgres] database with [`pg`][node-postgres]
@@ -14,7 +12,7 @@
 - [x] Dev mode (watch modes for client and server, proxy to avoid CORS issues)
 - [x] Production build (single deployment artifact)
 - [x] [GitHub Actions] pipeline
-- [x] [Google App Engine], [Heroku], [Render] or [Vercel] deployment
+- [x] [Coolify], [Google App Engine], [Heroku], [Render] or [Vercel] deployment
 - [x] [Docker] build
 
 ## Setup
@@ -25,14 +23,36 @@
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
 1.  Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
+
     - Your repo should say _"generated from"_, **not** _"forked from"_, _"CodeYourFuture/cyf-final-project-starter-kit"_ at the top
-2.  In your repo, click the "Deploy to Render" button at the top of the README and log in using GitHub when prompted.
-3.  Fill in a service group name for your application and then click "Apply".
-4.  Once it has deployed successfully, click the "managed resources" link to view the application details.
 
-Whenever you commit to main (or e.g. merge a [pull request]) it will get automatically deployed!
+2.  Make sure all of the project team are [collaborators] on the repository.
 
-You should now make sure all of the project team are [collaborators] on the repository.
+### Deploy to Coolify
+
+This repo will work with the [Nixpack Node provider's][nixpacks-node] defaults, so deployment should be straightforward.
+
+1. Create a new project
+
+2. In the default "production" environment, create a Postgresql database
+
+   - Choose the default type
+   - Once it has started up, copy the "Postgres URL (internal)"
+
+3. Also in the default "production" environment, create a "Git Based > Public Repository" resource
+   - Choose your repository URL
+   - Under "Environment Variables", set `PGSSLMODE` to `disable` and `DATABASE_URL` to the URL you copied above
+   - Under "Healthcheck", check "Enabled", set the Path to `/healthz` and the Return Code to 301
+   - Under "Webhooks", copy the "Manual Git Webhooks > GitHub" URL then follow the link to "Webhook configuration on GitHub" to add this to your repo
+     - Use the command `python3 -c 'import secrets;print(secrets.token_hex(16))'` to generate a good secret
+
+### Deploy to Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
+
+1.  In your repo, click the "Deploy to Render" button in the relevant section of the README and log in using GitHub when prompted.
+2.  Fill in a service group name for your application and then click "Apply".
+3.  Once it has deployed successfully, click the "managed resources" link to view the application details.
 
 ## Scripts
 
@@ -65,6 +85,7 @@ principles are followed:
 [1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template
 [2]: https://codeyourfuture.slack.com/archives/C021ATWS9A5
 [collaborators]: https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository
+[Coolify]: https://coolify.io/
 [Docker]: https://www.docker.com
 [ESLint]: https://eslint.org/
 [Express]: https://expressjs.com/
@@ -72,6 +93,7 @@ principles are followed:
 [Google App Engine]: https://cloud.google.com/appengine/?hl=en
 [Heroku]: https://www.heroku.com/
 [Morgan]: https://github.com/expressjs/morgan
+[nixpacks-node]: https://nixpacks.com/docs/providers/node
 [Node]: https://nodejs.org/en/
 [node-postgres]: https://node-postgres.com/
 [node-test]: https://nodejs.org/api/test.html
