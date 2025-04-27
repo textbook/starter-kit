@@ -1,5 +1,6 @@
 .nyc_output/
 api/static/
+api/**/__mocks__/
 e2e/
 node_modules/
 reports/

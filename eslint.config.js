@@ -122,7 +122,7 @@ export default [
 		},
 	},
 	{
-		files: ["web/**/*.test.js?(x)", "web/src/setupTests.js"],
+		files: ["web/**/*.test.js?(x)", "**/setupTests.js", "**/__mocks__/*"],
 		languageOptions: {
 			globals: vitestPlugin.environments.env.globals,
 		},
