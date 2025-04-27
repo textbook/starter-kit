@@ -13,6 +13,9 @@ export default defineConfig({
 			reporter: [["json", { file: "api.json" }], ["text"]],
 			reportsDirectory: "./coverage",
 		},
+		deps: {
+			interopDefault: false,
+		},
 		environment: "node",
 		fileParallelism: false,
 		globals: true,
