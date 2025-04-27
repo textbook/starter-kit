@@ -9,7 +9,9 @@ let dbContainer;
 
 beforeAll(async () => {
 	dbContainer = await new PostgreSqlContainer().start();
-	config.init({ DATABASE_URL: dbContainer.getConnectionUri(), PORT: "0" });
+	const url = new URL(dbContainer.getConnectionUri());
+	url.searchParams.set("sslmode", url.searchParams.get("sslmode") ?? "disable");
+	config.init({ DATABASE_URL: url.toString(), PORT: "0" });
 	await applyMigrations();
 	await connectDb();
 }, 60_000);

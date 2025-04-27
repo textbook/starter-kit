@@ -1,0 +1,23 @@
+{
+	"name": "Starter Kit",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"esbenp.prettier-vscode",
+				"ms-playwright.playwright",
+				"vitest.explorer"
+			]
+		}
+	},
+	"dockerComposeFile": "./docker-compose.yml",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"forwardPorts": [3000, 3100],
+	"mounts": ["type=volume,target=${containerWorkspaceFolder}/node_modules"],
+	"postCreateCommand": "sudo chown node node_modules && npm ci && npx playwright install --with-deps",
+	"remoteUser": "node",
+	"service": "app",
+	"workspaceFolder": "/workspace"
+}

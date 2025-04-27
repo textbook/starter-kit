@@ -14,6 +14,7 @@
 - [x] [GitHub Actions] pipeline
 - [x] [Google App Engine], [Heroku], [Render] or [Vercel] deployment
 - [x] [Docker] build
+- [x] [Dev Containers] integration
 
 ## Scripts
 
@@ -31,6 +32,7 @@ commonly use:
 - `test`: runs the unit and integration tests.
   - `test:cover`: runs the tests and outputs coverage data.
 
+[Dev Containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [Docker]: https://www.docker.com
 [ESLint]: https://eslint.org/
 [Express]: https://expressjs.com/
