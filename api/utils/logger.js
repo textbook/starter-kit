@@ -1,3 +1,4 @@
+// eslint-disable-next-line n/no-extraneous-import -- installed with Winston
 import { MESSAGE } from "triple-beam";
 import { createLogger, format, transports } from "winston";
 

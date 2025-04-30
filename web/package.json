@@ -7,11 +7,7 @@
 	"scripts": {
 		"prebuild": "buildinfo --output ./public/buildinfo.txt",
 		"build": "vite build --emptyOutDir",
-		"dev": "vite",
-		"test": "vitest --run",
-		"test:cover": "npm run test -- --coverage",
-		"posttest:cover": "cpy --flat coverage/web.json ../coverage/json",
-		"test:watch": "vitest --watch"
+		"dev": "vite"
 	},
 	"dependencies": {
 		"react": "^19.1.0",

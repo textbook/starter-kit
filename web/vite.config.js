@@ -30,7 +30,6 @@ const proxy = Object.fromEntries(
 	]),
 );
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	build: {
 		outDir: "../api/static",
@@ -38,12 +37,6 @@ export default defineConfig({
 	plugins: [react()],
 	server: { port, proxy, strictPort: true },
 	test: {
-		coverage: {
-			all: true,
-			provider: "v8",
-			reporter: [["json", { file: "web.json" }], ["text"]],
-			reportsDirectory: "./coverage",
-		},
 		environment: "jsdom",
 		globals: true,
 		setupFiles: ["src/setupTests.js"],

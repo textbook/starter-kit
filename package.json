@@ -34,11 +34,9 @@
 		"ship": "npm run lint && npm run test && npm run e2e",
 		"prestart": "npm run migration up",
 		"start": "npm --workspace api start",
-		"test": "npm --workspaces --if-present test",
-		"test:cover": "npm --workspaces --if-present run test:cover",
-		"test:cover:merge": "nyc merge coverage/json .nyc_output/coverage-final.json",
-		"test:cover:report": "nyc report --report-dir coverage/ --reporter lcov --reporter text",
-		"posttest:cover": "npm run test:cover:merge && npm run test:cover:report"
+		"test": "vitest --run",
+		"test:cover": "npm run test -- --coverage",
+		"test:watch": "npm run test -- --no-run"
 	},
 	"lint-staged": {
 		"*.{js,jsx}": "npm run lint:eslint -- --fix",
@@ -54,7 +52,6 @@
 		"@vitest/coverage-v8": "^3.1.2",
 		"@vitest/eslint-plugin": "^1.1.43",
 		"concurrently": "^9.1.2",
-		"cpy-cli": "^5.0.0",
 		"cross-env": "^7.0.3",
 		"eslint": "^9.25.1",
 		"eslint-config-prettier": "^10.1.2",
@@ -63,7 +60,6 @@
 		"globals": "^16.0.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.5.1",
-		"nyc": "^17.1.0",
 		"prettier": "^3.5.3",
 		"vite": "^6.3.3",
 		"vitest": "^3.0.4"

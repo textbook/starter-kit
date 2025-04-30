@@ -30,9 +30,12 @@ export default [
 	{
 		files: ["api/**", "e2e/**", "**/vite.config.js"],
 		...nodePlugin.configs["flat/recommended"],
+	},
+	{
+		files: ["e2e/**", "**/vite.config.js"],
 		rules: {
-			...nodePlugin.configs["flat/recommended"].rules,
 			"n/no-extraneous-import": "off",
+			"n/no-unpublished-import": "off",
 		},
 	},
 	{
