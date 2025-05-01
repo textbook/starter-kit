@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: textbook/take-action@nodejs
         with:
-          node-version: 20
+          node-version: 22
       - run: npm run lint
   nodejs:
     strategy:
@@ -67,7 +67,7 @@ jobs:
     steps:
       - uses: textbook/take-action@nodejs
         with:
-          node-version: 20
+          node-version: 22
       - uses: textbook/take-action@playwright
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v5
