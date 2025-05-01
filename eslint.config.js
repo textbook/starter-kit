@@ -30,11 +30,15 @@ export default [
 	{
 		files: ["api/**", "e2e/**", "**/vite.config.js"],
 		...nodePlugin.configs["flat/recommended"],
+		rules: {
+			...nodePlugin.configs["flat/recommended"].rules,
+			// pending fix for eslint-community/eslint-plugin-n#209
+			"n/no-extraneous-import": "off",
+		},
 	},
 	{
-		files: ["e2e/**", "**/vite.config.js"],
+		files: ["**/vite.config.js"],
 		rules: {
-			"n/no-extraneous-import": "off",
 			"n/no-unpublished-import": "off",
 		},
 	},
