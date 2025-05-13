@@ -1,6 +1,7 @@
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import buildInfo from "@textbook/build-info/rollup-plugin";
 import react from "@vitejs/plugin-react-swc";
 import { configDotenv } from "dotenv";
 import { defineConfig } from "vitest/config";
@@ -32,9 +33,10 @@ const proxy = Object.fromEntries(
 
 export default defineConfig({
 	build: {
+		emptyOutDir: true,
 		outDir: "../api/static",
 	},
-	plugins: [react()],
+	plugins: [buildInfo({ filename: "buildinfo.txt" }), react()],
 	server: { port, proxy, strictPort: true },
 	test: {
 		environment: "jsdom",
