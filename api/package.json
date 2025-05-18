@@ -14,11 +14,11 @@
 		"helmet": "^8.1.0",
 		"morgan": "^1.10.0",
 		"node-pg-migrate": "^7.9.1",
-		"pg": "^8.15.6",
+		"pg": "^8.16.0",
 		"winston": "^3.17.0"
 	},
 	"devDependencies": {
-		"@testcontainers/postgresql": "^10.25.0",
-		"supertest": "^7.1.0"
+		"@testcontainers/postgresql": "^10.26.0",
+		"supertest": "^7.1.1"
 	}
 }
