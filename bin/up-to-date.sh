@@ -25,6 +25,7 @@ if [ -z "$(git status --porcelain)" ]; then
   exit 0
 fi
 
+useNpm exec --yes -- check-engine-light --dev "$ROOT"
 useNpm exec -- playwright install --with-deps
 useNpm run migration up
 useNpm run ship
