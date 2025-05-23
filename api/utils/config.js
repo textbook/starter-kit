@@ -10,11 +10,14 @@ import logger from "./logger.js";
  * @property {string} dotenvPath
  * @property {(overrides?: Record<string, string>) => Config} init
  * @property {string} logLevel
- * @property {Omit<import("node-pg-migrate").RunnerOption, "direction">} migrationConfig
+ * @property {Omit<RunnerOption & RunnerOptionUrl, "direction">} migrationConfig
  * @property {number} port
  * @property {boolean} production
  * @property {boolean} timestamp
  * @property {string=} timestampFormat
+ *
+ * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOption} RunnerOption
+ * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOptionUrl} RunnerOptionUrl
  */
 
 const REQUIRED_ARGS = ["DATABASE_URL"];
