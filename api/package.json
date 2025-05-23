@@ -8,7 +8,7 @@
 	"scripts": {
 		"dev": "node --inspect --watch --watch-path . server.js",
 		"migration": "node ./migrations/migrate.js",
-		"migration:create": "node-pg-migrate create --migrations-dir ./migrations --template-file-name ./migrations/template.js"
+		"migration:create": "node-pg-migrate create --template-file-name ./migrations/template.js"
 	},
 	"dependencies": {
 		"express": "^5.1.0",

@@ -1,6 +1,6 @@
 /**
  * Template for
- * {@link https://salsita.github.io/node-pg-migrate/migrations/#defining-migrations defining migrations}.
+ * {@link https://salsita.github.io/node-pg-migrate/migrations/ defining migrations}.
  */
 
 /**
