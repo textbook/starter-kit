@@ -7,13 +7,14 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node --inspect --watch --watch-path . server.js",
-		"migration": "node-pg-migrate --config-file ./migrations/config.cjs"
+		"migration": "node ./migrations/migrate.js",
+		"migration:create": "node-pg-migrate create --migrations-dir ./migrations --template-file-name ./migrations/template.js"
 	},
 	"dependencies": {
 		"express": "^5.1.0",
 		"helmet": "^8.1.0",
 		"morgan": "^1.10.0",
-		"node-pg-migrate": "^7.9.1",
+		"node-pg-migrate": "^8.0.0",
 		"pg": "^8.16.0",
 		"winston": "^3.17.0"
 	},

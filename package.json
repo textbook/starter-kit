@@ -28,6 +28,7 @@
 		"lint:fix": "npm run lint:eslint -- --fix . && npm run format",
 		"lint:prettier": "prettier --ignore-unknown",
 		"migration": "npm --workspace api run migration",
+		"migration:create": "npm --workspace api run migration:create",
 		"prepare": "husky || echo 'no husky 🐶'",
 		"preserve": "npm run build",
 		"serve": "cross-env PORT=$npm_package_config_dev_port npm start",

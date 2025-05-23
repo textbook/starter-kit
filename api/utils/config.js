@@ -1,6 +1,8 @@
-const { join, resolve } = require("node:path");
+import { resolve } from "node:path";
 
-const { configDotenv } = require("dotenv");
+import { configDotenv } from "dotenv";
+
+import logger from "./logger.js";
 
 /**
  * @typedef Config
@@ -8,12 +10,7 @@ const { configDotenv } = require("dotenv");
  * @property {string} dotenvPath
  * @property {(overrides?: Record<string, string>) => Config} init
  * @property {string} logLevel
- * @property {{
- *   "ignore-pattern": string;
- *   "migrations-dir": string;
- *   "template-file-name": string;
- *   url: import("pg").ClientConfig;
- * }} migrationConfig
+ * @property {Omit<import("node-pg-migrate").RunnerOption, "direction">} migrationConfig
  * @property {number} port
  * @property {boolean} production
  * @property {boolean} timestamp
@@ -28,12 +25,12 @@ const REQUIRED_ARGS = ["DATABASE_URL"];
  */
 const createConfig = (overrides) => {
 	const dotenvPath = resolve(
-		__dirname,
+		import.meta.dirname,
 		"..",
 		"..",
 		process.env.DOTENV_CONFIG_PATH ?? ".env",
 	);
-	const migrationsDir = resolve(__dirname, "..", "migrations");
+	const migrationsDir = resolve(import.meta.dirname, "..", "migrations");
 
 	configDotenv({ path: dotenvPath });
 
@@ -44,14 +41,16 @@ const createConfig = (overrides) => {
 	const dbConfig = createDbConfig(source);
 
 	return {
-		dbConfig: dbConfig,
+		dbConfig,
 		dotenvPath,
 		logLevel: source.LOG_LEVEL?.toLowerCase() ?? "info",
 		migrationConfig: {
-			"ignore-pattern": "(config|template)\\.cjs$",
-			"migrations-dir": migrationsDir,
-			"template-file-name": join(migrationsDir, "template.cjs"),
-			url: dbConfig,
+			databaseUrl: dbConfig,
+			dir: migrationsDir,
+			ignorePattern: "(migrate|template)\\.js$",
+			logger,
+			migrationsTable: "migrations",
+			verbose: true,
 		},
 		port: parseInt(source.PORT ?? "3000", 10),
 		production: source.NODE_ENV?.toLowerCase() === "production",
@@ -77,7 +76,7 @@ const config = new Proxy(
 	},
 );
 
-module.exports = config;
+export default config;
 
 /**
  * @param {Record<string, string>} source

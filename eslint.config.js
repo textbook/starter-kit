@@ -69,22 +69,14 @@ export default [
 				"warn",
 				{
 					selector: "MemberExpression[object.name=process][property.name=env]",
-					message: "process.env should only be accessed in utils/config.cjs",
+					message: "process.env should only be accessed in utils/config.js",
 				},
 			],
 		},
-		ignores: ["api/utils/config.cjs", "api/vite.config.js"],
+		ignores: ["api/utils/config.js", "api/vite.config.js"],
 	},
 	{
-		files: ["**/*.cjs"],
-		...nodePlugin.configs["flat/recommended-script"],
-		rules: {
-			...nodePlugin.configs["flat/recommended-script"].rules,
-			"n/no-extraneous-require": "off",
-		},
-	},
-	{
-		files: ["api/migrations/template.cjs"],
+		files: ["api/migrations/template.js"],
 		rules: {
 			"no-unused-vars": ["error", { argsIgnorePattern: "pgm" }],
 		},

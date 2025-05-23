@@ -1,6 +1,6 @@
 import pg from "pg";
 
-import config from "./utils/config.cjs";
+import config from "./utils/config.js";
 import logger from "./utils/logger.js";
 
 /** @type {pg.Pool} */

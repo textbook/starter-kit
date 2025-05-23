@@ -7,5 +7,4 @@ e2e/playwright/.cache/
 e2e/playwright-report/
 e2e/test-results/
 node_modules/
-api/migrations/config.json
 .env

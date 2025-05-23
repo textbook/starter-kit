@@ -1,5 +1,5 @@
 import { connectDb } from "./db.js";
-import config from "./utils/config.cjs";
+import config from "./utils/config.js";
 import logger from "./utils/logger.js";
 
 const { port } = config.init();

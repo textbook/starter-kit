@@ -1,7 +1,7 @@
 import { MESSAGE } from "triple-beam";
 import { createLogger, format, transports } from "winston";
 
-import config from "./config.cjs";
+import config from "./config.js";
 
 /** @type {import("winston").Logger} */
 const logger = new Proxy(

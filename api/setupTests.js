@@ -2,7 +2,7 @@ import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { runner } from "node-pg-migrate";
 
 import { connectDb, disconnectDb } from "./db.js";
-import config from "./utils/config.cjs";
+import config from "./utils/config.js";
 
 /** @type {import("@testcontainers/postgresql").StartedPostgreSqlContainer} */
 let dbContainer;
@@ -24,10 +24,5 @@ afterAll(async () => {
 });
 
 async function applyMigrations() {
-	await runner({
-		databaseUrl: config.migrationConfig.url,
-		dir: config.migrationConfig["migrations-dir"],
-		direction: "up",
-		ignorePattern: config.migrationConfig["ignore-pattern"],
-	});
+	await runner({ ...config.migrationConfig, direction: "up" });
 }

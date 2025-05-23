@@ -2,19 +2,17 @@
 
 `api/utils/` contains various utility modules. In practice, you'll probably:
 
-- Import from and maybe add new options to `config.cjs`;
+- Import from and maybe add new options to `config.js`;
 - Import from `logger.js`; and
 - Ignore `middleware.js` entirely (all predefined middleware is already used in `app.js`).
 
-## `config.cjs`
+## `config.js`
 
 Creates and exposes an object representing the app's configuration. This centralises access to the environment and definition of default values.
 
 [Dotenv] is used to load any configuration required from a `.env` file in the root of the repository.
 
 To check if this is being used correctly, if you search your codebase, _all_ uses of `process.env` in `api/` should be in this file.
-
-**Note** this is CommonJS (`.cjs`) rather than an ES module so that it can be used by `node-pg-migrate` and similar tools, to avoid duplicating configuration.
 
 ## `logger.js`
 
