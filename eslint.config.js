@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+
 import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
@@ -12,6 +15,12 @@ import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import globals from "globals";
 
+const {
+	engines: { node: nodeVersion },
+} = JSON.parse(
+	await readFile(resolve(import.meta.dirname, "package.json"), "utf-8"),
+);
+
 /** @type {import("eslint").Linter.Config[]} */
 export default [
 	...cyfConfig.configs.standard,
@@ -25,6 +34,11 @@ export default [
 				"error",
 				{ alphabetize: { order: "asc" }, "newlines-between": "always" },
 			],
+		},
+		settings: {
+			node: {
+				version: nodeVersion,
+			},
 		},
 	},
 	{
