@@ -8,7 +8,7 @@ import config from "./utils/config.js";
 let dbContainer;
 
 beforeAll(async () => {
-	dbContainer = await new PostgreSqlContainer().start();
+	dbContainer = await new PostgreSqlContainer("postgres:17-alpine").start();
 	const url = new URL(dbContainer.getConnectionUri());
 	url.searchParams.set("sslmode", url.searchParams.get("sslmode") ?? "disable");
 	config.init({ DATABASE_URL: url.toString(), PORT: "0" });
