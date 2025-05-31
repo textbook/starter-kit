@@ -34,9 +34,32 @@ jobs:
       - run: npm run test:cover
         env:
           FORCE_COLOR: true
+      - uses: actions/upload-artifact@v4
+        if: vars.ENABLE_COVERALLS == 'true'
+        with:
+          name: lcov-${{ matrix.node }}
+          path: coverage/lcov.info
+          if-no-files-found: error
       - run: npm run migration up
       - run: npm run e2e
       - run: npm run e2e:dev
+
+  coverage:
+    runs-on: ubuntu-latest
+    if: vars.ENABLE_COVERALLS == 'true'
+    needs: [nodejs]
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          curl -L https://coveralls.io/coveralls-linux.tar.gz | tar -xz -C /usr/local/bin
+      - uses: actions/download-artifact@v4
+        with:
+          name: lcov-22
+          path: coverage/
+      - run: coveralls report coverage/lcov.info
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
   docker:
     runs-on: ubuntu-latest
     services:

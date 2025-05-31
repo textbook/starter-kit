@@ -11,7 +11,7 @@ export default defineConfig({
 				...coverageConfigDefaults.exclude,
 			],
 			provider: "v8",
-			reporter: ["text", "html"],
+			reporter: ["text", "html", "lcovonly"],
 			reportsDirectory: "./coverage",
 		},
 		workspace: ["*/vite.config.js"],
