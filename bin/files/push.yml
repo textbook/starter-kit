@@ -47,6 +47,9 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     if: vars.ENABLE_COVERALLS == 'true'
+    environment:
+      name: coveralls
+      url: https://coveralls.io/github/${{ github.repository }}
     needs: [nodejs]
     steps:
       - uses: actions/checkout@v4
