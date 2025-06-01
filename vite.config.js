@@ -9,7 +9,7 @@ export default defineConfig({
 				"api/static/**",
 				"e2e/**",
 				...coverageConfigDefaults.exclude,
-			],
+      ],
 			provider: "v8",
 			reporter: ["text", "html", "lcovonly"],
 			reportsDirectory: "./coverage",
