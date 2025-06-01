@@ -152,6 +152,11 @@ export default [
 		},
 	},
 	{
-		ignores: ["api/static", "e2e/playwright-report", "e2e/test-results"],
+		ignores: [
+			"api/static",
+			"e2e/.generated",
+			"e2e/playwright-report",
+			"e2e/test-results",
+		],
 	},
 ];
