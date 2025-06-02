@@ -14,7 +14,7 @@ services:
       - ..:/workspace:cached
   db:
     container_name: postgres
-    image: postgres:15
+    image: postgres:17-alpine
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
