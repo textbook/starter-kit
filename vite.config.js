@@ -14,6 +14,6 @@ export default defineConfig({
 			reporter: ["text", "html", "lcovonly"],
 			reportsDirectory: "./coverage",
 		},
-		workspace: ["*/vite.config.js"],
+		projects: ["*/vite.config.js"],
 	},
 });

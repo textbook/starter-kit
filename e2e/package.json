@@ -9,7 +9,7 @@
 		"e2e": "playwright test"
 	},
 	"devDependencies": {
-		"@axe-core/playwright": "^4.10.1",
+		"@axe-core/playwright": "^4.10.2",
 		"@playwright/test": "^1.52.0",
 		"eslint-plugin-playwright": "^2.2.0",
 		"playwright": "^1.40.1"
