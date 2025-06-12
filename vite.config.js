@@ -8,6 +8,7 @@ export default defineConfig({
 				"api/migrations/**",
 				"api/static/**",
 				"e2e/**",
+				"linting/**",
 				...coverageConfigDefaults.exclude,
 			],
 			provider: "v8",
