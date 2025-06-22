@@ -14,8 +14,8 @@
 		"express": "^5.1.0",
 		"helmet": "^8.1.0",
 		"morgan": "^1.10.0",
-		"node-pg-migrate": "^8.0.2",
-		"pg": "^8.16.0",
+		"node-pg-migrate": "^8.0.3",
+		"pg": "^8.16.2",
 		"winston": "^3.17.0"
 	},
 	"devDependencies": {
