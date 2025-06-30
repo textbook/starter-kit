@@ -23,7 +23,6 @@
 Pick one member of the team to own the repository and pipeline. That person should do the following:
 
 1.  Click the "Use this template" button above (see [GitHub's docs][1]) to create your team repository and name it something appropriate for your project.
-
     - Your repo should say _"generated from"_, **not** _"forked from"_, _"CodeYourFuture/cyf-final-project-starter-kit"_ at the top
 
 2.  Make sure all of the project team are [collaborators] on the repository.
@@ -35,7 +34,6 @@ This repo will work with the [Nixpack Node provider's][nixpacks-node] defaults, 
 1. Create a new project
 
 2. In the default "production" environment, create a Postgresql database
-
    - Choose the default type
    - Once it has started up, copy the "Postgres URL (internal)"
 

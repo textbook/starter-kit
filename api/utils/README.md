@@ -52,7 +52,6 @@ Defines default middleware used in `api/app.js`:
 - `configuredMorgan`: provides a configured version of the [Morgan] middleware to log using Winston
 - `httpsOnly`: redirects the user to `https://your.site/path` if they try to access `http://your.site/path`, to make sure they have a secure connection (only used if `NODE_ENV` is `"production"`, so you can use HTTP for local development)
 - `logErrors`: if there's an unhandled error, this logs it to the server console and responds 500 Internal Server Error to the request
-
   - **Note**: for guidance on `async` handlers see https://expressjs.com/en/guide/error-handling.html#catching-errors
 
   [Content Security Policy]: https://github.com/textbook/starter-kit/wiki/Content-Security-Policy
