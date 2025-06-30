@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 ### Checklist
 
 - [ ] I have recreated the issue in the vanilla starter kit _(this is a template repo, some issues may be related to code or configuration that has been added outside the starter kit)_.
-- [ ] I am using a supported version of Node _(at least 20.18)_ and npm _(not Yarn)_.
+- [ ] I am using a supported version of Node _(at least 20.19)_ and npm _(not Yarn)_.
 - [ ] I have installed the correct dependencies _(run `npm ci` if you're unsure, this will clear `node_modules/` and install based on the `package-lock.json`)_.
 
 ### To reproduce
