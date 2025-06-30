@@ -9,6 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 configDotenv({
 	path: resolve(__dirname, "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
+	quiet: true,
 });
 
 /** @type {"ignore" | "pipe"} */

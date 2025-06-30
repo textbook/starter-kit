@@ -35,7 +35,7 @@ const createConfig = (overrides) => {
 	);
 	const migrationsDir = resolve(import.meta.dirname, "..", "migrations");
 
-	configDotenv({ path: dotenvPath });
+	configDotenv({ path: dotenvPath, quiet: true });
 
 	const source = { ...process.env, ...overrides };
 

@@ -11,6 +11,7 @@ configDotenv({
 		"..",
 		process.env.DOTENV_CONFIG_PATH ?? ".env",
 	),
+	quiet: true,
 });
 
 const apiPort = process.env.API_PORT ?? "3100";
