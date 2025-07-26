@@ -4,6 +4,7 @@ name: "Rotate free database on Render"
 on:
   schedule:
     - cron: "0 2 * * SUN"
+  workflow_dispatch:
 
 jobs:
   rotate:
