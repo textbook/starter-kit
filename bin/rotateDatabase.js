@@ -60,7 +60,11 @@ const { internalConnectionString } = await safeFetch(
 	`/postgres/${newId}/connection-info`,
 );
 await safeFetch(`/services/${serviceId}/env-vars`, {
-	body: [{ key: "DATABASE_URL", value: internalConnectionString }],
+	body: [
+		{ key: "DATABASE_URL", value: internalConnectionString },
+		{ key: "LOG_LEVEL", value: "info" },
+		{ key: "NODE_ENV", value: "production" },
+	],
 	method: "PUT",
 });
 
