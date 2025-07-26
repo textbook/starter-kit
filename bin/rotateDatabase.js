@@ -65,7 +65,19 @@ await safeFetch(`/services/${serviceId}/env-vars`, {
 });
 
 console.debug("triggering redeploy of %s", serviceId);
-await safeFetch(`/services/${serviceId}/deploys`, { body: {}, method: "POST" });
+const { id: deployId } = await safeFetch(`/services/${serviceId}/deploys`, {
+	body: {},
+	method: "POST",
+});
+while (true) {
+	await wait(5_000);
+	const { status } = await safeFetch(
+		`/services/${serviceId}/deploys/${deployId}`,
+	);
+	if (status === "live") {
+		break;
+	}
+}
 
 /**
  * @param {string} path
