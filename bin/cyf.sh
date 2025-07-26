@@ -29,9 +29,11 @@ mv "$HERE/files/README.md" "$ROOT"
 mv "$HERE/files/render.yaml" "$ROOT"
 mv "$HERE/files/user-story.md" "$ROOT/.github/ISSUE_TEMPLATE/"
 
+rm "$ROOT/.github/workflows/database.yml"
 rm "$ROOT/.github/workflows/keepalive.yml"
 rm "$ROOT/.github/CODE_OF_CONDUCT.md"
 rm "$ROOT/.github/CONTRIBUTING.md"
+rm "$HERE/rotateDatabase.js"
 rm "$HERE/cyf.sh"
 
 git add "$ROOT"

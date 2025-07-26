@@ -1,0 +1,19 @@
+---
+name: "Rotate free database on Render"
+
+on:
+  schedule:
+    - cron: "0 0 * * SUN"
+
+jobs:
+  rotate:
+    environment: "render"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v4"
+      - uses: "actions/setup-node@v4"
+        with:
+          node-version: "22"
+      - run: "node ./bin/rotateDatabase.js"
+        env:
+          API_TOKEN: "${{ secrets.RENDER_API_TOKEN }}"

@@ -44,6 +44,7 @@ export default [
 	{
 		files: [
 			"api/**",
+			"bin/**",
 			"e2e/**",
 			"linting/**",
 			"**/vite.config.js",
