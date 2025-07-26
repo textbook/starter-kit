@@ -3,7 +3,7 @@ name: "Rotate free database on Render"
 
 on:
   schedule:
-    - cron: "0 0 * * SUN"
+    - cron: "0 2 * * SUN"
 
 jobs:
   rotate:

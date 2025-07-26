@@ -10,25 +10,27 @@ const [
 	{
 		project: { id: projectId },
 	},
-] = await safeFetch(`/projects?name=${SERVICE_NAME}`);
+] = await safeFetch("/projects", { query: { name: SERVICE_NAME } });
 const [
 	{
 		service: { id: serviceId },
 	},
-] = await safeFetch(`/services?name=${SERVICE_NAME}`);
+] = await safeFetch("/services", { query: { name: SERVICE_NAME } });
 const [
 	{
 		environment: { id: environmentId },
 	},
-] = await safeFetch(`/environments?projectId=${projectId}`);
+] = await safeFetch("/environments", { query: { projectId } });
 
-const databases = await safeFetch(`/postgres?name=${SERVICE_NAME}`);
+const databases = await safeFetch("/postgres", {
+	query: { name: SERVICE_NAME },
+});
 
 if (databases.length === 1) {
 	const {
 		postgres: { id: oldId },
 	} = databases[0];
-	console.debug(`deleting database ${oldId}`);
+	console.debug("deleting database %s", oldId);
 	await safeFetch(`/postgres/${oldId}`, { method: "DELETE" });
 }
 
@@ -53,24 +55,30 @@ while (true) {
 	}
 }
 
+console.debug("updating DATABASE_URL env var");
 const { internalConnectionString } = await safeFetch(
 	`/postgres/${newId}/connection-info`,
 );
-
 await safeFetch(`/services/${serviceId}/env-vars`, {
 	body: [{ key: "DATABASE_URL", value: internalConnectionString }],
 	method: "PUT",
 });
 
+console.debug("triggering redeploy of %s", serviceId);
 await safeFetch(`/services/${serviceId}/deploys`, { body: {}, method: "POST" });
 
 /**
  * @param {string} path
- * @param {Object=} body
+ * @param {any=} body
  * @param {string=} method
+ * @param {Record<string, string>=} query
  * @return {Promise<any>}
  */
-async function safeFetch(path, { body = null, method = "GET" } = {}) {
+async function safeFetch(
+	path,
+	{ body = null, method = "GET", query = {} } = {},
+) {
+	/** @type {RequestInit} */
 	const requestConfig = {
 		body: body === null ? undefined : JSON.stringify(body),
 		headers: new Headers({
@@ -83,7 +91,12 @@ async function safeFetch(path, { body = null, method = "GET" } = {}) {
 		requestConfig.body = JSON.stringify(body);
 		requestConfig.headers.set("Content-Type", "application/json");
 	}
-	const res = await fetch(`https://api.render.com/v1${path}`, requestConfig);
+	const url = new URL("https://api.render.com/v1");
+	url.pathname += path;
+	Object.entries(query).forEach(([key, value]) =>
+		url.searchParams.append(key, value),
+	);
+	const res = await fetch(url, requestConfig);
 	if (!res.ok) {
 		throw new Error(`${res.status}: ${res.statusText}`);
 	}
