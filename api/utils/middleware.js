@@ -23,14 +23,17 @@ export const configuredHelmet = () => helmet({ contentSecurityPolicy: false });
 
 export const configuredMorgan = () =>
 	morgan("dev", {
+		skip(req) {
+			return "container-healthcheck" in req.headers && isHealthcheck(req);
+		},
 		stream: { write: (message) => logger.info(message.trim()) },
 	});
 
 export const httpsOnly = () => (req, res, next) => {
-	if (!req.secure) {
-		return res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
+	if (req.secure || isHealthcheck(req)) {
+		return next();
 	}
-	next();
+	res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
 };
 
 /** @type {() => import("express").ErrorRequestHandler} */
@@ -41,3 +44,12 @@ export const logErrors = () => (err, _, res, next) => {
 	logger.error("%O", err);
 	res.sendStatus(500);
 };
+
+/**
+ * Whether the request is a `GET /healthz`
+ * @param {import("express").Request} req
+ * @returns {boolean}
+ */
+function isHealthcheck(req) {
+	return req.path === "/healthz" && req.method === "GET";
+}

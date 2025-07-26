@@ -16,7 +16,7 @@ RUN npm --workspace web run build
 
 FROM node:22-alpine
 
-RUN apk add --no-cache tini
+RUN apk add --no-cache curl tini
 
 USER node
 WORKDIR /home/node
@@ -37,5 +37,7 @@ COPY --from=web /home/node/api/static api/static/
 
 EXPOSE 80
 ENV PORT=80
+HEALTHCHECK --start-period=10s --timeout=5s \
+  CMD curl --fail --header 'Container-Healthcheck: true' --show-error --silent "http://localhost:$PORT/healthz" || exit 1
 
 ENTRYPOINT [ "./start.sh" ]
