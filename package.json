@@ -55,7 +55,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.2",
 		"prettier": "~3.6.2",
-		"vite": "^7.0.5",
+		"vite": "^7.0.6",
 		"vitest": "^3.2.2"
 	},
 	"engines": {
@@ -63,6 +63,6 @@
 		"npm": "^10 || ^11"
 	},
 	"dependencies": {
-		"dotenv": "^17.2.0"
+		"dotenv": "^17.2.1"
 	}
 }
