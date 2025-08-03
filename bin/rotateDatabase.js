@@ -84,6 +84,7 @@ while (true) {
 }
 
 /**
+ * Make a request and return the (2xx) response body or throw an error.
  * @param {string} path
  * @param {any=} body
  * @param {string=} method
@@ -96,7 +97,6 @@ async function safeFetch(
 ) {
 	/** @type {RequestInit} */
 	const requestConfig = {
-		body: body === null ? undefined : JSON.stringify(body),
 		headers: new Headers({
 			Authorization: `Bearer ${process.env.API_TOKEN}`,
 			Accept: "application/json",
@@ -119,17 +119,16 @@ async function safeFetch(
 	if (res.status === 204) {
 		return null;
 	}
-	let response;
 	try {
-		response = await res.json();
+		return res.json();
 	} catch (err) {
 		console.error(await res.text());
 		throw err;
 	}
-	return response;
 }
 
 /**
+ * Return promise resolving after specified time (in ms).
  * @param {number} ms
  * @return {Promise<void>}
  */
