@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
@@ -15,10 +16,12 @@ import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import globals from "globals";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const {
 	engines: { node: nodeVersion },
 } = JSON.parse(
-	await readFile(resolve(import.meta.dirname, "..", "package.json"), "utf-8"),
+	await readFile(resolve(__dirname, "..", "package.json"), "utf-8"),
 );
 
 /** @type {import("eslint").Linter.Config[]} */

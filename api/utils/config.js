@@ -1,8 +1,11 @@
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { configDotenv } from "dotenv";
 
 import logger from "./logger.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * @typedef Config
@@ -28,12 +31,12 @@ const REQUIRED_ARGS = ["DATABASE_URL"];
  */
 const createConfig = (overrides) => {
 	const dotenvPath = resolve(
-		import.meta.dirname,
+		__dirname,
 		"..",
 		"..",
 		process.env.DOTENV_CONFIG_PATH ?? ".env",
 	);
-	const migrationsDir = resolve(import.meta.dirname, "..", "migrations");
+	const migrationsDir = resolve(__dirname, "..", "migrations");
 
 	configDotenv({ path: dotenvPath, quiet: true });
 

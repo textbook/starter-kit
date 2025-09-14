@@ -1,16 +1,15 @@
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import buildInfo from "@textbook/build-info/rollup-plugin";
 import react from "@vitejs/plugin-react-swc";
 import { configDotenv } from "dotenv";
 import { defineConfig } from "vitest/config";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 configDotenv({
-	path: resolve(
-		import.meta.dirname,
-		"..",
-		process.env.DOTENV_CONFIG_PATH ?? ".env",
-	),
+	path: resolve(__dirname, "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),
 	quiet: true,
 });
 
