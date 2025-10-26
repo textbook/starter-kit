@@ -21,8 +21,8 @@
 		"@textbook/build-info": "^1.4.1",
 		"@types/react": "^19.2.2",
 		"@types/react-dom": "^19.2.2",
-		"@vitejs/plugin-react-swc": "^4.1.0",
+		"@vitejs/plugin-react-swc": "^4.2.0",
 		"jsdom": "^27.0.1",
-		"msw": "^2.11.5"
+		"msw": "^2.11.6"
 	}
 }
