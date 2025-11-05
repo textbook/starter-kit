@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: textbook/take-action@nodejs
         with:
-          node-version: 22
+          node-version: 24
       - uses: textbook/take-action@playwright
       - run: |
           git config --global user.name "gh-actions"

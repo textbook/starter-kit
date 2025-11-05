@@ -1,4 +1,4 @@
-FROM node:22-alpine AS web
+FROM node:24-alpine AS web
 
 USER node
 WORKDIR /home/node
@@ -14,7 +14,7 @@ RUN npm \
 COPY --chown=node web/ web/
 RUN npm --workspace web run build
 
-FROM node:22-alpine
+FROM node:24-alpine
 
 RUN apk add --no-cache curl tini
 

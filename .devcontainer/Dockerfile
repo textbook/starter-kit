@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:22-bookworm
+FROM mcr.microsoft.com/devcontainers/javascript-node:24-bookworm
 
 # Install extra dependencies (mostly for Cypress)
 RUN apt-get update \
