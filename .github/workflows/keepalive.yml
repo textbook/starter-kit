@@ -9,4 +9,4 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - run: curl 'https://starter-kit-ci.herokuapp.com/api/message'
+      - run: curl --fail 'https://starter-kit-ci.herokuapp.com/api/message'
