@@ -17,7 +17,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
  * @property {number} port
  * @property {boolean} production
  * @property {boolean} timestamp
- * @property {string=} timestampFormat
+ * @property {string} [timestampFormat]
  *
  * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOption} RunnerOption
  * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOptionUrl} RunnerOptionUrl
@@ -26,7 +26,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REQUIRED_ARGS = ["DATABASE_URL"];
 
 /**
- * @params {Record<string, string>} overrides
+ * @param {Record<string, string>} overrides
  * @returns {Omit<Config, "init">}
  */
 const createConfig = (overrides) => {

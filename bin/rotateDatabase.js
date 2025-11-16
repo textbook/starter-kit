@@ -86,10 +86,11 @@ while (true) {
 /**
  * Make a request and return the (2xx) response body or throw an error.
  * @param {string} path
- * @param {any=} body
- * @param {string=} method
- * @param {Record<string, string>=} query
- * @return {Promise<any>}
+ * @param {any} opts
+ * @param {any} [opts.body]
+ * @param {string} [opts.method]
+ * @param {Record<string, string>} [opts.query]
+ * @returns {Promise<any>}
  */
 async function safeFetch(
 	path,
@@ -130,7 +131,7 @@ async function safeFetch(
 /**
  * Return promise resolving after specified time (in ms).
  * @param {number} ms
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 async function wait(ms) {
 	await new Promise((resolve) => setTimeout(resolve, ms));

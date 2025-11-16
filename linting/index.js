@@ -7,6 +7,7 @@ import vitestPlugin from "@vitest/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jestDomPlugin from "eslint-plugin-jest-dom";
+import { jsdoc } from "eslint-plugin-jsdoc";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import nodePlugin from "eslint-plugin-n";
 import playwrightPlugin from "eslint-plugin-playwright";
@@ -28,6 +29,22 @@ const {
 export default [
 	...cyfConfig.configs.standard,
 	prettierConfig,
+	jsdoc({
+		config: "flat/recommended-typescript-flavor-error",
+		rules: {
+			"jsdoc/check-param-names": [
+				"error",
+				{ allowExtraTrailingParamDocs: true },
+			],
+			"jsdoc/check-syntax": "error",
+			"jsdoc/reject-any-type": "off",
+			"jsdoc/require-jsdoc": "off",
+			"jsdoc/require-param-description": "off",
+			"jsdoc/require-property-description": "off",
+			"jsdoc/require-returns-description": "off",
+			"jsdoc/tag-lines": "off",
+		},
+	}),
 	{
 		plugins: {
 			import: importPlugin,
