@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
+import { globalIgnores } from "eslint/config";
 import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jestDomPlugin from "eslint-plugin-jest-dom";
@@ -175,7 +176,5 @@ export default [
 			...testingLibraryPlugin.configs.react.rules,
 		},
 	},
-	{
-		ignores: ["api/static", "e2e/playwright-report", "e2e/test-results"],
-	},
+	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),
 ];
