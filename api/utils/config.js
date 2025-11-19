@@ -66,6 +66,26 @@ const createConfig = (overrides) => {
 	};
 };
 
+/**
+ * Defer creation of objects requiring configuration until they're first used.
+ * @template T
+ * @param {(config: Config) => T} factory
+ * @returns {T}
+ */
+export function withConfig(factory) {
+	return new Proxy(
+		{ _proxied: undefined },
+		{
+			get(target, prop) {
+				if (target._proxied === undefined) {
+					target._proxied = factory(config);
+				}
+				return target._proxied[prop];
+			},
+		},
+	);
+}
+
 /** @type {Config} */
 const config = new Proxy(
 	{ config: undefined },

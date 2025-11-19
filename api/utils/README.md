@@ -14,6 +14,20 @@ Creates and exposes an object representing the app's configuration. This central
 
 To check if this is being used correctly, if you search your codebase, _all_ uses of `process.env` in `api/` should be in this file.
 
+If you need some configuration at the module level, to avoid accessing this when the module loads, you can defer its access using the `withConfig` function:
+
+```js
+import { SESClient } from "@aws-sdk/client-ses";
+
+import { withConfig } from "path/to/config.js";
+
+const client = withConfig((config) => new SESClient(/* use config */));
+
+// ...
+```
+
+Now the configuration will only be read the first time a property on `client` is actually used.
+
 ## `logger.js`
 
 Creates, configures and exports a [Winston] logger, which you can then import and use elsewhere:

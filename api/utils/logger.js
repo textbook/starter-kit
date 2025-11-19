@@ -1,28 +1,21 @@
 import { MESSAGE } from "triple-beam";
 import { createLogger, format, transports } from "winston";
 
-import config from "./config.js";
+import { withConfig } from "./config.js";
 
-/** @type {import("winston").Logger} */
-const logger = new Proxy(
-	{ logger: undefined },
-	{
-		get(target, prop) {
-			if (target.logger === undefined) {
-				target.logger = buildLogger();
-				if (!config.production) {
-					target.logger.debug("configured with: %O", config);
-				}
-			}
-			return target.logger[prop];
-		},
-	},
-);
+const logger = withConfig((config) => {
+	const logger_ = buildLogger(config);
+	if (!config.production) {
+		logger_.debug("configured with: %O", config);
+	}
+	return logger_;
+});
 
 /**
+ * @param {import("./config.js").Config} config
  * @returns {import("winston").Logger}
  */
-function buildLogger() {
+function buildLogger(config) {
 	/** @type {import("logform").Format[]} */
 	const extraFormatters = config.timestamp
 		? [
