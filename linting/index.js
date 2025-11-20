@@ -15,7 +15,6 @@ import playwrightPlugin from "eslint-plugin-playwright";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
-import testingLibraryPlugin from "eslint-plugin-testing-library";
 import globals from "globals";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -167,14 +166,8 @@ export default [
 		languageOptions: {
 			globals: vitestPlugin.environments.env.globals,
 		},
-		plugins: {
-			"jest-dom": jestDomPlugin,
-			"testing-library": testingLibraryPlugin,
-		},
-		rules: {
-			...jestDomPlugin.configs.recommended.rules,
-			...testingLibraryPlugin.configs.react.rules,
-		},
+		plugins: { "jest-dom": jestDomPlugin },
+		rules: jestDomPlugin.configs.recommended.rules,
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),
 ];
