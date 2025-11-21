@@ -47,6 +47,7 @@ jobs:
       - uses: textbook/take-action@playwright
       - run: npm run lint
       - run: npm run test:cover
+        timeout-minutes: 10
         env:
           FORCE_COLOR: true
       - uses: actions/upload-artifact@v5
