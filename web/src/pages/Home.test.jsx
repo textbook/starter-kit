@@ -10,7 +10,7 @@ describe("Home component", () => {
 	);
 
 	it("shows a link", async ({ page, render }) => {
-		render(<Home />);
+		await render(<Home />);
 
 		await expect
 			.element(page.getByRole("link", { name: "React logo" }))
@@ -18,7 +18,7 @@ describe("Home component", () => {
 	});
 
 	it("has a click counter", async ({ page, render, user }) => {
-		render(<Home />);
+		await render(<Home />);
 
 		await user.click(page.getByRole("button", { name: /count is 0/i }));
 

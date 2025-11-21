@@ -8,7 +8,7 @@ describe("ServerStatus component", () => {
 	it("fetches the right thing", async ({ page, render, worker }) => {
 		worker.use(http.get("/api/message", () => HttpResponse.text("hi!")));
 
-		render(<ServerStatus />);
+		await render(<ServerStatus />);
 
 		await expect
 			.element(page.getByText(/server says: hi!/i))
@@ -18,7 +18,7 @@ describe("ServerStatus component", () => {
 	it("shows message if server errors", async ({ page, render, worker }) => {
 		worker.use(http.get("/api/message", () => HttpResponse.error()));
 
-		render(<ServerStatus />);
+		await render(<ServerStatus />);
 
 		await expect
 			.element(page.getByText(/server says: unknown/i))
