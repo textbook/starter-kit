@@ -1,33 +1,29 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { http, HttpResponse } from "msw";
 
-import { server } from "../setupTests.js";
+import { beforeEach, describe, expect, it } from "../testFixtures.js";
 
 import Home from "./Home.jsx";
 
 describe("Home component", () => {
-	beforeEach(() =>
-		server.use(http.get("/api/message", () => HttpResponse.text(""))),
+	beforeEach(({ worker }) =>
+		worker.use(http.get("/api/message", () => HttpResponse.text(""))),
 	);
 
-	it("shows a link", () => {
+	it("shows a link", async ({ page, render }) => {
 		render(<Home />);
 
-		expect(screen.getByRole("link", { name: "React logo" })).toHaveAttribute(
-			"href",
-			"https://react.dev",
-		);
+		await expect
+			.element(page.getByRole("link", { name: "React logo" }))
+			.toHaveAttribute("href", "https://react.dev");
 	});
 
-	it("has a click counter", async () => {
-		const user = userEvent.setup();
+	it("has a click counter", async ({ page, render, user }) => {
 		render(<Home />);
 
-		await user.click(screen.getByRole("button", { name: /count is 0/i }));
+		await user.click(page.getByRole("button", { name: /count is 0/i }));
 
-		await expect(
-			screen.findByRole("button", { name: /count is 1/ }),
-		).resolves.toBeInTheDocument();
+		await expect
+			.element(page.getByRole("button", { name: /count is 1/ }))
+			.toBeInTheDocument();
 	});
 });

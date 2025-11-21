@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 
 import buildInfo from "@textbook/build-info/rollup-plugin";
 import react from "@vitejs/plugin-react-swc";
+import { playwright } from "@vitest/browser-playwright";
 import { configDotenv } from "dotenv";
 import { defineConfig } from "vitest/config";
 
@@ -37,11 +38,19 @@ export default defineConfig({
 		emptyOutDir: true,
 		outDir: "../api/static",
 	},
+	optimizeDeps: {
+		include: ["react-dom/client", "react-router"],
+	},
 	plugins: [buildInfo({ filename: "buildinfo.txt" }), react()],
 	server: { port, proxy, strictPort: true },
 	test: {
-		environment: "jsdom",
-		globals: true,
-		setupFiles: ["src/setupTests.js"],
+		browser: {
+			enabled: true,
+			headless: true,
+			instances: [{ browser: "chromium" }],
+			provider: playwright(),
+			screenshotDirectory: resolve(__dirname, "__screenshots__"),
+		},
+		testTimeout: 5_000,
 	},
 });

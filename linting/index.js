@@ -163,11 +163,15 @@ export default [
 	},
 	{
 		files: ["web/**/*.test.js?(x)", "**/setupTests.js", "**/__mocks__/*"],
-		languageOptions: {
-			globals: vitestPlugin.environments.env.globals,
-		},
 		plugins: { "jest-dom": jestDomPlugin },
 		rules: jestDomPlugin.configs.recommended.rules,
+	},
+	{
+		files: ["e2e/tests/fixtures.js", "web/src/testFixtures.js"],
+		rules: {
+			"no-empty-pattern": "off",
+			"react-hooks/rules-of-hooks": "off",
+		},
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),
 ];
