@@ -19,7 +19,6 @@
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react-swc": "^4.2.2",
 		"@vitest/browser-playwright": "^4.0.15",
-		"jsdom": "^27.2.0",
 		"msw": "^2.12.4",
 		"vitest-browser-react": "^2.0.2"
 	}
