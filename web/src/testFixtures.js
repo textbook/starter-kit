@@ -39,6 +39,8 @@ export const test = baseTest.extend({
 			const worker = setupWorker();
 			await worker.start({ onUnhandledRequest: "error", quiet: true });
 			await use(worker);
+			await nextTick();
+			worker.resetHandlers();
 			worker.stop();
 		},
 		{ auto: true },
@@ -46,3 +48,7 @@ export const test = baseTest.extend({
 });
 
 export const it = test;
+
+async function nextTick() {
+	await new Promise((resolve) => setTimeout(resolve, 0));
+}
