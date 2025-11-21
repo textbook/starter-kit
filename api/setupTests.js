@@ -1,5 +1,6 @@
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { runner } from "node-pg-migrate";
+import { afterAll, beforeAll } from "vitest";
 
 import { connectDb, disconnectDb } from "./db.js";
 import config from "./utils/config.js";

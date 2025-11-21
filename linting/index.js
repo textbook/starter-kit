@@ -104,9 +104,6 @@ export default [
 	},
 	{
 		files: ["**/*.test.js", "**/setupTests.js"],
-		languageOptions: {
-			globals: vitestPlugin.environments.env.globals,
-		},
 		plugins: {
 			vitest: vitestPlugin,
 		},

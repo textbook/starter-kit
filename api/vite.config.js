@@ -5,9 +5,7 @@ export default defineConfig({
 		deps: {
 			interopDefault: false,
 		},
-		globals: true,
 		environment: "node",
-		fileParallelism: false,
 		setupFiles: ["./setupTests.js"],
 	},
 });
