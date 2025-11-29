@@ -7,7 +7,7 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"devDependencies": {
-		"@codeyourfuture/eslint-config-standard": "^7.0.0",
+		"@codeyourfuture/eslint-config-standard": "^8.0.0",
 		"@types/eslint": "^9.6.1",
 		"@vitest/eslint-plugin": "^1.4.3",
 		"eslint": "^9.39.1",
