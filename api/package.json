@@ -11,7 +11,7 @@
 		"migration:create": "node-pg-migrate create --template-file-name ./migrations/template.js"
 	},
 	"dependencies": {
-		"express": "^5.1.0",
+		"express": "^5.2.0",
 		"helmet": "^8.1.0",
 		"morgan": "^1.10.1",
 		"node-pg-migrate": "^8.0.3",
