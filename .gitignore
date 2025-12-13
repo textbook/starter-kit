@@ -7,4 +7,5 @@ e2e/playwright/.cache/
 e2e/playwright-report/
 e2e/test-results/
 node_modules/
+web/__screenshots__/
 .env

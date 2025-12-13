@@ -1,3 +1,5 @@
+import { describe, it } from "vitest";
+
 import { createRequest } from "./testUtils.js";
 
 describe("base API endpoints", () => {

@@ -7,8 +7,10 @@ export default defineConfig({
 			exclude: [
 				"api/migrations/**",
 				"api/static/**",
+				"api/__tests__/testUtils.js",
 				"e2e/**",
 				"linting/**",
+				"web/src/testFixtures.js",
 				...coverageConfigDefaults.exclude,
 			],
 			provider: "v8",
