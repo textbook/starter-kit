@@ -9,19 +9,19 @@
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^8.0.0",
 		"@types/eslint": "^9.6.1",
-		"@vitest/eslint-plugin": "^1.5.1",
-		"eslint": "^9.39.1",
+		"@vitest/eslint-plugin": "^1.5.2",
+		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-jest-dom": "^5.5.0",
-		"eslint-plugin-jsdoc": "^61.4.2",
+		"eslint-plugin-jsdoc": "^61.5.0",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-n": "^17.23.1",
 		"eslint-plugin-playwright": "^2.4.0",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.0.1",
 		"eslint-plugin-react-refresh": "^0.4.24",
-		"eslint-plugin-testing-library": "^7.13.5",
+		"eslint-plugin-testing-library": "^7.13.6",
 		"globals": "^16.5.0"
 	},
 	"scripts": {}

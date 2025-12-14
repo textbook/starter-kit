@@ -9,8 +9,8 @@
 		"dev": "vite"
 	},
 	"dependencies": {
-		"react": "^19.2.1",
-		"react-dom": "^19.2.1",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
 		"react-router": "^7.10.1"
 	},
 	"devDependencies": {
@@ -22,7 +22,7 @@
 		"@types/react": "^19.2.7",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react-swc": "^4.2.2",
-		"jsdom": "^27.2.0",
+		"jsdom": "^27.3.0",
 		"msw": "^2.12.4"
 	}
 }
