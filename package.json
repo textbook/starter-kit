@@ -49,13 +49,13 @@
 	},
 	"devDependencies": {
 		"@types/node": "^20.19.27",
-		"@vitest/coverage-v8": "^4.0.15",
+		"@vitest/coverage-v8": "^4.0.16",
 		"concurrently": "^9.2.1",
 		"cross-env": "^10.1.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
 		"prettier": "~3.7.2",
-		"vite": "^7.2.7",
+		"vite": "^7.3.0",
 		"vitest": "^4.0.7"
 	},
 	"engines": {
