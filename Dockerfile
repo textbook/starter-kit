@@ -40,7 +40,8 @@ WORKDIR /home/node
 
 COPY package*.json .npmrc ./
 COPY api/ api/
-COPY --from=deps /home/node/api/node_modules api/node_modules/
+# Enable below instruction if required
+# COPY --from=deps /home/node/api/node_modules/ api/node_modules/
 COPY --from=web /home/node/api/static api/static/
 COPY bin/start.sh bin/
 COPY --from=deps /home/node/node_modules node_modules/
