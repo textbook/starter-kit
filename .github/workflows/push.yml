@@ -103,6 +103,8 @@ jobs:
       - uses: docker/setup-buildx-action@v3
       - uses: docker/build-push-action@v6
         with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           load: true
           push: false
           tags: textbook/starter-kit:v2
