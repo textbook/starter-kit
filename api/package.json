@@ -19,7 +19,7 @@
 		"winston": "^3.19.0"
 	},
 	"devDependencies": {
-		"@testcontainers/postgresql": "^11.10.0",
+		"@testcontainers/postgresql": "^11.11.0",
 		"strip-ansi": "^7.1.2",
 		"supertest": "^7.1.4"
 	}
