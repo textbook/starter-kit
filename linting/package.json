@@ -9,7 +9,7 @@
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^8.0.0",
 		"@types/eslint": "^9.6.1",
-		"@vitest/eslint-plugin": "^1.6.4",
+		"@vitest/eslint-plugin": "^1.6.5",
 		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
@@ -21,7 +21,7 @@
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.0.1",
 		"eslint-plugin-react-refresh": "^0.4.26",
-		"eslint-plugin-testing-library": "^7.15.3",
+		"eslint-plugin-testing-library": "^7.15.4",
 		"globals": "^17.0.0"
 	},
 	"scripts": {}
