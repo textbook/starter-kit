@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: ["20.19", "20", "22.12", "22", "24.0", "24"]
+        node: ["20.19", "20", "22.13", "22", "24.0", "24"]
     runs-on: ubuntu-latest
     outputs:
       lcov-artifact-id: ${{ steps.upload-lcov.outputs.artifact-id }}
