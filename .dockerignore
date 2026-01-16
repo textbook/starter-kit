@@ -1,6 +1,8 @@
 .nyc_output/
+api/__tests__/
+api/node_modules/
 api/static/
 api/**/__mocks__/
+coverage/
 e2e/
 node_modules/
-reports/
