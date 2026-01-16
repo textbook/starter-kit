@@ -1,7 +1,16 @@
+import { connectDb } from "./db.js";
 import config from "./utils/config.js";
+import logger from "./utils/logger.js";
 
 const { port } = config.init();
 
-const { start } = await import("./app.js");
+await connectDb();
 
-start(port);
+const { default: app } = await import("./app.js");
+
+app.listen(port, (err) => {
+	if (err) {
+		throw err;
+	}
+	logger.info(`listening on ${port}`);
+});
