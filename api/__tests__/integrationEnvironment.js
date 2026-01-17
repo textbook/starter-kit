@@ -14,10 +14,12 @@ import config from "../utils/config.js";
  */
 const environment = {
 	name: "integration",
-	async setup(global) {
-		const dbContainer = await new PostgreSqlContainer(
-			"postgres:17-alpine",
-		).start();
+	async setup(global, options) {
+		const image = options[this.name].image;
+		if (!image) {
+			throw new Error(`missing ${this.name} environment option: image`);
+		}
+		const dbContainer = await new PostgreSqlContainer(image).start();
 		const overrides = {
 			DATABASE_URL: connectionString(dbContainer),
 			PORT: "0",

@@ -6,6 +6,7 @@ export default defineConfig({
 			interopDefault: false,
 		},
 		environment: "./__tests__/integrationEnvironment.js",
+		environmentOptions: { integration: { image: "postgres:17-alpine" } },
 		fileParallelism: false,
 		globals: true,
 		setupFiles: ["./setupTests.js"],
