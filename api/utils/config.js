@@ -23,24 +23,24 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
  * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOptionUrl} RunnerOptionUrl
  */
 
+const MIGRATIONS_DIR = resolve(__dirname, "..", "migrations");
 const REQUIRED_ARGS = ["DATABASE_URL"];
 
 /**
- * @param {Record<string, string>} overrides
+ * @param {Record<string, string>} [overrides]
  * @returns {Omit<Config, "init">}
  */
 const createConfig = (overrides) => {
+	const source = { ...process.env, ...overrides };
+
 	const dotenvPath = resolve(
 		__dirname,
 		"..",
 		"..",
-		process.env.DOTENV_CONFIG_PATH ?? ".env",
+		source.DOTENV_CONFIG_PATH ?? ".env",
 	);
-	const migrationsDir = resolve(__dirname, "..", "migrations");
 
-	configDotenv({ path: dotenvPath, quiet: true });
-
-	const source = { ...process.env, ...overrides };
+	configDotenv({ path: dotenvPath, processEnv: source, quiet: true });
 
 	requireArgs(source, REQUIRED_ARGS);
 
@@ -52,7 +52,7 @@ const createConfig = (overrides) => {
 		logLevel: source.LOG_LEVEL?.toLowerCase() ?? "info",
 		migrationConfig: {
 			databaseUrl: dbConfig,
-			dir: migrationsDir,
+			dir: MIGRATIONS_DIR,
 			ignorePattern: "(migrate|template)\\.js$",
 			logger,
 			migrationsTable: "migrations",
@@ -137,6 +137,21 @@ function createDbConfig(source) {
 }
 
 /**
+ * @property {string[]} missing
+ */
+export class MissingRequiredEnvVars extends Error {
+	/**
+	 * @param {string[]} missing
+	 */
+	constructor(missing) {
+		super(
+			`missing required env var${missing.length > 1 ? "s" : ""}: ${missing.join(", ")}`,
+		);
+		this.missing = missing;
+	}
+}
+
+/**
  * @param {Record<string, string>} source
  * @param {string[]} required
  */
@@ -144,8 +159,6 @@ function requireArgs(source, required) {
 	const missing = required.filter((variable) => !process.env[variable]);
 	if (missing.length > 0) {
 		process.exitCode = 1;
-		throw new Error(
-			`missing required environment variable(s): ${missing.join(", ")}`,
-		);
+		throw new MissingRequiredEnvVars(missing);
 	}
 }

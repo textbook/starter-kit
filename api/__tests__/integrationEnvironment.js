@@ -23,6 +23,7 @@ const environment = {
 			PORT: "0",
 		};
 		global.configOverrides = overrides;
+		global.useDb = true;
 		const { migrationConfig } = config.init(overrides);
 		await applyMigrations(migrationConfig);
 
