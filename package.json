@@ -48,8 +48,8 @@
 		"useTabs": true
 	},
 	"devDependencies": {
-		"@types/node": "^20.19.28",
-		"@vitest/coverage-v8": "^4.0.16",
+		"@types/node": "^20.19.30",
+		"@vitest/coverage-v8": "^4.0.17",
 		"concurrently": "^9.2.1",
 		"cross-env": "^10.1.0",
 		"husky": "^9.1.7",
