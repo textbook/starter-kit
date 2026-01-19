@@ -1,0 +1,17 @@
+---
+services:
+  db:
+    container_name: postgres
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "3105:5432"
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql

@@ -4,21 +4,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sleep infinity
-    container_name: develop
     depends_on:
       db:
         condition: service_healthy
     environment:
       DATABASE_URL: postgres://postgres:@db:5432/postgres?sslmode=disable
-      PGHOST: db
-      PGUSER: postgres
     init: true
-    volumes:
-      - ..:/workspace:cached
+    profiles:
+      - test
+    ports:
+      - 3000:80
   db:
     extends:
-      file: ./common-services.yml
+      file: ./.devcontainer/common-services.yml
       service: db
 
 volumes:
