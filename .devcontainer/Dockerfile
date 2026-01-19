@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:24-bookworm
+FROM mcr.microsoft.com/devcontainers/javascript-node:24-trixie
 
 RUN apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \

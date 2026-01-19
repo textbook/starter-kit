@@ -12,7 +12,9 @@
 	},
 	"dockerComposeFile": "./docker-compose.yml",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": false
+		}
 	},
 	"forwardPorts": [3000, 3100],
 	"mounts": ["type=volume,target=${containerWorkspaceFolder}/node_modules"],
