@@ -152,11 +152,11 @@ export class MissingRequiredEnvVars extends Error {
 }
 
 /**
- * @param {Record<string, string>} source
+ * @param {Record<string, string | undefined>} source
  * @param {string[]} required
  */
 function requireArgs(source, required) {
-	const missing = required.filter((variable) => !process.env[variable]);
+	const missing = required.filter((variable) => !source[variable]);
 	if (missing.length > 0) {
 		process.exitCode = 1;
 		throw new MissingRequiredEnvVars(missing);
