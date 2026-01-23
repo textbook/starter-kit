@@ -9,6 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
  * @typedef Config
+ * @property {boolean} colorize
  * @property {import("pg").ClientConfig} dbConfig
  * @property {string} dotenvPath
  * @property {(overrides?: Record<string, string>) => Config} init
@@ -47,6 +48,7 @@ const createConfig = (overrides) => {
 	const dbConfig = createDbConfig(source);
 
 	return {
+		colorize: !source.NO_COLOR,
 		dbConfig,
 		dotenvPath,
 		logLevel: source.LOG_LEVEL?.toLowerCase() ?? "info",

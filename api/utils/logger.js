@@ -27,7 +27,7 @@ function buildLogger(config) {
 	return createLogger({
 		format: format.combine(
 			format.align(),
-			format.colorize(),
+			format[config.colorize ? "colorize" : "uncolorize"](),
 			format.errors({ stack: true }),
 			format.splat(),
 			format.simple(),
