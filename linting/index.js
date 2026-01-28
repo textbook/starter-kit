@@ -104,6 +104,17 @@ export default [
 		},
 	},
 	{
+		files: ["bin/**"],
+		rules: {
+			"n/hashbang": "off",
+		},
+		settings: {
+			node: {
+				version: "^24",
+			},
+		},
+	},
+	{
 		files: ["**/*.test.js", "**/setupTests.js"],
 		languageOptions: {
 			globals: vitestPlugin.environments.env.globals,

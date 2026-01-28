@@ -1,4 +1,3 @@
-/* eslint-disable n/no-unsupported-features/node-builtins -- requires Node 22 */
 const SERVICE_NAME = "starter-kit";
 
 const [
