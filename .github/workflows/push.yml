@@ -87,7 +87,7 @@ jobs:
       matrix:
         dockerfile:
           - Dockerfile
-          - Dockerfile-hardened
+          - hardened.Dockerfile
     services:
       postgres:
         image: postgres:18-alpine

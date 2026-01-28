@@ -9,11 +9,27 @@ services:
         condition: service_healthy
     environment:
       DATABASE_URL: postgres://postgres:@db:5432/postgres?sslmode=disable
+      LOG_LEVEL: debug
     init: true
     profiles:
       - test
     ports:
-      - 3000:80
+      - "3000:80"
+  hardened:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://postgres:@db:5432/postgres?sslmode=disable
+      LOG_LEVEL: debug
+    init: true
+    profiles:
+      - hardened
+    ports:
+      - "3000:80"
   db:
     extends:
       file: ./.devcontainer/common-services.yml
