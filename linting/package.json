@@ -10,7 +10,7 @@
 		"@codeyourfuture/eslint-config-standard": "^8.0.0",
 		"@types/eslint": "^9.6.1",
 		"@vitest/eslint-plugin": "^1.6.6",
-		"eslint": "^9.39.2",
+		"eslint": "^10.0.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-jest-dom": "^5.5.0",
