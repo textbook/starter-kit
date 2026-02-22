@@ -17,8 +17,24 @@
 		}
 	},
 	"forwardPorts": [3000, 3100],
-	"mounts": ["type=volume,target=${containerWorkspaceFolder}/node_modules"],
-	"postCreateCommand": "sudo chown node node_modules && npm ci && npx playwright install --with-deps",
+	"mounts": [
+		{
+			"type": "volume",
+			"target": "${containerWorkspaceFolder}/node_modules",
+			"source": "node-modules-${devcontainerId}"
+		},
+		{
+			"type": "volume",
+			"target": "/home/node/.npm",
+			"source": "npm-cache-${devcontainerId}"
+		},
+		{
+			"type": "volume",
+			"target": "/home/node/.cache/ms-playwright",
+			"source": "playwright-cache-${devcontainerId}"
+		}
+	],
+	"postCreateCommand": "sudo chown -R node /home/node && npm ci && npx playwright install --with-deps",
 	"remoteUser": "node",
 	"service": "app",
 	"workspaceFolder": "/workspace"
