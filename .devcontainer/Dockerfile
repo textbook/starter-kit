@@ -4,6 +4,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
   apt-get update \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get install --assume-yes --no-install-recommends \
+    jq \
     postgresql-client \
     vim
 

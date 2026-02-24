@@ -38,7 +38,12 @@ export default defineConfig({
 		outDir: "../api/static",
 	},
 	plugins: [buildInfo({ filename: "buildinfo.txt" }), react()],
-	server: { port, proxy, strictPort: true },
+	server: {
+		host: process.env.IS_SANDBOX === "1",
+		port,
+		proxy,
+		strictPort: true,
+	},
 	test: {
 		environment: "jsdom",
 		globals: true,

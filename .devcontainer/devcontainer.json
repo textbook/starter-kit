@@ -10,30 +10,33 @@
 			]
 		}
 	},
+	"containerEnv": {
+		"IS_SANDBOX": "1"
+	},
 	"dockerComposeFile": "./docker-compose.yml",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"moby": false
-		}
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	"forwardPorts": [3000, 3100],
 	"mounts": [
 		{
 			"type": "volume",
-			"target": "${containerWorkspaceFolder}/node_modules",
-			"source": "node-modules-${devcontainerId}"
-		},
-		{
-			"type": "volume",
 			"target": "/home/node/.npm",
-			"source": "npm-cache-${devcontainerId}"
+			"source": "npm-cache"
 		},
 		{
 			"type": "volume",
-			"target": "/home/node/.cache/ms-playwright",
-			"source": "playwright-cache-${devcontainerId}"
+			"target": "/home/node/.cache",
+			"source": "os-cache"
 		}
 	],
+	"portsAttributes": {
+		"3000": { "label": "App" },
+		"3100": { "label": "Dev API" }
+	},
 	"postCreateCommand": "sudo chown -R node /home/node && npm ci && npx playwright install --with-deps",
 	"remoteUser": "node",
 	"service": "app",
