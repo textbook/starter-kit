@@ -18,7 +18,7 @@ services:
   hardened:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: hardened.Dockerfile
     depends_on:
       db:
         condition: service_healthy

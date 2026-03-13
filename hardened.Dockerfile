@@ -1,5 +1,7 @@
 FROM dhi.io/node:24-alpine3.23-sfw-dev AS web
 
+RUN mkdir -p /app && chown -R node /app
+
 USER node
 WORKDIR /app
 
@@ -16,6 +18,8 @@ COPY --chown=node web/ web/
 RUN npm --workspace web run build
 
 FROM dhi.io/node:24-alpine3.23-sfw-dev AS deps
+
+RUN mkdir -p /app && chown -R node /app
 
 USER node
 WORKDIR /app
