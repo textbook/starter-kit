@@ -2,7 +2,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import buildInfo from "@textbook/build-info/rollup-plugin";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import { configDotenv } from "dotenv";
 import { defineConfig } from "vitest/config";
 
