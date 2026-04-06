@@ -18,7 +18,7 @@ if [ -z "$(useNpm outdated)" ]; then
   exit 0
 fi
 
-useNpm update --save
+useNpm update --ignore-scripts --save
 
 if [ -z "$(git status --porcelain)" ]; then
   echo 'No compatible changes'

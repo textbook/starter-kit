@@ -7,6 +7,7 @@ COPY package*.json .npmrc ./
 COPY --chown=node web/package.json web/
 RUN --mount=type=cache,target=/root/.npm \
   npm \
+  --ignore-scripts \
   --include-workspace-root \
   --no-fund \
   --workspace web \
@@ -25,6 +26,7 @@ COPY --chown=node api/package.json api/
 
 RUN --mount=type=cache,target=/root/.npm \
   npm \
+  --ignore-scripts \
   --include-workspace-root \
   --no-fund \
   --omit dev \
