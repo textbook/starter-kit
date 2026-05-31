@@ -12,10 +12,10 @@
 	},
 	"dependencies": {
 		"express": "^5.2.1",
-		"helmet": "^8.1.0",
+		"helmet": "^8.2.0",
 		"morgan": "^1.10.1",
 		"node-pg-migrate": "^8.0.4",
-		"pg": "^8.20.0",
+		"pg": "^8.21.0",
 		"winston": "^3.19.0"
 	},
 	"devDependencies": {
