@@ -15,7 +15,7 @@
 		"helmet": "^8.2.0",
 		"morgan": "^1.11.0",
 		"node-pg-migrate": "^8.0.4",
-		"pg": "^8.21.0",
+		"pg": "^8.22.0",
 		"winston": "^3.19.0"
 	},
 	"devDependencies": {
