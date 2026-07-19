@@ -23,6 +23,6 @@
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^6.0.3",
 		"jsdom": "^28.1.0",
-		"msw": "^2.14.6"
+		"msw": "^2.15.0"
 	}
 }
