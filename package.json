@@ -48,7 +48,7 @@
 		"useTabs": true
 	},
 	"devDependencies": {
-		"@types/node": "^20.19.43",
+		"@types/node": "^22.20.1",
 		"@vitest/coverage-v8": "^4.1.2",
 		"concurrently": "^9.2.4",
 		"cross-env": "^10.1.0",
@@ -59,8 +59,8 @@
 		"vitest": "^4.1.0"
 	},
 	"engines": {
-		"node": "^20.19 || ^22.13 || ^24",
-		"npm": "^10 || ^11"
+		"node": "^22.18 || ^24 || ^26",
+		"npm": ">=10"
 	},
 	"dependencies": {
 		"dotenv": "^17.4.2"

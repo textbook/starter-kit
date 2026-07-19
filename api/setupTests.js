@@ -1,11 +1,9 @@
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 import { connectDb, disconnectDb } from "./db.js";
 import config, { MissingRequiredEnvVars } from "./utils/config.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const TEST_DOTENV_PATH = resolve(__dirname, "__tests__", "test.env");
+const TEST_DOTENV_PATH = resolve(import.meta.dirname, "__tests__", "test.env");
 
 beforeAll(async () => {
 	try {

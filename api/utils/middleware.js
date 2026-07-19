@@ -1,5 +1,4 @@
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, resolve } from "node:path";
 
 import express, { Router } from "express";
 import helmet from "helmet";
@@ -7,10 +6,8 @@ import morgan from "morgan";
 
 import logger from "./logger.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 export const clientRouter = (apiRoot) => {
-	const staticDir = resolve(__dirname, "..", "static");
+	const staticDir = resolve(import.meta.dirname, "..", "static");
 	const router = Router();
 	router.use(express.static(staticDir));
 	router.use((req, res, next) => {

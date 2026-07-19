@@ -1,10 +1,9 @@
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 import { defineConfig, devices } from "@playwright/test";
 import { configDotenv } from "dotenv";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = import.meta.dirname;
 
 configDotenv({
 	path: resolve(__dirname, "..", process.env.DOTENV_CONFIG_PATH ?? ".env"),

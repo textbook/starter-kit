@@ -1,6 +1,6 @@
 # Starter Kit v2
 
-- [x] [Node] LTS support (verified working on 20.x LTS release)
+- [x] [Node] LTS support (verified working on 22.x LTS release)
 - [x] [Express] server
 - [x] [Postgres] database with [`pg`][node-postgres]
 - [x] Logging with [Winston] and [Morgan]
