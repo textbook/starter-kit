@@ -7,6 +7,6 @@ on:
 
 jobs:
   ping:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - run: curl --fail 'https://starter-kit-ci.herokuapp.com/api/message'
