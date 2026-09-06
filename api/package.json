@@ -14,7 +14,7 @@
 	"dependencies": {
 		"express": "^5.2.1",
 		"helmet": "^8.3.0",
-		"morgan": "^1.11.0",
+		"morgan": "^1.12.0",
 		"node-pg-migrate": "^9.0.0",
 		"pg": "^8.23.0",
 		"winston": "^3.19.0"
