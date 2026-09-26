@@ -3,23 +3,14 @@ import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import { applyMigrations } from "../db.js";
 import config from "../utils/config.js";
 
-/**
- * To opt out of the integration test environment (for faster tests where API
- * calls aren't made), add the following to the top of a test file:
- *
- * @example
- * // @vitest-environment node
- *
- * @type {import("vitest/environments").Environment}
- */
+/** @type {import("vitest/environments").Environment} */
 const environment = {
 	name: "integration",
 	async setup(global, options) {
-		const image = options[this.name].image;
-		if (!image) {
-			throw new Error(`missing ${this.name} environment option: image`);
-		}
-		const dbContainer = await new PostgreSqlContainer(image).start();
+		const { tag = "latest" } = options[this.name] ?? {};
+		const dbContainer = await new PostgreSqlContainer(
+			`postgres:${tag}`,
+		).start();
 		const overrides = {
 			DATABASE_URL: connectionString(dbContainer),
 			PORT: "0",
