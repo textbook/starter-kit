@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 
 import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
-import { globalIgnores } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jestDomPlugin from "eslint-plugin-jest-dom";
@@ -23,9 +23,8 @@ const {
 	await readFile(resolve(import.meta.dirname, "..", "package.json"), "utf-8"),
 );
 
-/** @type {import("eslint").Linter.Config[]} */
-export default [
-	...cyfConfig.configs.standard,
+export default defineConfig(
+	cyfConfig.configs.standard,
 	prettierConfig,
 	jsdoc({
 		config: "flat/recommended-typescript-flavor-error",
@@ -185,4 +184,4 @@ export default [
 		},
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),
-];
+);
