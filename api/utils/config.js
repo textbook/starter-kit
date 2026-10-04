@@ -40,7 +40,12 @@ const createConfig = (overrides) => {
 		source.DOTENV_CONFIG_PATH ?? ".env",
 	);
 
-	configDotenv({ path: dotenvPath, processEnv: source, quiet: true });
+	configDotenv({
+		fast: true,
+		path: dotenvPath,
+		processEnv: source,
+		quiet: true,
+	});
 
 	requireArgs(source, REQUIRED_ARGS);
 
