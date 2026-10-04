@@ -64,5 +64,12 @@
 	},
 	"dependencies": {
 		"dotenv": "^18.0.4"
+	},
+	"allowScripts": {
+		"cpu-features@0.0.10": true,
+		"fsevents@2.3.3": true,
+		"msw@2.15.0": true,
+		"protobufjs@7.6.6": true,
+		"ssh2@1.17.0": true
 	}
 }
