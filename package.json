@@ -48,14 +48,14 @@
 		"useTabs": true
 	},
 	"devDependencies": {
-		"@types/node": "^22.20.4",
+		"@types/node": "^22.20.5",
 		"@vitest/coverage-v8": "^5.0.1",
 		"concurrently": "^10.0.5",
 		"cross-env": "^10.1.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.6.0",
 		"prettier": "~3.9.5",
-		"vite": "^8.3.1",
+		"vite": "^8.3.2",
 		"vitest": "^5.0.1"
 	},
 	"engines": {
@@ -63,7 +63,7 @@
 		"npm": ">=10"
 	},
 	"dependencies": {
-		"dotenv": "^18.0.4"
+		"dotenv": "^18.0.5"
 	},
 	"allowScripts": {
 		"cpu-features@0.0.10": true,

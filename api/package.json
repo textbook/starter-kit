@@ -16,12 +16,12 @@
 		"helmet": "^8.3.0",
 		"morgan": "^1.12.1",
 		"node-pg-migrate": "^9.0.0",
-		"pg": "^8.23.0",
+		"pg": "^8.23.1",
 		"winston": "^3.19.0"
 	},
 	"devDependencies": {
-		"@testcontainers/postgresql": "^12.1.0",
+		"@testcontainers/postgresql": "^12.2.0",
 		"strip-ansi": "^7.2.0",
-		"supertest": "^7.3.0"
+		"supertest": "^7.3.1"
 	}
 }
