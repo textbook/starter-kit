@@ -33,7 +33,7 @@
 		"prepare": "husky || echo 'no husky 🐶'",
 		"preserve": "npm run build",
 		"serve": "cross-env PORT=$npm_package_config_dev_port npm start",
-		"ship": "npm run lint && npm run test && npm run e2e",
+		"ship": "npm run typecheck && npm run lint && npm run test && npm run e2e",
 		"prestart": "npm run migration up",
 		"start": "npm --workspace api start",
 		"test": "vitest --run",
