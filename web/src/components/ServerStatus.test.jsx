@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse } from "msw/http";
 import { describe, expect, it } from "vitest";
 
 import { server } from "../setupTests";
