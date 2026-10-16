@@ -29,6 +29,18 @@ export default defineConfig(
 	prettierConfig,
 	typescript.configs.strict,
 	typescript.configs.stylistic,
+	{
+		files: ["**/*.ts?(x)"],
+		extends: [
+			typescript.configs.strictTypeCheckedOnly,
+			typescript.configs.stylisticTypeCheckedOnly,
+		],
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+			},
+		},
+	},
 	jsdoc({
 		config: "flat/recommended-typescript-flavor-error",
 		rules: {
