@@ -16,6 +16,7 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import globals from "globals";
+import typescript from "typescript-eslint";
 
 const {
 	engines: { node: nodeVersion },
@@ -26,6 +27,8 @@ const {
 export default defineConfig(
 	cyfConfig.configs.standard,
 	prettierConfig,
+	typescript.configs.strict,
+	typescript.configs.stylistic,
 	jsdoc({
 		config: "flat/recommended-typescript-flavor-error",
 		rules: {
@@ -96,7 +99,11 @@ export default defineConfig(
 	{
 		files: ["api/migrations/template.js"],
 		rules: {
-			"no-unused-vars": ["error", { argsIgnorePattern: "pgm" }],
+			"@typescript-eslint/no-unused-vars": [
+				"error",
+				{ argsIgnorePattern: "pgm" },
+			],
+			"@typescript-eslint/no-empty-function": "off",
 		},
 	},
 	{
