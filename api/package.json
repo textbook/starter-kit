@@ -6,10 +6,11 @@
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
 	"scripts": {
-		"dev": "node --inspect --watch --watch-path . --watch-preserve-output server.js",
+		"dev": "node --inspect --watch --watch-path . --watch-preserve-output server.ts",
 		"migration": "node ./migrations/migrate.js",
 		"migration:create": "node-pg-migrate create --template-file-name ./migrations/template.js",
-		"start": "node server.js"
+		"start": "node server.ts",
+		"typecheck": "tsc"
 	},
 	"dependencies": {
 		"express": "^5.3.0",

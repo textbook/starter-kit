@@ -48,6 +48,7 @@
 		"useTabs": true
 	},
 	"devDependencies": {
+		"@tsconfig/node22": "^22.0.6",
 		"@types/node": "^22.20.5",
 		"@vitest/coverage-v8": "^5.0.1",
 		"concurrently": "^10.0.6",
@@ -55,6 +56,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^17.6.0",
 		"prettier": "~3.9.5",
+		"typescript": "^6.0.3",
 		"vite": "^8.3.4",
 		"vitest": "^5.0.1"
 	},
