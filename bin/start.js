@@ -6,6 +6,6 @@ const { migrationConfig, port } = config.init();
 
 await applyMigrations(migrationConfig);
 
-const { start } = await import("../api/app.js");
+const { start } = await import("../api/app.ts");
 
 start(port);
