@@ -1,3 +1,5 @@
+import type { Server } from "node:http";
+
 import express from "express";
 
 import apiRouter from "./api.js";
@@ -15,8 +17,7 @@ import {
 const API_ROOT = "/api";
 
 const app = express();
-/** @type {import("node:http").Server} */
-let server;
+let server: Server | undefined;
 
 app.use(express.json());
 app.use(configuredHelmet());
@@ -38,9 +39,9 @@ app.use(clientRouter(API_ROOT));
 
 app.use(logErrors());
 
-export function start(port) {
-	connectDb().then(() => {
-		server = app.listen(port, (err) => {
+export function start(port: number) {
+	void connectDb().then(() => {
+		server = app.listen(port, (err?: Error) => {
 			if (err) {
 				throw err;
 			}
@@ -51,7 +52,7 @@ export function start(port) {
 }
 
 export function stop() {
-	disconnectDb().then(() => {
+	void disconnectDb().then(() => {
 		if (server?.listening) {
 			logger.debug("stopping server");
 			server.close((err) => {

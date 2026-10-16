@@ -22,6 +22,7 @@
 	},
 	"devDependencies": {
 		"@testcontainers/postgresql": "^12.2.1",
+		"@types/express": "^5.0.6",
 		"strip-ansi": "^7.2.0",
 		"supertest": "^7.3.1"
 	}

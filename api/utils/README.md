@@ -4,7 +4,7 @@
 
 - Import from and maybe add new options to `config.js`;
 - Import from `logger.js`; and
-- Ignore `middleware.js` entirely (all predefined middleware is already used in `app.js`).
+- Ignore `middleware.js` entirely (all predefined middleware is already used in `app.ts`).
 
 ## `config.js`
 
@@ -57,7 +57,7 @@ router.get("/welcome", (_, res) => {
 
 ## `middleware.js`
 
-Defines default middleware used in `api/app.js`:
+Defines default middleware used in `../app.ts`:
 
 - `clientRouter`: brings the React client into the Express server for production mode
   - serves React app build outputs (CSS, HTML, JS, etc.) from `api/static/` directory
