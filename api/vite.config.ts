@@ -1,16 +1,15 @@
 import { defineConfig, defineProject } from "vitest/config";
 
-const integrationTests = ["./__tests__/*.test.js"];
+const integrationTests = ["./__tests__/*.test.[jt]s"];
 
 export default defineConfig({
 	test: {
 		deps: {
 			interopDefault: false,
 		},
-		globals: true,
+		globals: false,
 		projects: [
 			defineProject({
-				extends: true,
 				test: {
 					name: "integration",
 					environment: "./__tests__/integrationEnvironment.js",
@@ -20,7 +19,6 @@ export default defineConfig({
 				},
 			}),
 			defineProject({
-				extends: true,
 				test: {
 					name: "unit",
 					environment: "node",
@@ -28,6 +26,6 @@ export default defineConfig({
 				},
 			}),
 		],
-		setupFiles: ["./setupTests.js"],
+		setupFiles: ["./setupTests.ts"],
 	},
 });

@@ -1,8 +1,0 @@
-{
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.app.tsbuildinfo"
-	},
-	"include": ["**/*"],
-	"exclude": ["node_modules", "static", "__tests__", "**/*.test.*"]
-}
