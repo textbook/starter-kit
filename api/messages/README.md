@@ -2,6 +2,6 @@
 
 This is an example resource module. It is split into three logical layers:
 
-- **Transport** (`messageRouter.js`) - deals with HTTP API concepts using Express
-- **Business** (`messageService.js`) - deals with domain logic in pure JavaScript
-- **Persistence** (`messageRepository.js`) - deals with DB concepts using `pg`
+- **Transport** (`messageRouter.ts`) - deals with HTTP API concepts using Express
+- **Business** (`messageService.ts`) - deals with domain logic in pure JavaScript
+- **Persistence** (`messageRepository.ts`) - deals with DB concepts using `pg`

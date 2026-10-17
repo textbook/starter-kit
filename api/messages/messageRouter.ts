@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getMessage } from "./messageService.js";
+import { getMessage } from "./messageService.ts";
 
 const router = Router();
 

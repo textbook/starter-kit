@@ -1,7 +1,7 @@
 import type { StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 
-import { applyMigrations } from "../db.js";
+import { applyMigrations } from "../db.ts";
 import config from "../utils/config.ts";
 
 interface Globals {
