@@ -1,8 +1,14 @@
 {
 	"extends": "@tsconfig/node22/tsconfig.json",
 	"compilerOptions": {
+		"allowImportingTsExtensions": true,
 		"allowJs": true,
 		"checkJs": false,
-		"noEmit": true
-	}
+		"composite": true,
+		"erasableSyntaxOnly": true,
+		"noEmit": true,
+		"tsBuildInfoFile": "${configDir}/node_modules/.cache/tsconfig.tsbuildinfo"
+	},
+	"files": [],
+	"references": [{ "path": "./api" }, { "path": "./linting" }]
 }

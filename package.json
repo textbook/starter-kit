@@ -38,10 +38,11 @@
 		"start": "npm --workspace api start",
 		"test": "vitest --run",
 		"test:cover": "npm run test -- --coverage",
-		"test:watch": "npm run test -- --no-run"
+		"test:watch": "npm run test -- --no-run",
+		"typecheck": "tsc --build --noEmit"
 	},
 	"lint-staged": {
-		"*.{js,jsx}": "npm run lint:eslint -- --fix",
+		"*.{js,jsx,ts,tsx}": "npm run lint:eslint -- --fix",
 		"*": "npm run lint:prettier -- --write"
 	},
 	"prettier": {
