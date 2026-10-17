@@ -98,7 +98,7 @@ export default defineConfig(
 		ignores: ["api/utils/config.ts", "api/vite.config.ts"],
 	},
 	{
-		files: ["api/migrations/template.js"],
+		files: ["api/migrations/template.ts"],
 		rules: {
 			"@typescript-eslint/no-unused-vars": [
 				"error",
