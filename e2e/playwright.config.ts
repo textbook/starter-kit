@@ -79,7 +79,7 @@ export default defineConfig({
 
 	/* Run your local dev server before starting the tests */
 	webServer: process.env.PLAYWRIGHT_BASE_URL
-		? false
+		? []
 		: {
 				command: process.env.PLAYWRIGHT_START_COMMAND ?? "npm run serve",
 				cwd: resolve(__dirname, ".."),

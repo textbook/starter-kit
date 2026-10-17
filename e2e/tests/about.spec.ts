@@ -1,4 +1,4 @@
-import { test, expect } from "./fixtures.js";
+import { test, expect } from "./fixtures.ts";
 
 test("can be visited", async ({ page }) => {
 	await page.goto("/nested/about/path");

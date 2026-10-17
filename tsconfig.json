@@ -10,5 +10,9 @@
 		"tsBuildInfoFile": "${configDir}/node_modules/.cache/tsconfig.tsbuildinfo"
 	},
 	"files": [],
-	"references": [{ "path": "./api" }, { "path": "./linting" }]
+	"references": [
+		{ "path": "./api" },
+		{ "path": "./e2e" },
+		{ "path": "./linting" }
+	]
 }
