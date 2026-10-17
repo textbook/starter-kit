@@ -1,8 +1,7 @@
 {
 	"extends": "../tsconfig.json",
-	"compilerOptions": {
-		"allowImportingTsExtensions": true,
-		"erasableSyntaxOnly": true,
-		"types": ["node"]
-	}
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.test.json" }
+	]
 }

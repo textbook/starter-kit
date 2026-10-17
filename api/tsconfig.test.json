@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.test.tsbuildinfo",
+		"types": ["node", "vitest/globals"]
+	},
+	"include": ["**/*"],
+	"exclude": ["node_modules", "static"]
+}

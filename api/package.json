@@ -9,8 +9,7 @@
 		"dev": "node --inspect --watch --watch-path . --watch-preserve-output server.ts",
 		"migration": "node ./migrations/migrate.js",
 		"migration:create": "node-pg-migrate create --template-file-name ./migrations/template.js",
-		"start": "node server.ts",
-		"typecheck": "tsc"
+		"start": "node server.ts"
 	},
 	"dependencies": {
 		"express": "^5.3.0",

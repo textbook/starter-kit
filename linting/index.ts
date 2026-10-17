@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 
 import cyfConfig from "@codeyourfuture/eslint-config-standard";
 import vitestPlugin from "@vitest/eslint-plugin";
+import type { ESLint } from "eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 import prettierConfig from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
@@ -22,7 +23,7 @@ const {
 	engines: { node: nodeVersion },
 } = JSON.parse(
 	await readFile(resolve(import.meta.dirname, "..", "package.json"), "utf-8"),
-);
+) as { engines: { node: string } };
 
 export default defineConfig(
 	cyfConfig.configs.standard,
@@ -170,12 +171,12 @@ export default defineConfig(
 		plugins: {
 			"jsx-a11y": jsxA11yPlugin,
 			react: reactPlugin,
-			"react-hooks": reactHooksPlugin,
+			"react-hooks": reactHooksPlugin as ESLint.Plugin,
 			"react-refresh": reactRefreshPlugin,
 		},
 		rules: {
 			...jsxA11yPlugin.flatConfigs.recommended.rules,
-			...reactPlugin.configs.flat["recommended"].rules,
+			...reactPlugin.configs.flat.recommended.rules,
 			...reactPlugin.configs.flat["jsx-runtime"].rules,
 			"react-hooks/rules-of-hooks": "error",
 			"react-hooks/exhaustive-deps": "warn",
