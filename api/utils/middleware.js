@@ -4,7 +4,7 @@ import express, { Router } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import logger from "./logger.js";
+import logger from "./logger.ts";
 
 export const clientRouter = (apiRoot) => {
 	const staticDir = resolve(import.meta.dirname, "..", "static");

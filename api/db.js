@@ -4,7 +4,7 @@ import { runner } from "node-pg-migrate";
 import pg from "pg";
 
 import config from "./utils/config.ts";
-import logger from "./utils/logger.js";
+import logger from "./utils/logger.ts";
 
 /** @type {import("pg").Pool | null} */
 let pool = null;

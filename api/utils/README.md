@@ -3,7 +3,7 @@
 `api/utils/` contains various utility modules. In practice, you'll probably:
 
 - Import from and maybe add new options to `config.ts`;
-- Import from `logger.js`; and
+- Import from `logger.ts`; and
 - Ignore `middleware.js` entirely (all predefined middleware is already used in `app.ts`).
 
 ## `config.ts`
@@ -28,12 +28,12 @@ const client = withConfig((config) => new SESClient(/* use config */));
 
 Now the configuration will only be read the first time a property on `client` is actually used.
 
-## `logger.js`
+## `logger.ts`
 
 Creates, configures and exports a [Winston] logger, which you can then import and use elsewhere:
 
 ```js
-import logger from "./utils/logger";
+import logger from "../utils/logger.ts";
 
 // ...
 

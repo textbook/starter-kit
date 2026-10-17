@@ -5,7 +5,7 @@ import express from "express";
 import apiRouter from "./api.ts";
 import { connectDb, disconnectDb, testConnection } from "./db.js";
 import config from "./utils/config.ts";
-import logger from "./utils/logger.js";
+import logger from "./utils/logger.ts";
 import {
 	clientRouter,
 	configuredHelmet,

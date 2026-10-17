@@ -1,6 +1,9 @@
+import type { Format } from "logform";
 import { MESSAGE } from "triple-beam";
+import type { Logger } from "winston";
 import { createLogger, format, transports } from "winston";
 
+import type { Config } from "./config.ts";
 import { withConfig } from "./config.ts";
 
 const logger = withConfig((config) => {
@@ -11,16 +14,13 @@ const logger = withConfig((config) => {
 	return logger_;
 });
 
-/**
- * @param {import("./config.ts").Config} config
- * @returns {import("winston").Logger}
- */
-function buildLogger(config) {
-	/** @type {import("logform").Format[]} */
-	const extraFormatters = config.timestamp
+function buildLogger(config: Config): Logger {
+	const extraFormatters: Format[] = config.timestamp
 		? [
 				format.timestamp({ format: config.timestampFormat }),
-				format.printf((info) => `${info.timestamp} ${info[MESSAGE]}`),
+				format.printf(
+					(info) => `${info.timestamp as string} ${info[MESSAGE] as string}`,
+				),
 			]
 		: [];
 
