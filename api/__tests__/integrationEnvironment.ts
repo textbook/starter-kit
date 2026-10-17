@@ -1,10 +1,28 @@
+import type { StartedPostgreSqlContainer } from "@testcontainers/postgresql";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 
 import { applyMigrations } from "../db.js";
 import config from "../utils/config.ts";
 
-/** @type {import("vitest/environments").Environment} */
-const environment = {
+interface Globals {
+	configOverrides: Record<string, string>;
+	useDb: boolean;
+}
+
+interface Options {
+	tag?: string;
+}
+
+interface Environment {
+	name: string;
+	setup(
+		global: Globals,
+		options: Record<string, Options>,
+	): Promise<{ teardown(): Promise<void> }>;
+	viteEnvironment: "client" | "ssr";
+}
+
+const environment: Environment = {
 	name: "integration",
 	async setup(global, options) {
 		const { tag = "latest" } = options[this.name] ?? {};
@@ -29,11 +47,7 @@ const environment = {
 	viteEnvironment: "ssr",
 };
 
-/**
- * @param {import("@testcontainers/postgresql").StartedPostgreSqlContainer} container
- * @returns {string}
- */
-function connectionString(container) {
+function connectionString(container: StartedPostgreSqlContainer): string {
 	const url = new URL(container.getConnectionUri());
 	url.searchParams.set("sslmode", url.searchParams.get("sslmode") ?? "disable");
 	return url.toString();
