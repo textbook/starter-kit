@@ -62,7 +62,7 @@ const createConfig = (overrides?: Record<string, string>): ConfigProps => {
 		migrationConfig: {
 			databaseUrl: dbConfig,
 			dir: MIGRATIONS_DIR,
-			ignorePattern: String.raw`(migrate|template)\.js$`,
+			ignorePattern: String.raw`(migrate|template)\.ts$`,
 			logger,
 			migrationsTable: "migrations",
 			verbose: true,
