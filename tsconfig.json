@@ -2,8 +2,6 @@
 	"extends": "@tsconfig/node22/tsconfig.json",
 	"compilerOptions": {
 		"allowImportingTsExtensions": true,
-		"allowJs": true,
-		"checkJs": false,
 		"composite": true,
 		"erasableSyntaxOnly": true,
 		"noEmit": true,

@@ -1,15 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { userEvent } from "@testing-library/user-event";
 import { http, HttpResponse } from "msw/http";
+import { beforeEach, describe, expect, it } from "vitest";
 
-import { server } from "../setupTests.js";
+import { server } from "../setupTests.ts";
 
-import Home from "./Home.jsx";
+import Home from "./Home.tsx";
 
 describe("Home component", () => {
-	beforeEach(() =>
-		server.use(http.get("/api/message", () => HttpResponse.text(""))),
-	);
+	beforeEach(() => {
+		server.use(http.get("/api/message", () => HttpResponse.text("")));
+	});
 
 	it("shows a link", () => {
 		render(<Home />);
