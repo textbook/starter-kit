@@ -1,4 +1,5 @@
 import stripAnsi from "strip-ansi";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { createRequest } from "./testUtils.js";
 

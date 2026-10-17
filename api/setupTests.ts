@@ -1,9 +1,16 @@
 import { resolve } from "node:path";
 
+import { afterAll, beforeAll } from "vitest";
+
 import { connectDb, disconnectDb } from "./db.js";
 import config, { MissingRequiredEnvVars } from "./utils/config.js";
 
 const TEST_DOTENV_PATH = resolve(import.meta.dirname, "__tests__", "test.env");
+
+declare global {
+	var configOverrides: Record<string, string>;
+	var useDb: boolean;
+}
 
 beforeAll(async () => {
 	try {

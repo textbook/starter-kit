@@ -80,7 +80,7 @@ export default defineConfig(
 			"bin/**",
 			"e2e/**",
 			"linting/**",
-			"**/vite.config.js",
+			"**/vite.config.[jt]s",
 			"eslint.config.js",
 		],
 		...nodePlugin.configs["flat/recommended"],
@@ -107,7 +107,7 @@ export default defineConfig(
 				},
 			],
 		},
-		ignores: ["api/utils/config.js", "api/vite.config.js"],
+		ignores: ["api/utils/config.js", "api/vite.config.ts"],
 	},
 	{
 		files: ["api/migrations/template.js"],
@@ -131,10 +131,7 @@ export default defineConfig(
 		},
 	},
 	{
-		files: ["**/*.test.js", "**/setupTests.js"],
-		languageOptions: {
-			globals: vitestPlugin.environments.env.globals,
-		},
+		files: ["api/**/*.test.[jt]s", "**/setupTests.ts"],
 		plugins: {
 			vitest: vitestPlugin,
 		},
@@ -153,7 +150,7 @@ export default defineConfig(
 		...playwrightPlugin.configs["flat/recommended"],
 	},
 	{
-		files: ["linting/**", "**/vite.config.js"],
+		files: ["linting/**", "**/vite.config.[jt]s"],
 		rules: {
 			"n/no-unpublished-import": "off",
 		},
@@ -190,7 +187,11 @@ export default defineConfig(
 		},
 	},
 	{
-		files: ["web/**/*.test.js?(x)", "**/setupTests.js", "**/__mocks__/*"],
+		files: [
+			"web/**/*.test.[jt]s?(x)",
+			"web/src/setupTests.js",
+			"web/**/__mocks__/*",
+		],
 		languageOptions: {
 			globals: vitestPlugin.environments.env.globals,
 		},

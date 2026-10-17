@@ -2,7 +2,7 @@ import type { Server } from "node:http";
 
 import express from "express";
 
-import apiRouter from "./api.js";
+import apiRouter from "./api.ts";
 import { connectDb, disconnectDb, testConnection } from "./db.js";
 import config from "./utils/config.js";
 import logger from "./utils/logger.js";

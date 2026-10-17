@@ -15,6 +15,6 @@ export default defineConfig({
 			reporter: ["text", "html", "lcovonly"],
 			reportsDirectory: "./coverage",
 		},
-		projects: ["*/vite.config.js"],
+		projects: ["*/vite.config.[jt]s"],
 	},
 });
