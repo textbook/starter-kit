@@ -9,7 +9,7 @@
 		"noEmit": true,
 		"tsBuildInfoFile": "${configDir}/node_modules/.cache/tsconfig.tsbuildinfo"
 	},
-	"files": [],
+	"files": ["vite.config.ts"],
 	"references": [
 		{ "path": "./api" },
 		{ "path": "./e2e" },
