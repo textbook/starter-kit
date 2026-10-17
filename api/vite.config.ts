@@ -12,7 +12,7 @@ export default defineConfig({
 			defineProject({
 				test: {
 					name: "integration",
-					environment: "./__tests__/integrationEnvironment.js",
+					environment: "./__tests__/integrationEnvironment.ts",
 					environmentOptions: { integration: { tag: "18-alpine" } },
 					include: integrationTests,
 					fileParallelism: false,

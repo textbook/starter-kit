@@ -18,7 +18,9 @@
 	},
 	"express-integration-test": {
 		"body": [
-			"import { createRequest } from \"./testUtils.js\";",
+			"import { describe, it } from \"vitest\";",
+			"",
+			"import { createRequest } from \"./testUtils.ts\";",
 			"",
 			"describe(\"${1:/route}\", () => {",
 			"\tdescribe(\"${2:method}\", () => {",
@@ -33,6 +35,6 @@
 		"description": "Boilerplate for an Express/SuperTest integration test",
 		"isFileTemplate": true,
 		"prefix": "eit",
-		"scope": "javascript",
+		"scope": "typescript",
 	},
 }

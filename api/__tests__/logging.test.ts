@@ -1,9 +1,15 @@
 import stripAnsi from "strip-ansi";
+import type { Mock } from "vitest";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { createRequest } from "./testUtils.js";
+import { createRequest } from "./testUtils.ts";
 
-const LOGGER = { debug: vi.fn(), info: vi.fn() };
+type LogFn = (...args: string[]) => void;
+
+const LOGGER: Record<"debug" | "info", Mock<LogFn>> = {
+	debug: vi.fn(),
+	info: vi.fn(),
+};
 
 vi.mock("../utils/logger.ts", () => ({ default: LOGGER }));
 
@@ -68,12 +74,8 @@ describe("default request logging", () => {
 	});
 });
 
-/**
- * Strip ANSI color codes for easier comparison.
- * @param {string[][]} calls
- * @returns {string[][]}
- */
-function stripColorCodes(calls) {
+/** Strip ANSI color codes for easier comparison. */
+function stripColorCodes(calls: string[][]): string[][] {
 	return calls.map((line) =>
 		line.map((item) => (typeof item === "string" ? stripAnsi(item) : item)),
 	);

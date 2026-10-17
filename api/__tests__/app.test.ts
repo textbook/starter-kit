@@ -1,6 +1,6 @@
 import { describe, it } from "vitest";
 
-import { createRequest } from "./testUtils.js";
+import { createRequest } from "./testUtils.ts";
 
 describe("base API endpoints", () => {
 	it("exposes a health endpoint", async () => {
