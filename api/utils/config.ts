@@ -1,36 +1,39 @@
 import { resolve } from "node:path";
 
 import { configDotenv } from "dotenv";
+import type { RunnerOption } from "node-pg-migrate";
+import type { ClientConfig } from "pg";
 
 import logger from "./logger.js";
 
 const __dirname = import.meta.dirname;
 
-/**
- * @typedef Config
- * @property {boolean} colorize
- * @property {import("pg").ClientConfig} dbConfig
- * @property {string} dotenvPath
- * @property {(overrides?: Record<string, string>) => Config} init
- * @property {string} logLevel
- * @property {Omit<RunnerOption & RunnerOptionUrl, "direction">} migrationConfig
- * @property {number} port
- * @property {boolean} production
- * @property {boolean} timestamp
- * @property {string} [timestampFormat]
- *
- * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOption} RunnerOption
- * @typedef {import("node-pg-migrate/dist/runner.js").RunnerOptionUrl} RunnerOptionUrl
- */
+interface ConfigProps {
+	colorize: boolean;
+	dbConfig: ClientConfig;
+	dotenvPath: string;
+	logLevel: string;
+	migrationConfig: Omit<
+		RunnerOption & { databaseUrl: ClientConfig },
+		"direction"
+	>;
+	port: number;
+	production: boolean;
+	timestamp: boolean;
+	timestampFormat?: string;
+}
+
+export interface Config extends ConfigProps {
+	init(overrides?: Record<string, string>): Config;
+}
 
 const MIGRATIONS_DIR = resolve(__dirname, "..", "migrations");
-const REQUIRED_ARGS = ["DATABASE_URL"];
+const REQUIRED_ARGS = ["DATABASE_URL"] as const;
 
-/**
- * @param {Record<string, string>} [overrides]
- * @returns {Omit<Config, "init">}
- */
-const createConfig = (overrides) => {
+type ValidatedSource = Record<(typeof REQUIRED_ARGS)[number], string> &
+	Record<string, string | undefined>;
+
+const createConfig = (overrides?: Record<string, string>): ConfigProps => {
 	const source = { ...process.env, ...overrides };
 
 	const dotenvPath = resolve(
@@ -59,12 +62,12 @@ const createConfig = (overrides) => {
 		migrationConfig: {
 			databaseUrl: dbConfig,
 			dir: MIGRATIONS_DIR,
-			ignorePattern: "(migrate|template)\\.js$",
+			ignorePattern: String.raw`(migrate|template)\.js$`,
 			logger,
 			migrationsTable: "migrations",
 			verbose: true,
 		},
-		port: parseInt(source.PORT ?? "3000", 10),
+		port: Number.parseInt(source.PORT ?? "3000", 10),
 		production: source.NODE_ENV?.toLowerCase() === "production",
 		timestamp:
 			source.TIMESTAMP?.toLowerCase() === "true" || !!source.TIMESTAMP_FORMAT,
@@ -74,47 +77,38 @@ const createConfig = (overrides) => {
 
 /**
  * Defer creation of objects requiring configuration until they're first used.
- * @template T
- * @param {(config: Config) => T} factory
- * @returns {T}
  */
-export function withConfig(factory) {
-	return new Proxy(
+export function withConfig<T>(factory: (config: Config) => T): T {
+	return new Proxy<{ _proxied?: T }>(
 		{ _proxied: undefined },
 		{
 			get(target, prop) {
-				if (target._proxied === undefined) {
-					target._proxied = factory(config);
-				}
-				return target._proxied[prop];
+				target._proxied ??= factory(config);
+				return target._proxied[prop as keyof T];
 			},
 		},
-	);
+	) as T;
 }
 
-/** @type {Config} */
-const config = new Proxy(
+const config: Config = new Proxy<{ config?: ConfigProps }>(
 	{ config: undefined },
 	{
 		get(target, prop) {
 			if (prop === "init") {
-				return (overrides) => (target.config = createConfig(overrides));
+				return (overrides: Record<string, string>): ConfigProps =>
+					(target.config = createConfig(overrides));
 			}
 			if (target.config === undefined) {
 				throw new Error("config accessed before initialisation");
 			}
-			return target.config[prop];
+			return target.config[prop as keyof ConfigProps];
 		},
 	},
-);
+) as Config;
 
 export default config;
 
-/**
- * @param {Record<string, string>} source
- * @returns {Config["dbConfig"]}
- */
-function createDbConfig(source) {
+function createDbConfig(source: ValidatedSource): Config["dbConfig"] {
 	const databaseUrl = new URL(source.DATABASE_URL);
 
 	const localDb = [
@@ -137,19 +131,14 @@ function createDbConfig(source) {
 							"require",
 							"verify-ca",
 							"verify-full",
-						].includes(sslMode),
+						].includes(sslMode ?? ""),
 					},
 	};
 }
 
-/**
- * @property {string[]} missing
- */
 export class MissingRequiredEnvVars extends Error {
-	/**
-	 * @param {string[]} missing
-	 */
-	constructor(missing) {
+	missing: string[];
+	constructor(missing: string[]) {
 		super(
 			`missing required env var${missing.length > 1 ? "s" : ""}: ${missing.join(", ")}`,
 		);
@@ -157,11 +146,10 @@ export class MissingRequiredEnvVars extends Error {
 	}
 }
 
-/**
- * @param {Record<string, string | undefined>} source
- * @param {string[]} required
- */
-function requireArgs(source, required) {
+function requireArgs(
+	source: Record<string, string | undefined>,
+	required: typeof REQUIRED_ARGS,
+): asserts source is ValidatedSource {
 	const missing = required.filter((variable) => !source[variable]);
 	if (missing.length > 0) {
 		process.exitCode = 1;

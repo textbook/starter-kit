@@ -3,7 +3,7 @@ import { basename } from "node:path";
 import { runner } from "node-pg-migrate";
 import pg from "pg";
 
-import config from "./utils/config.js";
+import config from "./utils/config.ts";
 import logger from "./utils/logger.js";
 
 /** @type {import("pg").Pool | null} */
@@ -11,7 +11,7 @@ let pool = null;
 
 /**
  * Apply migrations to bring the database up-to-date.
- * @param {import("./utils/config.js").default["migrationConfig"]} migrationConfig
+ * @param {import("./utils/config.ts").default["migrationConfig"]} migrationConfig
  * @returns {Promise<void>}
  */
 export async function applyMigrations(migrationConfig) {

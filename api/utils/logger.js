@@ -1,7 +1,7 @@
 import { MESSAGE } from "triple-beam";
 import { createLogger, format, transports } from "winston";
 
-import { withConfig } from "./config.js";
+import { withConfig } from "./config.ts";
 
 const logger = withConfig((config) => {
 	const logger_ = buildLogger(config);
@@ -12,7 +12,7 @@ const logger = withConfig((config) => {
 });
 
 /**
- * @param {import("./config.js").Config} config
+ * @param {import("./config.ts").Config} config
  * @returns {import("winston").Logger}
  */
 function buildLogger(config) {

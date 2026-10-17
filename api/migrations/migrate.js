@@ -2,7 +2,7 @@ import { parseArgs } from "node:util";
 
 import { runner } from "node-pg-migrate";
 
-import config from "../utils/config.js";
+import config from "../utils/config.ts";
 
 const {
 	positionals: [direction, rawCount],
