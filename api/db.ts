@@ -1,20 +1,25 @@
 import { basename } from "node:path";
 
 import { runner } from "node-pg-migrate";
+import type {
+	Pool,
+	QueryConfig,
+	QueryConfigValues,
+	QueryResult,
+	QueryResultRow,
+} from "pg";
 import pg from "pg";
 
+import type { Config } from "./utils/config.ts";
 import config from "./utils/config.ts";
 import logger from "./utils/logger.ts";
 
-/** @type {import("pg").Pool | null} */
-let pool = null;
+let pool: Pool | null = null;
 
-/**
- * Apply migrations to bring the database up-to-date.
- * @param {import("./utils/config.ts").default["migrationConfig"]} migrationConfig
- * @returns {Promise<void>}
- */
-export async function applyMigrations(migrationConfig) {
+/** Apply migrations to bring the database up-to-date. */
+export async function applyMigrations(
+	migrationConfig: Config["migrationConfig"],
+): Promise<void> {
 	await runner({ ...migrationConfig, direction: "up" });
 }
 
@@ -38,20 +43,20 @@ export const testConnection = async () => {
 	await query("SELECT 1;");
 };
 
-function query(...args) {
+function query<T extends QueryResultRow, I = unknown>(
+	config: QueryConfig | string,
+	values?: QueryConfigValues<I>,
+): Promise<QueryResult<T>> {
 	if (pool === null) {
 		throw new Error("cannot query without establishing connection");
 	}
-	logger.debug("Postgres query: %O", args);
-	return pool.query.apply(pool, args);
+	logger.debug("Postgres query: %O", [config, ...(values ? [values] : [])]);
+	return pool.query(config, values);
 }
 
 export default { query };
 
-/**
- * @returns {string}
- */
-function databaseName() {
-	const connectionUri = new URL(config.dbConfig.connectionString);
+function databaseName(): string {
+	const connectionUri = new URL(config.dbConfig.connectionString as string);
 	return basename(connectionUri.pathname);
 }

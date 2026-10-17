@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { getAll } from "./messageRepository.js";
-import { getMessage } from "./messageService.js";
+import { getAll } from "./messageRepository.ts";
+import { getMessage } from "./messageService.ts";
 
-vi.mock("./messageRepository.js");
+vi.mock("./messageRepository.ts");
 
 describe("getMessage", () => {
 	it("returns the content of the first result", async () => {

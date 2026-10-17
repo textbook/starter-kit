@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { applyMigrations } from "../api/db.js";
+import { applyMigrations } from "../api/db.ts";
 import config from "../api/utils/config.ts";
 
 const { migrationConfig, port } = config.init();

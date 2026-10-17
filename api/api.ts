@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import messageRouter from "./messages/messageRouter.js";
+import messageRouter from "./messages/messageRouter.ts";
 
 const api = Router();
 

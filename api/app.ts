@@ -3,7 +3,7 @@ import type { Server } from "node:http";
 import express from "express";
 
 import apiRouter from "./api.ts";
-import { connectDb, disconnectDb, testConnection } from "./db.js";
+import { connectDb, disconnectDb, testConnection } from "./db.ts";
 import config from "./utils/config.ts";
 import logger from "./utils/logger.ts";
 import {
