@@ -47,6 +47,25 @@ export default defineConfig(
 		},
 	}),
 	{
+		files: ["**/*.ts?(x)"],
+		extends: [
+			typescript.configs.strictTypeCheckedOnly,
+			typescript.configs.stylisticTypeCheckedOnly,
+		],
+		languageOptions: {
+			parserOptions: {
+				projectService: {
+					allowDefaultProject: ["*.config.ts"],
+				},
+			},
+		},
+		rules: {
+			"@typescript-eslint/non-nullable-type-assertion-style": "off",
+			"jsdoc/require-param": "off",
+			"jsdoc/require-returns": "off",
+		},
+	},
+	{
 		plugins: {
 			import: importPlugin,
 		},
@@ -68,7 +87,7 @@ export default defineConfig(
 			"bin/**",
 			"e2e/**",
 			"linting/**",
-			"**/vite.config.[jt]s",
+			"**/vite.config.ts",
 			"eslint.config.ts",
 		],
 		extends: [nodePlugin.configs["flat/recommended"]],
@@ -109,12 +128,12 @@ export default defineConfig(
 		},
 		settings: {
 			node: {
-				version: "^24",
+				version: nodeVersion,
 			},
 		},
 	},
 	{
-		files: ["api/**/*.test.[jt]s", "**/setupTests.ts"],
+		files: ["api/**/*.test.ts", "**/setupTests.ts"],
 		plugins: {
 			vitest: vitestPlugin,
 		},
@@ -133,13 +152,13 @@ export default defineConfig(
 		...playwrightPlugin.configs["flat/recommended"],
 	},
 	{
-		files: ["linting/**", "**/vite.config.[jt]s"],
+		files: ["linting/**", "**/vite.config.ts"],
 		rules: {
 			"n/no-unpublished-import": "off",
 		},
 	},
 	{
-		files: ["web/**/*.js?(x)"],
+		files: ["web/**/*.ts?(x)"],
 		languageOptions: {
 			globals: globals.browser,
 			parserOptions: {
@@ -171,13 +190,10 @@ export default defineConfig(
 	},
 	{
 		files: [
-			"web/**/*.test.[jt]s?(x)",
-			"web/src/setupTests.js",
+			"web/**/*.test.ts?(x)",
+			"web/src/setupTests.ts",
 			"web/**/__mocks__/*",
 		],
-		languageOptions: {
-			globals: vitestPlugin.environments.env.globals,
-		},
 		plugins: {
 			"jest-dom": jestDomPlugin,
 			"testing-library": testingLibraryPlugin,
@@ -185,25 +201,8 @@ export default defineConfig(
 		rules: {
 			...jestDomPlugin.configs.recommended.rules,
 			...testingLibraryPlugin.configs.react.rules,
-		},
-	},
-	{
-		files: ["**/*.ts?(x)"],
-		extends: [
-			typescript.configs.strictTypeCheckedOnly,
-			typescript.configs.stylisticTypeCheckedOnly,
-		],
-		languageOptions: {
-			parserOptions: {
-				projectService: {
-					allowDefaultProject: ["*.config.ts"],
-				},
-			},
-		},
-		rules: {
-			"@typescript-eslint/non-nullable-type-assertion-style": "off",
-			"jsdoc/require-param": "off",
-			"jsdoc/require-returns": "off",
+			"@typescript-eslint/await-thenable": "off",
+			"testing-library/no-manual-cleanup": "off",
 		},
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),
