@@ -12,7 +12,7 @@ import {
 	configuredMorgan,
 	httpsOnly,
 	logErrors,
-} from "./utils/middleware.js";
+} from "./utils/middleware.ts";
 
 const API_ROOT = "/api";
 

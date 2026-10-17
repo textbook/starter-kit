@@ -204,6 +204,7 @@ export default defineConfig(
 			},
 		},
 		rules: {
+			"@typescript-eslint/non-nullable-type-assertion-style": "off",
 			"jsdoc/require-param": "off",
 			"jsdoc/require-returns": "off",
 		},

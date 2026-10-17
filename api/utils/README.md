@@ -4,7 +4,7 @@
 
 - Import from and maybe add new options to `config.ts`;
 - Import from `logger.ts`; and
-- Ignore `middleware.js` entirely (all predefined middleware is already used in `app.ts`).
+- Ignore `middleware.ts` entirely (all predefined middleware is already used in `app.ts`).
 
 ## `config.ts`
 
@@ -55,7 +55,7 @@ router.get("/welcome", (_, res) => {
 - The log level is automatically set to `"debug"` in development mode (`npm run dev`)
 - ESLint's `"no-console"` rule is activated in `api/`, to remind you to use the logger instead
 
-## `middleware.js`
+## `middleware.ts`
 
 Defines default middleware used in `../app.ts`:
 
