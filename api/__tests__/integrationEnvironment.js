@@ -1,7 +1,7 @@
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 
 import { applyMigrations } from "../db.js";
-import config from "../utils/config.js";
+import config from "../utils/config.ts";
 
 /** @type {import("vitest/environments").Environment} */
 const environment = {

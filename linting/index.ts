@@ -30,18 +30,6 @@ export default defineConfig(
 	prettierConfig,
 	typescript.configs.strict,
 	typescript.configs.stylistic,
-	{
-		files: ["**/*.ts?(x)"],
-		extends: [
-			typescript.configs.strictTypeCheckedOnly,
-			typescript.configs.stylisticTypeCheckedOnly,
-		],
-		languageOptions: {
-			parserOptions: {
-				projectService: true,
-			},
-		},
-	},
 	jsdoc({
 		config: "flat/recommended-typescript-flavor-error",
 		rules: {
@@ -81,7 +69,7 @@ export default defineConfig(
 			"e2e/**",
 			"linting/**",
 			"**/vite.config.[jt]s",
-			"eslint.config.js",
+			"eslint.config.ts",
 		],
 		...nodePlugin.configs["flat/recommended"],
 		rules: {
@@ -103,11 +91,11 @@ export default defineConfig(
 				"warn",
 				{
 					selector: "MemberExpression[object.name=process][property.name=env]",
-					message: "process.env should only be accessed in utils/config.js",
+					message: "process.env should only be accessed in utils/config.ts",
 				},
 			],
 		},
-		ignores: ["api/utils/config.js", "api/vite.config.ts"],
+		ignores: ["api/utils/config.ts", "api/vite.config.ts"],
 	},
 	{
 		files: ["api/migrations/template.js"],
@@ -202,6 +190,22 @@ export default defineConfig(
 		rules: {
 			...jestDomPlugin.configs.recommended.rules,
 			...testingLibraryPlugin.configs.react.rules,
+		},
+	},
+	{
+		files: ["**/*.ts?(x)"],
+		extends: [
+			typescript.configs.strictTypeCheckedOnly,
+			typescript.configs.stylisticTypeCheckedOnly,
+		],
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+			},
+		},
+		rules: {
+			"jsdoc/require-param": "off",
+			"jsdoc/require-returns": "off",
 		},
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),

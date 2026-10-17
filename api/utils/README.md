@@ -2,11 +2,11 @@
 
 `api/utils/` contains various utility modules. In practice, you'll probably:
 
-- Import from and maybe add new options to `config.js`;
+- Import from and maybe add new options to `config.ts`;
 - Import from `logger.js`; and
 - Ignore `middleware.js` entirely (all predefined middleware is already used in `app.ts`).
 
-## `config.js`
+## `config.ts`
 
 Creates and exposes an object representing the app's configuration. This centralises access to the environment and definition of default values.
 
@@ -19,7 +19,7 @@ If you need some configuration at the module level, to avoid accessing this when
 ```js
 import { SESClient } from "@aws-sdk/client-ses";
 
-import { withConfig } from "path/to/config.js";
+import { withConfig } from "path/to/config.ts";
 
 const client = withConfig((config) => new SESClient(/* use config */));
 
