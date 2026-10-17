@@ -13,6 +13,7 @@
 	"references": [
 		{ "path": "./api" },
 		{ "path": "./e2e" },
-		{ "path": "./linting" }
+		{ "path": "./linting" },
+		{ "path": "./web" }
 	]
 }
