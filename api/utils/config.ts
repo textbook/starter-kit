@@ -4,7 +4,7 @@ import { configDotenv } from "dotenv";
 import type { RunnerOption } from "node-pg-migrate";
 import type { ClientConfig } from "pg";
 
-import logger from "./logger.js";
+import logger from "./logger.ts";
 
 const __dirname = import.meta.dirname;
 

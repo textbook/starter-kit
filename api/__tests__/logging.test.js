@@ -5,7 +5,7 @@ import { createRequest } from "./testUtils.js";
 
 const LOGGER = { debug: vi.fn(), info: vi.fn() };
 
-vi.mock("../utils/logger.js", () => ({ default: LOGGER }));
+vi.mock("../utils/logger.ts", () => ({ default: LOGGER }));
 
 describe("default request logging", () => {
 	afterEach(() => {
