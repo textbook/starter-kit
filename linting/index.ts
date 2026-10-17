@@ -71,12 +71,7 @@ export default defineConfig(
 			"**/vite.config.[jt]s",
 			"eslint.config.ts",
 		],
-		...nodePlugin.configs["flat/recommended"],
-		rules: {
-			...nodePlugin.configs["flat/recommended"].rules,
-			// pending fix for eslint-community/eslint-plugin-n#209
-			"n/no-extraneous-import": "off",
-		},
+		extends: [nodePlugin.configs["flat/recommended"]],
 	},
 	{
 		files: ["api/**"],
