@@ -1,0 +1,19 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false,
+		"outDir": "../node_modules/.tsbuildinfo/types/api",
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/api.app.tsbuildinfo"
+	},
+	"include": ["**/*"],
+	"exclude": [
+		"__tests__",
+		"node_modules",
+		"static",
+		"**/*.test.ts",
+		"setupTests.ts",
+		"vite.config.ts"
+	]
+}

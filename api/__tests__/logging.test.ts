@@ -1,6 +1,5 @@
 import stripAnsi from "strip-ansi";
 import type { Mock } from "vitest";
-import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { createRequest } from "./testUtils.ts";
 

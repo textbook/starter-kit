@@ -1,7 +1,5 @@
 import { resolve } from "node:path";
 
-import { afterAll, beforeAll } from "vitest";
-
 import { connectDb, disconnectDb } from "./db.ts";
 import config, { MissingRequiredEnvVars } from "./utils/config.ts";
 

@@ -1,7 +1,7 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"composite": true
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/e2e.tsbuildinfo"
 	},
 	"include": ["**/*"],
 	"exclude": ["node_modules", "playwright-report", "test-results"]

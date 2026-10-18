@@ -2,14 +2,13 @@
 	"extends": "@tsconfig/node22/tsconfig.json",
 	"compilerOptions": {
 		"allowImportingTsExtensions": true,
-		"composite": true,
 		"erasableSyntaxOnly": true,
-		"noEmit": true,
-		"tsBuildInfoFile": "${configDir}/node_modules/.cache/tsconfig.tsbuildinfo"
+		"noEmit": true
 	},
 	"files": [],
 	"references": [
 		{ "path": "./api" },
+		{ "path": "./bin" },
 		{ "path": "./e2e" },
 		{ "path": "./linting" },
 		{ "path": "./web" }

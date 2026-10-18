@@ -1,4 +1,7 @@
 {
 	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/linting.tsbuildinfo"
+	},
 	"files": ["index.ts"]
 }

@@ -47,11 +47,11 @@ COPY api/ api/
 # Enable below instruction if required
 # COPY --from=deps /app/api/node_modules/ api/node_modules/
 COPY --from=web /app/api/static api/static/
-COPY bin/healthCheck.js bin/start.js bin/
+COPY bin/healthCheck.ts bin/start.ts bin/
 COPY --from=deps /app/node_modules node_modules/
 
 EXPOSE 80
 ENV PORT=80
-HEALTHCHECK --start-period=10s --timeout=5s CMD [ "/app/bin/healthCheck.js" ]
+HEALTHCHECK --start-period=10s --timeout=5s CMD [ "/app/bin/healthCheck.ts" ]
 
-CMD [ "/app/bin/start.js" ]
+CMD [ "/app/bin/start.ts" ]
