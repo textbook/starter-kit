@@ -3,7 +3,7 @@ import { coverageConfigDefaults, defineConfig } from "vitest/config";
 export default defineConfig({
 	test: {
 		coverage: {
-			include: ["**/*.ts"],
+			include: ["**/*.ts?(x)"],
 			exclude: [
 				"api/migrations/**",
 				"api/static/**",
@@ -12,7 +12,7 @@ export default defineConfig({
 				"linting/**",
 				"**/__tests__/**",
 				"**/*.config.ts",
-				"**/*.test.ts",
+				"**/*.test.ts?(x)",
 				"**/setupTests.ts",
 				...coverageConfigDefaults.exclude,
 			],
