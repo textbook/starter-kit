@@ -13,7 +13,7 @@
 		"description": "Boilerplate for a React component test",
 		"isFileTemplate": true,
 		"prefix": "rct",
-		"scope": "javascript",
+		"scope": "typescript",
 	},
 	"express-integration-test": {
 		"body": [
