@@ -3,7 +3,7 @@ import type { Mock } from "vitest";
 
 import { createRequest } from "./testUtils.ts";
 
-type LogFn = (...args: string[]) => void;
+type LogFn = (...params: unknown[]) => void;
 
 const LOGGER: Record<"debug" | "info", Mock<LogFn>> = {
 	debug: vi.fn(),
@@ -74,7 +74,7 @@ describe("default request logging", () => {
 });
 
 /** Strip ANSI color codes for easier comparison. */
-function stripColorCodes(calls: string[][]): string[][] {
+function stripColorCodes(calls: unknown[][]): unknown[][] {
 	return calls.map((line) =>
 		line.map((item) => (typeof item === "string" ? stripAnsi(item) : item)),
 	);
