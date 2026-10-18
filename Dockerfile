@@ -3,7 +3,7 @@ FROM node:24-alpine AS web
 USER node
 WORKDIR /home/node
 
-COPY package*.json .npmrc ./
+COPY package*.json .npmrc tsconfig.json ./
 COPY --chown=node web/package.json web/
 RUN --mount=type=cache,target=/root/.npm \
   npm \
