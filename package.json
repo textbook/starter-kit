@@ -50,12 +50,12 @@
 	"devDependencies": {
 		"@types/node": "^22.20.5",
 		"@vitest/coverage-v8": "^5.0.1",
-		"concurrently": "^10.0.5",
+		"concurrently": "^10.0.6",
 		"cross-env": "^10.1.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.6.0",
 		"prettier": "~3.9.5",
-		"vite": "^8.3.2",
+		"vite": "^8.3.4",
 		"vitest": "^5.0.1"
 	},
 	"engines": {
@@ -63,7 +63,7 @@
 		"npm": ">=10"
 	},
 	"dependencies": {
-		"dotenv": "^18.0.5"
+		"dotenv": "^18.0.7"
 	},
 	"allowScripts": {
 		"cpu-features@0.0.10": true,
