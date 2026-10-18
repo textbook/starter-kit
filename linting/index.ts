@@ -30,6 +30,14 @@ export default defineConfig(
 	prettierConfig,
 	typescript.configs.strict,
 	typescript.configs.stylistic,
+	{
+		rules: {
+			"@typescript-eslint/no-unused-vars": [
+				"error",
+				{ argsIgnorePattern: "_" },
+			],
+		},
+	},
 	jsdoc({
 		config: "flat/recommended-typescript-flavor-error",
 		rules: {
