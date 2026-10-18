@@ -1,9 +1,10 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"composite": true,
 		"types": ["node"]
 	},
-	"include": ["**/*"],
-	"exclude": ["node_modules", "static"]
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.tests.json" }
+	]
 }

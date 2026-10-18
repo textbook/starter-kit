@@ -1,12 +1,12 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"composite": true,
 		"jsx": "react-jsx",
 		"lib": ["DOM", "ES2023"],
-		"target": "es2023",
-		"types": ["vite/client"]
+		"target": "es2023"
 	},
-	"include": ["**/*"],
-	"exclude": ["node_modules"]
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.tests.json" }
+	]
 }

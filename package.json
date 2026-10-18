@@ -39,7 +39,7 @@
 		"test": "vitest --run",
 		"test:cover": "npm run test -- --coverage",
 		"test:watch": "npm run test -- --no-run",
-		"typecheck": "tsc --build --noEmit"
+		"typecheck": "tsc --build"
 	},
 	"lint-staged": {
 		"*.{js,jsx,ts,tsx}": "npm run lint:eslint -- --fix",

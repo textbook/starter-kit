@@ -2,7 +2,6 @@
 	"react-component-test": {
 		"body": [
 			"import { render, screen } from \"@testing-library/react\";",
-			"import { describe, expect, it } from \"vitest\";",
 			"",
 			"describe(\"${1:name} component\", () => {",
 			"\tit(\"${2:description}\", async () => {",
@@ -18,8 +17,6 @@
 	},
 	"express-integration-test": {
 		"body": [
-			"import { describe, it } from \"vitest\";",
-			"",
 			"import { createRequest } from \"./testUtils.ts\";",
 			"",
 			"describe(\"${1:/route}\", () => {",

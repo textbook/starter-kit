@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/api.tests.tsbuildinfo",
+		"types": ["vitest/globals"]
+	},
+	"include": ["__tests__", "**/*.test.ts", "setupTests.ts", "vite.config.ts"],
+	"references": [{ "path": "./tsconfig.app.json" }]
+}

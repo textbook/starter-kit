@@ -1,13 +1,13 @@
 import { defineConfig, defineProject } from "vitest/config";
 
-const integrationTests = ["./__tests__/*.test.[jt]s"];
+const integrationTests = ["./__tests__/**/*.test.ts"];
 
 export default defineConfig({
 	test: {
 		deps: {
 			interopDefault: false,
 		},
-		globals: false,
+		globals: true,
 		projects: [
 			defineProject({
 				test: {

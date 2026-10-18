@@ -133,12 +133,15 @@ export default defineConfig(
 		},
 	},
 	{
-		files: ["api/**/*.test.ts", "**/setupTests.ts"],
-		plugins: {
-			vitest: vitestPlugin,
+		files: ["**/*.test.ts", "**/setupTests.ts"],
+		extends: [vitestPlugin.configs.recommended],
+		languageOptions: {
+			globals: vitestPlugin.environments.env.globals,
 		},
+	},
+	{
+		files: ["api/**/*.test.ts"],
 		rules: {
-			...vitestPlugin.configs.recommended.rules,
 			"vitest/expect-expect": [
 				"error",
 				{
@@ -202,7 +205,6 @@ export default defineConfig(
 			...jestDomPlugin.configs.recommended.rules,
 			...testingLibraryPlugin.configs.react.rules,
 			"@typescript-eslint/await-thenable": "off",
-			"testing-library/no-manual-cleanup": "off",
 		},
 	},
 	globalIgnores(["api/static", "e2e/playwright-report", "e2e/test-results"]),

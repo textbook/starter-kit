@@ -1,5 +1,3 @@
-import { describe, it } from "vitest";
-
 import { createRequest } from "./testUtils.ts";
 
 describe("base API endpoints", () => {

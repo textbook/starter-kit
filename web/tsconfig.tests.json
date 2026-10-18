@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/web.tests.tsbuildinfo",
+		"types": ["node", "vite/client", "vitest/globals"]
+	},
+	"include": [
+		"src/**/*.test.ts",
+		"src/**/*.test.tsx",
+		"src/setupTests.ts",
+		"vite.config.ts"
+	],
+	"references": [{ "path": "./tsconfig.app.json" }]
+}
