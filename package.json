@@ -33,21 +33,23 @@
 		"prepare": "husky || echo 'no husky 🐶'",
 		"preserve": "npm run build",
 		"serve": "cross-env PORT=$npm_package_config_dev_port npm start",
-		"ship": "npm run lint && npm run test && npm run e2e",
+		"ship": "npm run typecheck && npm run lint && npm run test && npm run e2e",
 		"prestart": "npm run migration up",
 		"start": "npm --workspace api start",
 		"test": "vitest --run",
 		"test:cover": "npm run test -- --coverage",
-		"test:watch": "npm run test -- --no-run"
+		"test:watch": "npm run test -- --no-run",
+		"typecheck": "tsc --build"
 	},
 	"lint-staged": {
-		"*.{js,jsx}": "npm run lint:eslint -- --fix",
+		"*.{js,jsx,ts,tsx}": "npm run lint:eslint -- --fix",
 		"*": "npm run lint:prettier -- --write"
 	},
 	"prettier": {
 		"useTabs": true
 	},
 	"devDependencies": {
+		"@tsconfig/node22": "^22.0.6",
 		"@types/node": "^22.20.5",
 		"@vitest/coverage-v8": "^5.0.1",
 		"concurrently": "^10.0.6",
@@ -55,6 +57,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^17.6.0",
 		"prettier": "~3.9.5",
+		"typescript": "^6.0.3",
 		"vite": "^8.3.4",
 		"vitest": "^5.0.1"
 	},

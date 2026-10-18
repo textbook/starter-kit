@@ -1,0 +1,68 @@
+import type { Server } from "node:http";
+
+import express from "express";
+
+import apiRouter from "./api.ts";
+import { connectDb, disconnectDb, testConnection } from "./db.ts";
+import config from "./utils/config.ts";
+import logger from "./utils/logger.ts";
+import {
+	clientRouter,
+	configuredHelmet,
+	configuredMorgan,
+	httpsOnly,
+	logErrors,
+} from "./utils/middleware.ts";
+
+const API_ROOT = "/api";
+
+const app = express();
+let server: Server | undefined;
+
+app.use(express.json());
+app.use(configuredHelmet());
+app.use(configuredMorgan());
+
+if (config.production) {
+	app.enable("trust proxy");
+	app.use(httpsOnly());
+}
+
+app.get("/healthz", async (_, res) => {
+	await testConnection();
+	res.sendStatus(200);
+});
+
+app.use(API_ROOT, apiRouter);
+
+app.use(clientRouter(API_ROOT));
+
+app.use(logErrors());
+
+export function start(port: number) {
+	void connectDb().then(() => {
+		server = app.listen(port, (err?: Error) => {
+			if (err) {
+				throw err;
+			}
+			logger.info("listening on %d", port);
+		});
+		["SIGINT", "SIGTERM"].forEach((event) => process.on(event, stop));
+	});
+}
+
+export function stop() {
+	void disconnectDb().then(() => {
+		if (server?.listening) {
+			logger.debug("stopping server");
+			server.close((err) => {
+				if (err) {
+					logger.error("%O", err);
+				}
+				logger.info("server stopped");
+			});
+		}
+	});
+}
+
+export default app;

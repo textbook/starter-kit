@@ -1,0 +1,9 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/bin.tsbuildinfo",
+		"types": ["node"]
+	},
+	"references": [{ "path": "../api/tsconfig.app.json" }],
+	"include": ["**/*"]
+}

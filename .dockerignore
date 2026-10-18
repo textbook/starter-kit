@@ -3,7 +3,7 @@ api/__tests__/
 api/node_modules/
 api/static/
 api/**/__mocks__/
-api/**/*.test.js
+api/**/*.test.ts
 coverage/
 e2e/
 node_modules/

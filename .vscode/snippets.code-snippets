@@ -2,7 +2,6 @@
 	"react-component-test": {
 		"body": [
 			"import { render, screen } from \"@testing-library/react\";",
-			"import { describe, expect, it } from \"vitest\";",
 			"",
 			"describe(\"${1:name} component\", () => {",
 			"\tit(\"${2:description}\", async () => {",
@@ -14,11 +13,11 @@
 		"description": "Boilerplate for a React component test",
 		"isFileTemplate": true,
 		"prefix": "rct",
-		"scope": "javascript",
+		"scope": "typescript",
 	},
 	"express-integration-test": {
 		"body": [
-			"import { createRequest } from \"./testUtils.js\";",
+			"import { createRequest } from \"./testUtils.ts\";",
 			"",
 			"describe(\"${1:/route}\", () => {",
 			"\tdescribe(\"${2:method}\", () => {",
@@ -33,6 +32,6 @@
 		"description": "Boilerplate for an Express/SuperTest integration test",
 		"isFileTemplate": true,
 		"prefix": "eit",
-		"scope": "javascript",
+		"scope": "typescript",
 	},
 }
