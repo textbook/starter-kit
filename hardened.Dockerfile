@@ -1,11 +1,11 @@
-FROM dhi.io/node:24-alpine3.23-sfw-dev AS web
+FROM dhi.io/node:24-alpine-sfw-dev AS web
 
 RUN mkdir -p /app && chown -R node /app
 
 USER node
 WORKDIR /app
 
-COPY package*.json .npmrc ./
+COPY package*.json .npmrc tsconfig.json ./
 COPY --chown=node web/package.json web/
 RUN --mount=type=cache,target=/root/.npm \
   npm \
@@ -18,7 +18,7 @@ RUN --mount=type=cache,target=/root/.npm \
 COPY --chown=node web/ web/
 RUN npm --workspace web run build
 
-FROM dhi.io/node:24-alpine3.23-sfw-dev AS deps
+FROM dhi.io/node:24-alpine-sfw-dev AS deps
 
 RUN mkdir -p /app && chown -R node /app
 
@@ -37,7 +37,7 @@ RUN --mount=type=cache,target=/root/.npm \
   --workspace api \
   ci
 
-FROM dhi.io/node:24-alpine3.23
+FROM dhi.io/node:24-alpine
 
 USER node
 WORKDIR /app
