@@ -45,6 +45,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - uses: textbook/take-action@playwright
+      - run: npm run typecheck
       - run: npm run lint
       - run: npm run test:cover
         env:

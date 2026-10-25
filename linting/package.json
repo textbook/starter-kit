@@ -4,26 +4,28 @@
 	"license": "UNLICENSED",
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
-	"main": "index.js",
-	"types": "index.d.ts",
+	"main": "index.ts",
+	"types": "index.ts",
 	"devDependencies": {
 		"@codeyourfuture/eslint-config-standard": "^8.1.1",
 		"@eslint/js": "^9.39.5",
 		"@types/eslint": "^9.6.1",
+		"@types/eslint-plugin-jsx-a11y": "^6.10.1",
 		"@vitest/eslint-plugin": "^1.6.27",
 		"eslint": "^9.39.5",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-jest-dom": "^5.10.1",
-		"eslint-plugin-jsdoc": "^65.3.11",
+		"eslint-plugin-jsdoc": "^65.3.12",
 		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-n": "^18.4.1",
+		"eslint-plugin-n": "^18.5.0",
 		"eslint-plugin-playwright": "^2.12.1",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.1.1",
 		"eslint-plugin-react-refresh": "^0.5.7",
 		"eslint-plugin-testing-library": "^7.16.2",
-		"globals": "^17.13.0"
+		"globals": "^17.13.0",
+		"typescript-eslint": "^8.71.2"
 	},
 	"scripts": {}
 }

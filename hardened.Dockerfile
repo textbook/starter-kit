@@ -1,11 +1,11 @@
-FROM dhi.io/node:24-alpine3.23-sfw-dev AS web
+FROM dhi.io/node:24-alpine-sfw-dev AS web
 
 RUN mkdir -p /app && chown -R node /app
 
 USER node
 WORKDIR /app
 
-COPY package*.json .npmrc ./
+COPY package*.json .npmrc tsconfig.json ./
 COPY --chown=node web/package.json web/
 RUN --mount=type=cache,target=/root/.npm \
   npm \
@@ -18,7 +18,7 @@ RUN --mount=type=cache,target=/root/.npm \
 COPY --chown=node web/ web/
 RUN npm --workspace web run build
 
-FROM dhi.io/node:24-alpine3.23-sfw-dev AS deps
+FROM dhi.io/node:24-alpine-sfw-dev AS deps
 
 RUN mkdir -p /app && chown -R node /app
 
@@ -37,7 +37,7 @@ RUN --mount=type=cache,target=/root/.npm \
   --workspace api \
   ci
 
-FROM dhi.io/node:24-alpine3.23
+FROM dhi.io/node:24-alpine
 
 USER node
 WORKDIR /app
@@ -47,11 +47,11 @@ COPY api/ api/
 # Enable below instruction if required
 # COPY --from=deps /app/api/node_modules/ api/node_modules/
 COPY --from=web /app/api/static api/static/
-COPY bin/healthCheck.js bin/start.js bin/
+COPY bin/healthCheck.ts bin/start.ts bin/
 COPY --from=deps /app/node_modules node_modules/
 
 EXPOSE 80
 ENV PORT=80
-HEALTHCHECK --start-period=10s --timeout=5s CMD [ "/app/bin/healthCheck.js" ]
+HEALTHCHECK --start-period=10s --timeout=5s CMD [ "/app/bin/healthCheck.ts" ]
 
-CMD [ "/app/bin/start.js" ]
+CMD [ "/app/bin/start.ts" ]

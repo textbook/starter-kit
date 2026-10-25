@@ -1,0 +1,21 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"emitDeclarationOnly": true,
+		"noEmit": false,
+		"outDir": "../node_modules/.tsbuildinfo/types/web",
+		"rootDir": "src/",
+		"target": "es2023",
+		"tsBuildInfoFile": "../node_modules/.tsbuildinfo/web.app.tsbuildinfo",
+		"types": ["vite/client"]
+	},
+	"include": ["**/*"],
+	"exclude": [
+		"node_modules",
+		"src/**/*.test.ts",
+		"src/**/*.test.tsx",
+		"src/setupTests.ts",
+		"vite.config.ts"
+	]
+}

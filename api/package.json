@@ -6,21 +6,27 @@
 	"author": "Jonathan Sharpe <mail@jonrshar.pe>",
 	"type": "module",
 	"scripts": {
-		"dev": "node --inspect --watch --watch-path . --watch-preserve-output server.js",
-		"migration": "node ./migrations/migrate.js",
-		"migration:create": "node-pg-migrate create --template-file-name ./migrations/template.js",
-		"start": "node server.js"
+		"dev": "node --inspect --watch --watch-path . --watch-preserve-output server.ts",
+		"migration": "node migrations/migrate.ts",
+		"migration:create": "node-pg-migrate create --template-file-name migrations/template.ts",
+		"start": "node server.ts"
 	},
 	"dependencies": {
 		"express": "^5.3.0",
 		"helmet": "^8.3.0",
+		"logform": "^2.7.0",
 		"morgan": "^1.12.1",
 		"node-pg-migrate": "^9.0.0",
 		"pg": "^8.23.1",
+		"triple-beam": "^1.4.1",
 		"winston": "^3.19.0"
 	},
 	"devDependencies": {
 		"@testcontainers/postgresql": "^12.2.1",
+		"@types/express": "^5.0.6",
+		"@types/morgan": "^1.9.10",
+		"@types/pg": "^8.23.1",
+		"@types/supertest": "^7.2.1",
 		"strip-ansi": "^7.2.0",
 		"supertest": "^7.3.1"
 	}
