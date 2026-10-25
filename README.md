@@ -1,5 +1,6 @@
 # Starter Kit v2
 
+- [x] Full-stack [TypeScript]
 - [x] [Node] LTS support (verified working on 22.x LTS release)
 - [x] [Express] server
 - [x] [Postgres] database with [`pg`][node-postgres]
@@ -51,6 +52,7 @@ commonly use:
 [Render]: https://render.com/
 [SuperTest]: https://github.com/visionmedia/supertest
 [TestContainers]: https://testcontainers.com/
+[TypeScript]: https://www.typescriptlang.org/
 [Vercel]: https://vercel.com/
 [Vite]: https://vitejs.dev/
 [Vitest]: https://vitest.dev/
