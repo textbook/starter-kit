@@ -25,13 +25,14 @@ commonly use:
 - `dev`: starts the frontend and backend in dev mode, with file watching (note that the backend runs on port 3100, and the frontend is proxied to it).
 - `e2e`: builds and starts the app in production mode and runs the Playwright tests against it.
   - `e2e:dev`: builds and starts the app in dev mode and runs the Playwright tests against it.
-- `lint`: runs ESLint and Prettier against all the relevant files in the project.
+- `lint`: runs ESLint and Prettier against all relevant files in the project.
   - `format`: reformats the code with Prettier.
   - `lint:fix`: attempts to fix all ESLint and Prettier violations.
 - `serve`: builds and starts the app in production mode locally.
 - `ship`: runs `lint`, then `test`, then `e2e`; ideal before a `git push`.
 - `test`: runs the unit and integration tests.
   - `test:cover`: runs the tests and outputs coverage data.
+- `typecheck`: runs TypeScript against all relevant files in the project
 
 [Dev Containers]: https://code.visualstudio.com/docs/devcontainers/containers
 [Docker]: https://www.docker.com
