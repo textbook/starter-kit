@@ -48,7 +48,7 @@ const { id: newId } = await safeFetch<{ id: string }>("/postgres", {
 		ownerId,
 		plan: "free",
 		region: "frankfurt",
-		version: "16",
+		version: "18",
 	},
 	method: "POST",
 });
