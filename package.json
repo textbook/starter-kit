@@ -52,13 +52,13 @@
 		"@tsconfig/node22": "^22.0.6",
 		"@types/node": "^22.20.5",
 		"@vitest/coverage-v8": "^5.0.1",
-		"concurrently": "^10.0.6",
+		"concurrently": "^10.0.7",
 		"cross-env": "^10.1.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^17.6.0",
 		"prettier": "~3.9.5",
 		"typescript": "^6.0.3",
-		"vite": "^8.3.5",
+		"vite": "^8.3.6",
 		"vitest": "^5.0.1"
 	},
 	"engines": {
